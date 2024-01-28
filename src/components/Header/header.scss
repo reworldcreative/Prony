@@ -1,0 +1,9 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  background: $BG;
+  padding: 11px 40px 11px 24px;
+}
