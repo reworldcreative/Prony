@@ -1,0 +1,72 @@
+// @import "fonts";
+// @import url('https://fonts.googleapis.com/css2?family=Inter:wght@100&family=Nunito:wght@400;600;700&display=swap');
+@import "normalize";
+@import "variables";
+@import "rfs/scss";
+
+.visibility-hidden {
+  position: absolute;
+  width: 0px;
+  height: 0px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+  white-space: nowrap;
+  clip-path: inset(100%);
+  clip: rect(0 0 0 0);
+  overflow: hidden;
+
+  outline: 0;
+  outline-offset: 0;
+
+  pointer-events: none;
+  /* visibility: hidden; */
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+body {
+  background: $BGSecond;
+}
+
+.text {
+  @include Font(14px, 400, 21px, $TextSecondary, 0.07px);
+}
+
+.text-second {
+  @include Font(12px, 400, 17px, $TextPrimary, 0.6px);
+}
+
+.subtitle {
+  @include Font(16px, 400, 21px, $TextPrimary, 0.09px);
+}
+
+.subtitle-second {
+  @include Font(14px, 400, 21px, $TextPrimary, 0.07px);
+}
+
+.caption {
+  @include Font(12px, 400, 19.92px, $TextSecondary, 0.3px);
+}
+
+.title {
+  @include Font(32px, 700, 38.4px, $TextPrimary, -0.219px);
+}
+
+.heading-h2 {
+  @include Font(28px, 600, 33.6px, $TextPrimary, -0.233px);
+}
+
+.title-second {
+  @include Font(24px, 600, 28.8px, $TextPrimary);
+}
+
+.heading-h5 {
+  @include Font(20px, 600, 24px, $TextPrimary);
+}
+
+.heading-h6 {
+  @include Font(14px, 600, 20.4px, $TextPrimary, 0.06px);
+}

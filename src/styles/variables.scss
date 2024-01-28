@@ -1,0 +1,31 @@
+@import "rfs/scss";
+
+$Primary: #272557;
+$Secondary: #1565c0;
+$TextPrimary: #1f1f1f;
+$TextSecondary: #757575;
+$Success: #43a047;
+$Danger: #f44336;
+$BG: #ffffff;
+$BGSecond: #f2f2f5;
+
+$font: "Nunito", sans-serif;
+
+@mixin Font(
+  $font-size: 14px,
+  $font-weight: 600,
+  $line-height: normal,
+  $color: $Primary,
+  $letter-spacing: 0px,
+  $font-family: $font
+) {
+  font-family: $font-family;
+  @include font-size($font-size);
+  // font-size: $font-size;
+  font-style: normal;
+  font-weight: $font-weight;
+  line-height: $line-height;
+  letter-spacing: $letter-spacing;
+  color: $color;
+  margin: 0px;
+}
