@@ -1,10 +1,10 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { FC, useState, useEffect, Suspense } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { register } from "swiper/element/bundle";
 import Dashboard from "./pages/PronyDashboard/Dashboard/Dashboard";
 register();
 
-export default function App() {
+const App: FC = () => {
   return (
     <>
       <Routes>
@@ -12,4 +12,6 @@ export default function App() {
       </Routes>
     </>
   );
-}
+};
+
+export default App;

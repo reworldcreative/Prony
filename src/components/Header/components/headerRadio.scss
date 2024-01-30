@@ -1,0 +1,56 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.radio__container {
+  input[type="radio"] {
+    position: absolute;
+    opacity: 0;
+    width: 1em;
+    height: 1em;
+    + .radio-label {
+      &:before {
+        content: "";
+        background: $BG;
+        border-radius: 100%;
+        border: 1px solid $Primary;
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        position: relative;
+        margin-right: 8px;
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        &:before {
+          background-color: $Primary;
+          box-shadow: inset 0 0 0 4px $BG;
+        }
+      }
+    }
+    &:focus,
+    &:hover {
+      + .radio-label {
+        color: $Secondary;
+        &:before {
+          border: 1px solid $Secondary;
+          // background-color: $Secondary;
+          // box-shadow: inset 0 0 0 4px $BG;
+        }
+      }
+    }
+    &:disabled {
+      + .radio-label {
+        color: $TextSecondary;
+        &:before {
+          border-color: $TextSecondary;
+          background: #f4f4f4;
+        }
+      }
+    }
+  }
+}

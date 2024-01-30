@@ -1,10 +1,10 @@
-import React from "react";
+import React, { FC } from "react";
 import "./logo.scss";
 
 import logo from "@/img/logo.svg";
 import logo_text from "@/img/logo-text.svg";
 
-export default function Logo() {
+const Logo: FC = () => {
   return (
     <a
       href="/"
@@ -29,4 +29,5 @@ export default function Logo() {
       </div>
     </a>
   );
-}
+};
+export default Logo;

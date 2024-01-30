@@ -1,11 +1,13 @@
-import React from "react";
+import React, { FC } from "react";
 import "./dashboard.scss";
 import Header from "@/components/Header/Header";
 
-export default function Dashboard() {
+const Dashboard: FC = () => {
   return (
     <>
       <Header />
     </>
   );
-}
+};
+
+export default Dashboard;

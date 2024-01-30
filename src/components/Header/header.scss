@@ -7,3 +7,14 @@
   background: $BG;
   padding: 11px 40px 11px 24px;
 }
+
+.radio-header__container {
+  display: flex;
+  .radio__container {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}
