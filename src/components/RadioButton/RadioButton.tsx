@@ -1,32 +1,42 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useState } from "react";
 import "./radioButton.scss";
 
 type RadioButtonProps = {
   labelText: string;
   value: string;
-  defaultChecked?: boolean;
+  selectedValue: string;
   group: string;
-  // type?: string;
   type?: "default" | "secondary" | "disabled";
   size?: "medium" | "big";
+  getRadioValue?: (value: string) => void;
 };
 
 const RadioButton: FC<RadioButtonProps> = ({
   labelText,
   value,
-  defaultChecked,
+  selectedValue,
   group,
   type = "default",
   size = "medium",
+  getRadioValue = () => {},
 }) => {
+  const inputRef = useRef<HTMLInputElement>(null);
+
+  const handleChange = () => {
+    getRadioValue(inputRef.current.value);
+  };
+
   return (
     <div className={`radio__container ${type} ${size}`}>
       <input
-        type="radio"
+        type="checkbox"
         id={value}
         name={group}
         value={value}
-        defaultChecked={defaultChecked ? true : false}
+        checked={selectedValue === value}
+        onChange={handleChange}
+        tabIndex={type === "disabled" ? -1 : 0}
+        ref={inputRef}
       />
       <label htmlFor={value} className="radio-label text">
         {labelText}

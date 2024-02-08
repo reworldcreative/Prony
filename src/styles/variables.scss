@@ -1,13 +1,37 @@
 @import "rfs/scss";
 
-$Primary: #272557;
-$Secondary: #1565c0;
-$TextPrimary: #1f1f1f;
-$TextSecondary: #757575;
-$Success: #43a047;
-$Danger: #f44336;
-$BG: #ffffff;
-$BGSecond: #f2f2f5;
+:root {
+  --Primary: #272557;
+  --Secondary: #1565c0;
+  --TextPrimary: #1f1f1f;
+  --TextSecondary: #757575;
+  --Success: #43a047;
+  --Danger: #f44336;
+  --BG: #ffffff;
+  --BGSecond: #f2f2f5;
+  // light them colors
+  --Primary-Light: #272557;
+  --Secondary-Light: #1565c0;
+  --TextPrimary-Light: #1f1f1f;
+  --TextSecondary-Light: #757575;
+  --Success-Light: #43a047;
+  --Danger-Light: #f44336;
+  --BG-Light: #ffffff;
+  --BGSecond-Light: #f2f2f5;
+  // dark them colors
+  --Primary-Dark: #ffffff;
+  --BG-Dark: #292929;
+  --BGSecond-Dark: #202020;
+}
+
+$Primary: var(--Primary);
+$Secondary: var(--Secondary);
+$TextPrimary: var(--TextPrimary);
+$TextSecondary: var(--TextSecondary);
+$Success: var(--Success);
+$Danger: var(--Danger);
+$BG: var(--BG);
+$BGSecond: var(--BGSecond);
 
 $font: "Nunito", sans-serif;
 

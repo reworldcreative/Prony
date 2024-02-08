@@ -1,9 +1,15 @@
-import React, { FC } from "react";
+import React, { FC, useContext } from "react";
 import "./header.scss";
 import Logo from "../Logo/Logo";
 import RadioButton from "../RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";
+import { ThemeContext } from "../ThemeContextType/ThemeContextType";
 const Header: FC = () => {
+  const { theme, setTheme } = useContext(ThemeContext);
+
+  const handleGetTheme = (newTheme: "light" | "dark") => {
+    setTheme(newTheme);
+  };
   return (
     <header className="header">
       <Logo />
@@ -13,13 +19,20 @@ const Header: FC = () => {
           <RadioButton
             labelText="Day theme"
             value="light"
-            defaultChecked={true}
             group="theme"
+            getRadioValue={handleGetTheme}
+            selectedValue={theme}
           />
-          <RadioButton labelText="Night theme" value="dark" group="theme" />
+          <RadioButton
+            labelText="Night theme"
+            value="dark"
+            group="theme"
+            getRadioValue={handleGetTheme}
+            selectedValue={theme}
+          />
         </div>
 
-        <HeaderUserMenu />
+        <HeaderUserMenu useOption={false} />
       </div>
     </header>
   );

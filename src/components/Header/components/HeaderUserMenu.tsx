@@ -4,7 +4,11 @@ import PictureComponent from "@/../plugins/PictureComponent";
 
 import avatar from "@/img/avatars/avatar_1.png";
 import OptionButton from "@/components/OptionButton/OptionButton";
-const HeaderUserMenu: FC = () => {
+
+type HeaderUserMenuProps = {
+  useOption: boolean;
+};
+const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
   return (
     <div className="headerUserMenu">
       <PictureComponent
@@ -26,7 +30,7 @@ const HeaderUserMenu: FC = () => {
         </div>
       </div>
 
-      <OptionButton />
+      {useOption ? <OptionButton /> : false}
     </div>
   );
 };
