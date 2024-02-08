@@ -1,0 +1,34 @@
+import React, { FC } from "react";
+import "./headerUserMenu.scss";
+import PictureComponent from "@/../plugins/PictureComponent";
+
+import avatar from "@/img/avatars/avatar_1.png";
+import OptionButton from "@/components/OptionButton/OptionButton";
+const HeaderUserMenu: FC = () => {
+  return (
+    <div className="headerUserMenu">
+      <PictureComponent
+        src={avatar}
+        height="40"
+        width="40"
+        className="headerUserMenu__avatar"
+        alt="a guy with glasses"
+      />
+
+      <div className="headerUserMenu__info">
+        <p className="headerUserMenu__name subtitle-second">Lucy Lavender</p>
+        <div className="headerUserMenu__status">
+          <span
+            className="headerUserMenu__status_label online"
+            aria-hidden="true"
+          />
+          <p className="headerUserMenu__status caption">Online</p>
+        </div>
+      </div>
+
+      <OptionButton />
+    </div>
+  );
+};
+
+export default HeaderUserMenu;

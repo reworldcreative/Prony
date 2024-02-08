@@ -44,7 +44,7 @@ body {
 }
 
 .subtitle-second {
-  @include Font(14px, 400, 21px, $TextPrimary, 0.07px);
+  @include Font(14px, 600, 21px, $TextPrimary, 0.07px);
 }
 
 .caption {

@@ -1,39 +1,25 @@
 import React, { FC } from "react";
 import "./header.scss";
 import Logo from "../Logo/Logo";
-import HeaderRadio from "./components/HeaderRadio";
+import RadioButton from "../RadioButton/RadioButton";
+import HeaderUserMenu from "./components/HeaderUserMenu";
 const Header: FC = () => {
   return (
     <header className="header">
       <Logo />
 
-      <div className="radio-header__container">
-        <HeaderRadio
-          labelText="Day theme"
-          value="light"
-          defaultChecked={true}
-        />
-        <HeaderRadio labelText="Night theme" value="dark" />
-
-        {/* <div className="radio__container">
-          <input
-            type="radio"
-            id="light"
-            name="theme"
+      <div className="header__menu">
+        <div className="radio-header__container">
+          <RadioButton
+            labelText="Day theme"
             value="light"
-            defaultChecked
+            defaultChecked={true}
+            group="theme"
           />
-          <label htmlFor="light" className="radio-label text">
-            Day theme
-          </label>
+          <RadioButton labelText="Night theme" value="dark" group="theme" />
         </div>
 
-        <div className="radio__container">
-          <input type="radio" id="dark" name="theme" value="dark" />
-          <label htmlFor="dark" className="radio-label text">
-            Night theme
-          </label>
-        </div>*/}
+        <HeaderUserMenu />
       </div>
     </header>
   );
