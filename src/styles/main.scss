@@ -31,6 +31,10 @@ body {
   background: $BGSecond;
 }
 
+a {
+  text-decoration: none;
+}
+
 .text {
   @include Font(14px, 400, 21px, $TextSecondary, 0.07px);
 }

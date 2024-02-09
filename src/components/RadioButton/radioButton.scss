@@ -30,6 +30,7 @@
     }
     &:checked {
       + .radio-label {
+        color: $TextPrimary;
         &:before {
           //   border: 1px solid $Primary;
           border-width: 1px;

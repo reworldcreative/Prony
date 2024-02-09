@@ -1,0 +1,21 @@
+@import "@/styles/variables";
+@import "rfs/scss";
+
+.headerDropDownMenu {
+  border-top: 1.5px solid $Primary;
+  display: grid;
+  position: absolute;
+  right: 40px;
+  top: 66px;
+  background: $BG;
+  padding: 23px 33px;
+
+  &__link {
+    font-weight: 400;
+    margin-bottom: 13px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

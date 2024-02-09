@@ -25,6 +25,13 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
       );
 
       document.documentElement.style.setProperty(
+        "--TextPrimary",
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--TextPrimary-Light"
+        )
+      );
+
+      document.documentElement.style.setProperty(
         "--BG",
         getComputedStyle(document.documentElement).getPropertyValue(
           "--BG-Light"
@@ -37,6 +44,14 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
           "--Primary-Dark"
         )
       );
+
+      document.documentElement.style.setProperty(
+        "--TextPrimary",
+        getComputedStyle(document.documentElement).getPropertyValue(
+          "--TextPrimary-Dark"
+        )
+      );
+
       document.documentElement.style.setProperty(
         "--BG",
         getComputedStyle(document.documentElement).getPropertyValue("--BG-Dark")
