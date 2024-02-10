@@ -25,22 +25,13 @@
   --BGSecond-Dark: #202020;
 }
 
-$Primary: var(--Primary);
-$Secondary: var(--Secondary);
-$TextPrimary: var(--TextPrimary);
-$TextSecondary: var(--TextSecondary);
-$Success: var(--Success);
-$Danger: var(--Danger);
-$BG: var(--BG);
-$BGSecond: var(--BGSecond);
-
 $font: "Nunito", sans-serif;
 
 @mixin Font(
   $font-size: 14px,
   $font-weight: 600,
   $line-height: normal,
-  $color: $Primary,
+  $color: var(--Primary),
   $letter-spacing: 0px,
   $font-family: $font
 ) {

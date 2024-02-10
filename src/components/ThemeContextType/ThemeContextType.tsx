@@ -16,47 +16,26 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
 
   useEffect(() => {
-    if (theme === "light") {
-      document.documentElement.style.setProperty(
-        "--Primary",
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--Primary-Light"
-        )
-      );
+    document.documentElement.style.setProperty(
+      "--Primary",
+      getComputedStyle(document.documentElement).getPropertyValue(
+        `--Primary-${theme === "light" ? "Light" : "Dark"}`
+      )
+    );
 
-      document.documentElement.style.setProperty(
-        "--TextPrimary",
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--TextPrimary-Light"
-        )
-      );
+    document.documentElement.style.setProperty(
+      "--TextPrimary",
+      getComputedStyle(document.documentElement).getPropertyValue(
+        `--TextPrimary-${theme === "light" ? "Light" : "Dark"}`
+      )
+    );
 
-      document.documentElement.style.setProperty(
-        "--BG",
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--BG-Light"
-        )
-      );
-    } else if (theme === "dark") {
-      document.documentElement.style.setProperty(
-        "--Primary",
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--Primary-Dark"
-        )
-      );
-
-      document.documentElement.style.setProperty(
-        "--TextPrimary",
-        getComputedStyle(document.documentElement).getPropertyValue(
-          "--TextPrimary-Dark"
-        )
-      );
-
-      document.documentElement.style.setProperty(
-        "--BG",
-        getComputedStyle(document.documentElement).getPropertyValue("--BG-Dark")
-      );
-    }
+    document.documentElement.style.setProperty(
+      "--BG",
+      getComputedStyle(document.documentElement).getPropertyValue(
+        `--BG-${theme === "light" ? "Light" : "Dark"}`
+      )
+    );
   }, [theme]);
 
   return (

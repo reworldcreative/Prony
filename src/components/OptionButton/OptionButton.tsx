@@ -1,5 +1,5 @@
 import React, { FC } from "react";
-import "./optionButton.scss";
+import "./OptionButton.scss";
 const OptionButton: FC = () => {
   return (
     <button className="optionButton" aria-label="more option">

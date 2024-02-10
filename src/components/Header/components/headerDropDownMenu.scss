@@ -1,13 +1,12 @@
-@import "@/styles/variables";
 @import "rfs/scss";
 
 .headerDropDownMenu {
-  border-top: 1.5px solid $Primary;
+  border-top: 1.5px solid var(--Primary);
   display: grid;
   position: absolute;
   right: 40px;
   top: 66px;
-  background: $BG;
+  background: var(--BG);
   padding: 23px 33px;
 
   &__link {

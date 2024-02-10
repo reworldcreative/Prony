@@ -1,5 +1,5 @@
 import React, { FC, useContext, useState } from "react";
-import "./header.scss";
+import "./Header.scss";
 import Logo from "../Logo/Logo";
 import RadioButton from "../RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";

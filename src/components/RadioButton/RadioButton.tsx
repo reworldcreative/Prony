@@ -1,5 +1,5 @@
 import React, { FC, useRef, useState } from "react";
-import "./radioButton.scss";
+import "./RadioButton.scss";
 
 type RadioButtonProps = {
   labelText: string;

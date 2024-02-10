@@ -1,8 +1,8 @@
 import React, { FC } from "react";
-import "./headerUserMenu.scss";
+import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
 
-import avatar from "@/img/avatars/avatar_1.png";
+import avatar from "@/assets/img/avatars/avatar_1.png";
 import OptionButton from "@/components/OptionButton/OptionButton";
 
 type HeaderUserMenuProps = {

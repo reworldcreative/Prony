@@ -1,9 +1,9 @@
 import React, { FC, useContext } from "react";
-import "./logo.scss";
+import "./Logo.scss";
 
-import logo from "@/img/logo.svg";
-import logo_text from "@/img/logo-text.svg";
-import logo_text_dark from "@/img/logo-text-dark.svg";
+import logo from "@/assets/img/icons/logo/logo.svg";
+import logo_text from "@/assets/img/icons/logo/logo-text.svg";
+import logo_text_dark from "@/assets/img/icons/logo/logo-text-dark.svg";
 import { ThemeContext } from "../ThemeContextType/ThemeContextType";
 
 const Logo: FC = () => {

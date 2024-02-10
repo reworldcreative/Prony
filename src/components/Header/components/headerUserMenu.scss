@@ -1,4 +1,3 @@
-@import "@/styles/variables";
 @import "rfs/scss";
 
 .headerUserMenu {
@@ -20,11 +19,11 @@
       border-radius: 50%;
 
       &.online {
-        background-color: $Success;
+        background-color: var(--Success);
       }
 
       &.offline {
-        background-color: $Danger;
+        background-color: var(--Danger);
       }
     }
   }

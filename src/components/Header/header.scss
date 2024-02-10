@@ -1,11 +1,10 @@
-@import "@/styles/variables";
 @import "rfs/scss";
 
 .header {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background: $BG;
+  background: var(--BG);
   padding: 11px 40px 11px 24px;
 
   &__menu {

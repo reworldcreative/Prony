@@ -28,7 +28,7 @@
 }
 
 body {
-  background: $BGSecond;
+  background: var(--BGSecond);
 }
 
 a {
@@ -36,41 +36,41 @@ a {
 }
 
 .text {
-  @include Font(14px, 400, 21px, $TextSecondary, 0.07px);
+  @include Font(14px, 400, 21px, var(--TextSecondary), 0.07px);
 }
 
 .text-second {
-  @include Font(12px, 400, 17px, $TextPrimary, 0.6px);
+  @include Font(12px, 400, 17px, var(--TextPrimary), 0.6px);
 }
 
 .subtitle {
-  @include Font(16px, 400, 21px, $TextPrimary, 0.09px);
+  @include Font(16px, 400, 21px, var(--TextPrimary), 0.09px);
 }
 
 .subtitle-second {
-  @include Font(14px, 600, 21px, $TextPrimary, 0.07px);
+  @include Font(14px, 600, 21px, var(--TextPrimary), 0.07px);
 }
 
 .caption {
-  @include Font(12px, 400, 19.92px, $TextSecondary, 0.3px);
+  @include Font(12px, 400, 19.92px, var(--TextSecondary), 0.3px);
 }
 
 .title {
-  @include Font(32px, 700, 38.4px, $TextPrimary, -0.219px);
+  @include Font(32px, 700, 38.4px, var(--TextPrimary), -0.219px);
 }
 
 .heading-h2 {
-  @include Font(28px, 600, 33.6px, $TextPrimary, -0.233px);
+  @include Font(28px, 600, 33.6px, var(--TextPrimary), -0.233px);
 }
 
 .title-second {
-  @include Font(24px, 600, 28.8px, $TextPrimary);
+  @include Font(24px, 600, 28.8px, var(--TextPrimary));
 }
 
 .heading-h5 {
-  @include Font(20px, 600, 24px, $TextPrimary);
+  @include Font(20px, 600, 24px, var(--TextPrimary));
 }
 
 .heading-h6 {
-  @include Font(14px, 600, 20.4px, $TextPrimary, 0.06px);
+  @include Font(14px, 600, 20.4px, var(--TextPrimary), 0.06px);
 }

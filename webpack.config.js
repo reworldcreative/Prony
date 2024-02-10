@@ -23,7 +23,7 @@ module.exports = {
     filename: "[name][contenthash].js",
     path: path.resolve(__dirname, "docs"),
     assetModuleFilename: (pathData) => {
-      return `img/${pathData.filename.split("src/img")[1].slice(1)}`;
+      return `img/${pathData.filename.split("src/assets/img")[1].slice(1)}`;
     },
   },
 
@@ -146,7 +146,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         type: "asset/resource",
         generator: {
-          filename: "fonts/[name][ext]",
+          filename: "assets/fonts/[name][ext]",
         },
       },
       {
@@ -154,7 +154,9 @@ module.exports = {
         type: "asset/resource",
         generator: {
           filename: (pathData) => {
-            return `img/${pathData.filename.split("src/img")[1].slice(1)}`;
+            return `img/${pathData.filename
+              .split("src/assets/img")[1]
+              .slice(1)}`;
           },
         },
       },

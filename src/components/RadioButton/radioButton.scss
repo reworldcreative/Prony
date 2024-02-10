@@ -1,4 +1,3 @@
-@import "@/styles/variables";
 @import "rfs/scss";
 
 .radio__container {
@@ -11,12 +10,12 @@
       cursor: pointer;
       &:before {
         content: "";
-        background: $BG;
+        background: var(--BG);
         border-radius: 100%;
         // border: 1px solid $TextSecondary;
         border-width: 1px;
         border-style: solid;
-        border-color: $TextSecondary;
+        border-color: var(--TextSecondary);
         display: inline-block;
         width: 1em;
         height: 1em;
@@ -30,24 +29,24 @@
     }
     &:checked {
       + .radio-label {
-        color: $TextPrimary;
+        color: var(--TextPrimary);
         &:before {
           //   border: 1px solid $Primary;
           border-width: 1px;
-          border-color: $Primary;
-          background-color: $Primary;
-          box-shadow: inset 0 0 0 4px $BG;
+          border-color: var(--Primary);
+          background-color: var(--Primary);
+          box-shadow: inset 0 0 0 4px var(--BG);
         }
       }
     }
     &:focus,
     &:hover {
       + .radio-label {
-        color: $Secondary;
+        color: var(--Secondary);
         &:before {
           //   border: 1px solid $Secondary;
           border-width: 1px;
-          border-color: $Secondary;
+          border-color: var(--Secondary);
           // box-shadow: inset 0 0 0 4px $BG;
         }
       }
@@ -65,7 +64,7 @@
       &:checked {
         + .radio-label {
           &:before {
-            box-shadow: inset 0 0 0 3px $BG;
+            box-shadow: inset 0 0 0 3px var(--BG);
           }
         }
       }
@@ -78,8 +77,8 @@
         + .radio-label {
           &:before {
             // border: 1px solid $Secondary;
-            border-color: $Secondary;
-            background-color: $Secondary;
+            border-color: var(--Secondary);
+            background-color: var(--Secondary);
           }
         }
       }
@@ -90,9 +89,9 @@
     input[type="checkbox"] {
       &:checked {
         + .radio-label {
-          color: $TextSecondary;
+          color: var(--TextSecondary);
           &:before {
-            border-color: $TextSecondary;
+            border-color: var(--TextSecondary);
             background-color: #f4f4f4;
           }
         }
