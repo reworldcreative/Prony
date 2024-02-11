@@ -3,7 +3,7 @@ import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
 
 import avatar from "@/assets/img/avatars/avatar_1.png";
-import OptionButton from "@/components/OptionButton/OptionButton";
+import OptionButton from "@/components/UI/OptionButton/OptionButton";
 
 type HeaderUserMenuProps = {
   useOption: boolean;
