@@ -4,10 +4,8 @@ import Logo from "../Logo/Logo";
 import RadioButton from "../RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";
 import { ThemeContext } from "../ThemeContextType/ThemeContextType";
-import HeaderDropDownMenu from "./components/HeaderDropDownMenu";
 const Header: FC = () => {
   const { theme, setTheme } = useContext(ThemeContext);
-  const [openHeaderMenu, setOpenHeaderMenu] = useState(false);
 
   const handleGetTheme = (newTheme: "light" | "dark") => {
     setTheme(newTheme);
@@ -35,8 +33,6 @@ const Header: FC = () => {
         </div>
 
         <HeaderUserMenu useOption={true} />
-
-        {openHeaderMenu ? <HeaderDropDownMenu /> : <></>}
       </div>
     </header>
   );

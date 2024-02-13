@@ -1,14 +1,19 @@
-import React, { FC } from "react";
+import React, { FC, useRef, useState } from "react";
 import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
-
 import avatar from "@/assets/img/avatars/avatar_1.png";
 import OptionButton from "@/components/UI/OptionButton/OptionButton";
+import HeaderDropDownMenu from "./HeaderDropDownMenu";
 
 type HeaderUserMenuProps = {
   useOption: boolean;
 };
 const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
+  const [openHeaderMenu, setOpenHeaderMenu] = useState(false);
+  const handleChangeOpenHeaderMenu = () => {
+    setOpenHeaderMenu(!openHeaderMenu);
+  };
+  const dropDownMenuButtonRef = useRef<HTMLButtonElement>(null);
   return (
     <div className="headerUserMenu">
       <PictureComponent
@@ -30,7 +35,25 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
         </div>
       </div>
 
-      {useOption ? <OptionButton /> : false}
+      {useOption ? (
+        <OptionButton
+          click={handleChangeOpenHeaderMenu}
+          buttonRef={dropDownMenuButtonRef}
+          label={!openHeaderMenu ? "open" : "close"}
+        />
+      ) : (
+        false
+      )}
+
+      <div aria-live="assertive">
+        <div aria-label={`menu is ${openHeaderMenu ? "open" : "close"}`}>
+          {openHeaderMenu ? (
+            <HeaderDropDownMenu openButton={dropDownMenuButtonRef} />
+          ) : (
+            false
+          )}
+        </div>
+      </div>
     </div>
   );
 };

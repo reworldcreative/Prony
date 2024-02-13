@@ -23,9 +23,11 @@
   --TextPrimary-Dark: #ffffff;
   --BG-Dark: #292929;
   --BGSecond-Dark: #202020;
-}
 
-$font: "Nunito", sans-serif;
+  // fonts
+  --font: "Nunito", sans-serif;
+  --font_second: "Poppins", sans-serif;
+}
 
 @mixin Font(
   $font-size: 14px,
@@ -33,7 +35,7 @@ $font: "Nunito", sans-serif;
   $line-height: normal,
   $color: var(--Primary),
   $letter-spacing: 0px,
-  $font-family: $font
+  $font-family: var(--font)
 ) {
   font-family: $font-family;
   @include font-size($font-size);

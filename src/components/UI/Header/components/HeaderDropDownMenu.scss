@@ -16,5 +16,15 @@
     &:last-child {
       margin-bottom: 0;
     }
+
+    &:hover,
+    &:focus {
+      color: var(--Secondary);
+    }
+
+    &:focus {
+      outline: 2px solid var(--Primary);
+      outline-offset: 2px;
+    }
   }
 }

@@ -11,6 +11,14 @@
 
   &:focus {
     outline: 1px solid var(--Primary);
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    .optionButton__dot {
+      background-color: var(--Secondary);
+    }
   }
 
   &__dot {
