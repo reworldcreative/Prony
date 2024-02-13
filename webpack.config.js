@@ -15,15 +15,17 @@ const TerserPlugin = require("terser-webpack-plugin");
 module.exports = {
   mode: isProduction ? "production" : "development",
   devtool: isProduction ? false : "inline-source-map",
-  entry: {
-    filename: path.resolve(__dirname, "src/index.tsx"),
-    styles: path.resolve(__dirname, "src/styles/main.scss"),
-  },
+  entry: isProduction
+    ? {
+        filename: path.resolve(__dirname, "src/index.tsx"),
+        styles: path.resolve(__dirname, "src/styles/main.scss"),
+      }
+    : { filename: path.resolve(__dirname, "src/index.tsx") },
   output: {
     filename: "[name][contenthash].js",
     path: path.resolve(__dirname, "docs"),
     assetModuleFilename: (pathData) => {
-      return `img/${pathData.filename.split("src/img")[1].slice(1)}`;
+      return `img/${pathData.filename.split("src/assets/img")[1].slice(1)}`;
     },
   },
 
@@ -146,7 +148,7 @@ module.exports = {
         test: /\.(woff2?|eot|ttf|otf)$/i,
         type: "asset/resource",
         generator: {
-          filename: "fonts/[name][ext]",
+          filename: "assets/fonts/[name][ext]",
         },
       },
       {
@@ -154,10 +156,39 @@ module.exports = {
         type: "asset/resource",
         generator: {
           filename: (pathData) => {
-            return `img/${pathData.filename.split("src/img")[1].slice(1)}`;
+            return `img/${pathData.filename
+              .split("src/assets/img")[1]
+              .slice(1)}`;
           },
         },
       },
+
+      // {
+      //   test: /\.svg$/,
+      //   use: [{ loader: '@svgr/webpack',
+      // options: {
+      //   icon: true,
+      //   svgoConfig: {
+      //     plugins:
+      //       [
+      //         {
+      //           name: "convertColors",
+      //           params: {
+      //             currentColor: true,
+      //           }
+      //       }
+      //     ]
+      //   }
+      // } }],
+      //   type: "asset/resource",
+      //   generator: {
+      //     filename: (pathData) => {
+      //       return `img/${pathData.filename
+      //         .split("src/assets/img")[1]
+      //         .slice(1)}`;
+      //     },
+      //   },
+      // },
 
       {
         test: /\.html$/i,
@@ -332,7 +363,7 @@ module.exports = {
       persistentCache: true,
       // logo: "./src/img/webpack.jpg",
       logo: "./src/favicon.png",
-      prefix: "img/",
+      prefix: "img/favicons/",
       emitStats: false,
 
       favicons: {

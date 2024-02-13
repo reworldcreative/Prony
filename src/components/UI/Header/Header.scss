@@ -1,0 +1,26 @@
+@import "rfs/scss";
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--BG);
+  padding: 11px 40px 11px 24px;
+
+  &__menu {
+    display: flex;
+    align-items: center;
+  }
+}
+
+.radio-header__container {
+  display: flex;
+  margin-right: 87px;
+  .radio__container {
+    margin-right: 24px;
+
+    &:last-child {
+      margin-right: 0px;
+    }
+  }
+}

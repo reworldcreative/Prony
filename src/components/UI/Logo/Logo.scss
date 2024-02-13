@@ -1,0 +1,24 @@
+@import "rfs/scss";
+
+.logo {
+  display: flex;
+  align-items: center;
+  outline: none;
+
+  &-link {
+    outline: none;
+    &:focus {
+      .logo {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  &-icon {
+    margin-right: 10.6px;
+  }
+}

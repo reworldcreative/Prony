@@ -1,0 +1,103 @@
+@import "rfs/scss";
+
+.radio__container {
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 1em;
+    height: 1em;
+    + .radio-label {
+      cursor: pointer;
+      &:before {
+        content: "";
+        background: var(--BG);
+        border-radius: 100%;
+        border-width: 1px;
+        border-style: solid;
+        border-color: var(--TextSecondary);
+        display: inline-block;
+        width: 1em;
+        height: 1em;
+        position: relative;
+        margin-right: 8px;
+        vertical-align: middle;
+        cursor: pointer;
+        text-align: center;
+        transition: all 250ms ease;
+      }
+    }
+    &:checked {
+      + .radio-label {
+        color: var(--TextPrimary);
+        &:before {
+          border-width: 1px;
+          border-color: var(--Primary);
+          background-color: var(--Primary);
+          box-shadow: inset 0 0 0 4px var(--BG);
+        }
+      }
+    }
+    &:focus,
+    &:hover {
+      + .radio-label {
+        color: var(--Secondary);
+
+        &:before {
+          border-width: 1px;
+          border-color: var(--Secondary);
+        }
+      }
+    }
+
+    &:focus {
+      + .radio-label {
+        outline: 2px solid var(--Primary);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &.big {
+    input[type="checkbox"] {
+      + .radio-label {
+        &:before {
+          border-width: 2px;
+        }
+      }
+      &:checked {
+        + .radio-label {
+          &:before {
+            box-shadow: inset 0 0 0 3px var(--BG);
+          }
+        }
+      }
+    }
+  }
+
+  &.secondary {
+    input[type="checkbox"] {
+      &:checked {
+        + .radio-label {
+          &:before {
+            border-color: var(--Secondary);
+            background-color: var(--Secondary);
+          }
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    input[type="checkbox"] {
+      &:checked {
+        + .radio-label {
+          color: var(--TextSecondary);
+          &:before {
+            border-color: var(--TextSecondary);
+            background-color: #f4f4f4;
+          }
+        }
+      }
+    }
+  }
+}

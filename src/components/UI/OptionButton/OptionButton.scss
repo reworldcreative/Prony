@@ -1,0 +1,36 @@
+@import "rfs/scss";
+
+.optionButton {
+  border: none;
+  outline: none;
+  padding: 0px 3px;
+  margin: 0;
+  margin-left: 20px;
+  background: none;
+  cursor: pointer;
+
+  &:focus {
+    outline: 1px solid var(--Primary);
+    outline-offset: 2px;
+  }
+
+  &:hover,
+  &:focus {
+    .optionButton__dot {
+      background-color: var(--Secondary);
+    }
+  }
+
+  &__dot {
+    display: block;
+    width: 3px;
+    height: 3px;
+    border-radius: 100%;
+    background-color: var(--Primary);
+    margin-bottom: 4px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

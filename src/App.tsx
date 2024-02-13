@@ -1,12 +1,21 @@
-import React, { useState, useEffect, Suspense } from "react";
+import React, { FC, useState, useEffect, Suspense } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { register } from "swiper/element/bundle";
-register();
+import Dashboard from "./components/pages/PronyDashboard/Dashboard/Dashboard";
+import { ThemeProvider } from "./components/UI/ThemeContextType/ThemeContextType";
 
-export default function App() {
+// import { register } from "swiper/element/bundle";
+// register();
+
+const App: FC = () => {
   return (
     <>
-      <h1 className="title">Prony</h1>
+      <ThemeProvider>
+        <Routes>
+          <Route path="/" element={<Dashboard />} />
+        </Routes>
+      </ThemeProvider>
     </>
   );
-}
+};
+
+export default App;
