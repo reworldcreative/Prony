@@ -1,1 +1,10 @@
 @import "rfs/scss";
+@import "@/styles/variables";
+
+.dashboard-MainSection {
+  width: 60.91%;
+
+  &__title {
+    color: var(--Primary);
+  }
+}

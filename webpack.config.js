@@ -165,29 +165,47 @@ module.exports = {
 
       // {
       //   test: /\.svg$/,
-      //   use: [{ loader: '@svgr/webpack',
-      // options: {
-      //   icon: true,
-      //   svgoConfig: {
-      //     plugins:
-      //       [
-      //         {
-      //           name: "convertColors",
-      //           params: {
-      //             currentColor: true,
-      //           }
-      //       }
-      //     ]
-      //   }
-      // } }],
-      //   type: "asset/resource",
-      //   generator: {
-      //     filename: (pathData) => {
-      //       return `img/${pathData.filename
-      //         .split("src/assets/img")[1]
-      //         .slice(1)}`;
+      //   issuer: /\.[jt]sx?$/,
+      //   use: [
+      //     {
+      //       loader: "@svgr/webpack",
+      //       options: {
+      //         icon: true,
+      //         titleProp: "desc",
+      //         svgoConfig: {
+      //           plugins: [
+      //             // Видалення невикористаних атрибутів
+      //             { removeAttrs: { attrs: "(stroke|fill)" } },
+
+      //             // Видалення атрибуту viewBox, якщо зображення не використовує його
+      //             { removeViewBox: false },
+
+      //             // Видалення коментарів у SVG
+      //             { removeComments: true },
+
+      //             // Видалення невикористаних елементів та атрибутів
+      //             { cleanupIDs: true },
+      //             { removeUselessDefs: true },
+
+      //             // Оптимізація шляхів (наприклад, злиття подібних команд)
+      //             { mergePaths: true },
+
+      //             // Видалення непотрібних просторових атрибутів
+      //             { removeDimensions: true },
+
+      //             // Видалення невикористаних просторових атрибутів
+      //             { removeEmptyAttrs: true },
+
+      //             // Видалення непотрібних груп
+      //             { removeEmptyContainers: true },
+
+      //             // Перетворення неконвертованих кольорів в градієнти
+      //             { convertColors: { shorthex: false } },
+      //           ],
+      //         },
+      //       },
       //     },
-      //   },
+      //   ],
       // },
 
       {

@@ -73,3 +73,19 @@ a {
 .heading-h6 {
   @include Font(14px, 600, 20.4px, var(--TextPrimary), 0.06px);
 }
+
+.pageContainer {
+  display: flex;
+
+  &__main {
+    margin-left: 37px;
+    width: 100%;
+  }
+}
+
+@include Wide-Screen() {
+  #root {
+    max-width: 1920px;
+    margin: auto;
+  }
+}

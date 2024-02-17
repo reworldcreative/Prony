@@ -1,4 +1,5 @@
 @import "rfs/scss";
+@import "@/styles/variables";
 
 .headerDropDownMenu {
   border-top: 1.5px solid var(--Primary);
@@ -20,9 +21,10 @@
     &:hover,
     &:focus {
       color: var(--Secondary);
+      outline: none;
     }
 
-    &:focus {
+    &:focus-visible {
       outline: 2px solid var(--Primary);
       outline-offset: 2px;
     }

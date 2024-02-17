@@ -36,6 +36,13 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
         `--BG-${theme === "light" ? "Light" : "Dark"}`
       )
     );
+
+    document.documentElement.style.setProperty(
+      "--BGSecond",
+      getComputedStyle(document.documentElement).getPropertyValue(
+        `--BGSecond-${theme === "light" ? "Light" : "Dark"}`
+      )
+    );
   }, [theme]);
 
   return (

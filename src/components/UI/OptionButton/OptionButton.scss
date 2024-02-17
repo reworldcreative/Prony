@@ -1,4 +1,5 @@
 @import "rfs/scss";
+@import "@/styles/variables";
 
 .optionButton {
   border: none;
@@ -9,16 +10,18 @@
   background: none;
   cursor: pointer;
 
-  &:focus {
-    outline: 1px solid var(--Primary);
-    outline-offset: 2px;
-  }
-
   &:hover,
   &:focus {
+    outline: none;
+
     .optionButton__dot {
       background-color: var(--Secondary);
     }
+  }
+
+  &:focus-visible {
+    outline: 1px solid var(--Primary);
+    outline-offset: 2px;
   }
 
   &__dot {
