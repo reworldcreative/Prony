@@ -1,7 +1,7 @@
 import React, { FC, useContext, useState } from "react";
 import "./Header.scss";
-import Logo from "../Logo/Logo";
-import RadioButton from "../RadioButton/RadioButton";
+import Logo from "../../UI/Logo/Logo";
+import RadioButton from "../../UI/forms/RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";
 import { ThemeContext } from "../ThemeContextType/ThemeContextType";
 const Header: FC = () => {

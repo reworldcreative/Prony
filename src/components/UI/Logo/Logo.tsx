@@ -4,13 +4,14 @@ import "./Logo.scss";
 import LogoIcon from "@/assets/img/icons/logo/logo.svg";
 import Logo_text from "@/assets/img/icons/logo/logo-text.svg";
 // import Logo_text_dark from "@/assets/img/icons/logo/logo-text-dark.svg";
-import { ThemeContext } from "../ThemeContextType/ThemeContextType";
+import { ThemeContext } from "../../widgets/ThemeContextType/ThemeContextType";
+import { Link } from "react-router-dom";
 
 const Logo: FC = () => {
   const theme = useContext(ThemeContext);
   return (
-    <a
-      href="/"
+    <Link
+      to={"/"}
       aria-label="Prony logo. Link to main page."
       className="logo-link"
     >
@@ -33,7 +34,7 @@ const Logo: FC = () => {
 
         {/* <LogoIcon className="logo-icon" width="25" height="30" aria-label="logo icon"/> */}
       </div>
-    </a>
+    </Link>
   );
 };
 export default Logo;

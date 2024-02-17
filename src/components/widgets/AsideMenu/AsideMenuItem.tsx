@@ -1,6 +1,7 @@
 import React, { FC, useContext, useState } from "react";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
-import { ThemeContext } from "../ThemeContextType/ThemeContextType";
+import { ThemeContext } from "@/components/widgets/ThemeContextType/ThemeContextType";
+import { Link } from "react-router-dom";
 interface MenuItem {
   text: string;
   url: string;
@@ -32,9 +33,9 @@ const AsideMenuItem: FC<{ item: MenuItem }> = ({ item }) => {
             aria-hidden="true"
             className={`asideMenu__icon ${theme.theme}`}
           />
-          <a href={item.url} className="asideMenu__link subtitle-second">
+          <Link to={item.url} className="asideMenu__link subtitle-second">
             {item.text}
-          </a>
+          </Link>
         </div>
         {item.submenu && (
           <button
@@ -58,13 +59,13 @@ const AsideMenuItem: FC<{ item: MenuItem }> = ({ item }) => {
       {isSubmenuOpen && (
         <div className="asideMenu__submenu">
           {item.submenu.map((subItem, subIndex) => (
-            <a
+            <Link
               key={subIndex}
-              href={subItem.url}
+              to={subItem.url}
               className="asideMenu__submenu-link caption"
             >
               {subItem.text}
-            </a>
+            </Link>
           ))}
         </div>
       )}

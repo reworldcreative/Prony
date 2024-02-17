@@ -1,8 +1,8 @@
 import React, { FC } from "react";
 import "./Dashboard.scss";
-import Header from "@/components/UI/Header/Header";
-import AsideMenu from "@/components/UI/AsideMenu/AsideMenu";
-import Breadcrumbs from "@/components/UI/Breadcrumbs/Breadcrumbs";
+import Header from "@/components/widgets/Header/Header";
+import AsideMenu from "@/components/widgets/AsideMenu/AsideMenu";
+import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import StatisticList from "./StatisticList/StatisticList";
 
 import {
@@ -17,6 +17,7 @@ import {
   Legend,
 } from "chart.js";
 import { Line } from "react-chartjs-2";
+
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -52,7 +53,7 @@ const Dashboard: FC = () => {
                       backgroundColor: (context) => {
                         const bgColor = [
                           "rgba(3, 184, 253, 0.46)",
-                          "rgba(255, 225, 225, 0.2)",
+                          "rgba(3, 184, 253,  0.1)",
                         ];
 
                         if (!context.chart.chartArea) {

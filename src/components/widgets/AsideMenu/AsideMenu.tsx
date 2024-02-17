@@ -12,19 +12,19 @@ import AsideMenuItem, { MenuItem } from "./AsideMenuItem";
 
 const AsideMenu: FC = () => {
   const menuLinks: MenuItem[] = [
-    { text: "Dashboard", url: "#", icon: AsideDashboardIcon },
-    { text: "Boards", url: "#", icon: AsideBoardsIcon },
-    { text: "Posts", url: "#", icon: AsidePostsIcon },
-    { text: "Statuses", url: "#", icon: AsideStatusesIcon },
-    { text: "Users", url: "#", icon: AsideUsersIcon },
-    { text: "Changelog", url: "#", icon: AsideChangelogIcon },
+    { text: "Dashboard", url: "/", icon: AsideDashboardIcon },
+    { text: "Boards", url: "/", icon: AsideBoardsIcon },
+    { text: "Posts", url: "/", icon: AsidePostsIcon },
+    { text: "Statuses", url: "/", icon: AsideStatusesIcon },
+    { text: "Users", url: "/", icon: AsideUsersIcon },
+    { text: "Changelog", url: "/", icon: AsideChangelogIcon },
     {
       text: "Settings",
-      url: "#",
+      url: "/",
       icon: AsideSettingsIcon,
       submenu: [
-        { text: "Settings 1", url: "#" },
-        { text: "Settings 2", url: "#" },
+        { text: "Settings 1", url: "/" },
+        { text: "Settings 2", url: "/" },
       ],
     },
     { text: "Integrations", url: "#", icon: AsideIntegrationsIcon },

@@ -2,7 +2,7 @@ import React, { FC, useRef, useState } from "react";
 import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
 import avatar from "@/assets/img/avatars/avatar_1.png";
-import OptionButton from "@/components/UI/OptionButton/OptionButton";
+import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import HeaderDropDownMenu from "./HeaderDropDownMenu";
 
 type HeaderUserMenuProps = {
