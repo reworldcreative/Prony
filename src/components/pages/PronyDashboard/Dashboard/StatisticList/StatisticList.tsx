@@ -17,7 +17,7 @@ const StatisticList: FC = () => {
   return (
     <ul className="statisticList">
       {statisticList.map((item, index) => (
-        <li className="statisticList__item" key={index}>
+        <li className="statisticList__item box-container" key={index}>
           <p className="statisticList__caption subtitle">{item.text}</p>
           <p className="statisticList__element title">
             <span className="visibility-hidden">{item.element}</span>

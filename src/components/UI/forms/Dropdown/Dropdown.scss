@@ -1,0 +1,71 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.dropdown {
+  position: relative;
+
+  &__current,
+  &__button,
+  &__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+  }
+
+  &__currentItem {
+    color: var(--TextSecondary);
+  }
+
+  &__item {
+    color: var(--TextSecondary);
+    padding: 3px 0px;
+    outline: none;
+
+    &:focus,
+    &:hover {
+      color: var(--Secondary);
+    }
+
+    &:focus-visible {
+      outline: 1px solid var(--Primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &__options {
+    width: 100%;
+    list-style: none;
+    margin: 5px 0px 0px;
+    padding: 0;
+    position: absolute;
+    background: var(--BG);
+  }
+
+  &__current {
+    width: 125px;
+    background: none;
+    margin: 0;
+    padding: 0;
+    border: none;
+    outline: none;
+
+    &:focus-visible {
+      outline: 1px solid var(--Primary);
+      outline-offset: 2px;
+    }
+  }
+
+  &.open {
+    .dropdown__icon {
+      transform: rotate(0deg);
+    }
+  }
+
+  &__icon {
+    transform: rotate(180deg);
+    display: flex;
+    filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg)
+      brightness(96%) contrast(94%);
+  }
+}
