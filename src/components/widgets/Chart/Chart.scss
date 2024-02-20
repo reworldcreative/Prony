@@ -12,14 +12,16 @@
     margin-bottom: 27px;
 
     &-container {
-      width: 25vw;
+      width: 29vw;
+      max-width: 480px;
       display: flex;
       justify-content: space-between;
     }
   }
 
   &__radio-group {
-    width: 15.84vw;
+    width: 19.84vw;
+    max-width: 304px;
     display: flex;
     align-items: center;
     justify-content: space-between;
