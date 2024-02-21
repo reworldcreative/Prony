@@ -84,9 +84,21 @@ a {
   display: flex;
 
   &__main {
-    margin-left: 37px;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 39px;
     width: 100%;
   }
+}
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--Primary);
+  outline-offset: 2px;
 }
 
 @include Wide-Screen() {

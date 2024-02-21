@@ -3,15 +3,12 @@
 
 .asideMenu {
   background-color: var(--BG);
-  width: 260px;
+  width: 16.5%;
+  min-width: 170px;
+  max-width: 260px;
 
   &__icon {
     margin-right: 20px;
-
-    &.dark {
-      filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg)
-        brightness(109%) contrast(97%);
-    }
   }
 
   &__sub-button {
@@ -28,6 +25,11 @@
     opacity: 0.3;
     filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg)
       brightness(96%) contrast(94%);
+
+    &.dark {
+      filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg)
+        brightness(109%) contrast(97%);
+    }
   }
 
   &__sub-icon {
@@ -71,11 +73,6 @@
 
       background-color: var(--BGSecond);
       color: var(--Secondary);
-    }
-
-    &:focus-visible {
-      outline: 1px solid var(--Primary);
-      outline-offset: 2px;
     }
   }
 

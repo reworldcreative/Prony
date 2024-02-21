@@ -1,0 +1,94 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.dashboard-Activities {
+  margin-top: 95px;
+  width: 35%;
+  padding: 28px 0px 18px;
+  box-sizing: border-box;
+
+  &__title {
+    padding: 0px 28px;
+  }
+
+  &__list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+    // max-height: 517px;
+    max-height: 41vh;
+    display: grid;
+    overflow: auto;
+
+    scrollbar-width: thin;
+    scrollbar-color: #d7d7d7 transparent;
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #d7d7d7;
+      border-radius: 10px;
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+      width: 3px;
+    }
+  }
+
+  &__item {
+    padding: 24px 28px 19px;
+    display: flex;
+    &:nth-child(2n) {
+      background-color: var(--BGSecond);
+    }
+  }
+
+  &__block {
+    display: flex;
+  }
+
+  &__wrapper,
+  &__block {
+    width: 100%;
+  }
+
+  &__avatar {
+    margin-right: 27px;
+  }
+
+  &__status {
+    color: var(--Secondary);
+    margin-bottom: 8px;
+  }
+
+  &__text {
+    margin-top: 9px;
+  }
+
+  &__time {
+    margin: 0 0 0 auto;
+  }
+
+  &__link {
+    color: var(--Secondary);
+    text-decoration-line: underline;
+    width: 100%;
+    text-align: center;
+    display: block;
+  }
+}
+
+@include Tablet() {
+  .dashboard-Activities {
+    width: 100%;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    &__list {
+      max-height: 50vh;
+    }
+  }
+}

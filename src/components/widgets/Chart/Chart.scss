@@ -19,6 +19,12 @@
     }
   }
 
+  &__chart {
+    max-height: 396px;
+    height: 35vh !important;
+    width: 100% !important;
+  }
+
   &__radio-group {
     width: 19.84vw;
     max-width: 304px;
@@ -99,6 +105,45 @@
           }
         }
       }
+    }
+  }
+}
+
+@include Tablet() {
+  .statisticChart {
+    &__header {
+      flex-wrap: wrap;
+
+      .dropdown {
+        margin: 0 0 0 auto;
+      }
+    }
+    &__header-container {
+      max-width: 540px;
+      width: 39vw;
+    }
+    &__radio-group {
+      max-width: 350px;
+      width: 25vw;
+      flex-wrap: wrap;
+      .radio__container {
+        margin-right: 5px;
+        margin-bottom: 5px;
+      }
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .statisticChart {
+    &__header-container {
+      max-width: 100%;
+      width: 100%;
+    }
+    &__radio-group {
+      margin-left: 10px;
+      max-width: 70%;
+      width: 100%;
     }
   }
 }

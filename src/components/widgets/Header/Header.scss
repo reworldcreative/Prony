@@ -25,3 +25,11 @@
     }
   }
 }
+
+@include Small-Tablet() {
+  .radio-header__container {
+    margin-right: 30px;
+    margin-left: 30px;
+    flex-wrap: wrap;
+  }
+}

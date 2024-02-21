@@ -2,10 +2,14 @@
 @import "@/styles/variables";
 
 .dashboard-MainSection {
-  width: 60.91%;
+  width: 63.9%;
 
   &__title {
     color: var(--Primary);
+  }
+
+  .statisticChart {
+    box-sizing: border-box;
   }
 }
 
@@ -28,5 +32,11 @@
         }
       }
     }
+  }
+}
+
+@include Tablet() {
+  .dashboard-MainSection {
+    width: 100%;
   }
 }

@@ -51,7 +51,7 @@ const AsideMenuItem: FC<{ item: MenuItem }> = ({ item }) => {
               width={12}
               height={7}
               aria-hidden="true"
-              className="asideMenu__sub-icon"
+              className={`asideMenu__sub-icon ${theme.theme}`}
             />
           </button>
         )}

@@ -13,11 +13,6 @@
         transform: scale(1.05);
       }
     }
-
-    &:focus-visible {
-      outline: 1px solid var(--Primary);
-      outline-offset: 2px;
-    }
   }
 
   &:hover {

@@ -8,6 +8,7 @@ const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
 const ReplaceImgWithPicturePlugin = require("./plugins/replace-img-with-picture");
 const HtmlCriticalWebpackPlugin = require("html-critical-webpack-plugin");
+const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
@@ -324,6 +325,14 @@ module.exports = {
         },
         // filename: "img/[name][ext]",
       },
+    }),
+    new CopyWebpackPlugin({
+      patterns: [
+        {
+          from: "src/assets/img", // шлях до зображень у вашому проекті
+          to: "img", // каталог, куди будуть скопійовані зображення в папці виходу
+        },
+      ],
     }),
     new ImageminWebpWebpackPlugin({
       config: [

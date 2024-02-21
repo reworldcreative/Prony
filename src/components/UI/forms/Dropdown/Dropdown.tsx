@@ -8,7 +8,7 @@ interface DropdownProps {
   onSelect: (selectedOption: string) => void;
 }
 
-const Dropdown: React.FC<DropdownProps> = ({ options, current, onSelect }) => {
+const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
   const DropdownListRef = useRef<HTMLUListElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);

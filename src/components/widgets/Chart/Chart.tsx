@@ -203,7 +203,9 @@ const Chart: FC = () => {
           onSelect={setStatisticRange}
         />
       </div>
+
       <Line
+        className="statisticChart__chart"
         data={{
           labels: getLastNDaysLabels(statisticRange).reverse(),
           datasets: [

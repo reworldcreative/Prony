@@ -1,0 +1,36 @@
+[
+  {
+    "id": 1,
+    "picture": "./img/avatars/avatar_2.png",
+    "name": "Sophia-Rose Nava",
+    "status": "upvoted",
+    "caption": "Welcome to Nolt #1",
+    "time": "6 min ago"
+  },
+  {
+    "id": 2,
+    "picture": "./img/avatars/avatar_3.png",
+    "name": "Yuvaan Whittington",
+    "status": "commented",
+    "caption": "Tips and Tricks #2",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "time": "38 min ago"
+  },
+  {
+    "id": 3,
+    "picture": "./img/avatars/avatar_2.png",
+    "name": "Sophia-Rose Nava",
+    "status": "upvoted",
+    "caption": "Welcome to Nolt #1",
+    "time": "6 min ago"
+  },
+  {
+    "id": 4,
+    "picture": "./img/avatars/avatar_3.png",
+    "name": "Yuvaan Whittington",
+    "status": "commented",
+    "caption": "Tips and Tricks #2",
+    "text": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
+    "time": "38 min ago"
+  }
+]
