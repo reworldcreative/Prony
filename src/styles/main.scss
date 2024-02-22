@@ -34,6 +34,12 @@ a {
   text-decoration: none;
 }
 
+.box-container {
+  background: var(--BG);
+  border-radius: 10px;
+  box-shadow: 0px 0px 14px 0px rgba(53, 64, 82, 0.05);
+}
+
 .text {
   @include Font(14px, 400, 21px, var(--TextSecondary), 0.07px);
 }
@@ -72,4 +78,32 @@ a {
 
 .heading-h6 {
   @include Font(14px, 600, 20.4px, var(--TextPrimary), 0.06px);
+}
+
+.pageContainer {
+  display: flex;
+
+  &__main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 0px 39px;
+    width: 100%;
+  }
+}
+
+*:focus {
+  outline: none;
+}
+
+*:focus-visible {
+  outline: 1px solid var(--Primary);
+  outline-offset: 2px;
+}
+
+@include Wide-Screen() {
+  #root {
+    max-width: 1920px;
+    margin: auto;
+  }
 }

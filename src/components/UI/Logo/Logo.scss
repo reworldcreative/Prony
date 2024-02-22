@@ -1,4 +1,5 @@
 @import "rfs/scss";
+@import "@/styles/variables";
 
 .logo {
   display: flex;
@@ -20,5 +21,20 @@
 
   &-icon {
     margin-right: 10.6px;
+  }
+}
+
+.logo-text {
+  filter: invert(12%) sepia(17%) saturate(6522%) hue-rotate(226deg)
+    brightness(91%) contrast(91%);
+
+  &.dark {
+    filter: invert(100%) sepia(4%) saturate(0%) hue-rotate(0deg)
+      brightness(104%) contrast(100%);
+  }
+
+  &:hover {
+    filter: invert(24%) sepia(100%) saturate(1811%) hue-rotate(202deg)
+      brightness(92%) contrast(86%);
   }
 }

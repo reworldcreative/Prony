@@ -47,3 +47,59 @@
   color: $color;
   margin: 0px;
 }
+
+/* Wide-Screen */
+@mixin Wide-Screen() {
+  @media screen and (min-width: 1920px) {
+    @content;
+  }
+}
+
+/* Full-Screen */
+@mixin Full-Screen() {
+  @media (max-width: 1920px) {
+    @content;
+  }
+}
+
+/* Desktop */
+@mixin Desktop() {
+  @media (max-width: 1440px) {
+    @content;
+  }
+}
+
+/* Laptop */
+@mixin Laptop() {
+  @media (max-width: 1200px) {
+    @content;
+  }
+}
+
+/* Tablet */
+@mixin Tablet() {
+  @media (max-width: 992px) {
+    @content;
+  }
+}
+
+/* Small-Tablet */
+@mixin Small-Tablet() {
+  @media (max-width: 768px) {
+    @content;
+  }
+}
+
+/* Mobile */
+@mixin Mobile() {
+  @media (max-width: 480px) {
+    @content;
+  }
+}
+
+/* Mini */
+@mixin Mini() {
+  @media (max-width: 320px) {
+    @content;
+  }
+}

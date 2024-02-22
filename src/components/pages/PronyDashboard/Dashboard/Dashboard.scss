@@ -1,1 +1,42 @@
 @import "rfs/scss";
+@import "@/styles/variables";
+
+.dashboard-MainSection {
+  width: 63.9%;
+
+  &__title {
+    color: var(--Primary);
+  }
+
+  .statisticChart {
+    box-sizing: border-box;
+  }
+}
+
+@include Laptop() {
+  .dashboard-MainSection {
+    .statisticList {
+      flex-wrap: wrap;
+      justify-content: space-between;
+
+      &__item {
+        width: 33%;
+
+        &:nth-child(1) {
+          margin-bottom: 10px;
+        }
+
+        &:nth-child(2) {
+          margin-bottom: 10px;
+          margin-right: 0;
+        }
+      }
+    }
+  }
+}
+
+@include Tablet() {
+  .dashboard-MainSection {
+    width: 100%;
+  }
+}
