@@ -6,6 +6,7 @@
   width: 35%;
   padding: 28px 0px 18px;
   box-sizing: border-box;
+  display: grid;
 
   &__title {
     padding: 0px 28px;
@@ -16,7 +17,7 @@
     padding: 0;
     margin: 10px 0 20px;
     // max-height: 517px;
-    max-height: 41vh;
+    max-height: 50vh;
     display: grid;
     overflow: auto;
 
