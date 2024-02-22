@@ -20,8 +20,6 @@
     display: grid;
     overflow: auto;
 
-    scrollbar-width: thin;
-    scrollbar-color: #d7d7d7 transparent;
     &::-webkit-scrollbar {
       width: 3px;
       background-color: transparent;
@@ -82,13 +80,18 @@
   }
 }
 
+@include Laptop() {
+  .dashboard-Activities {
+    &__list {
+      max-height: 50vh;
+    }
+  }
+}
+
 @include Tablet() {
   .dashboard-Activities {
     width: 100%;
     margin-top: 50px;
     margin-bottom: 50px;
-    &__list {
-      max-height: 50vh;
-    }
   }
 }

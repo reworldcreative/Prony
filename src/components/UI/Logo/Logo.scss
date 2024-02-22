@@ -25,6 +25,7 @@
 }
 
 .logo-text {
+  color: var(--Primary);
   filter: invert(12%) sepia(17%) saturate(6522%) hue-rotate(226deg)
     brightness(91%) contrast(91%);
 
@@ -34,6 +35,7 @@
   }
 
   &:hover {
+    color: var(--Secondary);
     filter: invert(24%) sepia(100%) saturate(1811%) hue-rotate(202deg)
       brightness(92%) contrast(86%);
   }

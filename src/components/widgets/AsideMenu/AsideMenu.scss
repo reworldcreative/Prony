@@ -23,6 +23,7 @@
   &__icon {
     display: flex;
     opacity: 0.3;
+    color: var(--Primary);
     filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg)
       brightness(96%) contrast(94%);
 
@@ -62,6 +63,7 @@
         &__icon,
         &__sub-icon {
           opacity: 1;
+          color: var(--Primary);
           filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg)
             brightness(96%) contrast(83%);
         }

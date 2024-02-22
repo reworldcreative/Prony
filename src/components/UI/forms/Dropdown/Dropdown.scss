@@ -65,7 +65,14 @@
   &__icon {
     transform: rotate(180deg);
     display: flex;
+    color: var(--Primary);
+    opacity: 0.5;
     filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg)
       brightness(96%) contrast(94%);
+
+    &.dark {
+      filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg)
+        brightness(109%) contrast(97%);
+    }
   }
 }

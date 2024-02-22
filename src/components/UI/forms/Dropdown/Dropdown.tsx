@@ -1,6 +1,7 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useContext, useRef, useState } from "react";
 import "./Dropdown.scss";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
+import { ThemeContext } from "@/components/widgets/ThemeContextType/ThemeContextType";
 
 interface DropdownProps {
   options: string[];
@@ -9,6 +10,8 @@ interface DropdownProps {
 }
 
 const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
+  const theme = useContext(ThemeContext);
+
   const DropdownListRef = useRef<HTMLUListElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
@@ -66,7 +69,7 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
           width={12}
           height={7}
           aria-hidden="true"
-          className="dropdown__icon"
+          className={`dropdown__icon ${theme.theme}`}
         />
       </button>
       {isOpen && (
