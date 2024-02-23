@@ -14,7 +14,7 @@
   &:focus {
     outline: none;
 
-    .optionButton__dot {
+    .dot {
       background-color: var(--Secondary);
     }
   }
@@ -25,11 +25,6 @@
   }
 
   &__dot {
-    display: block;
-    width: 3px;
-    height: 3px;
-    border-radius: 100%;
-    background-color: var(--Primary);
     margin-bottom: 4px;
 
     &:last-child {

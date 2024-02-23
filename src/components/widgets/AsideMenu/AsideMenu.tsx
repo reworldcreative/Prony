@@ -9,32 +9,42 @@ import AsideChangelogIcon from "@/assets/img/icons/asideMenu/asideChangelog.svg"
 import AsideSettingsIcon from "@/assets/img/icons/asideMenu/asideSettings.svg";
 import AsideIntegrationsIcon from "@/assets/img/icons/asideMenu/asideIntegrations.svg";
 import AsideMenuItem, { MenuItem } from "./AsideMenuItem";
+import { useLocation } from "react-router-dom";
 
 const AsideMenu: FC = () => {
+  const location = useLocation();
   const menuLinks: MenuItem[] = [
     { text: "Dashboard", url: "/", icon: AsideDashboardIcon },
-    { text: "Boards", url: "/", icon: AsideBoardsIcon },
-    { text: "Posts", url: "/", icon: AsidePostsIcon },
-    { text: "Statuses", url: "/", icon: AsideStatusesIcon },
-    { text: "Users", url: "/", icon: AsideUsersIcon },
-    { text: "Changelog", url: "/", icon: AsideChangelogIcon },
+    { text: "Boards", url: "/boards", icon: AsideBoardsIcon },
+    { text: "Posts", url: "/posts", icon: AsidePostsIcon },
+    { text: "Statuses", url: "/statuses", icon: AsideStatusesIcon },
+    { text: "Users", url: "/users", icon: AsideUsersIcon },
+    { text: "Changelog", url: "/changelog", icon: AsideChangelogIcon },
     {
       text: "Settings",
-      url: "/",
+      url: "/settings",
       icon: AsideSettingsIcon,
       submenu: [
-        { text: "Settings 1", url: "/" },
-        { text: "Settings 2", url: "/" },
+        { text: "Settings 1", url: "/settings1" },
+        { text: "Settings 2", url: "/settings2" },
       ],
     },
-    { text: "Integrations", url: "#", icon: AsideIntegrationsIcon },
+    { text: "Integrations", url: "/integrations", icon: AsideIntegrationsIcon },
   ];
 
   return (
     <aside className="asideMenu">
       <nav className="asideMenu__navigation">
         {menuLinks.map((link, index) => (
-          <AsideMenuItem key={index} item={link} />
+          <AsideMenuItem
+            key={index}
+            item={link}
+            active={
+              link.url.toLowerCase() === location.pathname.toLowerCase()
+                ? true
+                : false
+            }
+          />
         ))}
       </nav>
     </aside>

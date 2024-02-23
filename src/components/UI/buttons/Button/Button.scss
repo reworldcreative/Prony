@@ -1,0 +1,21 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.button {
+  cursor: pointer;
+  border-radius: 5px;
+  border: none;
+  background: var(--TextSecondary);
+  color: var(--TextPrimary);
+  padding: 8px 31px;
+
+  &.primary {
+    background: var(--Secondary);
+    color: #ffffff;
+  }
+
+  &.danger {
+    background: var(--Danger);
+    color: #ffffff;
+  }
+}

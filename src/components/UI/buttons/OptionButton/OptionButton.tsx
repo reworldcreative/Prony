@@ -12,9 +12,9 @@ const OptionButton: FC<{
       onClick={click}
       ref={buttonRef}
     >
-      <span className="optionButton__dot" />
-      <span className="optionButton__dot" />
-      <span className="optionButton__dot" />
+      <span className="dot" />
+      <span className="dot" />
+      <span className="dot" />
     </button>
   );
 };

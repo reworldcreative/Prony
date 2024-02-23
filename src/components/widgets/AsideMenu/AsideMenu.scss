@@ -58,7 +58,8 @@
     justify-content: space-between;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &.active {
       .asideMenu {
         &__icon,
         &__sub-icon {
@@ -72,19 +73,26 @@
           color: var(--Secondary);
         }
       }
-
-      background-color: var(--BGSecond);
-      color: var(--Secondary);
     }
   }
 
   &__submenu {
     display: grid;
     margin-top: 6px;
-    margin-left: 64px;
 
     &-link {
       margin-bottom: 6px;
+      padding-left: 64px;
+    }
+  }
+
+  &__link-container,
+  &__submenu-link {
+    &:hover,
+    &:focus,
+    &.active {
+      background-color: var(--BGSecond);
+      color: var(--Secondary);
     }
   }
 }

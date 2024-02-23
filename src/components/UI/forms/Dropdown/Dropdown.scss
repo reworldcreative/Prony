@@ -20,16 +20,10 @@
   &__item {
     color: var(--TextSecondary);
     padding: 3px 0px;
-    outline: none;
 
     &:focus,
     &:hover {
       color: var(--Secondary);
-    }
-
-    &:focus-visible {
-      outline: 1px solid var(--Primary);
-      outline-offset: 2px;
     }
   }
 
