@@ -2,16 +2,14 @@
 @import "@/styles/variables";
 
 .headerDropDownMenu {
-  border-top: 1.5px solid var(--Primary);
-  display: grid;
-  position: absolute;
+  // border-top: 1.5px solid var(--Primary);
   right: 40px;
   top: 66px;
-  background: var(--BG);
-  padding: 23px 33px;
+  padding: 23px 0px;
 
   &__link {
     font-weight: 400;
+    padding: 0px 33px;
     margin-bottom: 13px;
 
     &:last-child {

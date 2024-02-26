@@ -1,0 +1,9 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.openMenu {
+  border-top: 1.5px solid var(--Primary);
+  display: grid;
+  position: absolute;
+  background: var(--BG);
+}
