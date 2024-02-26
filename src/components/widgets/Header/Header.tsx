@@ -32,7 +32,7 @@ const Header: FC = () => {
           />
         </div>
 
-        <HeaderUserMenu useOption={false} />
+        <HeaderUserMenu useOption={true} />
       </div>
     </header>
   );

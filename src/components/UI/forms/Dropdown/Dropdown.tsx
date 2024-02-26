@@ -1,4 +1,4 @@
-import React, { FC, useContext, useRef, useState } from "react";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
 import { ThemeContext } from "@/components/widgets/ThemeContextType/ThemeContextType";
@@ -14,6 +14,7 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
 
   const DropdownListRef = useRef<HTMLUListElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);
+  const DropdownContainerRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
@@ -47,8 +48,27 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
     setIsOpen(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      DropdownContainerRef.current &&
+      !DropdownContainerRef.current.contains(event.target as Node)
+    ) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={`dropdown ${isOpen ? "open" : ""}`}>
+    <div
+      className={`dropdown ${isOpen ? "dropdown_open" : ""}`}
+      ref={DropdownContainerRef}
+    >
       <button
         className="dropdown__current"
         onClick={toggleDropdown}

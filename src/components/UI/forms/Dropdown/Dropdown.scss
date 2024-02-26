@@ -50,7 +50,7 @@
     }
   }
 
-  &.open {
+  &_open {
     .dropdown__icon {
       transform: rotate(0deg);
     }

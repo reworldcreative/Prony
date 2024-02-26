@@ -1,9 +1,10 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import "./HeaderDropDownMenu.scss";
 import { Link } from "react-router-dom";
 const HeaderDropDownMenu: FC<{
   openButton?: React.RefObject<HTMLButtonElement>;
-}> = ({ openButton }) => {
+  isOpen: boolean;
+}> = ({ openButton, isOpen }) => {
   const TabMenuRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
 
@@ -30,6 +31,24 @@ const HeaderDropDownMenu: FC<{
     { text: "Profile", url: "/" },
     { text: "Logout", url: "/" },
   ];
+
+  const handleClickOutside = (event: MouseEvent) => {
+    if (
+      TabMenuRef.current &&
+      !TabMenuRef.current.contains(event.target as Node)
+    ) {
+      openButton.current.click();
+    }
+  };
+
+  useEffect(() => {
+    setTimeout(() => {
+      isOpen && document.addEventListener("click", handleClickOutside);
+    }, 100);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
 
   return (
     <nav

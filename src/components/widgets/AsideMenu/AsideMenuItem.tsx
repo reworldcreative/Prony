@@ -25,7 +25,10 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
 
   const theme = useContext(ThemeContext);
   return (
-    <div className={`asideMenu__item ${isSubmenuOpen ? "open" : ""}`}>
+    <Link
+      to={item.url}
+      className={`asideMenu__item ${isSubmenuOpen ? "open" : ""}`}
+    >
       <div className={`asideMenu__link-container ${active ? "active" : ""}`}>
         <div className="asideMenu__link-wrapper">
           <img
@@ -36,9 +39,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
             aria-hidden="true"
             className={`asideMenu__icon ${theme.theme}`}
           />
-          <Link to={item.url} className="asideMenu__link subtitle-second">
-            {item.text}
-          </Link>
+          <p className="asideMenu__link subtitle-second">{item.text}</p>
         </div>
         {item.submenu && (
           <button
@@ -72,7 +73,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
           ))}
         </div>
       )}
-    </div>
+    </Link>
   );
 };
 

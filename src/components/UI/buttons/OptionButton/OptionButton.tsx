@@ -4,17 +4,18 @@ const OptionButton: FC<{
   click?: (event: MouseEvent<HTMLButtonElement>) => void;
   buttonRef?: React.RefObject<HTMLButtonElement>;
   label?: string;
-}> = ({ click, buttonRef, label }) => {
+  addClass?: string;
+}> = ({ click, buttonRef, label, addClass }) => {
   return (
     <button
-      className="optionButton"
+      className={`optionButton ${addClass}`}
       aria-label={`click to ${label} more option`}
       onClick={click}
       ref={buttonRef}
     >
-      <span className="dot" />
-      <span className="dot" />
-      <span className="dot" />
+      <span className="dot optionButton__dot" />
+      <span className="dot optionButton__dot" />
+      <span className="dot optionButton__dot" />
     </button>
   );
 };

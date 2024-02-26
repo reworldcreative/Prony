@@ -53,11 +53,14 @@
     }
 
     &_drag {
-      cursor: grab;
       width: 9px;
       height: 15px;
       margin-right: 39px;
       display: flex;
+
+      &.dragOn {
+        cursor: grab;
+      }
 
       .dot__col {
         &:first-child {
@@ -94,7 +97,7 @@
     margin: 0 20px 0 0;
 
     &:hover,
-    &:focus {
+    &_active {
       .boards__icon {
         filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg)
           brightness(92%) contrast(99%);
@@ -109,16 +112,6 @@
   }
 
   &__button-menu {
-    display: grid;
-    padding: 0 11px;
     margin: 0;
-
-    .dot {
-      margin-bottom: 3px;
-
-      &:last-child {
-        margin-bottom: 0;
-      }
-    }
   }
 }

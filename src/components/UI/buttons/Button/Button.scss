@@ -9,12 +9,12 @@
   color: var(--TextPrimary);
   padding: 8px 31px;
 
-  &.primary {
+  &_primary {
     background: var(--Secondary);
     color: #ffffff;
   }
 
-  &.danger {
+  &_danger {
     background: var(--Danger);
     color: #ffffff;
   }

@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Send status updates back through Intercom ",
+    "posts": 12,
+    "draggable": true
+  },
+  {
+    "id": 2,
+    "name": "Send status updates back through Intercom ",
+    "posts": 13,
+    "draggable": true
+  },
+  {
+    "id": 3,
+    "name": "Send status updates back through Intercom ",
+    "posts": 14,
+    "draggable": true
+  },
+  {
+    "id": 4,
+    "name": "Send status updates back through Intercom ",
+    "posts": 15,
+    "draggable": true
+  }
+]
