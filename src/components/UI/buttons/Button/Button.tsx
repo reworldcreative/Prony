@@ -1,15 +1,17 @@
-import React, { FC, ReactNode } from "react";
+import React, { FC, ReactNode, MouseEvent } from "react";
 import "./Button.scss";
 
 const Button: FC<{
   children: ReactNode;
   type: "default" | "primary" | "danger";
-}> = ({ children, type }) => {
+  click?: (event: MouseEvent<HTMLButtonElement>) => void;
+}> = ({ children, type, click }) => {
   return (
     <button
       className={`button ${
         type ? "button_" + type : ""
       } subtitle-second ${type}`}
+      onClick={click}
     >
       {children}
     </button>

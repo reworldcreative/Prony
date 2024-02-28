@@ -1,0 +1,46 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.input {
+  padding: 15px;
+  border-radius: 5px;
+  outline: 1px solid var(--TextSecondary);
+  font-size: 18px;
+  border: none;
+
+  &:focus {
+    outline: 2px solid var(--Secondary);
+  }
+
+  &_error {
+    outline: 2px solid var(--Danger);
+  }
+
+  &_success {
+    outline: 2px solid var(--Success);
+  }
+
+  &__wrapper {
+    display: grid;
+
+    &:focus-within label {
+      color: var(--Secondary);
+    }
+  }
+
+  &__label {
+    margin-bottom: 5px;
+  }
+
+  &__message {
+    margin-top: 3px;
+
+    &_error {
+      color: var(--Danger);
+    }
+
+    &_success {
+      color: var(--Success);
+    }
+  }
+}

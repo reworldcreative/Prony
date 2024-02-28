@@ -1,7 +1,7 @@
 import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
-import { ThemeContext } from "@/components/widgets/ThemeContextType/ThemeContextType";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 
 interface DropdownProps {
   options: string[];
@@ -10,7 +10,7 @@ interface DropdownProps {
 }
 
 const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
-  const theme = useContext(ThemeContext);
+  const theme = useContext(GlobalContext);
 
   const DropdownListRef = useRef<HTMLUListElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);

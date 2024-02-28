@@ -1,6 +1,6 @@
-import React, { FC, useState, useEffect, Suspense } from "react";
+import React, { FC, useState, useEffect, Suspense, useContext } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
-import { ThemeProvider } from "./components/widgets/ThemeContextType/ThemeContextType";
+import { GlobalProvider } from "./components/widgets/GlobalContext/GlobalContext";
 import Dashboard from "./components/pages/PronyDashboard/Dashboard/Dashboard";
 import Boards from "./components/pages/PronyDashboard/Boards/Boards";
 
@@ -10,12 +10,12 @@ import Boards from "./components/pages/PronyDashboard/Boards/Boards";
 const App: FC = () => {
   return (
     <>
-      <ThemeProvider>
+      <GlobalProvider>
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/boards" element={<Boards />} />
         </Routes>
-      </ThemeProvider>
+      </GlobalProvider>
     </>
   );
 };

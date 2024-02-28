@@ -12,6 +12,8 @@ const OptionButton: FC<{
       aria-label={`click to ${label} more option`}
       onClick={click}
       ref={buttonRef}
+      aria-haspopup="true"
+      // aria-expanded="false"
     >
       <span className="dot optionButton__dot" />
       <span className="dot optionButton__dot" />

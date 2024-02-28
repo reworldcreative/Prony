@@ -1,6 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
-import { ThemeContext } from "@/components/widgets/ThemeContextType/ThemeContextType";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import { Link } from "react-router-dom";
 interface MenuItem {
   text: string;
@@ -23,14 +23,11 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
     setIsSubmenuOpen(!isSubmenuOpen);
   };
 
-  const theme = useContext(ThemeContext);
+  const theme = useContext(GlobalContext);
   return (
-    <Link
-      to={item.url}
-      className={`asideMenu__item ${isSubmenuOpen ? "open" : ""}`}
-    >
+    <div className={`asideMenu__item ${isSubmenuOpen ? "open" : ""}`}>
       <div className={`asideMenu__link-container ${active ? "active" : ""}`}>
-        <div className="asideMenu__link-wrapper">
+        <Link to={item.url} className="asideMenu__link-wrapper">
           <img
             src={item.icon}
             alt={item.text}
@@ -40,7 +37,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
             className={`asideMenu__icon ${theme.theme}`}
           />
           <p className="asideMenu__link subtitle-second">{item.text}</p>
-        </div>
+        </Link>
         {item.submenu && (
           <button
             className="asideMenu__sub-button"
@@ -73,7 +70,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
           ))}
         </div>
       )}
-    </Link>
+    </div>
   );
 };
 

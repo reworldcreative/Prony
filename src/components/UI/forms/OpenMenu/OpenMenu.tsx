@@ -5,7 +5,8 @@ const OpenMenu: FC<{
   isOpen: boolean;
   children: React.ReactNode;
   addClass?: string;
-}> = ({ openButton, isOpen, children, addClass }) => {
+  ariaHidden?: boolean;
+}> = ({ openButton, isOpen, children, addClass, ariaHidden = false }) => {
   const TabMenuRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
 
@@ -37,19 +38,23 @@ const OpenMenu: FC<{
   };
 
   useEffect(() => {
-    setTimeout(() => {
-      isOpen && document.addEventListener("click", handleClickOutside);
-    }, 100);
+    isOpen &&
+      setTimeout(() => {
+        isOpen && document.addEventListener("click", handleClickOutside);
+      }, 100);
+
+    !isOpen && document.removeEventListener("click", handleClickOutside);
     return () => {
       document.removeEventListener("click", handleClickOutside);
     };
-  }, []);
+  }, [isOpen]);
 
   return (
     <nav
       className={`openMenu ${addClass ? addClass : ""}`}
       ref={TabMenuRef}
       onKeyDown={handleTabKeyDown}
+      aria-hidden={ariaHidden}
     >
       {children}
     </nav>

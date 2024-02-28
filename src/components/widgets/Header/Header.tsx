@@ -3,9 +3,9 @@ import "./Header.scss";
 import Logo from "../../UI/Logo/Logo";
 import RadioButton from "../../UI/forms/RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";
-import { ThemeContext } from "../ThemeContextType/ThemeContextType";
+import { GlobalContext } from "../GlobalContext/GlobalContext";
 const Header: FC = () => {
-  const { theme, setTheme } = useContext(ThemeContext);
+  const { theme, setTheme } = useContext(GlobalContext);
 
   const handleGetTheme = (newTheme: "light" | "dark") => {
     setTheme(newTheme);

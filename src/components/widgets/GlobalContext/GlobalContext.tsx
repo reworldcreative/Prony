@@ -5,15 +5,19 @@ import React, {
   useEffect,
   createContext,
 } from "react";
-interface ThemeContextType {
+
+interface GlobalContextType {
   theme: "light" | "dark";
   setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>;
+  isOpenPopUp: boolean;
+  setOpenPopUp: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
-const ThemeContext = createContext<ThemeContextType | undefined>(undefined);
+const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 
-const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
+const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
+  const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -53,10 +57,12 @@ const ThemeProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [theme]);
 
   return (
-    <ThemeContext.Provider value={{ theme, setTheme }}>
+    <GlobalContext.Provider
+      value={{ theme, setTheme, isOpenPopUp, setOpenPopUp }}
+    >
       {children}
-    </ThemeContext.Provider>
+    </GlobalContext.Provider>
   );
 };
 
-export { ThemeContext, ThemeProvider };
+export { GlobalContext, GlobalProvider };
