@@ -10,7 +10,8 @@ import boardsData from "@/data/Boards.json";
 import Info from "@/components/widgets/Info/Info";
 import PopUp from "@/components/widgets/PopUp/PopUp";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
-import Input from "@/components/UI/forms/Input/Input";
+import CreateForm from "./forms/CreateForm/CreateForm";
+import { FieldValues } from "react-hook-form";
 
 type BoardMessageType = {
   visible: boolean;
@@ -26,6 +27,7 @@ const initialBoardMessageState: BoardMessageType = {
 
 const Boards: FC = () => {
   const [boards, setBoards] = useState(boardsData);
+  const [newBoardData, setNewBoardData] = useState<FieldValues>();
   const [boardMessage, setBoardMessage] = useState<BoardMessageType>(
     initialBoardMessageState
   );
@@ -57,7 +59,6 @@ const Boards: FC = () => {
   };
 
   const handleOpenPopUp = () => {
-    console.log("click");
     setOpenPopUp(true);
   };
 
@@ -80,12 +81,15 @@ const Boards: FC = () => {
     }, 5000);
   };
 
+  const handleCreateNewBoard = (data: FieldValues) => {
+    setNewBoardData(data);
+    showMessage("This is a success message!", "success");
+  };
+
   return (
     <>
       <PopUp>
-        <div>
-          <Input label="Board name" id="name" messageType="error"/>
-        </div>
+        <CreateForm submitSuccess={handleCreateNewBoard} />
       </PopUp>
 
       <Header />

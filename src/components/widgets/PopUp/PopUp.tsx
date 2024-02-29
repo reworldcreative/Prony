@@ -15,7 +15,6 @@ const PopUp: FC<PopUpProps> = ({ children }) => {
 
   const togglePopup = () => {
     setOpenPopUp(!isOpenPopUp);
-    close();
   };
 
   useEffect(() => {

@@ -1,10 +1,12 @@
 import React, { FC, useState } from "react";
 import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
-import "./Input.scss";
+import "../Input/Input.scss";
+import "./TextArea.scss";
 
-interface InputProps {
+interface TextAreaProps {
   label?: string;
   name: string;
+  rows?: number;
   getValue?: (value: string) => void;
   messageType?: "error" | "success" | "";
   messageText?: string;
@@ -12,9 +14,10 @@ interface InputProps {
   settings?: RegisterOptions<FieldValues>;
 }
 
-const Input: FC<InputProps> = ({
+const TextArea: FC<TextAreaProps> = ({
   label,
   name,
+  rows = 3,
   settings,
   register,
   messageType,
@@ -27,8 +30,11 @@ const Input: FC<InputProps> = ({
           {label}
         </label>
       )}
-      <input
-        className={`input text ${messageType ? `input_${messageType}` : ""}`}
+      <textarea
+        rows={rows}
+        className={`input textArea text ${
+          messageType ? `input_${messageType}` : ""
+        }`}
         id={name}
         {...register(name, settings)}
       />
@@ -45,4 +51,4 @@ const Input: FC<InputProps> = ({
   );
 };
 
-export default Input;
+export default TextArea;

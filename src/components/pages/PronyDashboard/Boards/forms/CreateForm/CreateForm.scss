@@ -1,0 +1,30 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.form {
+  width: 70vw;
+
+  &__fieldset {
+    margin: 0;
+    padding: 0;
+    border: none;
+    display: grid;
+    gap: 13px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+
+    .form__button {
+      &:first-child {
+        margin-right: 22px;
+      }
+    }
+  }
+
+  &__button {
+    padding: 8px 51px;
+  }
+}

@@ -5,6 +5,8 @@
   padding: 15px;
   border-radius: 5px;
   outline: 1px solid var(--TextSecondary);
+  background: var(--BGSecond);
+  color: var(--TextPrimary);
   font-size: 18px;
   border: none;
 
@@ -14,6 +16,10 @@
 
   &_error {
     outline: 2px solid var(--Danger);
+
+    &:focus {
+      outline: 2px solid var(--Danger);
+    }
   }
 
   &_success {

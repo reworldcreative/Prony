@@ -5,8 +5,8 @@
   cursor: pointer;
   border-radius: 5px;
   border: none;
-  background: var(--TextSecondary);
-  color: var(--TextPrimary);
+  background: var(--BGItem);
+  color: var(--TextSecondary);
   padding: 8px 31px;
 
   &_primary {
@@ -17,5 +17,10 @@
   &_danger {
     background: var(--Danger);
     color: #ffffff;
+  }
+
+  &_disabled {
+    filter: brightness(0.5);
+    cursor: auto;
   }
 }

@@ -5,13 +5,27 @@ const Button: FC<{
   children: ReactNode;
   type: "default" | "primary" | "danger";
   click?: (event: MouseEvent<HTMLButtonElement>) => void;
-}> = ({ children, type, click }) => {
+  buttonType?: "button" | "submit";
+  disabled?: boolean;
+  addClass?: string;
+}> = ({
+  children,
+  type,
+  click,
+  buttonType = "button",
+  disabled = false,
+  addClass,
+}) => {
   return (
     <button
       className={`button ${
         type ? "button_" + type : ""
-      } subtitle-second ${type}`}
+      } subtitle-second ${type} ${
+        disabled ? "button_disabled" : ""
+      } ${addClass}`}
       onClick={click}
+      type={buttonType}
+      disabled={disabled}
     >
       {children}
     </button>
