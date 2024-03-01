@@ -83,6 +83,13 @@ const Boards: FC = () => {
 
   const handleCreateNewBoard = (data: FieldValues) => {
     setNewBoardData(data);
+    const newItem: BoardsItemProps = {
+      id: boards.length + 1,
+      name: data.boardName,
+      posts: 0,
+      draggable: true,
+    };
+    boards.push(newItem);
     showMessage("This is a success message!", "success");
   };
 

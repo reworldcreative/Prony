@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
 import "../Input/Input.scss";
 import "./TextArea.scss";
@@ -22,7 +22,15 @@ const TextArea: FC<TextAreaProps> = ({
   register,
   messageType,
   messageText,
+  getValue,
 }) => {
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    const newValue = event.target.value;
+    if (getValue) {
+      getValue(newValue);
+    }
+  };
+
   return (
     <div className="input__wrapper">
       {label && (
@@ -36,7 +44,7 @@ const TextArea: FC<TextAreaProps> = ({
           messageType ? `input_${messageType}` : ""
         }`}
         id={name}
-        {...register(name, settings)}
+        {...(register ? register(name, settings) : { onChange: handleChange })}
       />
       {messageType !== "" && messageText !== "" && (
         <p

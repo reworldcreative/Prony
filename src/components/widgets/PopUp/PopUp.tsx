@@ -1,4 +1,11 @@
-import React, { FC, ReactNode, useContext, useEffect, useState } from "react";
+import React, {
+  FC,
+  ReactNode,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import "./PopUp.scss";
 import closeIcon from "@/assets/img/icons/close.svg";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
@@ -12,6 +19,13 @@ const rootElement = document.getElementById("root");
 const PopUp: FC<PopUpProps> = ({ children }) => {
   const { theme, setTheme, isOpenPopUp, setOpenPopUp } =
     useContext(GlobalContext);
+
+  const popUpRef = useRef(null);
+  const popUpCloseButtonRef = useRef(null);
+
+  useEffect(() => {
+    popUpRef.current.focus();
+  }, [isOpenPopUp]);
 
   const togglePopup = () => {
     setOpenPopUp(!isOpenPopUp);
@@ -27,14 +41,28 @@ const PopUp: FC<PopUpProps> = ({ children }) => {
     };
   }, [isOpenPopUp]);
 
+  const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
+    if (event.key === "Tab" && !event.shiftKey && popUpRef.current) {
+      event.preventDefault();
+      popUpRef.current.focus();
+    }
+  };
+
   return (
     <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
-      <div className="popUp__container">
+      <div
+        className="popUp__container"
+        ref={popUpRef}
+        tabIndex={0}
+        aria-live="assertive"
+      >
         {children}
         <button
           className="popUp__close"
           aria-label="close pop-up"
           onClick={togglePopup}
+          ref={popUpCloseButtonRef}
+          onKeyDown={handleTabKeyDown}
         >
           <img
             src={closeIcon}

@@ -1,4 +1,4 @@
-import React, { FC, useState } from "react";
+import React, { ChangeEvent, FC, useState } from "react";
 import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
 import "./Input.scss";
 
@@ -19,7 +19,15 @@ const Input: FC<InputProps> = ({
   register,
   messageType,
   messageText,
+  getValue,
 }) => {
+  const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
+    const newValue = event.target.value;
+    if (getValue) {
+      getValue(newValue);
+    }
+  };
+
   return (
     <div className="input__wrapper">
       {label && (
@@ -30,7 +38,7 @@ const Input: FC<InputProps> = ({
       <input
         className={`input text ${messageType ? `input_${messageType}` : ""}`}
         id={name}
-        {...register(name, settings)}
+        {...(register ? register(name, settings) : { onChange: handleChange })}
       />
       {messageType !== "" && messageText !== "" && (
         <p
