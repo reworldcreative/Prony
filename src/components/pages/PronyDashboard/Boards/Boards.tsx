@@ -36,10 +36,12 @@ const Boards: FC = () => {
   const canMove = (newBoards: BoardsItemProps[]) => {
     let newList: BoardsItemProps[] = [];
     let canMove: boolean = true;
+
     for (let index = 0; index < boards.length; index++) {
       const element = boards[index];
       canMove = true;
-      if (element.draggable === false && newBoards[index].id !== element.id) {
+
+      if (element.locked === false && newBoards[index].id !== element.id) {
         canMove = false;
         break;
       } else {
@@ -55,7 +57,7 @@ const Boards: FC = () => {
   };
 
   const lockItem = (index: number, lock: boolean) => {
-    boards[index].draggable = lock;
+    boards[index].locked = lock;
   };
 
   const handleOpenPopUp = () => {
@@ -87,7 +89,7 @@ const Boards: FC = () => {
       id: boards.length + 1,
       name: data.boardName,
       posts: 0,
-      draggable: true,
+      locked: true,
     };
     boards.push(newItem);
     showMessage("This is a success message!", "success");
@@ -103,22 +105,15 @@ const Boards: FC = () => {
 
       <div className="pageContainer">
         <AsideMenu />
+
         <main className="pageContainer__main">
           <section className="board-MainSection">
             <Breadcrumbs />
 
             <div className="board-MainSection__top">
               <h1 className="title board-MainSection__title">Boards</h1>
-              <Button
-                type="primary"
-                // click={showMessage.bind(
-                //   null,
-                //   "This is a success message!",
-                //   "success"
-                // )}
 
-                click={handleOpenPopUp}
-              >
+              <Button type="primary" click={handleOpenPopUp}>
                 Create Board
               </Button>
             </div>

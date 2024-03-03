@@ -10,7 +10,7 @@ interface TextAreaProps {
   getValue?: (value: string) => void;
   messageType?: "error" | "success" | "";
   messageText?: string;
-  register: UseFormRegister<FieldValues>;
+  register?: UseFormRegister<FieldValues>;
   settings?: RegisterOptions<FieldValues>;
 }
 

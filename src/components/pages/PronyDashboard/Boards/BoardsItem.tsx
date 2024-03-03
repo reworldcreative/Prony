@@ -10,7 +10,7 @@ interface BoardsItemProps {
   id: number;
   name: string;
   posts: number;
-  draggable: boolean;
+  locked: boolean;
 }
 
 interface Props {
@@ -67,6 +67,7 @@ const BoardsItem: FC<Props> = ({ item, lockItem }) => {
           <div className="dot" />
         </div>
       </div>
+
       <p className="boards__title heading-h6">{item.name}</p>
       <p className="boards__amount title-second">
         {item.posts} <span className="visibility-hidden">posts</span>
@@ -82,6 +83,7 @@ const BoardsItem: FC<Props> = ({ item, lockItem }) => {
             aria-hidden="true"
           />
         </button>
+
         <button
           className={`boards__button ${
             lockedMove ? "boards__button_active" : ""
