@@ -11,6 +11,7 @@ interface BoardsItemProps {
   name: string;
   posts: number;
   locked: boolean;
+  privacy: boolean;
 }
 
 interface Props {

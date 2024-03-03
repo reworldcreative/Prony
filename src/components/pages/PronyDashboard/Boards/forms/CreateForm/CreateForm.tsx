@@ -102,7 +102,6 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       selectedValue={field.value}
                       size="big"
                       type="secondary"
-                      // register={register}
                       field={field}
                     />
                   )}
@@ -126,7 +125,6 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       selectedValue={field.value}
                       size="big"
                       type="secondary"
-                      // register={register}
                       field={field}
                     />
                   )}
@@ -140,6 +138,49 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
 
           <fieldset className="form__fieldset">
             <legend className="text form__legend">Status</legend>
+            <div className="form__block">
+              <div>
+                <Controller
+                  name="status"
+                  control={control}
+                  defaultValue="unlocked"
+                  render={({ field }) => (
+                    <RadioButton
+                      group="status"
+                      labelText="Locked"
+                      value="locked"
+                      selectedValue={field.value}
+                      size="big"
+                      type="secondary"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption  radio-text">
+                  Only Board Moderators can create new posts
+                </p>
+              </div>
+
+              <div>
+                <Controller
+                  name="status"
+                  control={control}
+                  defaultValue="unlocked"
+                  render={({ field }) => (
+                    <RadioButton
+                      group="status"
+                      labelText="Unlocked"
+                      value="unlocked"
+                      selectedValue={field.value}
+                      size="big"
+                      type="secondary"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption radio-text">Anybody can post</p>
+              </div>
+            </div>
           </fieldset>
         </section>
       </div>

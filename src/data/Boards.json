@@ -3,24 +3,28 @@
     "id": 1,
     "name": "Send status updates back through Intercom ",
     "posts": 12,
-    "locked": true
+    "locked": true,
+    "privacy": true
   },
   {
     "id": 2,
     "name": "Send status updates back through Intercom ",
     "posts": 13,
-    "locked": true
+    "locked": true,
+    "privacy": true
   },
   {
     "id": 3,
     "name": "Send status updates back through Intercom ",
     "posts": 14,
-    "locked": true
+    "locked": true,
+    "privacy": true
   },
   {
     "id": 4,
     "name": "Send status updates back through Intercom ",
     "posts": 15,
-    "locked": true
+    "locked": true,
+    "privacy": true
   }
 ]
