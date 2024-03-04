@@ -90,7 +90,7 @@ const Boards: FC = () => {
       name: data.boardName,
       posts: 0,
       locked: true,
-      privacy:true,
+      privacy: true,
     };
     boards.push(newItem);
     showMessage("This is a success message!", "success");

@@ -1,63 +1,58 @@
 import React, { FC, useRef, useState } from "react";
-import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
-import "./RadioButton.scss";
+import { FieldValues, RegisterOptions } from "react-hook-form";
+import "./Checkbox.scss";
 
-type RadioButtonProps = {
+type CheckboxProps = {
   labelText: string;
   value: string;
-  selectedValue: string;
-  group: string;
+  name: string;
   addClass?: string;
   type?: "default" | "secondary" | "disabled";
   size?: "medium" | "big";
-  getRadioValue?: (value: string) => void;
-  register?: UseFormRegister<FieldValues>;
+  getCheckboxValue?: (value: boolean) => void;
+  settings?: RegisterOptions<FieldValues>;
   field?: RegisterOptions<FieldValues>;
 };
 
-const RadioButton: FC<RadioButtonProps> = ({
+const Checkbox: FC<CheckboxProps> = ({
   labelText,
   value,
-  selectedValue,
-  group,
+  name,
   addClass,
   field,
   type = "default",
   size = "medium",
-  getRadioValue = () => {},
-  register,
+  getCheckboxValue = () => {},
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
   const handleChange = () => {
-    getRadioValue(inputRef.current.value);
+    getCheckboxValue(inputRef.current.checked);
   };
-
   return (
     <div
-      className={`radio__container ${type} ${size} ${addClass ? addClass : ""}`}
+      className={`checkbox__container ${type} ${size} ${
+        addClass ? addClass : ""
+      }`}
     >
       <input
         type="checkbox"
         id={value}
-        name={group}
+        name={name}
         value={value}
-        checked={selectedValue === value}
         disabled={type === "disabled"}
-        // onChange={handleChange}
-        // ref={inputRef}
         tabIndex={type === "disabled" ? -1 : 0}
         {...(field
           ? {
               onChange: (e) => {
-                field.onChange(e.target.value);
+                field.onChange(e.target.checked);
               },
             }
           : { onChange: handleChange, ref: inputRef })}
       />
       <label
         htmlFor={value}
-        className={`radio-label text ${size === "big" ? "heading-h6" : ""}`}
+        className={`checkbox-label text ${size === "big" ? "heading-h6" : ""}`}
       >
         {labelText}
       </label>
@@ -65,4 +60,4 @@ const RadioButton: FC<RadioButtonProps> = ({
   );
 };
 
-export default RadioButton;
+export default Checkbox;

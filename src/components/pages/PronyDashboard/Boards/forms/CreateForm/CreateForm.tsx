@@ -6,6 +6,7 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 import Button from "@/components/UI/buttons/Button/Button";
 import TextArea from "@/components/UI/forms/TextArea/TextArea";
 import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
+import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
 
 interface formProps {
   submitSuccess: (data: FieldValues) => void;
@@ -179,6 +180,48 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                   )}
                 />
                 <p className="caption radio-text">Anybody can post</p>
+              </div>
+            </div>
+            <div className="form__block">
+              <div>
+                <Controller
+                  name="Post-pre-approval"
+                  control={control}
+                  defaultValue={false}
+                  render={({ field }) => (
+                    <Checkbox
+                      labelText="Post require pre approval"
+                      name="Post-pre-approval"
+                      value="Post-pre-approval"
+                      type="secondary"
+                      size="big"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption  radio-text">
+                  The board is visible to anyone. Search engines like Google
+                  will index it.
+                </p>
+              </div>
+
+              <div>
+                <Controller
+                  name="Anonymous-voting"
+                  control={control}
+                  defaultValue={false}
+                  render={({ field }) => (
+                    <Checkbox
+                      labelText="Anonymous voting"
+                      name="Anonymous-voting"
+                      value="Anonymous-voting"
+                      type="secondary"
+                      size="big"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption  radio-text">Allow anonymous votes</p>
               </div>
             </div>
           </fieldset>
