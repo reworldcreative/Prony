@@ -21,7 +21,7 @@
 
     .form__fieldset {
       width: 48%;
-      &:last-child {
+      &:nth-child(2n) {
         margin-right: 0;
       }
     }
@@ -33,17 +33,36 @@
     width: 43.33%;
     margin-right: 10px;
     border: none;
-    display: grid;
-    gap: 13px;
+    display: block;
+
+    .input__wrapper {
+      margin-bottom: 13px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 
   &__block {
     display: grid;
     height: fit-content;
     gap: 8px;
+    margin-bottom: 50px;
 
     .radio-text {
       padding-left: 25px;
+    }
+
+    .switch__container {
+      + .radio-text {
+        padding-left: 43px;
+      }
+    }
+
+    &:nth-child(3),
+    &:nth-child(4) {
+      margin-bottom: 0;
     }
   }
 

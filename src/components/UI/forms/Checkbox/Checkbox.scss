@@ -5,16 +5,20 @@
 @import "@/styles/variables";
 
 .checkbox__container {
+  width: fit-content;
+
   input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     width: 1em;
     height: 1em;
-    + .checkbox-label {
+
+    + .checkbox__label {
       cursor: pointer;
       display: flex;
       align-items: center;
       position: relative;
+
       &:before {
         content: "";
         background: var(--BG);
@@ -48,8 +52,9 @@
     }
 
     &:checked {
-      + .checkbox-label {
+      + .checkbox__label {
         color: var(--TextPrimary);
+
         &:before {
           border-width: 1px;
           border-color: var(--TextSecondary);
@@ -64,7 +69,7 @@
 
     &:focus,
     &:hover {
-      + .checkbox-label {
+      + .checkbox__label {
         color: var(--Secondary);
         outline: none;
 
@@ -76,7 +81,7 @@
     }
 
     &:focus-visible {
-      + .checkbox-label {
+      + .checkbox__label {
         outline: 1px solid var(--Primary);
         outline-offset: 2px;
       }
@@ -85,10 +90,11 @@
 
   &.big {
     input[type="checkbox"] {
-      + .checkbox-label {
+      + .checkbox__label {
         &:before {
           border-width: 2px;
         }
+
         &:after {
           left: 6px;
           width: 5px;
@@ -97,7 +103,7 @@
 
       &:focus,
       &:hover {
-        + .checkbox-label {
+        + .checkbox__label {
           &:before {
             border-width: 2px;
           }
@@ -109,7 +115,7 @@
   &.secondary {
     input[type="checkbox"] {
       &:checked {
-        + .checkbox-label {
+        + .checkbox__label {
           &:before {
             border-color: var(--Secondary);
             background-color: var(--Secondary);
@@ -126,16 +132,17 @@
 
   &.disabled {
     input[type="checkbox"] {
-      + .checkbox-label {
+      + .checkbox__label {
         color: var(--TextSecondary);
       }
 
       &:checked,
       &:focus,
       &:hover {
-        + .checkbox-label {
+        + .checkbox__label {
           color: var(--TextSecondary);
           cursor: auto;
+
           &:before {
             cursor: auto;
             border-color: var(--TextSecondary);

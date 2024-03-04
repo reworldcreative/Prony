@@ -1,0 +1,146 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+@import "rfs/scss";
+@import "@/styles/variables";
+
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.switch {
+  position: relative;
+  width: 25px;
+  height: 15px;
+  background: rgba(39, 37, 87, 0.1);
+  border-radius: 25px;
+  align-items: center;
+  display: flex;
+  margin-right: 8px;
+
+  &__block {
+    display: flex;
+    align-items: center;
+  }
+
+  &:before {
+    content: "";
+    background: var(--TextSecondary);
+    border-radius: 100%;
+    border-width: 0px;
+    border-style: solid;
+    border-color: var(--TextSecondary);
+    display: inline-block;
+    width: 11px;
+    height: 11px;
+    left: 2px;
+    position: relative;
+    vertical-align: middle;
+    cursor: pointer;
+    text-align: center;
+    transition: all 250ms ease;
+  }
+
+  &__label {
+    cursor: pointer;
+  }
+
+  &__container {
+    width: fit-content;
+
+    input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      width: 1em;
+      height: 1em;
+
+      &:checked {
+        + .switch__block {
+          .switch {
+            background: rgba(39, 37, 87, 0.5);
+
+            &:before {
+              background: var(--Primary);
+              transform: translateX(90%);
+            }
+          }
+        }
+      }
+
+      &:focus,
+      &:hover {
+        + .switch__block {
+          .switch {
+            outline: 1px solid var(--Primary);
+            &__label {
+              color: var(--Primary);
+            }
+          }
+        }
+      }
+
+      &:focus-visible {
+        + .switch__block {
+          outline: 1px solid var(--Primary);
+          outline-offset: 2px;
+        }
+      }
+    }
+
+    &.big {
+      .switch {
+        width: 34px;
+        height: 14px;
+        border-radius: 34px;
+
+        &:before {
+          width: 20px;
+          height: 20px;
+          left: 0px;
+        }
+      }
+    }
+
+    &.secondary {
+      input[type="checkbox"] {
+        &:checked {
+          + .switch__block {
+            .switch {
+              background: rgba(21, 101, 192, 0.5);
+
+              &:before {
+                background: var(--Secondary);
+              }
+            }
+          }
+        }
+      }
+    }
+
+    &.disabled {
+      input[type="checkbox"] {
+        &:focus,
+        &:hover {
+          + .switch__block {
+            .switch {
+              outline: none;
+              &__label {
+                color: var(--TextSecondary);
+              }
+            }
+          }
+        }
+      }
+
+      .switch {
+        &:before {
+          background: rgba(117, 117, 117, 0.5);
+        }
+
+        &:before,
+        &__label {
+          cursor: auto;
+        }
+      }
+    }
+  }
+}

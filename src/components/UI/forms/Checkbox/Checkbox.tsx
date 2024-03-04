@@ -10,7 +10,6 @@ type CheckboxProps = {
   type?: "default" | "secondary" | "disabled";
   size?: "medium" | "big";
   getCheckboxValue?: (value: boolean) => void;
-  settings?: RegisterOptions<FieldValues>;
   field?: RegisterOptions<FieldValues>;
 };
 
@@ -52,7 +51,7 @@ const Checkbox: FC<CheckboxProps> = ({
       />
       <label
         htmlFor={value}
-        className={`checkbox-label text ${size === "big" ? "heading-h6" : ""}`}
+        className={`checkbox__label text ${size === "big" ? "heading-h6" : ""}`}
       >
         {labelText}
       </label>

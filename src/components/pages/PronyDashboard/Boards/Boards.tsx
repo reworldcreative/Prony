@@ -12,6 +12,7 @@ import PopUp from "@/components/widgets/PopUp/PopUp";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import CreateForm from "./forms/CreateForm/CreateForm";
 import { FieldValues } from "react-hook-form";
+import Switch from "@/components/UI/forms/Switch/Switch";
 
 type BoardMessageType = {
   visible: boolean;

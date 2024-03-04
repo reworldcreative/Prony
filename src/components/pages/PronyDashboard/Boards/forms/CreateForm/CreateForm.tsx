@@ -7,6 +7,7 @@ import Button from "@/components/UI/buttons/Button/Button";
 import TextArea from "@/components/UI/forms/TextArea/TextArea";
 import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
 import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
+import Switch from "@/components/UI/forms/Switch/Switch";
 
 interface formProps {
   submitSuccess: (data: FieldValues) => void;
@@ -182,6 +183,57 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                 <p className="caption radio-text">Anybody can post</p>
               </div>
             </div>
+          </fieldset>
+
+          <fieldset className="form__fieldset">
+            <div className="form__block">
+              <div>
+                <Controller
+                  name="On-roadmap"
+                  control={control}
+                  defaultValue={false}
+                  render={({ field }) => (
+                    <Switch
+                      labelText="Board on roadmap"
+                      name="On-roadmap"
+                      value="On-roadmap"
+                      type="secondary"
+                      size="big"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption  radio-text">
+                  By default, your board is visible on your roadmap. Turn it off
+                  if you don’t want your board and its posts to be shown there.
+                </p>
+              </div>
+
+              <div>
+                <Controller
+                  name="Indexed"
+                  control={control}
+                  defaultValue={false}
+                  render={({ field }) => (
+                    <Switch
+                      labelText="Indexed"
+                      name="Indexed"
+                      value="Indexed"
+                      type="secondary"
+                      size="big"
+                      field={field}
+                    />
+                  )}
+                />
+                <p className="caption  radio-text">
+                  By default, your board will be indexed by search engines like
+                  Google. Turn it off if you don’t want that
+                </p>
+              </div>
+            </div>
+          </fieldset>
+
+          <fieldset className="form__fieldset">
             <div className="form__block">
               <div>
                 <Controller
