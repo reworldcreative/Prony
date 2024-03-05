@@ -50,14 +50,15 @@ const Switch: FC<SwitchProps> = ({
             }
           : { onChange: handleChange, ref: inputRef })}
       />
-      <label className="switch__block" htmlFor={value}>
+      <div className="switch__block">
         <div className="switch" />
-        <p
+        <label
           className={`switch__label text ${size === "big" ? "heading-h6" : ""}`}
+          htmlFor={name}
         >
           {labelText}
-        </p>
-      </label>
+        </label>
+      </div>
     </div>
   );
 };

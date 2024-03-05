@@ -19,6 +19,9 @@
   &__container {
     position: absolute;
     max-height: 80%;
+    max-width: 90%;
+    width: 90vw;
+    box-sizing: border-box;
     overflow-y: auto;
     z-index: 101;
     top: 50%;
@@ -89,5 +92,13 @@
   }
   100% {
     display: none;
+  }
+}
+
+@include Small-Tablet() {
+  .popUp {
+    &__container {
+      padding: 20px;
+    }
   }
 }
