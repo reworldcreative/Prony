@@ -11,6 +11,7 @@ type CheckboxProps = {
   size?: "medium" | "big";
   getCheckboxValue?: (value: boolean) => void;
   field?: RegisterOptions<FieldValues>;
+  defaultChecked?: boolean;
 };
 
 const Checkbox: FC<CheckboxProps> = ({
@@ -22,6 +23,7 @@ const Checkbox: FC<CheckboxProps> = ({
   type = "default",
   size = "medium",
   getCheckboxValue = () => {},
+  defaultChecked,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,6 +43,7 @@ const Checkbox: FC<CheckboxProps> = ({
         value={value}
         disabled={type === "disabled"}
         tabIndex={type === "disabled" ? -1 : 0}
+        defaultChecked={defaultChecked}
         {...(field
           ? {
               onChange: (e) => {

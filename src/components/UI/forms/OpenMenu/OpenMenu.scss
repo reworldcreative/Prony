@@ -3,7 +3,54 @@
 
 .openMenu {
   border-top: 1.5px solid var(--Primary);
-  display: grid;
+  display: none;
   position: absolute;
   background: var(--BG);
+  z-index: 10;
+
+  &_open {
+    animation: fadeIN 0.5s ease-in-out;
+    display: grid;
+  }
+
+  &__item {
+    cursor: pointer;
+    border: none;
+    padding: 12px 17px 11px 17px;
+    background-color: var(--BG);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+
+    &:hover {
+      background-color: var(--BGSecond);
+
+      .openMenu {
+        &__icon {
+          filter: invert(17%) sepia(14%) saturate(2800%) hue-rotate(205deg)
+            brightness(91%) contrast(98%);
+        }
+      }
+    }
+  }
+
+  &__icon {
+    margin-right: 27px;
+    filter: invert(44%) sepia(10%) saturate(9%) hue-rotate(316deg)
+      brightness(99%) contrast(81%);
+  }
+
+  &__text {
+    color: var(--Primary);
+  }
+}
+
+@keyframes fadeIN {
+  0% {
+    display: none;
+  }
+  100% {
+    display: block;
+  }
 }

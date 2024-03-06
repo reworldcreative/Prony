@@ -5,6 +5,7 @@ import lock from "@/assets/img/icons/lock.svg";
 import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
 import { Link } from "react-router-dom";
+import { PopUpData } from "./Boards";
 
 interface BoardsItemProps {
   id: number;
@@ -12,14 +13,21 @@ interface BoardsItemProps {
   posts: number;
   locked: boolean;
   privacy: boolean;
+  On_roadmap: boolean;
+  Indexed: boolean;
+  Post_pre_approval: boolean;
+  Anonymous_voting: boolean;
+  URL: string;
+  description: string;
 }
 
 interface Props {
   item: BoardsItemProps;
   lockItem: (lock: boolean) => void;
+  openPopUp: (data: PopUpData) => void;
 }
 
-const BoardsItem: FC<Props> = ({ item, lockItem }) => {
+const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
   const controls = useDragControls();
   const [lockedMove, setLockedMove] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -37,6 +45,8 @@ const BoardsItem: FC<Props> = ({ item, lockItem }) => {
       icon: "./img/icons/menu/gear.svg",
       text: "Edit board settings",
       url: "/",
+      onClick: () =>
+        openPopUp({ title: "Edit Board", type: "edit", formData: item }),
     },
     { icon: "./img/icons/menu/list.svg", text: "List board tags", url: "/" },
     { icon: "./img/icons/menu/pen.svg", text: "Edit board post", url: "/" },
@@ -112,14 +122,16 @@ const BoardsItem: FC<Props> = ({ item, lockItem }) => {
 
           <OpenMenu
             isOpen={isOpenMenu}
-            addClass={`boards__openMenu ${
-              isOpenMenu ? "boards__openMenu_open" : ""
-            }`}
+            addClass={`boards__openMenu ${isOpenMenu ? "openMenu_open" : ""}`}
             ariaHidden={!isOpenMenu}
             openButton={openMenuButtonRef}
           >
             {openMenuLinks.map((link, index) => (
-              <Link to={link.url} className="openMenu__item" key={index}>
+              <button
+                onClick={link.onClick}
+                className="openMenu__item"
+                key={index}
+              >
                 <img
                   src={link.icon}
                   className="openMenu__icon"
@@ -129,7 +141,7 @@ const BoardsItem: FC<Props> = ({ item, lockItem }) => {
                   height="20"
                 />
                 <span className="text openMenu__text">{link.text}</span>
-              </Link>
+              </button>
             ))}
           </OpenMenu>
         </div>

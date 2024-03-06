@@ -5,6 +5,10 @@
   width: 100%;
   max-width: 1800px;
 
+  &__title{
+    margin-bottom: 15px;
+  }
+
   &__wrapper,
   &__section {
     display: flex;

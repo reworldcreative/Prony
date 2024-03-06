@@ -11,6 +11,7 @@ type SwitchProps = {
   size?: "medium" | "big";
   getSwitchValue?: (value: boolean) => void;
   field?: RegisterOptions<FieldValues>;
+  defaultChecked?: boolean;
 };
 
 const Switch: FC<SwitchProps> = ({
@@ -22,6 +23,7 @@ const Switch: FC<SwitchProps> = ({
   type = "default",
   size = "medium",
   getSwitchValue = () => {},
+  defaultChecked,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -42,6 +44,7 @@ const Switch: FC<SwitchProps> = ({
         value={value}
         disabled={type === "disabled"}
         tabIndex={type === "disabled" ? -1 : 0}
+        defaultChecked={defaultChecked}
         {...(field
           ? {
               onChange: (e) => {
@@ -51,7 +54,7 @@ const Switch: FC<SwitchProps> = ({
           : { onChange: handleChange, ref: inputRef })}
       />
       <div className="switch__block">
-        <div className="switch" />
+        <label className="switch" htmlFor={name} />
         <label
           className={`switch__label text ${size === "big" ? "heading-h6" : ""}`}
           htmlFor={name}

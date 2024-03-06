@@ -2,29 +2,53 @@
   {
     "id": 1,
     "name": "Send status updates back through Intercom ",
+    "description": "",
+    "URL": "",
     "posts": 12,
     "locked": true,
-    "privacy": true
+    "privacy": true,
+    "On_roadmap": false,
+    "Indexed": false,
+    "Post_pre_approval": false,
+    "Anonymous_voting": false
   },
   {
     "id": 2,
     "name": "Send status updates back through Intercom ",
+    "description": "",
+    "URL": "",
     "posts": 13,
     "locked": true,
-    "privacy": true
+    "privacy": true,
+    "On_roadmap": false,
+    "Indexed": false,
+    "Post_pre_approval": false,
+    "Anonymous_voting": false
   },
   {
     "id": 3,
     "name": "Send status updates back through Intercom ",
+    "description": "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia saepe quos error dicta sed.",
+    "URL": "http://test",
     "posts": 14,
     "locked": true,
-    "privacy": true
+    "privacy": true,
+    "On_roadmap": false,
+    "Indexed": false,
+    "Post_pre_approval": false,
+    "Anonymous_voting": false
   },
   {
     "id": 4,
     "name": "Send status updates back through Intercom ",
+    "description": "",
+    "URL": "",
     "posts": 15,
     "locked": true,
-    "privacy": true
+    "privacy": true,
+    "On_roadmap": false,
+    "Indexed": false,
+    "Post_pre_approval": false,
+    "Anonymous_voting": false
   }
 ]

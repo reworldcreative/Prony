@@ -12,6 +12,7 @@ type RadioButtonProps = {
   size?: "medium" | "big";
   getRadioValue?: (value: string) => void;
   field?: RegisterOptions<FieldValues>;
+  defaultChecked?: boolean;
 };
 
 const RadioButton: FC<RadioButtonProps> = ({
@@ -24,6 +25,7 @@ const RadioButton: FC<RadioButtonProps> = ({
   type = "default",
   size = "medium",
   getRadioValue = () => {},
+  defaultChecked,
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
@@ -41,6 +43,7 @@ const RadioButton: FC<RadioButtonProps> = ({
         name={group}
         value={value}
         checked={selectedValue === value}
+        // defaultChecked={defaultChecked}
         disabled={type === "disabled"}
         tabIndex={type === "disabled" ? -1 : 0}
         {...(field

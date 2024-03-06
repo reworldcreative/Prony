@@ -6,6 +6,7 @@ import "./TextArea.scss";
 interface TextAreaProps {
   label?: string;
   name: string;
+  value?: string;
   rows?: number;
   getValue?: (value: string) => void;
   messageType?: "error" | "success" | "";
@@ -17,6 +18,7 @@ interface TextAreaProps {
 const TextArea: FC<TextAreaProps> = ({
   label,
   name,
+  value,
   rows = 3,
   settings,
   register,
@@ -45,6 +47,7 @@ const TextArea: FC<TextAreaProps> = ({
         }`}
         id={name}
         {...(register ? register(name, settings) : { onChange: handleChange })}
+        defaultValue={value}
       />
       {messageType !== "" && messageText !== "" && (
         <p

@@ -12,7 +12,6 @@ import PopUp from "@/components/widgets/PopUp/PopUp";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import CreateForm from "./forms/CreateForm/CreateForm";
 import { FieldValues } from "react-hook-form";
-import Switch from "@/components/UI/forms/Switch/Switch";
 
 type BoardMessageType = {
   visible: boolean;
@@ -26,13 +25,39 @@ const initialBoardMessageState: BoardMessageType = {
   type: "success",
 };
 
+type PopUpData = {
+  title: string;
+  type: "create" | "edit" | "";
+  formData?: BoardsItemProps;
+};
+
+export { PopUpData };
+
 const Boards: FC = () => {
   const [boards, setBoards] = useState(boardsData);
   const [newBoardData, setNewBoardData] = useState<FieldValues>();
   const [boardMessage, setBoardMessage] = useState<BoardMessageType>(
     initialBoardMessageState
   );
+  const defaultBoardsItem: BoardsItemProps = {
+    id: 0,
+    name: "",
+    posts: 0,
+    locked: false,
+    privacy: false,
+    On_roadmap: false,
+    Indexed: false,
+    Post_pre_approval: false,
+    Anonymous_voting: false,
+    URL: "",
+    description: "",
+  };
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+  const [PopUpData, setPopUpData] = useState<PopUpData>({
+    title: "",
+    type: "create",
+    formData: defaultBoardsItem,
+  });
 
   const canMove = (newBoards: BoardsItemProps[]) => {
     let newList: BoardsItemProps[] = [];
@@ -61,7 +86,39 @@ const Boards: FC = () => {
     boards[index].locked = lock;
   };
 
-  const handleOpenPopUp = () => {
+  const handleOpenCreateBoardPopUp = () => {
+    setPopUpData({
+      title: "Create board",
+      type: "create",
+    });
+    setOpenPopUp(true);
+  };
+
+  const handleEditBoard = (data: FieldValues) => {
+    const editBoardIndex = boards.findIndex((board) => board.id === data.id);
+    const newItem: BoardsItemProps = {
+      id: data.id,
+      name: data.boardName,
+      posts: data.posts,
+      locked: data.status === "locked" ? true : false,
+      privacy: data.privacy === "private" ? true : false,
+      Anonymous_voting: data.Anonymous_voting,
+      Indexed: data.Indexed,
+      On_roadmap: data.On_roadmap,
+      Post_pre_approval: data.Post_pre_approval,
+      URL: data.URL,
+      description: data.description,
+    };
+
+    boards[editBoardIndex] = newItem;
+  };
+
+  const handleSetPopUpData = (data: PopUpData) => {
+    setPopUpData({
+      title: data.title,
+      type: data.type,
+      formData: data.formData,
+    });
     setOpenPopUp(true);
   };
 
@@ -90,8 +147,14 @@ const Boards: FC = () => {
       id: boards.length + 1,
       name: data.boardName,
       posts: 0,
-      locked: true,
-      privacy: true,
+      locked: data.status === "locked" ? true : false,
+      privacy: data.privacy === "private" ? true : false,
+      Anonymous_voting: data.Anonymous_voting,
+      Indexed: data.Indexed,
+      On_roadmap: data.On_roadmap,
+      Post_pre_approval: data.Post_pre_approval,
+      URL: data.URL,
+      description: data.description,
     };
     boards.push(newItem);
     showMessage("This is a success message!", "success");
@@ -100,7 +163,21 @@ const Boards: FC = () => {
   return (
     <>
       <PopUp>
-        <CreateForm submitSuccess={handleCreateNewBoard} />
+        {(PopUpData.type === "create" || PopUpData.type === "edit") && (
+          <CreateForm
+            submitSuccess={
+              PopUpData.type === "create"
+                ? handleCreateNewBoard
+                : PopUpData.type === "edit"
+                ? handleEditBoard
+                : () => {}
+            }
+            formTitle={PopUpData.title}
+            formData={
+              PopUpData.type === "edit" ? PopUpData.formData : defaultBoardsItem
+            }
+          />
+        )}
       </PopUp>
 
       <Header />
@@ -115,7 +192,7 @@ const Boards: FC = () => {
             <div className="board-MainSection__top">
               <h1 className="title board-MainSection__title">Boards</h1>
 
-              <Button type="primary" click={handleOpenPopUp}>
+              <Button type="primary" click={handleOpenCreateBoardPopUp}>
                 Create Board
               </Button>
             </div>
@@ -147,6 +224,7 @@ const Boards: FC = () => {
                     item={board}
                     key={index}
                     lockItem={lockItem.bind(null, index)}
+                    openPopUp={handleSetPopUpData}
                   />
                 ))}
               </Reorder.Group>

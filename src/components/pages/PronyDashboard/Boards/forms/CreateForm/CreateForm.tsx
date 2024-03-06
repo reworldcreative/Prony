@@ -1,4 +1,4 @@
-import React, { FC, useContext } from "react";
+import React, { FC, useContext, useEffect } from "react";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 import "./CreateForm.scss";
 import Input from "@/components/UI/forms/Input/Input";
@@ -8,12 +8,15 @@ import TextArea from "@/components/UI/forms/TextArea/TextArea";
 import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
 import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
 import Switch from "@/components/UI/forms/Switch/Switch";
+import { BoardsItemProps } from "../../BoardsItem";
 
 interface formProps {
-  submitSuccess: (data: FieldValues) => void;
+  submitSuccess: (data: BoardsItemProps) => void;
+  formTitle: string;
+  formData: BoardsItemProps;
 }
 
-const CreateForm: FC<formProps> = ({ submitSuccess }) => {
+const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const {
     register,
@@ -26,11 +29,14 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
     mode: "onChange",
   });
 
-  const onSubmit = (data: FieldValues) => {
-    submitSuccess(data);
+  useEffect(() => {
+    reset();
+  }, [isOpenPopUp]);
+
+  const onSubmit = (data: BoardsItemProps) => {
+    submitSuccess({ ...data, id: formData.id, posts: formData.posts });
     reset();
     setOpenPopUp(false);
-    console.log(data);
   };
 
   const onCancel = () => {
@@ -39,6 +45,8 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
   };
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
+      <h2 className="form__title title">{formTitle}</h2>
+
       <div className="form__wrapper">
         <fieldset className="form__fieldset">
           <legend className="visibility-hidden">main information</legend>
@@ -47,6 +55,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
             name="boardName"
             register={register}
             messageType={errors.boardName ? "error" : ""}
+            value={formData ? formData.name : ""}
             settings={{
               required: "Board name should be unique",
               minLength: { value: 3, message: "Minimum length should be 3" },
@@ -59,6 +68,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
             name="URL"
             register={register}
             messageType={errors.URL ? "error" : ""}
+            value={formData ? formData.URL : ""}
             settings={{
               required: "Invalid URL format",
               pattern: {
@@ -75,6 +85,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
             rows={4}
             register={register}
             messageType={errors.description ? "error" : ""}
+            value={formData ? formData.description : ""}
             settings={{
               required: "Invalid description",
               minLength: { value: 10, message: "Minimum length should be 10" },
@@ -105,6 +116,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       size="big"
                       type="secondary"
                       field={field}
+                      defaultChecked={formData && !formData.privacy}
                     />
                   )}
                 />
@@ -128,6 +140,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       size="big"
                       type="secondary"
                       field={field}
+                      defaultChecked={formData && formData.privacy}
                     />
                   )}
                 />
@@ -155,6 +168,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       size="big"
                       type="secondary"
                       field={field}
+                      defaultChecked={formData && formData.locked}
                     />
                   )}
                 />
@@ -177,6 +191,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       size="big"
                       type="secondary"
                       field={field}
+                      defaultChecked={formData && !formData.locked}
                     />
                   )}
                 />
@@ -189,17 +204,18 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
             <div className="form__block">
               <div>
                 <Controller
-                  name="On-roadmap"
+                  name="On_roadmap"
                   control={control}
                   defaultValue={false}
                   render={({ field }) => (
                     <Switch
                       labelText="Board on roadmap"
-                      name="On-roadmap"
-                      value="On-roadmap"
+                      name="On_roadmap"
+                      value="On_roadmap"
                       type="secondary"
                       size="big"
                       field={field}
+                      defaultChecked={formData && formData.On_roadmap}
                     />
                   )}
                 />
@@ -222,6 +238,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
                       type="secondary"
                       size="big"
                       field={field}
+                      defaultChecked={formData ? formData.Indexed : false}
                     />
                   )}
                 />
@@ -237,17 +254,20 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
             <div className="form__block">
               <div>
                 <Controller
-                  name="Post-pre-approval"
+                  name="Post_pre_approval"
                   control={control}
                   defaultValue={false}
                   render={({ field }) => (
                     <Checkbox
                       labelText="Post require pre approval"
-                      name="Post-pre-approval"
-                      value="Post-pre-approval"
+                      name="Post_pre_approval"
+                      value="Post_pre_approval"
                       type="secondary"
                       size="big"
                       field={field}
+                      defaultChecked={
+                        formData ? formData.Post_pre_approval : false
+                      }
                     />
                   )}
                 />
@@ -259,17 +279,20 @@ const CreateForm: FC<formProps> = ({ submitSuccess }) => {
 
               <div>
                 <Controller
-                  name="Anonymous-voting"
+                  name="Anonymous_voting"
                   control={control}
                   defaultValue={false}
                   render={({ field }) => (
                     <Checkbox
                       labelText="Anonymous voting"
-                      name="Anonymous-voting"
-                      value="Anonymous-voting"
+                      name="Anonymous_voting"
+                      value="Anonymous_voting"
                       type="secondary"
                       size="big"
                       field={field}
+                      defaultChecked={
+                        formData ? formData.Anonymous_voting : false
+                      }
                     />
                   )}
                 />
