@@ -50,7 +50,12 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
     },
     { icon: "./img/icons/menu/list.svg", text: "List board tags", url: "/" },
     { icon: "./img/icons/menu/pen.svg", text: "Edit board post", url: "/" },
-    { icon: "./img/icons/menu/cross.svg", text: "Delete board", url: "/" },
+    {
+      icon: "./img/icons/menu/cross.svg",
+      text: "Delete board",
+      url: "/",
+      onClick: () => openPopUp({ title: "Delete board", type: "delete" }),
+    },
     { icon: "./img/icons/menu/message.svg", text: "View posts", url: "/" },
   ];
 

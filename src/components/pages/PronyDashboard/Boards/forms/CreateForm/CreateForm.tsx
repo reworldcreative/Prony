@@ -59,7 +59,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
             settings={{
               required: "Board name should be unique",
               minLength: { value: 3, message: "Minimum length should be 3" },
-              maxLength: { value: 30, message: "Maximum length should be 30" },
+              maxLength: { value: 50, message: "Maximum length should be 30" },
             }}
             messageText={errors?.boardName?.message.toString() || "error!"}
           />

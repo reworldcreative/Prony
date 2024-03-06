@@ -12,6 +12,7 @@ import PopUp from "@/components/widgets/PopUp/PopUp";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import CreateForm from "./forms/CreateForm/CreateForm";
 import { FieldValues } from "react-hook-form";
+import DeleteForm from "./forms/DeleteForm/DeleteForm";
 
 type BoardMessageType = {
   visible: boolean;
@@ -27,7 +28,7 @@ const initialBoardMessageState: BoardMessageType = {
 
 type PopUpData = {
   title: string;
-  type: "create" | "edit" | "";
+  type: "create" | "edit" | "delete" | "";
   formData?: BoardsItemProps;
 };
 
@@ -159,6 +160,13 @@ const Boards: FC = () => {
     showMessage("This is a success message!", "success");
   };
 
+  const handleDeleteBoard = (name: string) => {
+    const newBoardsArray = boards.filter(
+      (board) => board.name.toLowerCase().trim() !== name.toLowerCase().trim()
+    );
+    setBoards(newBoardsArray);
+  };
+
   return (
     <>
       <PopUp>
@@ -175,6 +183,13 @@ const Boards: FC = () => {
             formData={
               PopUpData.type === "edit" ? PopUpData.formData : defaultBoardsItem
             }
+          />
+        )}
+
+        {PopUpData.type === "delete" && (
+          <DeleteForm
+            formTitle={PopUpData.title}
+            submitSuccess={handleDeleteBoard}
           />
         )}
       </PopUp>

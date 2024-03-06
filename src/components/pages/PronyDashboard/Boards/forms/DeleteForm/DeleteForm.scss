@@ -1,0 +1,31 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.deleteForm {
+  width: 100%;
+  max-width: 1200px;
+
+  &__title {
+    margin-bottom: 15px;
+  }
+
+  &__text {
+    margin-bottom: 25px;
+  }
+
+  &__buttons {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 40px;
+
+    .form__button {
+      &:first-child {
+        margin-right: 22px;
+      }
+    }
+  }
+
+  &__button {
+    padding: 8px 51px;
+  }
+}
