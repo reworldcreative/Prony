@@ -35,7 +35,6 @@ export { PopUpData };
 
 const Boards: FC = () => {
   const [boards, setBoards] = useState(boardsData);
-  const [newBoardData, setNewBoardData] = useState<FieldValues>();
   const [boardMessage, setBoardMessage] = useState<BoardMessageType>(
     initialBoardMessageState
   );
@@ -142,9 +141,9 @@ const Boards: FC = () => {
   };
 
   const handleCreateNewBoard = (data: FieldValues) => {
-    setNewBoardData(data);
+    const ids = boards.map(({ id }) => id);
     const newItem: BoardsItemProps = {
-      id: boards.length + 1,
+      id: Math.max(...ids) + 1,
       name: data.boardName,
       posts: 0,
       locked: data.status === "locked" ? true : false,

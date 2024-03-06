@@ -84,7 +84,11 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
         {item.posts} <span className="visibility-hidden">posts</span>
       </p>
       <div className="boards__settings">
-        <button className="boards__button" aria-label="visibility change">
+        <button
+          title="visibility change"
+          className="boards__button"
+          aria-label="visibility change"
+        >
           <img
             className="boards__icon"
             src={eye}
@@ -96,6 +100,7 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
         </button>
 
         <button
+          title="privacy change"
           className={`boards__button ${
             lockedMove ? "boards__button_active" : ""
           }`}
@@ -114,6 +119,7 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
 
         <div aria-live="assertive">
           <OptionButton
+            title="open options menu"
             label={isOpenMenu ? "close" : "open"}
             addClass="boards__button boards__button-menu"
             click={() => setIsOpenMenu(!isOpenMenu)}

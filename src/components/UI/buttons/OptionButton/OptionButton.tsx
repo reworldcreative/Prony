@@ -5,9 +5,11 @@ const OptionButton: FC<{
   buttonRef?: React.RefObject<HTMLButtonElement>;
   label?: string;
   addClass?: string;
-}> = ({ click, buttonRef, label, addClass }) => {
+  title?: string;
+}> = ({ click, buttonRef, label, addClass, title }) => {
   return (
     <button
+      title={title ? title : ""}
       className={`optionButton ${addClass}`}
       aria-label={`click to ${label} more option`}
       onClick={click}
