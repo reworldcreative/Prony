@@ -175,6 +175,7 @@ const Boards: FC = () => {
       privacy: !boards[editBoardIndex].privacy,
     };
     boards[editBoardIndex] = newItem;
+    setBoards([...boards]);
   };
 
   return (

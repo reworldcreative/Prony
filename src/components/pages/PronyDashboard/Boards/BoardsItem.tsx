@@ -1,4 +1,4 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import { Reorder, useDragControls } from "framer-motion";
 import eye from "@/assets/img/icons/eye.svg";
 import lock from "@/assets/img/icons/lock.svg";
@@ -37,7 +37,6 @@ const BoardsItem: FC<Props> = ({
   const controls = useDragControls();
   const [lockedMove, setLockedMove] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
-  const [isPrivate, setIsPrivate] = useState(item.privacy);
 
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -48,7 +47,6 @@ const BoardsItem: FC<Props> = ({
 
   const handleChangePrivacy = () => {
     changePrivacy(item);
-    setIsPrivate(!isPrivate);
   };
 
   const openMenuLinks = [
@@ -104,7 +102,7 @@ const BoardsItem: FC<Props> = ({
         <button
           title="visibility change"
           className={`boards__button ${
-            isPrivate ? "boards__button_active" : ""
+            item.privacy ? "boards__button_active" : ""
           }`}
           aria-label="visibility change"
           onClick={handleChangePrivacy}
