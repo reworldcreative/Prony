@@ -165,6 +165,16 @@ const Boards: FC = () => {
       (board) => board.name.toLowerCase().trim() !== name.toLowerCase().trim()
     );
     setBoards(newBoardsArray);
+    showMessage("Board has been deleted!", "danger");
+  };
+
+  const handleChangeItemPrivacy = (data: BoardsItemProps) => {
+    const editBoardIndex = boards.findIndex((board) => board.id === data.id);
+    const newItem: BoardsItemProps = {
+      ...boards[editBoardIndex],
+      privacy: !boards[editBoardIndex].privacy,
+    };
+    boards[editBoardIndex] = newItem;
   };
 
   return (
@@ -239,6 +249,7 @@ const Boards: FC = () => {
                     key={index}
                     lockItem={lockItem.bind(null, index)}
                     openPopUp={handleSetPopUpData}
+                    changePrivacy={handleChangeItemPrivacy}
                   />
                 ))}
               </Reorder.Group>

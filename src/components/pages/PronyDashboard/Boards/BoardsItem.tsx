@@ -25,18 +25,30 @@ interface Props {
   item: BoardsItemProps;
   lockItem: (lock: boolean) => void;
   openPopUp: (data: PopUpData) => void;
+  changePrivacy: (data: BoardsItemProps) => void;
 }
 
-const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
+const BoardsItem: FC<Props> = ({
+  item,
+  lockItem,
+  openPopUp,
+  changePrivacy,
+}) => {
   const controls = useDragControls();
   const [lockedMove, setLockedMove] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
+  const [isPrivate, setIsPrivate] = useState(item.privacy);
 
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
 
   const handleChangeLockedMove = () => {
     setLockedMove(!lockedMove);
     lockItem(lockedMove);
+  };
+
+  const handleChangePrivacy = () => {
+    changePrivacy(item);
+    setIsPrivate(!isPrivate);
   };
 
   const openMenuLinks = [
@@ -91,8 +103,11 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp }) => {
       <div className="boards__settings">
         <button
           title="visibility change"
-          className="boards__button"
+          className={`boards__button ${
+            isPrivate ? "boards__button_active" : ""
+          }`}
           aria-label="visibility change"
+          onClick={handleChangePrivacy}
         >
           <img
             className="boards__icon"
