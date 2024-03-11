@@ -3,4 +3,16 @@
 
 .breadcrumbs {
   margin: 10px 0px;
+  display: flex;
+  align-items: center;
+
+  &__item {
+    &_active {
+      color: var(--Primary);
+    }
+  }
+
+  &__divider {
+    margin: 0px 5px;
+  }
 }

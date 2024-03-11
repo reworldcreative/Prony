@@ -28,12 +28,7 @@ interface Props {
   changePrivacy: (data: BoardsItemProps) => void;
 }
 
-const BoardsItem: FC<Props> = ({
-  item,
-  lockItem,
-  openPopUp,
-  changePrivacy,
-}) => {
+const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp, changePrivacy }) => {
   const controls = useDragControls();
   const [lockedMove, setLockedMove] = useState(false);
   const [isOpenMenu, setIsOpenMenu] = useState(false);
@@ -50,16 +45,25 @@ const BoardsItem: FC<Props> = ({
   };
 
   const openMenuLinks = [
-    { icon: "./img/icons/eye.svg", text: "Public view", url: "/" },
+    {
+      icon: "./img/icons/eye.svg",
+      text: `${item.privacy ? "Public" : "Private"} view`,
+      url: "/",
+      onClick: handleChangePrivacy,
+    },
     {
       icon: "./img/icons/menu/gear.svg",
       text: "Edit board settings",
       url: "/",
-      onClick: () =>
-        openPopUp({ title: "Edit Board", type: "edit", formData: item }),
+      onClick: () => openPopUp({ title: "Edit Board", type: "edit", formData: item }),
     },
     { icon: "./img/icons/menu/list.svg", text: "List board tags", url: "/" },
-    { icon: "./img/icons/menu/pen.svg", text: "Edit board post", url: "/" },
+    {
+      icon: "./img/icons/menu/pen.svg",
+      text: "Edit board post",
+      url: "/",
+      onClick: () => openPopUp({ title: "Edit board post form", type: "editPost" }),
+    },
     {
       icon: "./img/icons/menu/cross.svg",
       text: "Delete board",
@@ -69,18 +73,18 @@ const BoardsItem: FC<Props> = ({
     { icon: "./img/icons/menu/message.svg", text: "View posts", url: "/" },
   ];
 
+  const [dragging, setDragging] = useState(false);
   return (
-    <Reorder.Item
-      className="boards__item"
-      value={item}
-      dragListener={false}
-      dragControls={controls}
-    >
+    <Reorder.Item className="boards__item" value={item} dragListener={false} dragControls={controls}>
       <div
-        className={`boards__item_drag ${
-          !lockedMove ? "dragOn" : ""
-        } reorder-handle`}
-        onPointerDown={(e) => !lockedMove && controls.start(e)}
+        className={`drag boards__item_drag ${!lockedMove ? "dragOn" : ""} ${dragging ? "dragging" : ""} reorder-handle`}
+        onPointerDown={(e) => {
+          setDragging(true);
+          !lockedMove && controls.start(e);
+        }}
+        onPointerUp={(e) => {
+          setDragging(false);
+        }}
       >
         <div className="dot__col">
           <div className="dot" />
@@ -101,38 +105,20 @@ const BoardsItem: FC<Props> = ({
       <div className="boards__settings">
         <button
           title="visibility change"
-          className={`boards__button ${
-            item.privacy ? "boards__button_active" : ""
-          }`}
+          className={`boards__button ${item.privacy ? "boards__button_active" : ""}`}
           aria-label="visibility change"
           onClick={handleChangePrivacy}
         >
-          <img
-            className="boards__icon"
-            src={eye}
-            alt="visibility"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          />
+          <img className="boards__icon" src={eye} alt="visibility" width="24" height="24" aria-hidden="true" />
         </button>
 
         <button
           title="privacy change"
-          className={`boards__button ${
-            lockedMove ? "boards__button_active" : ""
-          }`}
+          className={`boards__button ${lockedMove ? "boards__button_active" : ""}`}
           aria-label={`${lockedMove ? "unlock" : "lock"} move`}
           onClick={handleChangeLockedMove}
         >
-          <img
-            className="boards__icon"
-            src={lock}
-            alt="lock"
-            width="24"
-            height="24"
-            aria-hidden="true"
-          />
+          <img className="boards__icon" src={lock} alt="lock" width="24" height="24" aria-hidden="true" />
         </button>
 
         <div aria-live="assertive">
@@ -151,11 +137,7 @@ const BoardsItem: FC<Props> = ({
             openButton={openMenuButtonRef}
           >
             {openMenuLinks.map((link, index) => (
-              <button
-                onClick={link.onClick}
-                className="openMenu__item"
-                key={index}
-              >
+              <button onClick={link.onClick} className="openMenu__item" key={index}>
                 <img
                   src={link.icon}
                   className="openMenu__icon"

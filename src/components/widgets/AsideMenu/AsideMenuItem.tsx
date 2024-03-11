@@ -14,10 +14,7 @@ interface SubMenuItem {
   url: string;
 }
 
-const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
-  item,
-  active,
-}) => {
+const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active }) => {
   const [isSubmenuOpen, setIsSubmenuOpen] = useState(false);
   const toggleSubmenuOpen = () => {
     setIsSubmenuOpen(!isSubmenuOpen);
@@ -41,9 +38,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
         {item.submenu && (
           <button
             className="asideMenu__sub-button"
-            aria-label={`${isSubmenuOpen ? "close" : "open"} ${
-              item.text
-            } sub menu`}
+            aria-label={`${isSubmenuOpen ? "close" : "open"} ${item.text} sub menu`}
             onClick={toggleSubmenuOpen}
           >
             <img
@@ -60,11 +55,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({
       {isSubmenuOpen && (
         <div className="asideMenu__submenu">
           {item.submenu.map((subItem, subIndex) => (
-            <Link
-              key={subIndex}
-              to={subItem.url}
-              className="asideMenu__submenu-link caption"
-            >
+            <Link key={subIndex} to={subItem.url} className="asideMenu__submenu-link caption">
               {subItem.text}
             </Link>
           ))}

@@ -5,7 +5,7 @@
   width: 100%;
   max-width: 1800px;
 
-  &__title{
+  &__title {
     margin-bottom: 15px;
   }
 
@@ -68,22 +68,6 @@
     &:nth-child(4) {
       margin-bottom: 0;
     }
-  }
-
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-
-    .form__button {
-      &:first-child {
-        margin-right: 22px;
-      }
-    }
-  }
-
-  &__button {
-    padding: 8px 51px;
   }
 }
 

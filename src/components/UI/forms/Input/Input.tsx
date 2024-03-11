@@ -7,6 +7,7 @@ interface InputProps {
   name: string;
   getValue?: (value: string) => void;
   value?: string;
+  placeholder?: string;
   messageType?: "error" | "success" | "";
   messageText?: string;
   register?: UseFormRegister<FieldValues>;
@@ -22,6 +23,7 @@ const Input: FC<InputProps> = ({
   messageText,
   getValue,
   value,
+  placeholder,
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -42,15 +44,10 @@ const Input: FC<InputProps> = ({
         id={name}
         {...(register ? register(name, settings) : { onChange: handleChange })}
         defaultValue={value}
+        placeholder={placeholder}
       />
       {messageType !== "" && messageText !== "" && (
-        <p
-          className={`input__message text ${
-            messageType ? `input__message_${messageType}` : ""
-          }`}
-        >
-          {messageText}
-        </p>
+        <p className={`input__message text ${messageType ? `input__message_${messageType}` : ""}`}>{messageText}</p>
       )}
     </div>
   );

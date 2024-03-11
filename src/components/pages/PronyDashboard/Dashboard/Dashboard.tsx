@@ -11,22 +11,19 @@ import Activities from "./Activities/Activities";
 const Dashboard: FC = () => {
   return (
     <>
-      <Header />
-      <div className="pageContainer">
-        <AsideMenu />
-        <main className="pageContainer__main">
-          <section className="dashboard-MainSection">
-            <Breadcrumbs />
-            <h1 className="title dashboard-MainSection__title">Dashboard</h1>
-            <StatisticList />
-            <StatisticProvider>
-              <Chart />
-            </StatisticProvider>
-          </section>
+      <section className="dashboard-MainSection">
+        <Breadcrumbs />
 
-          <Activities />
-        </main>
-      </div>
+        <h1 className="title dashboard-MainSection__title">Dashboard</h1>
+
+        <StatisticList />
+
+        <StatisticProvider>
+          <Chart />
+        </StatisticProvider>
+      </section>
+
+      <Activities />
     </>
   );
 };

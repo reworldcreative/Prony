@@ -1,0 +1,59 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.addField {
+  z-index: 10;
+  display: none;
+  position: absolute;
+  width: 50%;
+  background: var(--BG);
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow: 0px 0px 50px var(--TextPrimary);
+  padding: 25px 0px;
+
+  &_open {
+    display: block;
+  }
+
+  &__block {
+    margin: 15px 0px 33px;
+  }
+
+  &__item {
+    cursor: pointer;
+    width: 100%;
+    padding: 15px 35px;
+    margin: 0;
+    border: none;
+    display: grid;
+    text-align: justify;
+    background: var(--BG);
+
+    &:hover {
+      background: rgba(117, 117, 117, 0.3);
+    }
+  }
+
+  .button {
+    margin: 0 30px 0 auto;
+    display: block;
+  }
+
+  .closeButton {
+    padding: 0;
+    margin: 0;
+    background: none;
+    border: none;
+    cursor: pointer;
+    display: block;
+    margin: 0 30px 0 auto;
+
+    &_dark {
+      img {
+        filter: invert(88%) sepia(100%) saturate(93%) hue-rotate(301deg) brightness(112%) contrast(112%);
+      }
+    }
+  }
+}

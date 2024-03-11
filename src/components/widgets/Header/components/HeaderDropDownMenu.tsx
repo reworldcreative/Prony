@@ -16,7 +16,7 @@ const HeaderDropDownMenu: FC<{
     <OpenMenu
       openButton={openButton}
       isOpen={isOpen}
-      addClass="headerDropDownMenu"
+      addClass={`headerDropDownMenu`}
     >
       {links.map((link, index) => (
         <Link

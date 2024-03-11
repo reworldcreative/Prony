@@ -1,11 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  useContext,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { FC, ReactNode, useContext, useEffect, useRef, useState } from "react";
 import "./PopUp.scss";
 import closeIcon from "@/assets/img/icons/close.svg";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
@@ -17,8 +10,7 @@ interface PopUpProps {
 const rootElement = document.getElementById("root");
 
 const PopUp: FC<PopUpProps> = ({ children }) => {
-  const { theme, setTheme, isOpenPopUp, setOpenPopUp } =
-    useContext(GlobalContext);
+  const { theme, setTheme, isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
 
   const popUpRef = useRef(null);
   const popUpCloseButtonRef = useRef(null);
@@ -32,9 +24,7 @@ const PopUp: FC<PopUpProps> = ({ children }) => {
   };
 
   useEffect(() => {
-    isOpenPopUp
-      ? rootElement.classList.add("scroll-lock")
-      : rootElement.classList.remove("scroll-lock");
+    isOpenPopUp ? rootElement.classList.add("scroll-lock") : rootElement.classList.remove("scroll-lock");
 
     return () => {
       rootElement.classList.remove("scroll-lock");
@@ -50,12 +40,7 @@ const PopUp: FC<PopUpProps> = ({ children }) => {
 
   return (
     <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
-      <div
-        className="popUp__container"
-        ref={popUpRef}
-        tabIndex={0}
-        aria-live="assertive"
-      >
+      <div className="popUp__container" ref={popUpRef} tabIndex={0} aria-live="assertive">
         {children}
         <button
           className="popUp__close"

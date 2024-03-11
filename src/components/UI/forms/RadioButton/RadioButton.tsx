@@ -34,9 +34,7 @@ const RadioButton: FC<RadioButtonProps> = ({
   };
 
   return (
-    <div
-      className={`radio__container ${type} ${size} ${addClass ? addClass : ""}`}
-    >
+    <div className={`radio__container ${type} ${size} ${addClass ? addClass : ""}`}>
       <input
         type="checkbox"
         id={value}
@@ -54,10 +52,7 @@ const RadioButton: FC<RadioButtonProps> = ({
             }
           : { onChange: handleChange, ref: inputRef })}
       />
-      <label
-        htmlFor={value}
-        className={`radio-label text ${size === "big" ? "heading-h6" : ""}`}
-      >
+      <label htmlFor={value} className={`radio-label text ${size === "big" ? "heading-h6" : ""}`}>
         {labelText}
       </label>
     </div>

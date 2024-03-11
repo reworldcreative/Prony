@@ -13,6 +13,7 @@ interface TextAreaProps {
   messageText?: string;
   register?: UseFormRegister<FieldValues>;
   settings?: RegisterOptions<FieldValues>;
+  placeholder?: string;
 }
 
 const TextArea: FC<TextAreaProps> = ({
@@ -25,6 +26,7 @@ const TextArea: FC<TextAreaProps> = ({
   messageType,
   messageText,
   getValue,
+  placeholder,
 }) => {
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
     const newValue = event.target.value;
@@ -42,21 +44,14 @@ const TextArea: FC<TextAreaProps> = ({
       )}
       <textarea
         rows={rows}
-        className={`input textArea text ${
-          messageType ? `input_${messageType}` : ""
-        }`}
+        placeholder={placeholder}
+        className={`input textArea text ${messageType ? `input_${messageType}` : ""}`}
         id={name}
         {...(register ? register(name, settings) : { onChange: handleChange })}
         defaultValue={value}
       />
       {messageType !== "" && messageText !== "" && (
-        <p
-          className={`input__message text ${
-            messageType ? `input__message_${messageType}` : ""
-          }`}
-        >
-          {messageText}
-        </p>
+        <p className={`input__message text ${messageType ? `input__message_${messageType}` : ""}`}>{messageText}</p>
       )}
     </div>
   );

@@ -4,6 +4,7 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 import { FieldValues, useForm } from "react-hook-form";
 import Input from "@/components/UI/forms/Input/Input";
 import Button from "@/components/UI/buttons/Button/Button";
+import FormButtons from "../FormButtons/FormButtons";
 
 interface formProps {
   submitSuccess: (name: string) => void;
@@ -59,25 +60,7 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
         messageText={errors?.boardName?.message.toString() || "error!"}
       />
 
-      <div className="deleteForm__buttons">
-        <Button
-          addClass="deleteForm__button"
-          type="default"
-          buttonType="button"
-          click={onCancel}
-        >
-          Cancel
-        </Button>
-
-        <Button
-          addClass="deleteForm__button"
-          type="danger"
-          buttonType="submit"
-          disabled={!isValid}
-        >
-          Delete
-        </Button>
-      </div>
+      <FormButtons isValid={isValid} onCancel={onCancel} type="danger" />
     </form>
   );
 };

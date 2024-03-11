@@ -1,6 +1,7 @@
-import React, { FC, useRef, useState } from "react";
+import React, { ChangeEvent, FC, useContext, useRef, useState } from "react";
 import { FieldValues, RegisterOptions } from "react-hook-form";
 import "./Switch.scss";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 
 type SwitchProps = {
   labelText: string;
@@ -27,16 +28,14 @@ const Switch: FC<SwitchProps> = ({
 }) => {
   const inputRef = useRef<HTMLInputElement>(null);
 
+  const theme = useContext(GlobalContext);
+
   const handleChange = () => {
     getSwitchValue(inputRef.current.checked);
   };
 
   return (
-    <div
-      className={`switch__container ${type} ${size} ${
-        addClass ? addClass : ""
-      }`}
-    >
+    <div className={`switch__container ${type} ${size} ${addClass ? addClass : ""}`}>
       <input
         type="checkbox"
         id={value}
@@ -54,11 +53,8 @@ const Switch: FC<SwitchProps> = ({
           : { onChange: handleChange, ref: inputRef })}
       />
       <div className="switch__block">
-        <label className="switch" htmlFor={name} />
-        <label
-          className={`switch__label text ${size === "big" ? "heading-h6" : ""}`}
-          htmlFor={name}
-        >
+        <label className={`switch ${theme.theme}`} htmlFor={value} />
+        <label className={`switch__label text ${size === "big" ? "heading-h6" : ""}`} htmlFor={value}>
           {labelText}
         </label>
       </div>

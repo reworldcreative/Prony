@@ -13,6 +13,7 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 import CreateForm from "./forms/CreateForm/CreateForm";
 import { FieldValues } from "react-hook-form";
 import DeleteForm from "./forms/DeleteForm/DeleteForm";
+import EditPost from "./forms/EditPost/EditPost";
 
 type BoardMessageType = {
   visible: boolean;
@@ -28,7 +29,7 @@ const initialBoardMessageState: BoardMessageType = {
 
 type PopUpData = {
   title: string;
-  type: "create" | "edit" | "delete" | "";
+  type: "create" | "edit" | "delete" | "editPost" | "";
   formData?: BoardsItemProps;
 };
 
@@ -36,9 +37,7 @@ export { PopUpData };
 
 const Boards: FC = () => {
   const [boards, setBoards] = useState(boardsData);
-  const [boardMessage, setBoardMessage] = useState<BoardMessageType>(
-    initialBoardMessageState
-  );
+  const [boardMessage, setBoardMessage] = useState<BoardMessageType>(initialBoardMessageState);
   const defaultBoardsItem: BoardsItemProps = {
     id: 0,
     name: "",
@@ -161,9 +160,7 @@ const Boards: FC = () => {
   };
 
   const handleDeleteBoard = (name: string) => {
-    const newBoardsArray = boards.filter(
-      (board) => board.name.toLowerCase().trim() !== name.toLowerCase().trim()
-    );
+    const newBoardsArray = boards.filter((board) => board.name.toLowerCase().trim() !== name.toLowerCase().trim());
     setBoards(newBoardsArray);
     showMessage("Board has been deleted!", "danger");
   };
@@ -191,73 +188,57 @@ const Boards: FC = () => {
                 : () => {}
             }
             formTitle={PopUpData.title}
-            formData={
-              PopUpData.type === "edit" ? PopUpData.formData : defaultBoardsItem
-            }
+            formData={PopUpData.type === "edit" ? PopUpData.formData : defaultBoardsItem}
+            boardsData={boards}
           />
         )}
 
-        {PopUpData.type === "delete" && (
-          <DeleteForm
-            formTitle={PopUpData.title}
-            submitSuccess={handleDeleteBoard}
-          />
-        )}
+        {PopUpData.type === "delete" && <DeleteForm formTitle={PopUpData.title} submitSuccess={handleDeleteBoard} />}
+
+        {PopUpData.type === "editPost" && <EditPost formTitle={PopUpData.title} submitSuccess={() => {}} />}
       </PopUp>
 
-      <Header />
+      <section className="pageContainer-MainSection">
+        <Breadcrumbs currentTitle="Boards" currentLink="/boards" />
 
-      <div className="pageContainer">
-        <AsideMenu />
+        <div className="pageContainer-MainSection__top">
+          <h1 className="title board-MainSection__title">Boards</h1>
 
-        <main className="pageContainer__main">
-          <section className="board-MainSection">
-            <Breadcrumbs />
+          <Button type="primary" click={handleOpenCreateBoardPopUp}>
+            Create Board
+          </Button>
+        </div>
 
-            <div className="board-MainSection__top">
-              <h1 className="title board-MainSection__title">Boards</h1>
+        <Info type={boardMessage.type} text={boardMessage.text} visible={boardMessage.visible} />
 
-              <Button type="primary" click={handleOpenCreateBoardPopUp}>
-                Create Board
-              </Button>
-            </div>
+        <section className="boards">
+          <p className="visibility-hidden">boards list</p>
 
-            <Info
-              type={boardMessage.type}
-              text={boardMessage.text}
-              visible={boardMessage.visible}
-            />
+          <div className="boards__header">
+            <h2 className="boards__caption subtitle">Name</h2>
+            <h2 className="boards__caption subtitle">Posts</h2>
+          </div>
 
-            <section className="boards">
-              <p className="visibility-hidden">boards list</p>
-
-              <div className="boards__header">
-                <h2 className="boards__caption subtitle">Name</h2>
-                <h2 className="boards__caption subtitle">Posts</h2>
-              </div>
-
-              <Reorder.Group
-                className="boards__list"
-                axis="y"
-                values={boards}
-                onReorder={(Boards) => {
-                  handleReorder(Boards);
-                }}
-              >
-                {boards.map((board, index) => (
-                  <BoardsItem
-                    item={board}
-                    key={index}
-                    lockItem={lockItem.bind(null, index)}
-                    openPopUp={handleSetPopUpData}
-                    changePrivacy={handleChangeItemPrivacy}
-                  />
-                ))}
-              </Reorder.Group>
-            </section>
-          </section>
-        </main>
-      </div>
+          <Reorder.Group
+            className="boards__list"
+            axis="y"
+            values={boards}
+            onReorder={(Boards) => {
+              handleReorder(Boards);
+            }}
+          >
+            {boards.map((board, index) => (
+              <BoardsItem
+                item={board}
+                key={index}
+                lockItem={lockItem.bind(null, index)}
+                openPopUp={handleSetPopUpData}
+                changePrivacy={handleChangeItemPrivacy}
+              />
+            ))}
+          </Reorder.Group>
+        </section>
+      </section>
     </>
   );
 };

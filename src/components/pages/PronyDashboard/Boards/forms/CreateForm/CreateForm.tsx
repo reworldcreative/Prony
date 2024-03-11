@@ -3,20 +3,26 @@ import { Controller, FieldValues, useForm } from "react-hook-form";
 import "./CreateForm.scss";
 import Input from "@/components/UI/forms/Input/Input";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
-import Button from "@/components/UI/buttons/Button/Button";
 import TextArea from "@/components/UI/forms/TextArea/TextArea";
 import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
 import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
 import Switch from "@/components/UI/forms/Switch/Switch";
 import { BoardsItemProps } from "../../BoardsItem";
+import FormButtons from "../FormButtons/FormButtons";
 
 interface formProps {
   submitSuccess: (data: BoardsItemProps) => void;
   formTitle: string;
   formData: BoardsItemProps;
+  boardsData?: BoardsItemProps[];
 }
 
-const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
+const CreateForm: FC<formProps> = ({
+  submitSuccess,
+  formTitle,
+  formData,
+  boardsData,
+}) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const {
     register,
@@ -43,6 +49,16 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
     reset();
     setOpenPopUp(false);
   };
+
+  const isValueUnique = (value: string) => {
+    const namesArray = boardsData.map((board) => board.name);
+    if (namesArray.includes(value.trim())) {
+      return false;
+    } else {
+      return true;
+    }
+  };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
       <h2 className="form__title title">{formTitle}</h2>
@@ -60,6 +76,10 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
               required: "Board name should be unique",
               minLength: { value: 3, message: "Minimum length should be 3" },
               maxLength: { value: 50, message: "Maximum length should be 30" },
+              validate: {
+                isUnique: (value) =>
+                  isValueUnique(value) || "This value must be unique.",
+              },
             }}
             messageText={errors?.boardName?.message.toString() || "error!"}
           />
@@ -302,25 +322,8 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
           </fieldset>
         </section>
       </div>
-      <div className="form__buttons">
-        <Button
-          addClass="form__button"
-          type="default"
-          buttonType="button"
-          click={onCancel}
-        >
-          Cancel
-        </Button>
 
-        <Button
-          addClass="form__button"
-          type="primary"
-          buttonType="submit"
-          disabled={!isValid}
-        >
-          Submit
-        </Button>
-      </div>
+      <FormButtons isValid={isValid} onCancel={onCancel} type="primary" />
     </form>
   );
 };

@@ -3,15 +3,10 @@
 
 .openMenu {
   border-top: 1.5px solid var(--Primary);
-  display: none;
+  display: grid;
   position: absolute;
   background: var(--BG);
   z-index: 10;
-
-  &_open {
-    animation: fadeIN 0.5s ease-in-out;
-    display: grid;
-  }
 
   &__item {
     cursor: pointer;

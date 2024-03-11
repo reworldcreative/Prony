@@ -1,12 +1,6 @@
 @import "rfs/scss";
 @import "@/styles/variables";
 
-@import "rfs/scss";
-@import "@/styles/variables";
-
-@import "rfs/scss";
-@import "@/styles/variables";
-
 .switch {
   position: relative;
   width: 25px;
@@ -16,6 +10,10 @@
   align-items: center;
   display: flex;
   margin-right: 8px;
+
+  &.dark {
+    background: rgba(255, 255, 255, 0.1);
+  }
 
   &__block {
     display: flex;

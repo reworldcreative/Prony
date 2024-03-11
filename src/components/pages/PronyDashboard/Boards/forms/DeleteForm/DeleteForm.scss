@@ -12,20 +12,4 @@
   &__text {
     margin-bottom: 25px;
   }
-
-  &__buttons {
-    display: flex;
-    justify-content: flex-end;
-    margin-top: 40px;
-
-    .form__button {
-      &:first-child {
-        margin-right: 22px;
-      }
-    }
-  }
-
-  &__button {
-    padding: 8px 51px;
-  }
 }

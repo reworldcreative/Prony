@@ -74,6 +74,35 @@ a {
 //   position: relative;
 // }
 
+.drag {
+  width: 9px;
+  height: 15px;
+  display: flex;
+  margin-right: 39px;
+
+  &.dragOn {
+    cursor: grab;
+  }
+
+  &.dragging {
+    cursor: grabbing;
+  }
+
+  .dot__col {
+    &:first-child {
+      margin-right: 3px;
+    }
+
+    .dot {
+      margin-bottom: 3px;
+
+      &:last-child {
+        margin-bottom: 0px;
+      }
+    }
+  }
+}
+
 .text {
   @include Font(14px, 400, 21px, var(--TextSecondary), 0.07px);
 }
@@ -123,6 +152,16 @@ a {
     flex-wrap: wrap;
     padding: 0px 39px 20px;
     width: 100%;
+  }
+
+  &-MainSection {
+    width: 100%;
+
+    &__top {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
   }
 }
 

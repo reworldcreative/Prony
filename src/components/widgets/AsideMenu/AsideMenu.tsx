@@ -39,11 +39,7 @@ const AsideMenu: FC = () => {
           <AsideMenuItem
             key={index}
             item={link}
-            active={
-              link.url.toLowerCase() === location.pathname.toLowerCase()
-                ? true
-                : false
-            }
+            active={link.url.toLowerCase() === location.pathname.toLowerCase() ? true : false}
           />
         ))}
       </nav>

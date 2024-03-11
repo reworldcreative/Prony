@@ -24,6 +24,14 @@ export const InputWithLabel: StoryObj<typeof Input> = {
   },
 };
 
+export const InputWithPlaceholder: StoryObj<typeof Input> = {
+  args: {
+    label: "",
+    name: "inputPlaceholder",
+    placeholder: "Placeholder",
+  },
+};
+
 export const InputError: StoryObj<typeof Input> = {
   args: {
     label: "Error",
