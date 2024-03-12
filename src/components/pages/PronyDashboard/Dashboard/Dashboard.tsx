@@ -1,7 +1,5 @@
 import React, { FC } from "react";
 import "./Dashboard.scss";
-import Header from "@/components/widgets/Header/Header";
-import AsideMenu from "@/components/widgets/AsideMenu/AsideMenu";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import StatisticList from "./StatisticList/StatisticList";
 import Chart from "@/components/widgets/Chart/Chart";

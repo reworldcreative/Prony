@@ -1,8 +1,6 @@
 import React, { FC, useContext, useState } from "react";
 import "./Boards.scss";
 import { Reorder } from "framer-motion";
-import Header from "@/components/widgets/Header/Header";
-import AsideMenu from "@/components/widgets/AsideMenu/AsideMenu";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
 import BoardsItem, { BoardsItemProps } from "./BoardsItem";

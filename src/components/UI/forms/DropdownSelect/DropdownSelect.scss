@@ -9,7 +9,6 @@
   &__container {
     border: 1px solid var(--TextSecondary);
     border-radius: 5px;
-    outline: none;
     background: var(--BG);
   }
 
@@ -21,6 +20,11 @@
     margin: 0;
     padding: 15px 20px 15px 30px;
     // width: 100%;
+
+    &:focus-visible {
+      outline: 1px solid var(--Primary);
+      outline-offset: 2px;
+    }
   }
 
   &_open {
@@ -69,6 +73,7 @@
     position: relative;
     margin-top: 10px;
     display: none;
+    outline: none;
 
     &::before {
       content: "";
