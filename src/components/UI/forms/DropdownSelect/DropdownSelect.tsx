@@ -18,10 +18,12 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
   const DropdownButtons = useRef<HTMLDivElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);
   const DropdownContainerRef = useRef<HTMLDivElement>(null);
+  const dropdownListRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
   const [isOpen, setIsOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState<string>();
   const [value, setValue] = useState(selectType === "radio" ? defaultValue : []);
+  const [side, setSide] = useState<"left" | "right">("left");
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Tab" && !event.shiftKey && DropdownButtons.current) {
@@ -72,6 +74,14 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
     setValue(value);
   };
 
+  useEffect(() => {
+    const dropdownContainer = dropdownListRef.current;
+    const screenWidth = window.innerWidth;
+    const containerRect = dropdownContainer.getBoundingClientRect();
+
+    containerRect.right + 100 > screenWidth ? setSide("right") : setSide("left");
+  }, [isOpen]);
+
   return (
     <div className={`dropdownSelect ${isOpen ? "dropdownSelect_open" : ""}`} ref={DropdownContainerRef}>
       <button className="dropdownSelect__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
@@ -90,7 +100,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
         <div aria-hidden="true" className={`dropdownSelect__icon ${theme.theme}`} />
       </button>
 
-      <div className="dropdownSelect__container">
+      <div className={`dropdownSelect__container dropdownSelect__container_${side}`} ref={dropdownListRef}>
         <p className="dropdownSelect__title heading-h6">{title}</p>
 
         <div className="dropdownSelect__list">

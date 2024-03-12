@@ -1,2 +1,15 @@
 @import "rfs/scss";
 @import "@/styles/variables";
+
+.posts {
+  &__selectors {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    grid-template-rows: min-content;
+    grid-gap: 20px;
+
+    .double {
+      grid-column: span 2;
+    }
+  }
+}

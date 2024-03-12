@@ -10,16 +10,10 @@ interface InputProps {
   placeholder?: string;
   register?: UseFormRegister<FieldValues>;
   settings?: RegisterOptions<FieldValues>;
+  addClass?: string;
 }
 
-const Search: FC<InputProps> = ({
-  name,
-  settings,
-  register,
-  getValue,
-  value,
-  placeholder,
-}) => {
+const Search: FC<InputProps> = ({ name, settings, register, getValue, value, placeholder, addClass }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
     if (getValue) {
@@ -28,17 +22,17 @@ const Search: FC<InputProps> = ({
   };
 
   return (
-    <div className={`search__wrapper`}>
-        <input
-          className={`search text`}
-          id={name}
-          {...(register ? register(name, settings) : { onChange: handleChange })}
-          defaultValue={value}
-          placeholder={placeholder}
-        />
-        <button className="search__button">
+    <div className={`search__wrapper ${addClass}`}>
+      <input
+        className={`search text`}
+        id={name}
+        {...(register ? register(name, settings) : { onChange: handleChange })}
+        defaultValue={value}
+        placeholder={placeholder}
+      />
+      <button className="search__button">
         <img src={searchIcon} alt="search icon" width="17" height="17" aria-hidden="true" />
-        </button>
+      </button>
     </div>
   );
 };

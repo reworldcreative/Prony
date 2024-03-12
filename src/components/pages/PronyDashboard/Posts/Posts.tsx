@@ -34,7 +34,7 @@ const Posts: FC = () => {
         <Breadcrumbs currentTitle="Posts" currentLink="/tposts" />
 
         <div className="pageContainer-MainSection__top">
-          <h1 className="title Posts-MainSection__title">Posts</h1>
+          <h1 className="title posts-MainSection__title">Posts</h1>
 
           <Button type="primary" click={handleCreatePost}>
             Create post
@@ -42,15 +42,18 @@ const Posts: FC = () => {
         </div>
       </section>
 
-      <DropdownSelect
-        getValue={handleSetCreatedTime}
-        defaultValue={"Last-day"}
-        selectType="radio"
-        title={"Created in"}
-      />
-      <DropdownSelect getValue={handleSetStatuses} defaultValue={""} selectType="checkbox" title={"Statuses"} />
+      <div className="posts__selectors">
+        <Search name="posts" placeholder="Search all posts" addClass="double" />
 
-      <Search name="posts" placeholder="Search all posts" />
+        <DropdownSelect
+          getValue={handleSetCreatedTime}
+          defaultValue={"Last-day"}
+          selectType="radio"
+          title={"Created in"}
+        />
+
+        <DropdownSelect getValue={handleSetStatuses} defaultValue={""} selectType="checkbox" title={"Statuses"} />
+      </div>
     </>
   );
 };
