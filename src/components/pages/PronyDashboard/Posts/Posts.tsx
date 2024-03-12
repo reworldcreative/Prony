@@ -3,6 +3,7 @@ import "./Posts.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
 import DropdownSelect from "@/components/UI/forms/DropdownSelect/DropdownSelect";
+import Search from "@/components/UI/forms/Search/Search";
 
 const Posts: FC = () => {
   const handleCreatePost = () => {};
@@ -41,8 +42,15 @@ const Posts: FC = () => {
         </div>
       </section>
 
-      <DropdownSelect getValue={handleSetCreatedTime} defaultValue={"Last-day"} selectType="radio" />
-      <DropdownSelect getValue={handleSetStatuses} defaultValue={""} selectType="checkbox" />
+      <DropdownSelect
+        getValue={handleSetCreatedTime}
+        defaultValue={"Last-day"}
+        selectType="radio"
+        title={"Created in"}
+      />
+      <DropdownSelect getValue={handleSetStatuses} defaultValue={""} selectType="checkbox" title={"Statuses"} />
+
+      <Search name="posts" placeholder="Search all posts" />
     </>
   );
 };

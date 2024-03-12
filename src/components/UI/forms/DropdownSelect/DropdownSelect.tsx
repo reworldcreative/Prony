@@ -9,9 +9,10 @@ interface DropdownSelectProps {
   getValue: (value: string | string[]) => void;
   defaultValue?: string;
   selectType: "radio" | "checkbox";
+  title: string;
 }
 
-const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType }) => {
+const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownButtons = useRef<HTMLDivElement>(null);
@@ -74,19 +75,23 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
   return (
     <div className={`dropdownSelect ${isOpen ? "dropdownSelect_open" : ""}`} ref={DropdownContainerRef}>
       <button className="dropdownSelect__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
-        <div className="dropdownSelect__mark subtitle-second">1</div>
+        {value.length > 0 && (
+          <div className="dropdownSelect__mark subtitle-second">
+            {value.length > 0 ? (typeof value === "string" ? 1 : value.length) : ""}
+          </div>
+        )}
 
         <span
           className="dropdownSelect__currentItem text"
           aria-label={`Dropdown selector is ${isOpen ? "open" : "close"}. Current selected value is ${selectedOption}`}
         >
-          Created in
+          {title}
         </span>
         <div aria-hidden="true" className={`dropdownSelect__icon ${theme.theme}`} />
       </button>
 
       <div className="dropdownSelect__container">
-        <p className="dropdownSelect__title heading-h6">Created in</p>
+        <p className="dropdownSelect__title heading-h6">{title}</p>
 
         <div className="dropdownSelect__list">
           {selectType === "radio" && (
