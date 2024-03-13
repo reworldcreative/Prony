@@ -7,31 +7,32 @@ import Search from "@/components/UI/forms/Search/Search";
 
 const Posts: FC = () => {
   const handleCreatePost = () => {};
-  const [createdTime, setCreatedTime] = useState<string>("");
+  // const [createdTime, setCreatedTime] = useState<string>("");
+  const [createdTime, setCreatedTime] = useState<string[]>([]);
   const [statuses, setStatuses] = useState<string[]>([]);
 
-  const handleSetCreatedTime = (value: string | string[]) => {
-    if (typeof value === "string") {
-      setCreatedTime(value);
-    } else {
-      if (value.length > 0) {
-        setCreatedTime(value[0]);
-      }
-    }
-  };
+  // const handleSetCreatedTime = (value: string | string[]) => {
+  //   if (typeof value === "string") {
+  //     setCreatedTime(value);
+  //   } else {
+  //     if (value.length > 0) {
+  //       setCreatedTime(value[0]);
+  //     }
+  //   }
+  // };
 
-  const handleSetStatuses = (value: string | string[]) => {
-    if (typeof value === "string") {
-      setStatuses([value]);
-    } else {
-      setStatuses(value);
-    }
-  };
+  // const handleSetStatuses = (value: string | string[]) => {
+  //   if (typeof value === "string") {
+  //     setStatuses([value]);
+  //   } else {
+  //     setStatuses(value);
+  //   }
+  // };
 
   return (
     <>
       <section className="pageContainer-MainSection">
-        <Breadcrumbs currentTitle="Posts" currentLink="/tposts" />
+        <Breadcrumbs currentTitle="Posts" currentLink="/posts" />
 
         <div className="pageContainer-MainSection__top">
           <h1 className="title posts-MainSection__title">Posts</h1>
@@ -45,14 +46,9 @@ const Posts: FC = () => {
       <div className="posts__selectors">
         <Search name="posts" placeholder="Search all posts" addClass="double" />
 
-        <DropdownSelect
-          getValue={handleSetCreatedTime}
-          defaultValue={"Last-day"}
-          selectType="radio"
-          title={"Created in"}
-        />
+        <DropdownSelect getValue={setCreatedTime} defaultValue={"Last-day"} selectType="radio" title={"Created in"} />
 
-        <DropdownSelect getValue={handleSetStatuses} defaultValue={""} selectType="checkbox" title={"Statuses"} />
+        <DropdownSelect getValue={setStatuses} defaultValue={""} selectType="checkbox" title={"Statuses"} />
       </div>
     </>
   );

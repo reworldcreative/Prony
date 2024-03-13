@@ -6,7 +6,8 @@ import RadioBlock from "./RadioBlock";
 import CheckboxBlock from "./CheckboxBlock";
 
 interface DropdownSelectProps {
-  getValue: (value: string | string[]) => void;
+  // getValue: (value: string | string[]) => void;
+  getValue: (value: string[]) => void;
   defaultValue?: string;
   selectType: "radio" | "checkbox";
   title: string;
@@ -21,8 +22,8 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
   const dropdownListRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState<string>();
-  const [value, setValue] = useState(selectType === "radio" ? defaultValue : []);
+  const [selectedOption, setSelectedOption] = useState<string[]>();
+  const [value, setValue] = useState([]);
   const [side, setSide] = useState<"left" | "right">("left");
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
@@ -47,7 +48,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
     setIsOpen(!isOpen);
   };
 
-  const selectOption = (option: string) => {
+  const selectOption = (option: string[]) => {
     setIsOpen(false);
     setSelectedOption(option);
     getValue(option);
@@ -66,13 +67,13 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
     };
   }, []);
 
-  const handleSetValue = (value: string) => {
-    setValue(value);
-  };
+  // const handleSetValue = (value: string) => {
+  //   setValue(value);
+  // };
 
-  const handleSetValues = (value: string[]) => {
-    setValue(value);
-  };
+  // const handleSetValues = (value: string[]) => {
+  //   setValue(value);
+  // };
 
   useEffect(() => {
     const dropdownContainer = dropdownListRef.current;
@@ -106,7 +107,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
         <div className="dropdownSelect__list">
           {selectType === "radio" && (
             <RadioBlock
-              getValue={handleSetValue}
+              getValue={(value: string) => setValue([value])}
               defaultValue={selectType === "radio" ? value.toString() : ""}
               group="time"
               options={[
@@ -128,7 +129,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
 
           {selectType === "checkbox" && (
             <CheckboxBlock
-              getValue={handleSetValues}
+              getValue={setValue}
               defaultValue={selectType === "checkbox" ? value.toString() : ""}
               options={[
                 {
@@ -148,7 +149,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
           <Button
             type="primary"
             click={() => {
-              selectOption(value.toString());
+              selectOption(value);
             }}
           >
             Apply filters

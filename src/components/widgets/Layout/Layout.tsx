@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, Suspense } from "react";
 import { Outlet } from "react-router-dom";
 import AsideMenu from "../AsideMenu/AsideMenu";
 import Header from "../Header/Header";
@@ -11,7 +11,9 @@ const Layout: FC = () => {
         <AsideMenu />
 
         <main className="pageContainer__main">
-          <Outlet />
+          <Suspense fallback={<></>}>
+            <Outlet />
+          </Suspense>
         </main>
       </div>
     </>
