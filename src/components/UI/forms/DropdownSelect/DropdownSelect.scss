@@ -129,6 +129,24 @@
   &__list {
     display: grid;
     gap: 9px;
+    max-height: 100px;
+    overflow-y: auto;
+
+    &::-webkit-scrollbar {
+      width: 3px;
+      background-color: transparent;
+    }
+
+    &::-webkit-scrollbar-thumb {
+      background-color: #d7d7d7;
+      border-radius: 10px;
+      width: 3px;
+    }
+
+    &::-webkit-scrollbar-track {
+      background-color: transparent;
+      width: 3px;
+    }
 
     .radio-label {
       font-size: 12px;

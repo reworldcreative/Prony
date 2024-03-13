@@ -94,3 +94,13 @@
     }
   }
 }
+
+@include Mobile() {
+  .boards {
+    overflow: auto;
+
+    .optionButton {
+      margin: 0;
+    }
+  }
+}

@@ -147,3 +147,11 @@
     }
   }
 }
+
+@include Mobile() {
+  .statisticChart {
+    &__chart {
+      height: auto !important;
+    }
+  }
+}

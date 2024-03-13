@@ -5,6 +5,7 @@
   display: flex;
   align-items: center;
   outline: none;
+  margin-right: 5px;
 
   &-link {
     outline: none;
@@ -26,17 +27,14 @@
 
 .logo-text {
   color: var(--Primary);
-  filter: invert(12%) sepia(17%) saturate(6522%) hue-rotate(226deg)
-    brightness(91%) contrast(91%);
+  filter: invert(12%) sepia(17%) saturate(6522%) hue-rotate(226deg) brightness(91%) contrast(91%);
 
   &.dark {
-    filter: invert(100%) sepia(4%) saturate(0%) hue-rotate(0deg)
-      brightness(104%) contrast(100%);
+    filter: invert(100%) sepia(4%) saturate(0%) hue-rotate(0deg) brightness(104%) contrast(100%);
   }
 
   &:hover {
     color: var(--Secondary);
-    filter: invert(24%) sepia(100%) saturate(1811%) hue-rotate(202deg)
-      brightness(92%) contrast(86%);
+    filter: invert(24%) sepia(100%) saturate(1811%) hue-rotate(202deg) brightness(92%) contrast(86%);
   }
 }

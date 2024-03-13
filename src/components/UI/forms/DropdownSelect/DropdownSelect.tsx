@@ -6,14 +6,14 @@ import RadioBlock from "./RadioBlock";
 import CheckboxBlock from "./CheckboxBlock";
 
 interface DropdownSelectProps {
-  // getValue: (value: string | string[]) => void;
   getValue: (value: string[]) => void;
   defaultValue?: string;
   selectType: "radio" | "checkbox";
   title: string;
+  options: { value: string; labelText: string }[];
 }
 
-const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title }) => {
+const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownButtons = useRef<HTMLDivElement>(null);
@@ -67,14 +67,6 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
     };
   }, []);
 
-  // const handleSetValue = (value: string) => {
-  //   setValue(value);
-  // };
-
-  // const handleSetValues = (value: string[]) => {
-  //   setValue(value);
-  // };
-
   useEffect(() => {
     const dropdownContainer = dropdownListRef.current;
     const screenWidth = window.innerWidth;
@@ -108,41 +100,13 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
           {selectType === "radio" && (
             <RadioBlock
               getValue={(value: string) => setValue([value])}
-              defaultValue={selectType === "radio" ? value.toString() : ""}
+              defaultValue={defaultValue}
               group="time"
-              options={[
-                {
-                  value: "Last-day",
-                  labelText: "Last 24 hours",
-                },
-                {
-                  value: "Last-week",
-                  labelText: "Last week",
-                },
-                {
-                  value: "Last-month",
-                  labelText: "Last month",
-                },
-              ]}
+              options={options}
             />
           )}
 
-          {selectType === "checkbox" && (
-            <CheckboxBlock
-              getValue={setValue}
-              defaultValue={selectType === "checkbox" ? value.toString() : ""}
-              options={[
-                {
-                  value: "status1",
-                  labelText: "Status1",
-                },
-                {
-                  value: "status2",
-                  labelText: "Status2",
-                },
-              ]}
-            />
-          )}
+          {selectType === "checkbox" && <CheckboxBlock getValue={setValue} defaultValue={""} options={options} />}
         </div>
 
         <div className="dropdownSelect__buttons" ref={DropdownButtons} onKeyDown={handleTabKeyDown}>

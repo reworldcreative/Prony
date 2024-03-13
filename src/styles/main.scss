@@ -224,3 +224,27 @@ a {
     margin: auto;
   }
 }
+
+@include Small-Tablet() {
+  .pageContainer {
+    &__main {
+      padding: 0px 39px 20px 0px;
+      box-sizing: border-box;
+    }
+  }
+}
+
+@include Mobile() {
+  .pageContainer {
+    display: block;
+
+    &__main {
+      padding: 0px 10px 20px;
+      width: 100%;
+    }
+  }
+
+  .drag {
+    margin-right: 10px;
+  }
+}
