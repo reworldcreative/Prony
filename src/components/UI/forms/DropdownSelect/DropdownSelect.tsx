@@ -7,10 +7,10 @@ import CheckboxBlock from "./CheckboxBlock";
 
 interface DropdownSelectProps {
   getValue: (value: string[]) => void;
-  defaultValue?: string;
+  defaultValue?: string[];
   selectType: "radio" | "checkbox";
   title: string;
-  options: { value: string; labelText: string }[];
+  options: { name: string; labelText: string }[];
 }
 
 const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options }) => {
@@ -90,7 +90,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
         >
           {title}
         </span>
-        <div aria-hidden="true" className={`dropdownSelect__icon ${theme.theme}`} />
+        <div aria-hidden="true" className={`dropdownSelect__icon ${theme && theme.theme}`} />
       </button>
 
       <div className={`dropdownSelect__container dropdownSelect__container_${side}`} ref={dropdownListRef}>
@@ -100,13 +100,15 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
           {selectType === "radio" && (
             <RadioBlock
               getValue={(value: string) => setValue([value])}
-              defaultValue={defaultValue}
+              defaultValue={defaultValue[0]}
               group="time"
               options={options}
             />
           )}
 
-          {selectType === "checkbox" && <CheckboxBlock getValue={setValue} defaultValue={""} options={options} />}
+          {selectType === "checkbox" && (
+            <CheckboxBlock getValue={setValue} defaultValue={defaultValue} options={options} />
+          )}
         </div>
 
         <div className="dropdownSelect__buttons" ref={DropdownButtons} onKeyDown={handleTabKeyDown}>

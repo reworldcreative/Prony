@@ -3,8 +3,8 @@ import Checkbox from "../Checkbox/Checkbox";
 
 interface CheckboxBlockProps {
   getValue: (value: string[]) => void;
-  defaultValue?: string;
-  options: { value: string; labelText: string }[];
+  defaultValue?: string[];
+  options: { name: string; labelText: string }[];
 }
 
 interface ValueObject {
@@ -40,17 +40,24 @@ const CheckboxBlock: FC<CheckboxBlockProps> = ({ getValue, defaultValue, options
   useEffect(() => {
     getValue(values.map((item) => item.key));
   }, [values]);
+
+  useEffect(() => {
+    setValues([]);
+    defaultValue.map((option) => handleGetValue(true, option));
+  }, [options]);
+
   return (
     <>
       {options.map((option, index) => (
         <Checkbox
           key={index}
-          name={option.value}
+          name={option.name}
           labelText={option.labelText}
-          value={option.value}
+          value={option.labelText}
           size="big"
           type="secondary"
-          getCheckboxValue={(value) => handleGetValue(value, option.value)}
+          getCheckboxValue={(value) => handleGetValue(value, option.labelText)}
+          checked={values.map((obj) => obj.key).includes(option.labelText)}
         />
       ))}
     </>

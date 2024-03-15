@@ -15,14 +15,10 @@ interface formProps {
   formTitle: string;
   formData: BoardsItemProps;
   boardsData?: BoardsItemProps[];
+  formType: "create" | "edit";
 }
 
-const CreateForm: FC<formProps> = ({
-  submitSuccess,
-  formTitle,
-  formData,
-  boardsData,
-}) => {
+const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, boardsData, formType }) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const {
     register,
@@ -76,10 +72,9 @@ const CreateForm: FC<formProps> = ({
               required: "Board name should be unique",
               minLength: { value: 3, message: "Minimum length should be 3" },
               maxLength: { value: 50, message: "Maximum length should be 30" },
-              validate: {
-                isUnique: (value) =>
-                  isValueUnique(value) || "This value must be unique.",
-              },
+              ...(formType === "create"
+                ? { validate: { isUnique: (value) => isValueUnique(value) || "This value must be unique." } }
+                : {}),
             }}
             messageText={errors?.boardName?.message.toString() || "error!"}
           />
@@ -141,8 +136,7 @@ const CreateForm: FC<formProps> = ({
                   )}
                 />
                 <p className="caption  radio-text">
-                  The board is visible to anyone. Search engines like Google
-                  will index it.
+                  The board is visible to anyone. Search engines like Google will index it.
                 </p>
               </div>
 
@@ -164,9 +158,7 @@ const CreateForm: FC<formProps> = ({
                     />
                   )}
                 />
-                <p className="caption radio-text">
-                  Only people added to the board can access it
-                </p>
+                <p className="caption radio-text">Only people added to the board can access it</p>
               </div>
             </div>
           </fieldset>
@@ -192,9 +184,7 @@ const CreateForm: FC<formProps> = ({
                     />
                   )}
                 />
-                <p className="caption  radio-text">
-                  Only Board Moderators can create new posts
-                </p>
+                <p className="caption  radio-text">Only Board Moderators can create new posts</p>
               </div>
 
               <div>
@@ -240,8 +230,8 @@ const CreateForm: FC<formProps> = ({
                   )}
                 />
                 <p className="caption  radio-text">
-                  By default, your board is visible on your roadmap. Turn it off
-                  if you don’t want your board and its posts to be shown there.
+                  By default, your board is visible on your roadmap. Turn it off if you don’t want your board and its
+                  posts to be shown there.
                 </p>
               </div>
 
@@ -263,8 +253,8 @@ const CreateForm: FC<formProps> = ({
                   )}
                 />
                 <p className="caption  radio-text">
-                  By default, your board will be indexed by search engines like
-                  Google. Turn it off if you don’t want that
+                  By default, your board will be indexed by search engines like Google. Turn it off if you don’t want
+                  that
                 </p>
               </div>
             </div>
@@ -285,15 +275,12 @@ const CreateForm: FC<formProps> = ({
                       type="secondary"
                       size="big"
                       field={field}
-                      defaultChecked={
-                        formData ? formData.Post_pre_approval : false
-                      }
+                      defaultChecked={formData ? formData.Post_pre_approval : false}
                     />
                   )}
                 />
                 <p className="caption  radio-text">
-                  The board is visible to anyone. Search engines like Google
-                  will index it.
+                  The board is visible to anyone. Search engines like Google will index it.
                 </p>
               </div>
 
@@ -310,9 +297,7 @@ const CreateForm: FC<formProps> = ({
                       type="secondary"
                       size="big"
                       field={field}
-                      defaultChecked={
-                        formData ? formData.Anonymous_voting : false
-                      }
+                      defaultChecked={formData ? formData.Anonymous_voting : false}
                     />
                   )}
                 />

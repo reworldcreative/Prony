@@ -1,10 +1,4 @@
-import React, {
-  FC,
-  ReactNode,
-  useState,
-  useEffect,
-  createContext,
-} from "react";
+import React, { FC, ReactNode, useState, useEffect, createContext } from "react";
 
 interface GlobalContextType {
   theme: "light" | "dark";
@@ -22,9 +16,7 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   useEffect(() => {
     document.documentElement.style.setProperty(
       "--Primary",
-      getComputedStyle(document.documentElement).getPropertyValue(
-        `--Primary-${theme === "light" ? "Light" : "Dark"}`
-      )
+      getComputedStyle(document.documentElement).getPropertyValue(`--Primary-${theme === "light" ? "Light" : "Dark"}`)
     );
 
     document.documentElement.style.setProperty(
@@ -36,32 +28,22 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
 
     document.documentElement.style.setProperty(
       "--BG",
-      getComputedStyle(document.documentElement).getPropertyValue(
-        `--BG-${theme === "light" ? "Light" : "Dark"}`
-      )
+      getComputedStyle(document.documentElement).getPropertyValue(`--BG-${theme === "light" ? "Light" : "Dark"}`)
     );
 
     document.documentElement.style.setProperty(
       "--BGSecond",
-      getComputedStyle(document.documentElement).getPropertyValue(
-        `--BGSecond-${theme === "light" ? "Light" : "Dark"}`
-      )
+      getComputedStyle(document.documentElement).getPropertyValue(`--BGSecond-${theme === "light" ? "Light" : "Dark"}`)
     );
 
     document.documentElement.style.setProperty(
       "--BGItem",
-      getComputedStyle(document.documentElement).getPropertyValue(
-        `--BGItem-${theme === "light" ? "Light" : "Dark"}`
-      )
+      getComputedStyle(document.documentElement).getPropertyValue(`--BGItem-${theme === "light" ? "Light" : "Dark"}`)
     );
   }, [theme]);
 
   return (
-    <GlobalContext.Provider
-      value={{ theme, setTheme, isOpenPopUp, setOpenPopUp }}
-    >
-      {children}
-    </GlobalContext.Provider>
+    <GlobalContext.Provider value={{ theme, setTheme, isOpenPopUp, setOpenPopUp }}>{children}</GlobalContext.Provider>
   );
 };
 

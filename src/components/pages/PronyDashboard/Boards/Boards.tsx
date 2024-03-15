@@ -188,6 +188,7 @@ const Boards: FC = () => {
             formTitle={PopUpData.title}
             formData={PopUpData.type === "edit" ? PopUpData.formData : defaultBoardsItem}
             boardsData={boards}
+            formType={PopUpData.type === "edit" ? "edit" : "create"}
           />
         )}
 

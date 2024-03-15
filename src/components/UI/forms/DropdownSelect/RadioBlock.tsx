@@ -5,8 +5,9 @@ interface RadioProps {
   getValue: (value: string) => void;
   defaultValue?: string;
   group: string;
-  options: { value: string; labelText: string }[];
+  options: { name: string; labelText: string }[];
 }
+
 const RadioBlock: FC<RadioProps> = ({ getValue, defaultValue, options, group }) => {
   const [value, setValue] = useState(defaultValue);
   const handleGetValue = (value: string) => {
@@ -24,7 +25,7 @@ const RadioBlock: FC<RadioProps> = ({ getValue, defaultValue, options, group }) 
           key={index}
           group={group}
           labelText={option.labelText}
-          value={option.value}
+          value={option.labelText}
           size="big"
           type="secondary"
           getRadioValue={handleGetValue}

@@ -23,7 +23,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active 
   const theme = useContext(GlobalContext);
   return (
     <div className={`asideMenu__item ${isSubmenuOpen ? "open" : ""}`}>
-      <div className={`asideMenu__link-container ${active ? "active" : ""}`}>
+      <div className={`asideMenu__link-container ${active ? "active" : ""}`} tabIndex={0}>
         <Link to={item.url} className="asideMenu__link-wrapper">
           <img
             src={item.icon}

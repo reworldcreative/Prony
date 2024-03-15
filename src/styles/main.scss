@@ -173,6 +173,13 @@ a {
   outline: 1px solid var(--Primary);
   outline-offset: 2px;
 }
+button {
+  background: none;
+  border: none;
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
 
 .dot {
   display: block;
@@ -241,6 +248,10 @@ a {
     &__main {
       padding: 0px 10px 20px;
       width: 100%;
+    }
+
+    &-MainSection__top {
+      flex-wrap: wrap;
     }
   }
 

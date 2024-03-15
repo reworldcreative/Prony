@@ -49,10 +49,7 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
   };
 
   const handleClickOutside = (event: MouseEvent) => {
-    if (
-      DropdownContainerRef.current &&
-      !DropdownContainerRef.current.contains(event.target as Node)
-    ) {
+    if (DropdownContainerRef.current && !DropdownContainerRef.current.contains(event.target as Node)) {
       setIsOpen(false);
     }
   };
@@ -65,21 +62,11 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
   }, []);
 
   return (
-    <div
-      className={`dropdown ${isOpen ? "dropdown_open" : ""}`}
-      ref={DropdownContainerRef}
-    >
-      <button
-        className="dropdown__current"
-        onClick={toggleDropdown}
-        aria-live="assertive"
-        ref={DropdownButton}
-      >
+    <div className={`dropdown ${isOpen ? "dropdown_open" : ""}`} ref={DropdownContainerRef}>
+      <button className="dropdown__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
         <span
           className="dropdown__currentItem subtitle"
-          aria-label={`Dropdown selector is ${
-            isOpen ? "open" : "close"
-          }. Current selected value is ${selectedOption}`}
+          aria-label={`Dropdown selector is ${isOpen ? "open" : "close"}. Current selected value is ${selectedOption}`}
         >
           {selectedOption}
         </span>
@@ -89,22 +76,13 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
           width={12}
           height={7}
           aria-hidden="true"
-          className={`dropdown__icon ${theme.theme}`}
+          className={`dropdown__icon ${theme && theme.theme}`}
         />
       </button>
       {isOpen && (
-        <ul
-          className="dropdown__options"
-          ref={DropdownListRef}
-          onKeyDown={handleTabKeyDown}
-        >
+        <ul className="dropdown__options" ref={DropdownListRef} onKeyDown={handleTabKeyDown}>
           {options.map((option, index) => (
-            <li
-              className="dropdown__item subtitle"
-              key={index}
-              onClick={() => selectOption(option)}
-              tabIndex={0}
-            >
+            <li className="dropdown__item subtitle" key={index} onClick={() => selectOption(option)} tabIndex={0}>
               {option}
             </li>
           ))}

@@ -155,3 +155,15 @@
     }
   }
 }
+
+@include Mobile() {
+  .dropdownSelect__buttons {
+    flex-wrap: wrap;
+
+    .button {
+      &:first-child {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}

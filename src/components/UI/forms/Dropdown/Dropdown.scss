@@ -3,6 +3,7 @@
 
 .dropdown {
   position: relative;
+  padding: 5px 10px;
 
   &__current,
   &__button,
@@ -31,8 +32,10 @@
     width: 100%;
     list-style: none;
     margin: 5px 0px 0px;
-    padding: 0;
+    padding: 5px 10px;
+    box-sizing: border-box;
     position: absolute;
+    left: 0px;
     background: var(--BG);
   }
 
@@ -61,12 +64,10 @@
     display: flex;
     color: var(--Primary);
     opacity: 0.5;
-    filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg)
-      brightness(96%) contrast(94%);
+    filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg) brightness(96%) contrast(94%);
 
     &.dark {
-      filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg)
-        brightness(109%) contrast(97%);
+      filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg) brightness(109%) contrast(97%);
     }
   }
 }
