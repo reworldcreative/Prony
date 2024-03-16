@@ -1,6 +1,7 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import "./Dropdown.scss";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 
 interface DropdownProps {
   options: string[];
@@ -9,8 +10,11 @@ interface DropdownProps {
 }
 
 const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
+  const theme = useContext(GlobalContext);
+
   const DropdownListRef = useRef<HTMLUListElement>(null);
   const DropdownButton = useRef<HTMLButtonElement>(null);
+  const DropdownContainerRef = useRef<HTMLDivElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLUListElement>) => {
@@ -44,19 +48,25 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
     setIsOpen(false);
   };
 
+  const handleClickOutside = (event: MouseEvent) => {
+    if (DropdownContainerRef.current && !DropdownContainerRef.current.contains(event.target as Node)) {
+      setIsOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("click", handleClickOutside);
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, []);
+
   return (
-    <div className={`dropdown ${isOpen ? "open" : ""}`}>
-      <button
-        className="dropdown__current"
-        onClick={toggleDropdown}
-        aria-live="assertive"
-        ref={DropdownButton}
-      >
+    <div className={`dropdown ${isOpen ? "dropdown_open" : ""}`} ref={DropdownContainerRef}>
+      <button className="dropdown__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
         <span
           className="dropdown__currentItem subtitle"
-          aria-label={`Dropdown selector is ${
-            isOpen ? "open" : "close"
-          }. Current selected value is ${selectedOption}`}
+          aria-label={`Dropdown selector is ${isOpen ? "open" : "close"}. Current selected value is ${selectedOption}`}
         >
           {selectedOption}
         </span>
@@ -66,22 +76,13 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
           width={12}
           height={7}
           aria-hidden="true"
-          className="dropdown__icon"
+          className={`dropdown__icon ${theme && theme.theme}`}
         />
       </button>
       {isOpen && (
-        <ul
-          className="dropdown__options"
-          ref={DropdownListRef}
-          onKeyDown={handleTabKeyDown}
-        >
+        <ul className="dropdown__options" ref={DropdownListRef} onKeyDown={handleTabKeyDown}>
           {options.map((option, index) => (
-            <li
-              className="dropdown__item subtitle"
-              key={index}
-              onClick={() => selectOption(option)}
-              tabIndex={0}
-            >
+            <li className="dropdown__item subtitle" key={index} onClick={() => selectOption(option)} tabIndex={0}>
               {option}
             </li>
           ))}

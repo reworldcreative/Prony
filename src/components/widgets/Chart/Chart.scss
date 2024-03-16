@@ -20,8 +20,8 @@
   }
 
   &__chart {
-    max-height: 396px;
-    height: 35vh !important;
+    max-height: 440px;
+    height: 40vh !important;
     width: 100% !important;
   }
 
@@ -144,6 +144,14 @@
       margin-left: 10px;
       max-width: 70%;
       width: 100%;
+    }
+  }
+}
+
+@include Mobile() {
+  .statisticChart {
+    &__chart {
+      height: auto !important;
     }
   }
 }

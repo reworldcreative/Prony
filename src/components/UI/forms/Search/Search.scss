@@ -1,0 +1,35 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.search {
+  color: var(--TextPrimary);
+  font-size: 18px;
+  border: none;
+  outline: none;
+  padding: 15px 30px;
+  width: 100%;
+  background: none;
+
+  &__wrapper {
+    display: flex;
+    height: fit-content;
+    width: auto;
+    border-radius: 5px;
+    outline: 1px solid var(--TextSecondary);
+    background: var(--BG);
+
+    &:focus-within {
+      outline: 2px solid var(--Secondary);
+    }
+  }
+
+  &__button {
+    display: flex;
+    border-radius: 5px;
+    background: var(--Secondary);
+    outline: 1px solid var(--Secondary);
+    padding: 16px;
+    box-sizing: border-box;
+    height: fit-content;
+  }
+}

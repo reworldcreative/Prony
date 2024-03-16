@@ -1,0 +1,100 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.editPostForm {
+  &__item {
+    display: flex;
+    align-items: center;
+    margin: 55px 0 0;
+    padding: 0;
+    border: none;
+
+    &_drag {
+      margin-top: 10px;
+      align-self: baseline;
+    }
+  }
+
+  &__inputBlocks {
+    display: grid;
+    gap: 10px;
+    margin-right: 70px;
+    width: 60%;
+
+    .input {
+      &__wrapper {
+        &:first-child {
+          width: 30%;
+        }
+      }
+    }
+  }
+
+  &__container,
+  &__block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 40%;
+  }
+
+  &__container {
+    width: 40%;
+  }
+
+  &__block {
+    width: 85%;
+
+    .switch__container {
+      display: flex;
+      align-self: end;
+      margin-right: 10px;
+    }
+  }
+
+  &__privacy {
+    display: flex;
+    margin-top: 10px;
+    margin-right: 10px;
+
+    .radio__container {
+      &:first-child {
+        margin-right: 20px;
+      }
+    }
+  }
+
+  &__cancel {
+    display: flex;
+    align-self: flex-end;
+    background: none;
+    border: none;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+
+    &:hover {
+      img {
+        filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+      }
+    }
+
+    img {
+      filter: invert(40%) sepia(99%) saturate(8%) hue-rotate(25deg) brightness(94%) contrast(86%);
+    }
+  }
+}
+
+@include Tablet() {
+  .editPostForm {
+    &__block {
+      display: grid;
+      gap: 5px;
+    }
+
+    &__cancel {
+      align-self: center;
+      margin: 0 0 0 auto;
+    }
+  }
+}

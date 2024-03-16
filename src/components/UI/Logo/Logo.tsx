@@ -4,11 +4,11 @@ import "./Logo.scss";
 import LogoIcon from "@/assets/img/icons/logo/logo.svg";
 import Logo_text from "@/assets/img/icons/logo/logo-text.svg";
 // import Logo_text_dark from "@/assets/img/icons/logo/logo-text-dark.svg";
-import { ThemeContext } from "../../widgets/ThemeContextType/ThemeContextType";
+import { GlobalContext } from "../../widgets/GlobalContext/GlobalContext";
 import { Link } from "react-router-dom";
 
 const Logo: FC = () => {
-  const theme = useContext(ThemeContext);
+  const theme = useContext(GlobalContext);
   return (
     <Link
       to={"/"}

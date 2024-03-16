@@ -2,15 +2,19 @@
 @import "@/styles/variables";
 
 .radio__container {
+  width: fit-content;
+
   input[type="checkbox"] {
     position: absolute;
     opacity: 0;
     width: 1em;
     height: 1em;
+
     + .radio-label {
       cursor: pointer;
       display: flex;
       align-items: center;
+
       &:before {
         content: "";
         background: var(--BG);
@@ -29,9 +33,11 @@
         transition: all 250ms ease;
       }
     }
+
     &:checked {
       + .radio-label {
         color: var(--TextPrimary);
+
         &:before {
           border-width: 1px;
           border-color: var(--Primary);
@@ -40,6 +46,7 @@
         }
       }
     }
+
     &:focus,
     &:hover {
       + .radio-label {
@@ -68,6 +75,7 @@
           border-width: 2px;
         }
       }
+
       &:checked {
         + .radio-label {
           &:before {
@@ -96,6 +104,7 @@
       &:checked {
         + .radio-label {
           color: var(--TextSecondary);
+
           &:before {
             border-color: var(--TextSecondary);
             background-color: #f4f4f4;
