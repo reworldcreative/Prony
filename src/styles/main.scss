@@ -181,6 +181,12 @@ button {
   cursor: pointer;
 }
 
+.skeleton {
+  background: (--BGSecond);
+  height: 100px;
+  width: 100%;
+}
+
 .dot {
   display: block;
   width: 3px;

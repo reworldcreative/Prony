@@ -1,10 +1,9 @@
 import React, { FC } from "react";
 import { Link } from "react-router-dom";
 import "./Activities.scss";
-// import avatar_2 from "@/assets/img/avatars/avatar_2.png";
-// import avatar_3 from "@/assets/img/avatars/avatar_3.png";
 import ActivitiesItem from "./ActivitiesItem";
 import activities from "@/data/Activities.json";
+
 const Activities: FC = () => {
   return (
     <section className="dashboard-Activities box-container">

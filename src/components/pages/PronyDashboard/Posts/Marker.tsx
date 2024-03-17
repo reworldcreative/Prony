@@ -5,24 +5,28 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 
 interface MarkerProps {
   name: string;
-  removeItem: () => void;
+  removeItem?: () => void;
+  color?: "info" | "success" | "danger";
+  type?: "standard" | "remove";
 }
 
-const Marker: FC<MarkerProps> = ({ name, removeItem }) => {
+const Marker: FC<MarkerProps> = ({ name, removeItem, type, color }) => {
   const { theme } = useContext(GlobalContext);
   return (
-    <div className="posts__marker subtitle-second">
+    <div className={`posts__marker subtitle-second posts__marker_${color}`}>
       {name}
-      <button className="posts__markerRemove" aria-label="remove marker" onClick={removeItem}>
-        <img
-          src={closeIcon}
-          className={`posts__markerIcon posts__markerIcon_${theme}`}
-          alt="remove marker icon"
-          width="7"
-          height="7"
-          aria-hidden="true"
-        />
-      </button>
+      {type && type === "remove" && (
+        <button className="posts__markerRemove" aria-label="remove marker" onClick={removeItem}>
+          <img
+            src={closeIcon}
+            className={`posts__markerIcon posts__markerIcon_${theme}`}
+            alt="remove marker icon"
+            width="7"
+            height="7"
+            aria-hidden="true"
+          />
+        </button>
+      )}
     </div>
   );
 };

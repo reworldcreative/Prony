@@ -1,0 +1,77 @@
+[
+  {
+    "id": 1,
+    "picture": "./img/avatars/avatar_4.jpg",
+    "name": "Konnor Castro",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [
+      { "name": "Tagname1", "type": "standard", "color": "success" },
+      { "name": "Tagname2", "type": "standard", "color": "danger" }
+    ],
+    "likes": 24,
+    "posts": 48
+  },
+  {
+    "id": 2,
+    "picture": "",
+    "name": "Bryson Casey",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [{ "name": "Tagname1", "type": "standard", "color": "success" }],
+    "likes": 24,
+    "posts": 48
+  },
+  {
+    "id": 3,
+    "picture": "./img/avatars/avatar_5.jpg",
+    "name": "Montana Leon",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [
+      { "name": "Tagname1", "type": "standard", "color": "success" },
+      { "name": "Tagname2", "type": "standard", "color": "danger" }
+    ],
+    "likes": 24,
+    "posts": 48
+  },
+  {
+    "id": 4,
+    "picture": "./img/avatars/avatar_6.jpg",
+    "name": "Safaa Marriott",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [
+      { "name": "Tagname1", "type": "standard", "color": "success" },
+      { "name": "Tagname2", "type": "standard", "color": "danger" }
+    ],
+    "likes": 24,
+    "posts": 48
+  },
+  {
+    "id": 5,
+    "picture": "./img/avatars/avatar_7.jpg",
+    "name": "Sophia-Rose Nava",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [{ "name": "Tagname1", "type": "standard", "color": "success" }],
+    "likes": 24,
+    "posts": 48
+  },
+  {
+    "id": 5,
+    "picture": "./img/avatars/avatar_8.jpg",
+    "name": "Kasim Daniels",
+    "title": "Send status updates back through Intercom",
+    "time": "3 min ago",
+    "text": "Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom Instead of send updates via email, send them through the original conversation on Intercom",
+    "tags": [],
+    "likes": 24,
+    "posts": 48
+  }
+]

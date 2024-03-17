@@ -61,6 +61,10 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
     };
   }, []);
 
+  useEffect(() => {
+    setSelectedOption(current);
+  }, [current]);
+
   return (
     <div className={`dropdown ${isOpen ? "dropdown_open" : ""}`} ref={DropdownContainerRef}>
       <button className="dropdown__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>

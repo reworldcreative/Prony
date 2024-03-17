@@ -75,6 +75,11 @@
     margin: 0;
   }
 
+  &__menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   &__openMenu {
     top: 30px;
     right: 0;
