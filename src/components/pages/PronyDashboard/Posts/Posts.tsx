@@ -5,13 +5,14 @@ import Button from "@/components/UI/buttons/Button/Button";
 import Selectors from "./Selectors";
 import Marker from "./Marker";
 import Dropdown from "@/components/UI/forms/Dropdown/Dropdown";
-import PostsItem from "./PostsItem/PostsItem";
+import PostsItem, { PostsItemProps } from "./PostsItem/PostsItem";
 
 import importIcon from "@/assets/img/icons/posts/import.svg";
 import exportIcon from "@/assets/img/icons/posts/export.svg";
 
 import postsData from "@/data/Posts.json";
 import PerPage from "./PerPage";
+import Pagination from "@/components/UI/Pagination/Pagination";
 
 const Posts: FC = () => {
   const [search, setSearch] = useState<string>("");
@@ -25,8 +26,23 @@ const Posts: FC = () => {
   const [approved, setApproved] = useState<string[]>([]);
   const [sortBy, setSortBy] = useState<string>("");
   const [perPage, setPerPage] = useState<string>("10");
+  const [postsList, setPostsList] = useState([...postsData]);
+
+  const postsPerPage: number = parseInt(perPage);
+  const [currentPage, setCurrentPage] = useState<number>(1);
+  const indexOfLastPost: number = currentPage * postsPerPage;
+  const indexOfFirstPost: number = indexOfLastPost - postsPerPage;
+  const currentPosts = postsList.slice(indexOfFirstPost, indexOfLastPost);
+
+  const paginate = (pageNumber: number) => {
+    pageNumber > 0 && pageNumber <= Math.ceil(postsList.length / postsPerPage) && setCurrentPage(pageNumber);
+  };
 
   const handleCreatePost = () => {};
+
+  const deletePost = (id: number) => {
+    setPostsList(postsList.filter((post) => post.id !== id));
+  };
 
   return (
     <>
@@ -143,9 +159,10 @@ const Posts: FC = () => {
           </div>
 
           <section className="posts__list">
-            {postsData.map((post, index) => (
+            {currentPosts.map((post, index) => (
               <PostsItem
                 key={index}
+                id={post.id}
                 likes={post.likes}
                 posts={post.posts}
                 name={post.name}
@@ -158,11 +175,19 @@ const Posts: FC = () => {
                 time={post.time}
                 title={post.title}
                 text={post.text}
+                deletePost={deletePost}
               />
             ))}
           </section>
 
-          <PerPage current={perPage} onSelect={setPerPage} />
+          <div className="posts__sort posts__sort_bottom">
+            <Pagination
+              paginate={paginate}
+              currentPage={currentPage}
+              totalPages={Math.ceil(postsList.length / postsPerPage)}
+            />
+            <PerPage current={perPage} onSelect={setPerPage} />
+          </div>
         </section>
       </section>
     </>

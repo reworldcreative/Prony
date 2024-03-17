@@ -9,6 +9,7 @@ import like from "@/assets/img/icons/menu/like.svg";
 import message from "@/assets/img/icons/menu/message.svg";
 
 interface PostsItemProps {
+  id: number;
   picture: string;
   name: string;
   title: string;
@@ -17,9 +18,12 @@ interface PostsItemProps {
   tags: { name: string; color: "info" | "success" | "danger"; type: "standard" | "remove" }[];
   likes: number;
   posts: number;
+  deletePost: (id: number) => void;
 }
 
-const PostsItem: FC<PostsItemProps> = ({ picture, name, title, time, text, tags, likes, posts }) => {
+export { PostsItemProps };
+
+const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, tags, likes, posts, deletePost }) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -32,7 +36,10 @@ const PostsItem: FC<PostsItemProps> = ({ picture, name, title, time, text, tags,
     {
       icon: "./img/icons/menu/cross.svg",
       text: `Delete post`,
-      onClick: () => {},
+      onClick: () => {
+        setIsOpenMenu(false);
+        deletePost(id);
+      },
     },
     {
       icon: "./img/icons/menu/message.svg",
