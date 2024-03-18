@@ -66,7 +66,7 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
             className="posts-item__user-avatar"
           />
         ) : (
-          <div className="posts-item__user-avatar posts-item__user-avatar_skeleton text">
+          <div className="posts-item__user-avatar posts-item__user-avatar_skeleton text" aria-hidden="true">
             {name.charAt(0).toUpperCase()}
           </div>
         )}
@@ -89,7 +89,7 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
 
       <div className="posts-item__statistic">
         <div className="container">
-          <div className="posts-item__statistic-item heading-h6">
+          <div className="posts-item__statistic-item heading-h6" tabIndex={0}>
             <img
               className="posts-item__statistic-icon"
               src={like}
@@ -98,10 +98,10 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
               height="16"
               aria-hidden="true"
             />
-            {likes.toString()}
+            {likes.toString()} <span className="visibility-hidden">likes</span>
           </div>
 
-          <div className="posts-item__statistic-item heading-h6">
+          <div className="posts-item__statistic-item heading-h6" tabIndex={0}>
             <img
               className="posts-item__statistic-icon"
               src={message}
@@ -110,7 +110,7 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
               height="16"
               aria-hidden="true"
             />
-            {posts.toString()}
+            {posts.toString()} <span className="visibility-hidden">posts</span>
           </div>
         </div>
       </div>

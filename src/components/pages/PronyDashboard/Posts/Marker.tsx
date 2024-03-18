@@ -13,7 +13,7 @@ interface MarkerProps {
 const Marker: FC<MarkerProps> = ({ name, removeItem, type, color }) => {
   const { theme } = useContext(GlobalContext);
   return (
-    <div className={`posts__marker subtitle-second posts__marker_${color}`}>
+    <div className={`posts__marker subtitle-second posts__marker_${color}`} tabIndex={0}>
       {name}
       {type && type === "remove" && (
         <button className="posts__markerRemove" aria-label="remove marker" onClick={removeItem}>

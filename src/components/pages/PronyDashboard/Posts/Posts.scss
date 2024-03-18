@@ -124,6 +124,20 @@
   }
 }
 
+@include Tablet() {
+  .posts {
+    &__sort_bottom {
+      flex-wrap: wrap;
+      padding: 12px 35px;
+
+      .container {
+        margin: 5px 0 0 auto;
+        padding-left: 15px;
+      }
+    }
+  }
+}
+
 @media (max-width: 520px) {
   .pageContainerPosts-MainSection__top {
     flex-wrap: wrap;
@@ -159,6 +173,26 @@
 
         &:last-child {
           margin: 0px 0px 0px auto;
+        }
+      }
+    }
+  }
+}
+
+@include Mobile() {
+  .posts {
+    &__top {
+      padding: 32px 15px 23px;
+    }
+
+    &__sort_bottom {
+      padding: 12px 15px;
+
+      .container {
+        padding-left: 0px;
+
+        &:last-child {
+          margin: 5px 0 0 auto;
         }
       }
     }

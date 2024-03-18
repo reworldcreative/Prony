@@ -41,6 +41,11 @@
     padding: 6px 12px;
     font-size: 17px;
     line-height: 20.4px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
     &:hover {
       background: var(--Secondary);
@@ -53,7 +58,30 @@
     }
   }
 
-  &__container{
+  &__container {
     margin: 0px 15px;
+  }
+}
+
+@include Mobile() {
+  .pagination {
+    &__button {
+      &:first-child {
+        margin-right: 5px;
+      }
+    }
+
+    &__container {
+      margin: 0 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__page {
+      padding: 6px;
+      font-size: 14px;
+      width: 30px;
+      height: 30px;
+    }
   }
 }

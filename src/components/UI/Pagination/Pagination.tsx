@@ -14,7 +14,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
   return (
     <nav className="pagination">
       <div className="pagination__back">
-        <button title="1" className="pagination__button" onClick={() => paginate(1)}>
+        <button aria-label="Go to first page" title="1" className="pagination__button" onClick={() => paginate(1)}>
           <img
             className="pagination__icon"
             src={doubleArrow}
@@ -26,6 +26,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
         </button>
 
         <button
+          aria-label="Go to previous page"
           title={currentPage - 1 > 0 && (currentPage - 1).toString()}
           className="pagination__button"
           onClick={() => paginate(currentPage - 1)}
@@ -42,19 +43,33 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
       </div>
 
       <div className="pagination__container">
-        {Array.from({ length: totalPages }).map((_, index) => (
-          <button
-            key={index}
-            className={`pagination__page ${currentPage === index + 1 && "pagination__page_active"}`}
-            onClick={() => paginate(index + 1)}
-          >
-            {index + 1}
-          </button>
-        ))}
+        {Array.from({ length: Math.min(totalPages, 5) }).map((_, index) => {
+          const pageNumber =
+            totalPages <= 5 || currentPage <= 3
+              ? index + 1
+              : currentPage >= totalPages - 2
+              ? totalPages - 4 + index
+              : currentPage - 2 + index;
+          return (
+            <button
+              aria-label={`${
+                currentPage === pageNumber
+                  ? `${pageNumber.toString()} page is current`
+                  : `go to ${pageNumber.toString()} page`
+              }`}
+              key={index}
+              className={`pagination__page ${currentPage === pageNumber && "pagination__page_active"}`}
+              onClick={() => paginate(pageNumber)}
+            >
+              {pageNumber}
+            </button>
+          );
+        })}
       </div>
 
       <div className="pagination__next">
         <button
+          aria-label="Go to next page"
           title={currentPage + 1 <= totalPages && (currentPage + 1).toString()}
           className="pagination__button"
           onClick={() => paginate(currentPage + 1)}
@@ -69,7 +84,12 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
           />
         </button>
 
-        <button title={totalPages.toString()} className="pagination__button" onClick={() => paginate(totalPages)}>
+        <button
+          aria-label="Go to last page"
+          title={totalPages.toString()}
+          className="pagination__button"
+          onClick={() => paginate(totalPages)}
+        >
           <img
             className="pagination__icon"
             src={doubleArrow}

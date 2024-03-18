@@ -73,6 +73,7 @@
 
   &__statistic {
     width: 8.9%;
+    margin: 0 0 0 auto;
   }
 
   &__statistic-item {
@@ -142,5 +143,11 @@
       margin: 0px 0 0 auto;
       width: auto;
     }
+  }
+}
+
+@include Mobile() {
+  .posts-item {
+    padding: 21px 15px;
   }
 }
