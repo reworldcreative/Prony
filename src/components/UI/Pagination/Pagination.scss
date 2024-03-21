@@ -24,6 +24,18 @@
         filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg) brightness(96%) contrast(94%);
       }
     }
+
+    &_inactive {
+      opacity: 0.5;
+      cursor: auto;
+
+      &:hover {
+        .pagination__icon {
+          filter: none;
+          opacity: 0.5;
+        }
+      }
+    }
   }
 
   &__icon {

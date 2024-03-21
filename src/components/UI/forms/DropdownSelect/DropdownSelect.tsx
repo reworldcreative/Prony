@@ -11,9 +11,10 @@ interface DropdownSelectProps {
   selectType: "radio" | "checkbox";
   title: string;
   options: { name: string; labelText: string }[];
+  marked?: boolean;
 }
 
-const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options }) => {
+const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options, marked }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownButtons = useRef<HTMLDivElement>(null);
@@ -78,7 +79,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
   return (
     <div className={`dropdownSelect ${isOpen ? "dropdownSelect_open" : ""}`} ref={DropdownContainerRef}>
       <button className="dropdownSelect__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
-        {value.length > 0 && (
+        {marked && value.length > 0 && (
           <div className="dropdownSelect__mark subtitle-second">
             {value.length > 0 ? (typeof value === "string" ? 1 : value.length) : ""}
           </div>

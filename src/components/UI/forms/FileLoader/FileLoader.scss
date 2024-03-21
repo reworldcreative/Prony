@@ -1,0 +1,58 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.file-loader {
+  &__wrapper {
+    height: 70px;
+    border: 1px dashed var(--TextSecondary);
+    padding: 27px;
+    margin-bottom: 13px;
+    border-radius: 5px;
+    display: grid;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: 10px;
+  }
+
+  &__link {
+    color: var(--Secondary);
+    cursor: pointer;
+  }
+
+  &__image {
+    margin-right: 8px;
+
+    &-wrapper {
+      margin-bottom: 13px;
+      display: flex;
+    }
+
+    &-remove {
+      display: flex;
+      align-self: flex-start;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin: 0;
+      padding: 0;
+
+      &:hover {
+        img {
+          filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+        }
+      }
+
+      img {
+        filter: invert(40%) sepia(99%) saturate(8%) hue-rotate(25deg) brightness(94%) contrast(86%);
+      }
+    }
+  }
+}

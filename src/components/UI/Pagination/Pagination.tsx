@@ -14,7 +14,12 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
   return (
     <nav className="pagination">
       <div className="pagination__back">
-        <button aria-label="Go to first page" title="1" className="pagination__button" onClick={() => paginate(1)}>
+        <button
+          aria-label="Go to first page"
+          title="1"
+          className={`pagination__button ${currentPage === 1 && "pagination__button_inactive"}`}
+          onClick={() => paginate(1)}
+        >
           <img
             className="pagination__icon"
             src={doubleArrow}
@@ -27,8 +32,8 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
 
         <button
           aria-label="Go to previous page"
-          title={currentPage - 1 > 0 && (currentPage - 1).toString()}
-          className="pagination__button"
+          {...(currentPage - 1 > 0 && { title: (currentPage - 1).toString() })}
+          className={`pagination__button ${currentPage === 1 && "pagination__button_inactive"}`}
           onClick={() => paginate(currentPage - 1)}
         >
           <img
@@ -70,8 +75,8 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
       <div className="pagination__next">
         <button
           aria-label="Go to next page"
-          title={currentPage + 1 <= totalPages && (currentPage + 1).toString()}
-          className="pagination__button"
+          {...(currentPage + 1 <= totalPages && { title: (currentPage + 1).toString() })}
+          className={`pagination__button ${currentPage === totalPages && "pagination__button_inactive"}`}
           onClick={() => paginate(currentPage + 1)}
         >
           <img
@@ -87,7 +92,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) 
         <button
           aria-label="Go to last page"
           title={totalPages.toString()}
-          className="pagination__button"
+          className={`pagination__button ${currentPage === totalPages && "pagination__button_inactive"}`}
           onClick={() => paginate(totalPages)}
         >
           <img

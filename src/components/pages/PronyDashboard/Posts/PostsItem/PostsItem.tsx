@@ -18,7 +18,7 @@ interface PostsItemProps {
   tags: { name: string; color: "info" | "success" | "danger"; type: "standard" | "remove" }[];
   likes: number;
   posts: number;
-  deletePost: (id: number) => void;
+  deletePost?: (id: number) => void;
 }
 
 export { PostsItemProps };

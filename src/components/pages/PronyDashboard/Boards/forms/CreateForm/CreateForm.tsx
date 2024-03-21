@@ -8,7 +8,7 @@ import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
 import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
 import Switch from "@/components/UI/forms/Switch/Switch";
 import { BoardsItemProps } from "../../BoardsItem";
-import FormButtons from "../FormButtons/FormButtons";
+import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 
 interface formProps {
   submitSuccess: (data: BoardsItemProps) => void;

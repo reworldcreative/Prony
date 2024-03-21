@@ -13,8 +13,14 @@ import exportIcon from "@/assets/img/icons/posts/export.svg";
 import postsData from "@/data/Posts.json";
 import PerPage from "./PerPage";
 import Pagination from "@/components/UI/Pagination/Pagination";
+import PopUp from "@/components/widgets/PopUp/PopUp";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
+import CreateForm from "./forms/CreateForm/CreateForm";
+import { FieldValues } from "react-hook-form";
 
 const Posts: FC = () => {
+  const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+
   const [search, setSearch] = useState<string>("");
   const [createdTime, setCreatedTime] = useState<string[]>(["Last 24 hours"]);
   const [statuses, setStatuses] = useState<string[]>([]);
@@ -38,14 +44,51 @@ const Posts: FC = () => {
     pageNumber > 0 && pageNumber <= Math.ceil(postsList.length / postsPerPage) && setCurrentPage(pageNumber);
   };
 
-  const handleCreatePost = () => {};
+  const handleCreatePost = () => {
+    setOpenPopUp(true);
+  };
 
   const deletePost = (id: number) => {
     setPostsList(postsList.filter((post) => post.id !== id));
   };
 
+  const defaultPostsItem: PostsItemProps = {
+    id: 0,
+    picture: "",
+    name: "",
+    title: "",
+    time: "",
+    text: "",
+    tags: [{ name: "Tagname1", type: "standard", color: "success" }],
+    likes: 0,
+    posts: 0,
+  };
+
+  const createPost = (data: FieldValues) => {
+    const newPost = {
+      id: postsList.length + 1,
+      picture: "",
+      name: data.Owner,
+      title: data.postTitle,
+      time: "now",
+      text: data.details,
+      tags: [
+        { name: data.Status, type: "standard", color: "success" },
+        { name: data.BoardName, type: "standard", color: "success" },
+      ],
+      likes: 0,
+      posts: 0,
+    };
+
+    setPostsList([...postsList, newPost]);
+  };
+
   return (
     <>
+      <PopUp>
+        <CreateForm formTitle="Create post" formType="create" submitSuccess={createPost} formData={defaultPostsItem} />
+      </PopUp>
+
       <section className="pageContainer-MainSection">
         <Breadcrumbs currentTitle="Posts" currentLink="/posts" />
 
@@ -121,8 +164,10 @@ const Posts: FC = () => {
                 <Marker
                   name={`Board: ${board}`}
                   key={index}
+                  color="info"
+                  type="remove"
                   removeItem={() => {
-                    setStatuses(boards.filter((_, currentIndex) => currentIndex !== index));
+                    setBoards(boards.filter((_, currentIndex) => currentIndex !== index));
                   }}
                 />
               ))}
@@ -131,8 +176,10 @@ const Posts: FC = () => {
                 <Marker
                   name={`Owner: ${owner}`}
                   key={index}
+                  color="info"
+                  type="remove"
                   removeItem={() => {
-                    setStatuses(owners.filter((_, currentIndex) => currentIndex !== index));
+                    setOwners(owners.filter((_, currentIndex) => currentIndex !== index));
                   }}
                 />
               ))}
@@ -141,8 +188,34 @@ const Posts: FC = () => {
                 <Marker
                   name={`Segment: ${segment}`}
                   key={index}
+                  color="info"
+                  type="remove"
                   removeItem={() => {
-                    setStatuses(segments.filter((_, currentIndex) => currentIndex !== index));
+                    setSegments(segments.filter((_, currentIndex) => currentIndex !== index));
+                  }}
+                />
+              ))}
+
+              {authors.map((author, index) => (
+                <Marker
+                  name={`Author: ${author}`}
+                  key={index}
+                  color="info"
+                  type="remove"
+                  removeItem={() => {
+                    setAuthor(authors.filter((_, currentIndex) => currentIndex !== index));
+                  }}
+                />
+              ))}
+
+              {approved.map((approve, index) => (
+                <Marker
+                  name={approve}
+                  key={index}
+                  color="info"
+                  type="remove"
+                  removeItem={() => {
+                    setApproved(approved.filter((_, currentIndex) => currentIndex !== index));
                   }}
                 />
               ))}

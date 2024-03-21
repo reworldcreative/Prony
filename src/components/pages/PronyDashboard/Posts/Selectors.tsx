@@ -52,6 +52,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={tags}
         selectType="checkbox"
         title={"Tags"}
+        marked={true}
         options={[
           {
             name: "Tag-name1",
@@ -69,13 +70,14 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={boards}
         selectType="checkbox"
         title={"Boards"}
+        marked={true}
         options={[
           {
-            name: "Board-name1",
+            name: "Board-1",
             labelText: "Board name1",
           },
           {
-            name: "Board-name2",
+            name: "Board-2",
             labelText: "Board name2",
           },
         ]}
@@ -86,6 +88,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={statuses}
         selectType="checkbox"
         title={"Statuses"}
+        marked={true}
         options={[
           {
             name: "status1",
@@ -103,6 +106,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={owners}
         selectType="checkbox"
         title={"Owners"}
+        marked={true}
         options={[
           {
             name: "owner1",
@@ -120,6 +124,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={authors}
         selectType="checkbox"
         title={"Author"}
+        marked={true}
         options={[
           {
             name: "author1",
@@ -136,6 +141,7 @@ const Selectors: FC<SelectorsProps> = ({
         getValue={setCreatedTime}
         defaultValue={createdTime}
         selectType="radio"
+        marked={true}
         title={"Created in"}
         options={[
           {
@@ -158,6 +164,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={segments}
         selectType="checkbox"
         title={"User segments"}
+        marked={true}
         options={[
           {
             name: "user-segments1",
@@ -179,6 +186,7 @@ const Selectors: FC<SelectorsProps> = ({
         defaultValue={approved}
         selectType="checkbox"
         title={"Approved"}
+        marked={true}
         options={[
           {
             name: "approved",

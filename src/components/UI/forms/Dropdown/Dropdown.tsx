@@ -67,7 +67,13 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
 
   return (
     <div className={`dropdown ${isOpen ? "dropdown_open" : ""}`} ref={DropdownContainerRef}>
-      <button className="dropdown__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
+      <button
+        type="button"
+        className="dropdown__current"
+        onClick={toggleDropdown}
+        aria-live="assertive"
+        ref={DropdownButton}
+      >
         <span
           className="dropdown__currentItem subtitle"
           aria-label={`Dropdown selector is ${isOpen ? "open" : "close"}. Current selected value is ${selectedOption}`}

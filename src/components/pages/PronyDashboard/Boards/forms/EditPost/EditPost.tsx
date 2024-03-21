@@ -1,6 +1,6 @@
 import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import "./EditPost.scss";
-import FormButtons from "../FormButtons/FormButtons";
+import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import Button from "@/components/UI/buttons/Button/Button";
 import EditPostItem from "./EditPostItem";

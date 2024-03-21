@@ -12,6 +12,7 @@ interface InputProps {
   messageText?: string;
   register?: UseFormRegister<FieldValues>;
   settings?: RegisterOptions<FieldValues>;
+  required?: boolean;
 }
 
 const Input: FC<InputProps> = ({
@@ -24,6 +25,7 @@ const Input: FC<InputProps> = ({
   getValue,
   value,
   placeholder,
+  required,
 }) => {
   const handleChange = (event: ChangeEvent<HTMLInputElement>) => {
     const newValue = event.target.value;
@@ -36,7 +38,7 @@ const Input: FC<InputProps> = ({
     <div className="input__wrapper">
       {label && (
         <label className="input__label text" htmlFor={name}>
-          {label}
+          {label} {required && <span className="input__label_required">*</span>}
         </label>
       )}
       <input
