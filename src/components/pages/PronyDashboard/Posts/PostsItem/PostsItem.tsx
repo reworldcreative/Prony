@@ -10,7 +10,7 @@ import message from "@/assets/img/icons/menu/message.svg";
 
 interface PostsItemProps {
   id: number;
-  picture: string;
+  avatar: string;
   name: string;
   title: string;
   time: string;
@@ -19,11 +19,26 @@ interface PostsItemProps {
   likes: number;
   posts: number;
   deletePost?: (id: number) => void;
+  editPost?: (id: number) => void;
+  setFormType?: (value: "create" | "edit") => void;
 }
 
 export { PostsItemProps };
 
-const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, tags, likes, posts, deletePost }) => {
+const PostsItem: FC<PostsItemProps> = ({
+  id,
+  avatar,
+  name,
+  title,
+  time,
+  text,
+  tags,
+  likes,
+  posts,
+  deletePost,
+  editPost,
+  setFormType,
+}) => {
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -31,7 +46,11 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
     {
       icon: "./img/icons/menu/pen.svg",
       text: `Edit post`,
-      onClick: () => {},
+      onClick: () => {
+        setIsOpenMenu(false);
+        setFormType("edit");
+        editPost(id);
+      },
     },
     {
       icon: "./img/icons/menu/cross.svg",
@@ -56,9 +75,9 @@ const PostsItem: FC<PostsItemProps> = ({ id, picture, name, title, time, text, t
   return (
     <div className="posts-item">
       <div className="posts-item__user">
-        {picture.length > 0 ? (
+        {avatar.length > 0 ? (
           <PictureComponent
-            src={picture}
+            src={avatar}
             width="45"
             height="45"
             alt="avatar"

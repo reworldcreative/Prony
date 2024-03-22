@@ -34,6 +34,22 @@ const Posts: FC = () => {
   const [perPage, setPerPage] = useState<string>("10");
   const [postsList, setPostsList] = useState([...postsData]);
 
+  const [formType, setFormType] = useState<"create" | "edit">("create");
+
+  const defaultPostsItem: PostsItemProps = {
+    id: 0,
+    avatar: "",
+    name: "",
+    title: "",
+    time: "",
+    text: "",
+    tags: [{ name: "Tagname1", type: "standard", color: "success" }],
+    likes: 0,
+    posts: 0,
+  };
+
+  const [editData, setEditData] = useState<PostsItemProps>();
+
   const postsPerPage: number = parseInt(perPage);
   const [currentPage, setCurrentPage] = useState<number>(1);
   const indexOfLastPost: number = currentPage * postsPerPage;
@@ -45,29 +61,60 @@ const Posts: FC = () => {
   };
 
   const handleCreatePost = () => {
+    setFormType("create");
     setOpenPopUp(true);
+    setEditData(defaultPostsItem);
   };
 
   const deletePost = (id: number) => {
     setPostsList(postsList.filter((post) => post.id !== id));
   };
 
-  const defaultPostsItem: PostsItemProps = {
-    id: 0,
-    picture: "",
-    name: "",
-    title: "",
-    time: "",
-    text: "",
-    tags: [{ name: "Tagname1", type: "standard", color: "success" }],
-    likes: 0,
-    posts: 0,
+  const editPost = (id: number) => {
+    setOpenPopUp(true);
+    const post = postsList.find((post) => post.id === id);
+    setEditData({
+      id: post.id,
+      likes: post.likes,
+      posts: post.posts,
+      name: post.name,
+      avatar: post.avatar,
+      tags: post.tags.map((tag) => ({
+        ...tag,
+        color: tag.color.toString() as "info" | "success" | "danger",
+        type: tag.type.toString() as "standard" | "remove",
+      })),
+
+      time: post.time,
+      title: post.title,
+      text: post.text,
+    });
+  };
+
+  const handleEditPost = (data: FieldValues) => {
+    const editPostIndex = postsList.findIndex((post) => post.id === data.id);
+    const newItem: PostsItemProps = {
+      id: data.id,
+      avatar: postsList[editPostIndex].avatar,
+      name: data.Owner,
+      title: data.postTitle,
+      time: "now",
+      text: data.details,
+      tags: [
+        { name: data.Status, type: "standard", color: "success" },
+        { name: data.BoardName, type: "standard", color: "success" },
+      ],
+      likes: postsList[editPostIndex].likes,
+      posts: postsList[editPostIndex].posts,
+    };
+
+    postsList[editPostIndex] = newItem;
   };
 
   const createPost = (data: FieldValues) => {
     const newPost = {
       id: postsList.length + 1,
-      picture: "",
+      avatar: "",
       name: data.Owner,
       title: data.postTitle,
       time: "now",
@@ -86,7 +133,16 @@ const Posts: FC = () => {
   return (
     <>
       <PopUp>
-        <CreateForm formTitle="Create post" formType="create" submitSuccess={createPost} formData={defaultPostsItem} />
+        {formType === "create" ? (
+          <CreateForm
+            formTitle="Create post"
+            formType="create"
+            submitSuccess={createPost}
+            formData={defaultPostsItem}
+          />
+        ) : (
+          <CreateForm formTitle="Edit post" formType="edit" submitSuccess={handleEditPost} formData={editData} />
+        )}
       </PopUp>
 
       <section className="pageContainer-MainSection">
@@ -239,16 +295,18 @@ const Posts: FC = () => {
                 likes={post.likes}
                 posts={post.posts}
                 name={post.name}
-                picture={post.picture}
+                avatar={post.avatar}
                 tags={post.tags.map((tag) => ({
                   ...tag,
-                  color: tag.color === "info" || tag.color === "success" || tag.color === "danger" ? tag.color : "info",
-                  type: tag.type === "standard" || tag.type === "remove" ? tag.type : "standard",
+                  color: tag.color.toString() as "info" | "success" | "danger",
+                  type: tag.type.toString() as "standard" | "remove",
                 }))}
                 time={post.time}
                 title={post.title}
                 text={post.text}
                 deletePost={deletePost}
+                editPost={editPost}
+                setFormType={setFormType}
               />
             ))}
           </section>

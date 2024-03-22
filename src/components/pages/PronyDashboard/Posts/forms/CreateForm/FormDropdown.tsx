@@ -1,5 +1,5 @@
 import Dropdown from "@/components/UI/forms/Dropdown/Dropdown";
-import React, { FC, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 
 interface FormDropdownProps {
   options: string[];
@@ -16,6 +16,10 @@ const FormDropdown: FC<FormDropdownProps> = ({ options, required, name, current,
     setIsEmpty(false);
     onSelect(value);
   };
+
+  useEffect(() => {
+    setIsEmpty(current === "");
+  }, [current]);
 
   return (
     <div className="input__wrapper">

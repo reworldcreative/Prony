@@ -1,7 +1,7 @@
 [
   {
     "id": 1,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Konnor Castro",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -15,7 +15,7 @@
   },
   {
     "id": 2,
-    "picture": "",
+    "avatar": "",
     "name": "Bryson Casey",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -26,7 +26,7 @@
   },
   {
     "id": 3,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Montana Leon",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -40,7 +40,7 @@
   },
   {
     "id": 4,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Safaa Marriott",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -54,7 +54,7 @@
   },
   {
     "id": 5,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Sophia-Rose Nava",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -65,7 +65,7 @@
   },
   {
     "id": 6,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -76,7 +76,7 @@
   },
   {
     "id": 7,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -87,7 +87,7 @@
   },
   {
     "id": 8,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -98,7 +98,7 @@
   },
   {
     "id": 9,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -109,7 +109,7 @@
   },
   {
     "id": 10,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -120,7 +120,7 @@
   },
   {
     "id": 11,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -131,7 +131,7 @@
   },
   {
     "id": 12,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -142,7 +142,7 @@
   },
   {
     "id": 12,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -153,7 +153,7 @@
   },
   {
     "id": 13,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Konnor Castro",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -167,7 +167,7 @@
   },
   {
     "id": 14,
-    "picture": "",
+    "avatar": "",
     "name": "Bryson Casey",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -178,7 +178,7 @@
   },
   {
     "id": 15,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Montana Leon",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -192,7 +192,7 @@
   },
   {
     "id": 16,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Safaa Marriott",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -206,7 +206,7 @@
   },
   {
     "id": 17,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Sophia-Rose Nava",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -217,7 +217,7 @@
   },
   {
     "id": 18,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "3 min ago",
@@ -228,7 +228,7 @@
   },
   {
     "id": 19,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -239,7 +239,7 @@
   },
   {
     "id": 20,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -250,7 +250,7 @@
   },
   {
     "id": 21,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -261,7 +261,7 @@
   },
   {
     "id": 22,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -272,7 +272,7 @@
   },
   {
     "id": 23,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -283,7 +283,7 @@
   },
   {
     "id": 24,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -294,7 +294,7 @@
   },
   {
     "id": 25,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -305,7 +305,7 @@
   },
   {
     "id": 26,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -316,7 +316,7 @@
   },
   {
     "id": 27,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -327,7 +327,7 @@
   },
   {
     "id": 28,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -338,7 +338,7 @@
   },
   {
     "id": 29,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -349,7 +349,7 @@
   },
   {
     "id": 30,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",
@@ -360,7 +360,7 @@
   },
   {
     "id": 31,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Provide progress updates via Intercom",
     "time": "6 min ago",
@@ -371,7 +371,7 @@
   },
   {
     "id": 32,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Update status via Intercom",
     "time": "6 min ago",
@@ -382,7 +382,7 @@
   },
   {
     "id": 33,
-    "picture": "./img/avatars/avatar_2.jpg",
+    "avatar": "./img/avatars/avatar_2.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom updates for status",
     "time": "6 min ago",
@@ -393,7 +393,7 @@
   },
   {
     "id": 34,
-    "picture": "./img/avatars/avatar_1.jpg",
+    "avatar": "./img/avatars/avatar_1.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom for updates",
     "time": "6 min ago",
@@ -404,7 +404,7 @@
   },
   {
     "id": 35,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Using Intercom for updates",
     "time": "6 min ago",
@@ -415,7 +415,7 @@
   },
   {
     "id": 36,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom updates",
     "time": "6 min ago",
@@ -426,7 +426,7 @@
   },
   {
     "id": 37,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Utilize Intercom for status updates",
     "time": "6 min ago",
@@ -437,7 +437,7 @@
   },
   {
     "id": 38,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for update notifications",
     "time": "6 min ago",
@@ -448,7 +448,7 @@
   },
   {
     "id": 39,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Sending updates via Intercom",
     "time": "6 min ago",
@@ -459,7 +459,7 @@
   },
   {
     "id": 40,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom updates instead of email",
     "time": "6 min ago",
@@ -470,7 +470,7 @@
   },
   {
     "id": 41,
-    "picture": "./img/avatars/avatar_2.jpg",
+    "avatar": "./img/avatars/avatar_2.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom for progress updates",
     "time": "6 min ago",
@@ -481,7 +481,7 @@
   },
   {
     "id": 42,
-    "picture": "./img/avatars/avatar_1.jpg",
+    "avatar": "./img/avatars/avatar_1.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom notifications for updates",
     "time": "6 min ago",
@@ -492,7 +492,7 @@
   },
   {
     "id": 43,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for progress tracking",
     "time": "6 min ago",
@@ -503,7 +503,7 @@
   },
   {
     "id": 44,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Progress updates via Intercom",
     "time": "6 min ago",
@@ -514,7 +514,7 @@
   },
   {
     "id": 45,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Switching to Intercom for updates",
     "time": "6 min ago",
@@ -525,7 +525,7 @@
   },
   {
     "id": 46,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Opt for Intercom updates",
     "time": "6 min ago",
@@ -536,7 +536,7 @@
   },
   {
     "id": 47,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Using Intercom for status notifications",
     "time": "6 min ago",
@@ -547,7 +547,7 @@
   },
   {
     "id": 48,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for update notifications",
     "time": "6 min ago",
@@ -558,7 +558,7 @@
   },
   {
     "id": 49,
-    "picture": "./img/avatars/avatar_2.jpg",
+    "avatar": "./img/avatars/avatar_2.jpg",
     "name": "Kasim Daniels",
     "title": "Transition to Intercom for updates",
     "time": "6 min ago",
@@ -569,7 +569,7 @@
   },
   {
     "id": 50,
-    "picture": "./img/avatars/avatar_1.jpg",
+    "avatar": "./img/avatars/avatar_1.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom updates for better communication",
     "time": "6 min ago",
@@ -580,7 +580,7 @@
   },
   {
     "id": 51,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for progress updates",
     "time": "6 min ago",
@@ -591,7 +591,7 @@
   },
   {
     "id": 52,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom for better updates",
     "time": "6 min ago",
@@ -602,7 +602,7 @@
   },
   {
     "id": 53,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom notifications for progress updates",
     "time": "6 min ago",
@@ -613,7 +613,7 @@
   },
   {
     "id": 54,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Utilize Intercom for update notifications",
     "time": "6 min ago",
@@ -624,7 +624,7 @@
   },
   {
     "id": 55,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom updates for collaboration",
     "time": "6 min ago",
@@ -635,7 +635,7 @@
   },
   {
     "id": 56,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Switching to Intercom for progress tracking",
     "time": "6 min ago",
@@ -646,7 +646,7 @@
   },
   {
     "id": 57,
-    "picture": "./img/avatars/avatar_2.jpg",
+    "avatar": "./img/avatars/avatar_2.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for status updates",
     "time": "6 min ago",
@@ -657,7 +657,7 @@
   },
   {
     "id": 58,
-    "picture": "./img/avatars/avatar_1.jpg",
+    "avatar": "./img/avatars/avatar_1.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom for progress updates",
     "time": "6 min ago",
@@ -668,7 +668,7 @@
   },
   {
     "id": 59,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for project updates",
     "time": "6 min ago",
@@ -679,7 +679,7 @@
   },
   {
     "id": 60,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Transition to Intercom for status updates",
     "time": "6 min ago",
@@ -690,7 +690,7 @@
   },
   {
     "id": 61,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom notifications for project updates",
     "time": "6 min ago",
@@ -701,7 +701,7 @@
   },
   {
     "id": 62,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Utilize Intercom for update notifications",
     "time": "6 min ago",
@@ -712,7 +712,7 @@
   },
   {
     "id": 63,
-    "picture": "./img/avatars/avatar_4.jpg",
+    "avatar": "./img/avatars/avatar_4.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom updates for collaboration",
     "time": "6 min ago",
@@ -723,7 +723,7 @@
   },
   {
     "id": 64,
-    "picture": "./img/avatars/avatar_3.jpg",
+    "avatar": "./img/avatars/avatar_3.jpg",
     "name": "Kasim Daniels",
     "title": "Switching to Intercom for progress tracking",
     "time": "6 min ago",
@@ -734,7 +734,7 @@
   },
   {
     "id": 65,
-    "picture": "./img/avatars/avatar_2.jpg",
+    "avatar": "./img/avatars/avatar_2.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for status updates",
     "time": "6 min ago",
@@ -745,7 +745,7 @@
   },
   {
     "id": 66,
-    "picture": "./img/avatars/avatar_1.jpg",
+    "avatar": "./img/avatars/avatar_1.jpg",
     "name": "Kasim Daniels",
     "title": "Switch to Intercom for progress updates",
     "time": "6 min ago",
@@ -756,7 +756,7 @@
   },
   {
     "id": 67,
-    "picture": "./img/avatars/avatar_8.jpg",
+    "avatar": "./img/avatars/avatar_8.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom for project updates",
     "time": "6 min ago",
@@ -767,7 +767,7 @@
   },
   {
     "id": 68,
-    "picture": "./img/avatars/avatar_7.jpg",
+    "avatar": "./img/avatars/avatar_7.jpg",
     "name": "Kasim Daniels",
     "title": "Transition to Intercom for status updates",
     "time": "6 min ago",
@@ -778,7 +778,7 @@
   },
   {
     "id": 69,
-    "picture": "./img/avatars/avatar_6.jpg",
+    "avatar": "./img/avatars/avatar_6.jpg",
     "name": "Kasim Daniels",
     "title": "Intercom notifications for project updates",
     "time": "6 min ago",
@@ -789,7 +789,7 @@
   },
   {
     "id": 70,
-    "picture": "./img/avatars/avatar_5.jpg",
+    "avatar": "./img/avatars/avatar_5.jpg",
     "name": "Kasim Daniels",
     "title": "Send status updates back through Intercom",
     "time": "5 min ago",

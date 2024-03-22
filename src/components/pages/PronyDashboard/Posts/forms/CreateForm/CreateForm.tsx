@@ -13,11 +13,10 @@ interface formProps {
   submitSuccess: (data: PostsItemProps) => void;
   formTitle: string;
   formData: PostsItemProps;
-  postsData?: PostsItemProps[];
   formType: "create" | "edit";
 }
 
-const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, postsData, formType }) => {
+const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, formType }) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const {
     register,
@@ -122,7 +121,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, postsDa
             }}
             render={({ field: { onChange } }) => (
               <FormDropdown
-                current=""
+                current={formData.name}
                 name="Owner"
                 required={false}
                 onSelect={onChange}
