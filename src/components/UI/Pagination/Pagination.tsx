@@ -8,11 +8,12 @@ interface PaginationProps {
   paginate: (pageNumber: number) => void;
   currentPage: number;
   totalPages: number;
+  addClass?: string;
 }
 
-const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages }) => {
+const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages, addClass = "" }) => {
   return (
-    <nav className="pagination">
+    <nav className={`pagination ${addClass}`}>
       <div className="pagination__back">
         <button
           aria-label="Go to first page"

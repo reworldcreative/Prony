@@ -1,14 +1,17 @@
-import React, { FC, useState } from "react";
+import React, { FC, useContext, useState } from "react";
 import "./FileLoader.scss";
+import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import clip from "@/assets/img/icons/clip.svg";
 import cancelIcon from "@/assets/img/icons/cancel.svg";
 
 interface FileLoaderProps {
   onSelect: (fileName: string) => void;
+  label?: string;
 }
 
-const FileLoader: FC<FileLoaderProps> = ({ onSelect }) => {
+const FileLoader: FC<FileLoaderProps> = ({ onSelect, label }) => {
   const [fileName, setFileName] = useState("");
+  const theme = useContext(GlobalContext);
 
   const checkFileExtension = (fileName: string) => {
     const fileNameSplit = fileName.split(".");
@@ -41,9 +44,17 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect }) => {
 
   return (
     <>
+      {label && <p className="file-loader__top-label text">{label}</p>}
       <div className="file-loader__wrapper" onDragOver={handleDragOver} onDrop={handleDrop}>
         <div className="file-loader__label text">
-          <img className="file-loader__icon" src={clip} alt="clip icon" width="16" height="16" aria-hidden="true" />
+          <img
+            className={`file-loader__icon ${theme && theme.theme}`}
+            src={clip}
+            alt="clip icon"
+            width="16"
+            height="16"
+            aria-hidden="true"
+          />
           <label htmlFor="postFileLoader" className="file-loader__link">
             Add file&#160;
           </label>

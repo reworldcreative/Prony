@@ -1,12 +1,14 @@
 import React, { FC, useRef, useState } from "react";
 import "./PostsItem.scss";
-import PictureComponent from "@/../plugins/PictureComponent";
 import Marker from "../Marker";
 import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
 
 import like from "@/assets/img/icons/menu/like.svg";
 import message from "@/assets/img/icons/menu/message.svg";
+import { Link } from "react-router-dom";
+import PostLogo from "./PostLogo/PostLogo";
+import Tags from "./Tags/Tags";
 
 interface PostsItemProps {
   id: number;
@@ -18,6 +20,7 @@ interface PostsItemProps {
   tags: { name: string; color: "info" | "success" | "danger"; type: "standard" | "remove" }[];
   likes: number;
   posts: number;
+  postImage?: string;
   deletePost?: (id: number) => void;
   editPost?: (id: number) => void;
   setFormType?: (value: "create" | "edit") => void;
@@ -63,7 +66,7 @@ const PostsItem: FC<PostsItemProps> = ({
     {
       icon: "./img/icons/menu/message.svg",
       text: `View post`,
-      onClick: () => {},
+      url: "/post-view",
     },
     {
       icon: "./img/icons/menu/merge.svg",
@@ -74,24 +77,7 @@ const PostsItem: FC<PostsItemProps> = ({
 
   return (
     <div className="posts-item">
-      <div className="posts-item__user">
-        {avatar.length > 0 ? (
-          <PictureComponent
-            src={avatar}
-            width="45"
-            height="45"
-            alt="avatar"
-            ariaHidden={true}
-            className="posts-item__user-avatar"
-          />
-        ) : (
-          <div className="posts-item__user-avatar posts-item__user-avatar_skeleton text" aria-hidden="true">
-            {name.charAt(0).toUpperCase()}
-          </div>
-        )}
-
-        <p className="posts-item__user-name heading-h6">{name}</p>
-      </div>
+      <PostLogo avatar={avatar} name={name} />
 
       <div className="posts-item__content">
         <div className="posts-item__top">
@@ -101,9 +87,7 @@ const PostsItem: FC<PostsItemProps> = ({
 
         <p className="posts-item__text text">{text}</p>
 
-        <div className="posts-item__tags">
-          {tags && tags.map((tag) => <Marker key={tag.name} name={tag.name} color={tag.color} type={tag.type} />)}
-        </div>
+        <Tags tags={tags} />
       </div>
 
       <div className="posts-item__statistic">
@@ -149,19 +133,33 @@ const PostsItem: FC<PostsItemProps> = ({
             ariaHidden={!isOpenMenu}
             openButton={openMenuButtonRef}
           >
-            {openMenuLinks.map((link, index) => (
-              <button onClick={link.onClick} className="openMenu__item" key={index}>
-                <img
-                  src={link.icon}
-                  className="openMenu__icon"
-                  alt={link.text}
-                  aria-hidden="true"
-                  width="20"
-                  height="20"
-                />
-                <span className="text openMenu__text">{link.text}</span>
-              </button>
-            ))}
+            {openMenuLinks.map((link, index) =>
+              link.url ? (
+                <Link to={link.url} className="openMenu__item" key={index}>
+                  <img
+                    src={link.icon}
+                    className="openMenu__icon"
+                    alt={link.text}
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                  />
+                  <span className="text openMenu__text">{link.text}</span>
+                </Link>
+              ) : (
+                <button onClick={link.onClick} className="openMenu__item" key={index}>
+                  <img
+                    src={link.icon}
+                    className="openMenu__icon"
+                    alt={link.text}
+                    aria-hidden="true"
+                    width="20"
+                    height="20"
+                  />
+                  <span className="text openMenu__text">{link.text}</span>
+                </button>
+              )
+            )}
           </OpenMenu>
         </div>
       </div>

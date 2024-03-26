@@ -4,6 +4,7 @@
 .dropdown {
   position: relative;
   padding: 5px 10px;
+  z-index: 10;
 
   &__current,
   &__button,

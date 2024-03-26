@@ -10,29 +10,6 @@
     background-color: var(--BGItem);
   }
 
-  &__user {
-    margin-right: 52px;
-    border-radius: 100%;
-    text-align: center;
-    width: 7%;
-  }
-
-  &__user-avatar {
-    margin-bottom: 13px;
-
-    &_skeleton {
-      margin: 0px auto 13px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 100%;
-      background: var(--Secondary);
-      color: #ffffff;
-      width: 45px;
-      height: 45px;
-    }
-  }
-
   &__top {
     display: flex;
     flex-wrap: wrap;
@@ -40,22 +17,14 @@
     max-width: 450px;
   }
 
-  &__tags {
-    display: flex;
-    margin-top: 11px;
-
-    .posts__marker {
-      color: #ffffff;
-      margin-right: 12px;
-      justify-content: center;
-      max-width: fit-content;
-      padding: 0px 20px;
-      height: fit-content;
-
-      &:last-child {
-        margin-right: 0;
-      }
-    }
+  &__title {
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 3;
+    display: -webkit-box;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 550px;
   }
 
   &__content {
@@ -108,31 +77,9 @@
   }
 }
 
-@include Tablet {
-  .posts-item {
-    &__tags {
-      flex-wrap: wrap;
-      margin-bottom: 10px;
-
-      .posts__marker {
-        margin-bottom: 10px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-      }
-    }
-  }
-}
-
 @include Small-Tablet {
   .posts-item {
     flex-wrap: wrap;
-
-    &__user {
-      width: auto;
-      margin-bottom: 10px;
-    }
 
     &__content {
       max-width: 100%;

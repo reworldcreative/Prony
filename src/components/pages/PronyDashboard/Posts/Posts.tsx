@@ -168,7 +168,7 @@ const Posts: FC = () => {
           </div>
         </div>
 
-        <section className="posts">
+        <section className="posts pageContainer-section">
           <div className="posts__top">
             <Selectors
               setSearch={setSearch}

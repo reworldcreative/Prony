@@ -1,0 +1,146 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.post-element {
+  padding: 15px 43px;
+  box-sizing: border-box;
+  display: flex;
+
+  &.active,
+  &:hover {
+    border-left: 1px solid var(--Secondary);
+  }
+
+  &__statistic-item,
+  &__top,
+  &__menu,
+  &__menu-element {
+    display: flex;
+    align-items: center;
+  }
+
+  .posts-item {
+    margin-top: 34px;
+
+    &__user {
+      margin-right: 0px;
+    }
+
+    &__user-avatar {
+      margin: 34px 0px 0 0;
+    }
+  }
+
+  &__top {
+    margin-bottom: 18px;
+  }
+
+  &__container {
+    margin-left: 24px;
+  }
+
+  &__statistic-item {
+    margin-right: 10px;
+  }
+
+  &__statistic-icon {
+    margin-right: 10px;
+  }
+
+  &__statistic-icon,
+  &__menu-icon {
+    filter: invert(44%) sepia(0%) saturate(1967%) hue-rotate(105deg) brightness(102%) contrast(90%);
+
+    &_active {
+      filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+    }
+  }
+
+  &__menu-element:hover {
+    .post-element__menu-icon {
+      filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+    }
+  }
+
+  &__name {
+    margin-bottom: 5px;
+  }
+
+  &__menu {
+    margin-top: 15px;
+    flex-wrap: wrap;
+
+    &-icon {
+      margin-right: 5px;
+    }
+
+    &-element {
+      margin-right: 27px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__image {
+    margin-top: 20px;
+    width: auto;
+    max-width: 100%;
+    cursor: pointer;
+  }
+
+  &__sub-element {
+    position: relative;
+
+    .post-element {
+      padding: 15px 0px;
+    }
+
+    &::before {
+      position: absolute;
+      content: "";
+      display: block;
+      height: 1px;
+      width: 5%;
+      top: 50%;
+      left: calc(min(-5%, -46px));
+      background: var(--TextSecondary);
+    }
+
+    &::after {
+      position: absolute;
+      content: "";
+      display: block;
+      height: 90%;
+      top: -40%;
+      width: 1px;
+      left: -6%;
+      background: var(--TextSecondary);
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .post-element {
+    display: block;
+    padding: 15px;
+
+    .posts-item__user-avatar {
+      margin: 0px;
+    }
+
+    &__container {
+      margin-left: 0px;
+    }
+
+    &__sub-element {
+      margin-left: 15px;
+
+      &::before,
+      &::after {
+        display: none;
+      }
+    }
+  }
+}

@@ -8,6 +8,16 @@
   box-sizing: border-box;
   display: grid;
 
+  &__name {
+    max-width: 150px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
   &__title {
     padding: 0px 28px;
   }

@@ -1,0 +1,44 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.posts-item {
+  &__tags {
+    display: flex;
+    margin-top: 11px;
+
+    .posts__marker {
+      display: block;
+      color: #ffffff;
+      margin-right: 12px;
+      justify-content: center;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      max-width: 100px;
+      width: fit-content;
+      padding: 0px 20px;
+      height: fit-content;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+}
+
+@include Tablet {
+  .posts-item {
+    &__tags {
+      flex-wrap: wrap;
+      margin-bottom: 10px;
+
+      .posts__marker {
+        margin-bottom: 10px;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+}

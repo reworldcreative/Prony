@@ -7,7 +7,14 @@
 
   &__avatar {
     margin-right: 20px;
-    border-radius:100%;
+    border-radius: 100%;
+  }
+
+  &__name {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    max-width: 200px;
   }
 
   &__status {

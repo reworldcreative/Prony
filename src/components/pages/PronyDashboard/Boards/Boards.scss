@@ -30,6 +30,14 @@
     width: 57%;
     padding-right: 15px;
     box-sizing: border-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 550px;
   }
 
   &__item {
