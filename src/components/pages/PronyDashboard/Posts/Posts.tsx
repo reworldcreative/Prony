@@ -146,7 +146,7 @@ const Posts: FC = () => {
       </PopUp>
 
       <section className="pageContainer-MainSection">
-        <Breadcrumbs currentTitle="Posts" currentLink="/posts" />
+        <Breadcrumbs currentTitle={["Posts"]} currentLink={["/posts"]} />
 
         <div className="pageContainer-MainSection__top pageContainerPosts-MainSection__top">
           <h1 className="title posts-MainSection__title">Posts</h1>
@@ -280,7 +280,7 @@ const Posts: FC = () => {
             <section className="posts__sort">
               <div className="container">
                 <p className="text-second">Sort by:</p>
-                <Dropdown current="Newest" options={["Newest", "Latest"]} onSelect={setSortBy} />
+                <Dropdown type="bordered" current="Newest" options={["Newest", "Latest"]} onSelect={setSortBy} />
               </div>
 
               <PerPage current={perPage} onSelect={setPerPage} />

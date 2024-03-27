@@ -7,9 +7,10 @@ import cancelIcon from "@/assets/img/icons/cancel.svg";
 interface FileLoaderProps {
   onSelect: (fileName: string) => void;
   label?: string;
+  type?: "image" | "file";
 }
 
-const FileLoader: FC<FileLoaderProps> = ({ onSelect, label }) => {
+const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) => {
   const [fileName, setFileName] = useState("");
   const theme = useContext(GlobalContext);
 
@@ -22,10 +23,12 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label }) => {
   const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const selectedFile = event.target.files[0];
 
-    if (checkFileExtension(selectedFile.name)) {
-      setFileName(URL.createObjectURL(selectedFile));
+    type === "image"
+      ? checkFileExtension(selectedFile.name)
+        ? (setFileName(URL.createObjectURL(selectedFile)), onSelect(URL.createObjectURL(selectedFile)))
+        : null
+      : setFileName(URL.createObjectURL(selectedFile)),
       onSelect(URL.createObjectURL(selectedFile));
-    }
   };
 
   const handleDragOver = (event: React.DragEvent<HTMLInputElement>) => {
@@ -36,10 +39,12 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label }) => {
     event.preventDefault();
 
     const file = event.dataTransfer.files[0];
-    if (checkFileExtension(file.name)) {
-      setFileName(URL.createObjectURL(file));
+    type === "image"
+      ? checkFileExtension(file.name)
+        ? (setFileName(URL.createObjectURL(file)), onSelect(URL.createObjectURL(file)))
+        : null
+      : setFileName(URL.createObjectURL(file)),
       onSelect(URL.createObjectURL(file));
-    }
   };
 
   return (

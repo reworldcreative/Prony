@@ -1,0 +1,85 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.postVoters {
+  &__item-main,
+  &__item,
+  &__user {
+    display: flex;
+    align-items: center;
+  }
+
+  &__item {
+    justify-content: space-between;
+    padding: 20px 33px 20px 43px;
+
+    &:nth-child(even) {
+      background: var(--BGItem);
+    }
+  }
+
+  &__item-main {
+    max-width: 365px;
+    width: 100%;
+    justify-content: space-between;
+
+    .posts-item {
+      &__user,
+      &__user-avatar {
+        margin: 0;
+        width: auto;
+        height: auto;
+      }
+    }
+  }
+
+  &__name {
+    margin-left: 27px;
+    margin-right: 20px;
+  }
+
+  &__remove {
+    &:hover {
+      img {
+        filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+      }
+    }
+
+    img {
+      filter: invert(40%) sepia(99%) saturate(8%) hue-rotate(25deg) brightness(94%) contrast(86%);
+    }
+  }
+
+  &__time {
+    margin-right: 10px;
+  }
+}
+
+@include Tablet {
+  .postVoters {
+    &__item-main {
+      max-width: 65%;
+    }
+  }
+}
+
+@include Small-Tablet {
+  .postVoters {
+    &__item {
+      padding: 15px;
+    }
+  }
+}
+
+@include Mobile {
+  .postVoters {
+    &__item-main {
+      flex-wrap: wrap;
+      max-width: 60%;
+    }
+
+    &__time {
+      align-self: auto;
+    }
+  }
+}

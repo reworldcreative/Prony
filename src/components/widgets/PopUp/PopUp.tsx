@@ -5,11 +5,12 @@ import { GlobalContext } from "../GlobalContext/GlobalContext";
 
 interface PopUpProps {
   children: ReactNode;
+  addClass?: string;
 }
 
 const rootElement = document.getElementById("root");
 
-const PopUp: FC<PopUpProps> = ({ children }) => {
+const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
   const { theme, setTheme, isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
 
   const popUpRef = useRef(null);
@@ -40,7 +41,7 @@ const PopUp: FC<PopUpProps> = ({ children }) => {
 
   return (
     <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
-      <div className="popUp__container" ref={popUpRef} tabIndex={0} aria-live="assertive">
+      <div className={`popUp__container ${addClass && addClass}`} ref={popUpRef} tabIndex={0} aria-live="assertive">
         {children}
         <button
           className="popUp__close"

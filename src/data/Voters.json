@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "icon": "./img/avatars/avatar_2.jpg",
+    "name": "Sophia-Rose Nava",
+    "time": "6 min ago"
+  },
+  {
+    "id": 2,
+    "icon": "./img/avatars/avatar_3.jpg",
+    "name": "Yuvaan Whittington",
+    "time": "6 min ago"
+  },
+  {
+    "id": 3,
+    "icon": "./img/avatars/avatar_5.jpg",
+    "name": "Kristopher Winter",
+    "time": "4 min ago"
+  },
+  {
+    "id": 4,
+    "icon": "./img/avatars/avatar_1.jpg",
+    "name": "Amal Gamble",
+    "time": "6 min ago"
+  },
+  {
+    "id": 5,
+    "icon": "./img/avatars/avatar_2.jpg",
+    "name": "Anna Walley",
+    "time": "6 min ago"
+  }
+]

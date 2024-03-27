@@ -71,4 +71,18 @@
       filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg) brightness(109%) contrast(97%);
     }
   }
+
+  &.bordered {
+    border: 1px solid var(--TextSecondary);
+    border-radius: 5px;
+    padding: 5px 15px;
+
+    &:hover {
+      border: 1px solid var(--Secondary);
+    }
+
+    .dropdown__current {
+      width: 100%;
+    }
+  }
 }

@@ -10,7 +10,7 @@ const PerPage: FC<PerPageProps> = ({ current, onSelect }) => {
   return (
     <div className="container">
       <p className="text-second">Show:</p>
-      <Dropdown current={current} options={["10", "20", "30"]} onSelect={onSelect} />
+      <Dropdown type="bordered" current={current} options={["10", "20", "30"]} onSelect={onSelect} />
       <p className="text-second">per page</p>
     </div>
   );

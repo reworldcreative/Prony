@@ -8,7 +8,7 @@ import PopUp from "@/components/widgets/PopUp/PopUp";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import Tags from "../Posts/PostsItem/Tags/Tags";
 import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import PostViewForm from "./PostViewForm/PostViewForm";
 import Dropdown from "@/components/UI/forms/Dropdown/Dropdown";
 import PostElement from "./PostElement/PostElement";
@@ -17,10 +17,15 @@ import like from "@/assets/img/icons/menu/like.svg";
 import post1 from "@/assets/img/posts/post1.jpg";
 import postImage from "@/assets/img/posts/post2.jpg";
 import Pagination from "@/components/UI/Pagination/Pagination";
+import PostViewPopUpForm from "./PostViewPopUpForm/PostViewPopUpForm";
+import postsData from "@/data/Posts.json";
 
 const PostView: FC = () => {
+  const { id } = useParams();
+  const [post, setPost] = useState(postsData.find((post) => post.id === Number(id)));
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const [popUpImage, setPopUpImage] = useState("");
+  const [popUpType, setPopUpType] = useState<"image" | "add" | "change" | "">("");
   const [isOpenMenu, setIsOpenMenu] = useState(false);
   const openMenuButtonRef = useRef<HTMLButtonElement>(null);
 
@@ -55,21 +60,29 @@ const PostView: FC = () => {
     {
       icon: "./img/icons/menu/change.svg",
       text: `Change status`,
-      onClick: () => {},
+      onClick: () => {
+        setPopUpType("change");
+        setOpenPopUp(true);
+      },
     },
     {
       icon: "./img/icons/menu/add.svg",
       text: `Add voter`,
-      onClick: () => {},
+      onClick: () => {
+        setPopUpType("add");
+        setOpenPopUp(true);
+      },
     },
     {
       icon: "./img/icons/menu/like.svg",
       text: `List voters`,
+      url: `/post-voters/${id}`,
       onClick: () => {},
     },
   ];
 
   const openPopupImage = (image: string) => {
+    setPopUpType("image");
     setPopUpImage(image);
     setOpenPopUp(true);
   };
@@ -77,17 +90,22 @@ const PostView: FC = () => {
   return (
     <>
       <PopUp>
-        <PictureComponent
-          src={popUpImage}
-          alt="an orange chair in a loft interior"
-          className="post-view__image-popup"
-          width="250"
-          height="176"
-        />
+        {popUpType === "image" && (
+          <PictureComponent
+            src={popUpImage}
+            alt="an orange chair in a loft interior"
+            className="post-view__image-popup"
+            width="250"
+            height="176"
+          />
+        )}
+
+        {popUpType === "change" && <PostViewPopUpForm title="Changes post status" type="change" />}
+        {popUpType === "add" && <PostViewPopUpForm title="Add voter" type="add" />}
       </PopUp>
 
       <section className="pageContainer-MainSection">
-        <Breadcrumbs currentTitle="Posts view" currentLink="/posts-view" />
+        <Breadcrumbs currentTitle={["Posts", "Post view"]} currentLink={["/posts", `/post-view/${id}`]} />
 
         <div className="pageContainer-MainSection__top pageContainerPost-view-MainSection__top">
           <h1 className="title posts-MainSection__title">Post view</h1>
@@ -105,7 +123,7 @@ const PostView: FC = () => {
                   height="24"
                   aria-hidden="true"
                 />
-                24 <span className="visibility-hidden">likes</span>
+                {post?.likes} <span className="visibility-hidden">likes</span>
               </div>
 
               <div className="posts-item__menu">
@@ -155,21 +173,17 @@ const PostView: FC = () => {
             </div>
 
             <div className="post-view__content">
-              <PostLogo avatar="" name="Ross Gillespie" />
+              <PostLogo avatar={post.avatar} name="Ross Gillespie" />
 
               <div className="post-view__main">
                 <div className="post-view__top">
-                  <h3 className="post-view__title heading-h6">Send status updates back through Intercom</h3>
-                  <p className="post-view__time text">3 min ago</p>
+                  <h3 className="post-view__title heading-h6">{post.title}</h3>
+                  <p className="post-view__time text">{post.time}</p>
                 </div>
 
                 <div className="post-view__status text">Complete</div>
 
-                <p className="post-view__text text">
-                  Instead of send updates via email, send them through the original conversation on Intercom Instead of
-                  send updates via email, send them through the original conversation on Intercom Instead of send
-                  updates via email, send them through the original conversation on Intercom
-                </p>
+                <p className="post-view__text text">{post.text}</p>
 
                 <div
                   onClick={() => {
@@ -186,10 +200,9 @@ const PostView: FC = () => {
                 </div>
 
                 <Tags
-                  tags={[
-                    { name: "Tagname1", type: "standard", color: "danger" },
-                    { name: "Tagname2", type: "standard", color: "success" },
-                  ]}
+                  tags={
+                    post.tags as { name: string; color: "info" | "success" | "danger"; type: "standard" | "remove" }[]
+                  }
                 />
               </div>
             </div>

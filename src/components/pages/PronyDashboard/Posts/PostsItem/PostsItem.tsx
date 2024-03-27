@@ -66,7 +66,7 @@ const PostsItem: FC<PostsItemProps> = ({
     {
       icon: "./img/icons/menu/message.svg",
       text: `View post`,
-      url: "/post-view",
+      url: `/post-view/${id}`,
     },
     {
       icon: "./img/icons/menu/merge.svg",

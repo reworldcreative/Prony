@@ -234,6 +234,11 @@ ul {
   }
 }
 
+.posts-MainSection__title,
+.posts-MainSection__title .title-second {
+  color: var(--Primary);
+}
+
 *:focus {
   outline: none;
 }
@@ -262,6 +267,21 @@ button {
   height: 3px;
   border-radius: 100%;
   background-color: var(--Primary);
+}
+
+.load-button {
+  img {
+    margin-right: 15px;
+    filter: invert(47%) sepia(0%) saturate(0%) hue-rotate(117deg) brightness(97%) contrast(92%);
+  }
+
+  &:hover {
+    color: var(--Secondary);
+
+    img {
+      filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+    }
+  }
 }
 
 @keyframes fadeInOpacity {
