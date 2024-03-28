@@ -57,7 +57,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, boardsD
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <h2 className="form__title title">{formTitle}</h2>
+      <h2 className="title form__title">{formTitle}</h2>
 
       <div className="form__wrapper">
         <fieldset className="form__fieldset">

@@ -18,3 +18,18 @@
     padding: 8px 51px;
   }
 }
+
+@include Mobile {
+  .form {
+    &__buttons {
+      display: grid;
+      gap: 10px;
+
+      .form__button {
+        &:first-child {
+          margin-right: 0px;
+        }
+      }
+    }
+  }
+}

@@ -36,6 +36,10 @@
   &__name {
     margin-left: 27px;
     margin-right: 20px;
+    max-width: 250px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
   }
 
   &__remove {

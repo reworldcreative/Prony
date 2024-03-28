@@ -40,7 +40,7 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="deleteForm">
-      <h2 className="deleteForm__title title">{formTitle}</h2>
+      <h2 className="title deleteForm__title">{formTitle}</h2>
 
       <p className="deleteForm__text subtitle">
         This action will permanently delete the board and its content and cannot be undone. Please enter the board name

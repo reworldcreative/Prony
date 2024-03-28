@@ -10,16 +10,19 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 import votersData from "@/data/Voters.json";
 import postsData from "@/data/Posts.json";
 
-import exportIcon from "@/assets/img/icons/posts/export.svg";
+import importIcon from "@/assets/img/icons/posts/import.svg";
+import ImportForm from "./ImportForm/ImportForm";
 
 const PostVoters: FC = () => {
   const { id } = useParams();
   const post = postsData.find((post) => post.id === Number(id));
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+  const [popUpType, setPopUpType] = useState<"delete" | "import">("delete");
   const [deletedId, setDeletedId] = useState(0);
   const [votersList, setVotersList] = useState([...votersData]);
 
   const handleDeleteForm = (id: number) => {
+    setPopUpType("delete");
     setDeletedId(id);
     setOpenPopUp(true);
   };
@@ -29,21 +32,32 @@ const PostVoters: FC = () => {
     setOpenPopUp(false);
   };
 
+  const handleImportForm = () => {
+    setPopUpType("import");
+    setOpenPopUp(true);
+  };
+
   return (
     <>
-      <PopUp addClass="postVoters__delete-pop-up">
-        <div className="postVoters__delete">
-          <p className="postVoters__delete-text heading-h6">Are you sure you would like to delete this vote?</p>
-          <FormButtons
-            type="danger"
-            isValid={true}
-            onCancel={() => {
-              setOpenPopUp(false);
-            }}
-            onSubmit={handleDeleteVoter}
-          />
-        </div>
+      <PopUp addClass={popUpType === "delete" && "postVoters__delete-pop-up"}>
+        {popUpType === "delete" && (
+          <div className="postVoters__delete">
+            <p className="postVoters__delete-text heading-h6">Are you sure you would like to delete this vote?</p>
+
+            <FormButtons
+              type="danger"
+              isValid={true}
+              onCancel={() => {
+                setOpenPopUp(false);
+              }}
+              onSubmit={handleDeleteVoter}
+            />
+          </div>
+        )}
+
+        {popUpType === "import" && <ImportForm submitSuccess={(file) => {}} />}
       </PopUp>
+
       <section className="pageContainer-MainSection">
         <Breadcrumbs
           currentTitle={["Post view", "Post voters"]}
@@ -55,9 +69,9 @@ const PostVoters: FC = () => {
             Voters for <span className="title-second">“{post?.title}”</span>
           </h1>
 
-          <button className="load-button subtitle-second" aria-label="export">
-            <img src={exportIcon} alt="export icon" width="14" height="17" aria-hidden="true" />
-            Export
+          <button className="load-button subtitle-second" aria-label="import" onClick={handleImportForm}>
+            <img src={importIcon} alt="import icon" width="14" height="17" aria-hidden="true" />
+            Import
           </button>
         </div>
 
