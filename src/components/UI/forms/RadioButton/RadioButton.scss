@@ -1,7 +1,7 @@
 @import "rfs/scss";
 @import "@/styles/variables";
 
-.radio__container {
+.radio__container:not(.colorSelector) {
   width: fit-content;
 
   input[type="checkbox"] {

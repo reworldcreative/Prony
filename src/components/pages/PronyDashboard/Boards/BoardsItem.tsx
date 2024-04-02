@@ -49,29 +49,25 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp, changePrivacy }) => 
     {
       icon: "./img/icons/eye.svg",
       text: `${item.privacy ? "Public" : "Private"} view`,
-      url: "/",
       onClick: handleChangePrivacy,
     },
     {
       icon: "./img/icons/menu/gear.svg",
       text: "Edit board settings",
-      url: "/",
       onClick: () => openPopUp({ title: "Edit Board", type: "edit", formData: item }),
     },
-    { icon: "./img/icons/menu/list.svg", text: "List board tags", url: "/" },
+    { icon: "./img/icons/menu/list.svg", text: "List board tags", url: "/tags" },
     {
       icon: "./img/icons/menu/pen.svg",
       text: "Edit board post",
-      url: "/",
       onClick: () => openPopUp({ title: "Edit board post form", type: "editPost" }),
     },
     {
       icon: "./img/icons/menu/cross.svg",
       text: "Delete board",
-      url: "/",
       onClick: () => openPopUp({ title: "Delete board", type: "delete" }),
     },
-    { icon: "./img/icons/menu/message.svg", text: "View posts", url: "/" },
+    { icon: "./img/icons/menu/message.svg", text: "View posts", url: "/posts" },
   ];
 
   const [dragging, setDragging] = useState(false);
@@ -146,19 +142,33 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp, changePrivacy }) => 
                 ariaHidden={!isOpenMenu}
                 openButton={openMenuButtonRef}
               >
-                {openMenuLinks.map((link, index) => (
-                  <button onClick={link.onClick} className="openMenu__item" key={index}>
-                    <img
-                      src={link.icon}
-                      className="openMenu__icon"
-                      alt={link.text}
-                      aria-hidden="true"
-                      width="20"
-                      height="20"
-                    />
-                    <span className="text openMenu__text">{link.text}</span>
-                  </button>
-                ))}
+                {openMenuLinks.map((link, index) =>
+                  link.url ? (
+                    <Link to={link.url} className="openMenu__item" key={index}>
+                      <img
+                        src={link.icon}
+                        className="openMenu__icon"
+                        alt={link.text}
+                        aria-hidden="true"
+                        width="20"
+                        height="20"
+                      />
+                      <span className="text openMenu__text">{link.text}</span>
+                    </Link>
+                  ) : (
+                    <button onClick={link.onClick} className="openMenu__item" key={index}>
+                      <img
+                        src={link.icon}
+                        className="openMenu__icon"
+                        alt={link.text}
+                        aria-hidden="true"
+                        width="20"
+                        height="20"
+                      />
+                      <span className="text openMenu__text">{link.text}</span>
+                    </button>
+                  )
+                )}
               </OpenMenu>
             </div>
           </div>

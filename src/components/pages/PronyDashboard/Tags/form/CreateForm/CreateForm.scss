@@ -1,0 +1,30 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.tags-form {
+  .input {
+    background: none;
+  }
+
+  &__colors,
+  &__privacy {
+    margin-top: 13px;
+  }
+
+  &__colors-caption,
+  &__privacy-caption {
+    margin-bottom: 5px;
+  }
+
+  &__privacy-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 5px;
+
+    .radio__container {
+      &:first-child {
+        margin-right: 25px;
+      }
+    }
+  }
+}

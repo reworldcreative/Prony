@@ -6,8 +6,7 @@
   box-sizing: border-box;
   display: flex;
 
-  &.active,
-  &:hover {
+  &.private {
     border-left: 1px solid var(--Secondary);
   }
 

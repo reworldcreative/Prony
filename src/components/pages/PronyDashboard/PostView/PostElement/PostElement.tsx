@@ -15,7 +15,7 @@ interface PostElementProps {
   text: string;
   data: string;
   likes: number;
-  isActive?: boolean;
+  isPrivate?: boolean;
   children?: JSX.Element;
   image?: string;
   openPopupImage?: (image: string) => void;
@@ -28,12 +28,12 @@ const PostElement: FC<PostElementProps> = ({
   data,
   likes,
   image,
-  isActive = false,
+  isPrivate = false,
   children,
   openPopupImage,
 }) => {
   return (
-    <div className={`post-element ${isActive ? "active" : ""}`}>
+    <div className={`post-element ${isPrivate ? "private" : ""}`}>
       <PostLogo avatar={avatar} name={name} named={false} />
 
       <div className="post-element__container">
@@ -106,7 +106,7 @@ const PostElement: FC<PostElementProps> = ({
 
           <button className="post-element__menu-element text">
             <img
-              className="post-element__menu-icon"
+              className={`post-element__menu-icon ${isPrivate ? "post-element__menu-icon_active" : ""}`}
               src={lock}
               alt="private icon"
               width="16"

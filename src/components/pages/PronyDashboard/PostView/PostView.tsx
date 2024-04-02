@@ -221,7 +221,7 @@ const PostView: FC = () => {
               name="Sophia-Rose Nava"
               data="01-02-2020"
               likes={3}
-              isActive={true}
+              isPrivate={true}
               text=" Instead of send updates via email, send them through the original conversation on Intercom Instead of send
           updates via email, send them through the original conversation on Intercom Instead of send updates via email,
           send them through the original conversation on Intercom"

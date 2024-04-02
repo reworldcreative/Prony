@@ -3,7 +3,7 @@ import "./Posts.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
 import Selectors from "./Selectors";
-import Marker from "./Marker";
+import Marker from "./Marker/Marker";
 import Dropdown from "@/components/UI/forms/Dropdown/Dropdown";
 import PostsItem, { PostsItemProps } from "./PostsItem/PostsItem";
 

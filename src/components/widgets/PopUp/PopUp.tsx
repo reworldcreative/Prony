@@ -41,7 +41,7 @@ const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
 
   return (
     <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
-      <div className={`popUp__container ${addClass && addClass}`} ref={popUpRef} tabIndex={0} aria-live="assertive">
+      <div className={`popUp__container ${addClass ? addClass : ""}`} ref={popUpRef} tabIndex={0} aria-live="assertive">
         {children}
         <button
           className="popUp__close"

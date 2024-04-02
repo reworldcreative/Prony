@@ -22,35 +22,6 @@
     flex-wrap: wrap;
   }
 
-  &__marker {
-    justify-content: space-between;
-    width: 137px;
-    border-radius: 30px;
-    padding: 2px 10px;
-    font-size: 12px;
-    font-weight: 400;
-
-    &_info {
-      background: rgba(21, 101, 192, 0.2);
-    }
-
-    &_danger {
-      background: var(--Danger);
-    }
-
-    &_success {
-      background: var(--Success);
-    }
-  }
-
-  &__markerIcon {
-    margin-left: 10px;
-
-    &_dark {
-      filter: invert(88%) sepia(100%) saturate(93%) hue-rotate(301deg) brightness(112%) contrast(112%);
-    }
-  }
-
   &__sort {
     margin-top: 37px;
     justify-content: space-between;
@@ -87,7 +58,6 @@
 .buttonsPosts,
 .load-button,
 .posts__sort,
-.posts__marker,
 .posts__markersContainer,
 .posts__sort,
 .posts__sort .container {

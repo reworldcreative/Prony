@@ -1,6 +1,6 @@
 import React, { FC } from "react";
 import "./Tags.scss";
-import Marker from "../../Marker";
+import Marker from "../../Marker/Marker";
 
 interface TagsProps {
   tags: { name: string; color: "info" | "success" | "danger"; type: "standard" | "remove" }[];

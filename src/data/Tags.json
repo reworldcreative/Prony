@@ -1,0 +1,32 @@
+[
+  {
+    "id": 1,
+    "title": "Tagname1",
+    "color": "#F44336",
+    "status": "public"
+  },
+  {
+    "id": 2,
+    "title": "Tagname2",
+    "color": "#1565C0",
+    "status": "private"
+  },
+  {
+    "id": 3,
+    "title": "Tagname3",
+    "color": "#43A047",
+    "status": "public"
+  },
+  {
+    "id": 4,
+    "title": "Tagname4",
+    "color": "#BB6BD9",
+    "status": "private"
+  },
+  {
+    "id": 5,
+    "title": "Tagname5",
+    "color": "#C4C4C4",
+    "status": "public"
+  }
+]
