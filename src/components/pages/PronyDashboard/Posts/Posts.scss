@@ -8,6 +8,7 @@
 
   &__selectors {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
 
@@ -46,6 +47,14 @@
     &_bottom {
       margin: 0px;
       padding: 22px 50px;
+    }
+
+    &-time {
+      .dropdown {
+        &__current {
+          min-width: 71px;
+        }
+      }
     }
   }
 

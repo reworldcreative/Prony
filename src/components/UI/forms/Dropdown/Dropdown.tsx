@@ -6,11 +6,12 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 interface DropdownProps {
   options: string[];
   current: string;
+  addClass?: string;
   onSelect: (selectedOption: string) => void;
   type?: "standard" | "bordered" | "";
 }
 
-const Dropdown: FC<DropdownProps> = ({ options, current, onSelect, type = "" }) => {
+const Dropdown: FC<DropdownProps> = ({ options, addClass, current, onSelect, type = "" }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownListRef = useRef<HTMLUListElement>(null);
@@ -67,7 +68,10 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect, type = "" }) 
   }, [current]);
 
   return (
-    <div className={`dropdown ${isOpen ? "dropdown_open" : ""} ${type}`} ref={DropdownContainerRef}>
+    <div
+      className={`dropdown ${isOpen ? "dropdown_open" : ""} ${type} ${addClass ? addClass : ""}`}
+      ref={DropdownContainerRef}
+    >
       <button
         type="button"
         className="dropdown__current"

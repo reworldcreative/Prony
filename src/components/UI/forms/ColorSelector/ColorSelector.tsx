@@ -50,6 +50,7 @@ const ColorSelector: FC<ColorSelectorProps> = ({
 
       <label
         htmlFor={value}
+        aria-label={`color value ${value}`}
         className={`radio-label text ${size === "big" ? "heading-h6" : ""}`}
         style={{ backgroundColor: value }}
       />

@@ -1,0 +1,104 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.users-item {
+  padding: 21px 30px 21px 50px;
+  display: flex;
+  align-items: center;
+
+  &:nth-child(odd) {
+    background-color: var(--BGItem);
+  }
+
+  &__info {
+    width: 16%;
+    min-width: fit-content;
+    margin-right: 10px;
+  }
+
+  &__name {
+    max-width: 200px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  &__mail {
+    color: var(--Secondary);
+    display: block;
+    margin-bottom: 6px;
+  }
+
+  .posts-item {
+    &__user {
+      margin-right: 2%;
+      min-width: fit-content;
+    }
+
+    &__user-avatar {
+      margin: 0px;
+      width: 65px;
+      height: 65px;
+    }
+  }
+
+  &__statistic {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-right: 6vw;
+
+    &-item {
+      display: flex;
+      align-items: center;
+      margin-right: 2.5vw;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-icon {
+      margin-right: 12px;
+      filter: invert(49%) sepia(9%) saturate(17%) hue-rotate(10deg) brightness(91%) contrast(93%);
+    }
+  }
+
+  &__menu {
+    margin: 0 0 0 auto;
+    position: relative;
+  }
+
+  &__openMenu {
+    right: 0;
+    width: max-content;
+    z-index: 11;
+
+    &.openMenu {
+      display: none;
+
+      &_open {
+        display: block;
+      }
+    }
+  }
+
+  &__role {
+    &.Member {
+      color: var(--TextSecondary);
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .users-item {
+    padding: 21px 30px;
+    flex-wrap: wrap;
+  }
+}
+
+@include Mobile() {
+  .users-item {
+    padding: 21px;
+  }
+}

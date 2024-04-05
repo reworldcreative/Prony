@@ -280,7 +280,13 @@ const Posts: FC = () => {
             <section className="posts__sort">
               <div className="container">
                 <p className="text-second">Sort by:</p>
-                <Dropdown type="bordered" current="Newest" options={["Newest", "Latest"]} onSelect={setSortBy} />
+                <Dropdown
+                  addClass="posts__sort-time"
+                  type="bordered"
+                  current="Newest"
+                  options={["Newest", "Latest"]}
+                  onSelect={setSortBy}
+                />
               </div>
 
               <PerPage current={perPage} onSelect={setPerPage} />

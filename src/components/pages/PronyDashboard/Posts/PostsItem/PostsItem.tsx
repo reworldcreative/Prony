@@ -1,6 +1,5 @@
 import React, { FC, useRef, useState } from "react";
 import "./PostsItem.scss";
-import Marker from "../Marker/Marker";
 import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
 

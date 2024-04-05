@@ -25,6 +25,7 @@ const TagsItem: FC<TagsItemProps> = ({ data, handleEdit, handleDelete, handleRep
     {
       icon: "./img/icons/menu/change.svg",
       title: "Change",
+      label: "Change tags",
       onClick: (id: number) => {
         handleReplace(id);
       },
@@ -32,6 +33,7 @@ const TagsItem: FC<TagsItemProps> = ({ data, handleEdit, handleDelete, handleRep
     {
       icon: "./img/icons/menu/pen.svg",
       title: "Edit",
+      label: "Edit tags",
       onClick: (id: number) => {
         handleEdit(id);
       },
@@ -39,6 +41,7 @@ const TagsItem: FC<TagsItemProps> = ({ data, handleEdit, handleDelete, handleRep
     {
       icon: "./img/icons/menu/cross.svg",
       title: "Delete",
+      label: "Delete tags",
       onClick: (id: number) => {
         handleDelete(id);
       },
@@ -73,13 +76,14 @@ const TagsItem: FC<TagsItemProps> = ({ data, handleEdit, handleDelete, handleRep
 
       <div className="tagsItem__color tagsItem__color_danger" style={{ backgroundColor: data.color }} />
 
-      <p className="tagsItem__status heading-h6">{data.status}</p>
+      <p className={`tagsItem__status ${data.status} heading-h6`}>{data.status}</p>
 
       <div className="tagsItem__menu">
         {menuLinks.map((item, index) => (
           <button
             key={index}
             className="tagsItem__menu-button"
+            aria-label={item.label}
             onClick={() => {
               item.onClick(data.id);
             }}

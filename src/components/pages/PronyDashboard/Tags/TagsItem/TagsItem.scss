@@ -9,10 +9,6 @@
 
   &:nth-child(odd) {
     background: var(--BGItem);
-
-    .tagsItem__status {
-      color: var(--TextSecondary);
-    }
   }
 
   .posts__marker {
@@ -39,6 +35,10 @@
 
   &__status {
     margin-left: 5px;
+
+    &.public {
+      color: var(--TextSecondary);
+    }
   }
 
   &__menu {

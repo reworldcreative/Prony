@@ -217,7 +217,7 @@ const PostView: FC = () => {
 
           <section className="post-view__list">
             <PostElement
-              avatar=""
+              avatar="./img/avatars/avatar_9.jpg"
               name="Sophia-Rose Nava"
               data="01-02-2020"
               likes={3}
@@ -228,7 +228,7 @@ const PostView: FC = () => {
             />
 
             <PostElement
-              avatar=""
+              avatar="./img/avatars/avatar_10.jpg"
               name="Anna Walley"
               data="01-02-2020"
               likes={3}
@@ -237,7 +237,7 @@ const PostView: FC = () => {
           send them through the original conversation on Intercom"
             >
               <PostElement
-                avatar=""
+                avatar="./img/avatars/avatar_11.jpg"
                 name="Uzair Valdez"
                 data="01-02-2020"
                 likes={3}
@@ -248,7 +248,7 @@ const PostView: FC = () => {
             </PostElement>
 
             <PostElement
-              avatar=""
+              avatar="./img/avatars/avatar_12.jpg"
               name="Kasim Daniels"
               data="01-02-2020"
               likes={3}

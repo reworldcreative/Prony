@@ -1,0 +1,128 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.user {
+  &__info {
+    display: flex;
+    padding: 46px 54px;
+
+    .posts-item {
+      &__user {
+        margin-right: 3vw;
+        width: fit-content;
+
+        &-avatar {
+          margin-bottom: 0px;
+          width: 136px;
+          height: 136px;
+        }
+      }
+    }
+  }
+
+  &__personal,
+  &__statistic,
+  &__statistic-item {
+    display: flex;
+    align-items: center;
+  }
+
+  &__personal {
+    margin-bottom: 15px;
+  }
+
+  &__details {
+    min-width: fit-content;
+    margin-right: 6.45vw;
+  }
+
+  &__mail {
+    margin-bottom: 9px;
+  }
+
+  &__role {
+    width: fit-content;
+    margin-left: 12%;
+  }
+
+  &__statistic {
+    align-self: baseline;
+    margin-top: 30px;
+
+    &-item {
+      margin-right: 3.1vw;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &-icon {
+      margin-right: 12px;
+      filter: invert(51%) sepia(10%) saturate(7%) hue-rotate(326deg) brightness(88%) contrast(90%);
+    }
+
+    &-text {
+      color: var(--Primary);
+    }
+
+    &-value {
+      margin-left: 15px;
+      font-size: 36px;
+      font-weight: 600;
+      color: var(--Primary);
+    }
+  }
+}
+
+@include Desktop() {
+  .user {
+    &__statistic {
+      flex-wrap: wrap;
+      justify-content: center;
+      width: auto;
+    }
+  }
+}
+
+@include Tablet() {
+  .user {
+    &__info {
+      padding: 21px;
+
+      .posts-item {
+        &__user {
+          margin-right: 0px;
+
+          &-avatar {
+            width: 80px;
+            height: 80px;
+          }
+        }
+      }
+    }
+
+    &__personal {
+      flex-wrap: wrap;
+      margin-bottom: 5px;
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .user {
+    &__info {
+      flex-wrap: wrap;
+      .posts-item {
+        &__user {
+          margin-right: 10px;
+
+          &-avatar {
+            width: 60px;
+            height: 60px;
+          }
+        }
+      }
+    }
+  }
+}
