@@ -5,9 +5,6 @@ import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import PostLogo from "../Posts/PostsItem/PostLogo/PostLogo";
 import userStatistic from "../Users/userStatistic.json";
 import usersListData from "@/data/Users.json";
-
-import avatar from "@/assets/img/avatars/avatar_11.jpg";
-import postsIcon from "@/assets/img/icons/menu/pen.svg";
 import { userItemData } from "../Users/UsersItem/UsersItem";
 import { useParams } from "react-router-dom";
 
@@ -27,7 +24,7 @@ const User: FC = () => {
         <div className="user__info">
           <div>
             <div className="user__personal">
-              <PostLogo avatar={avatar} name={currentUser.name} named={false} />
+              <PostLogo avatar={currentUser.avatar} name={currentUser.name} named={false} />
 
               <div className="user__details">
                 <h2 className="user__name title">{currentUser.name}</h2>

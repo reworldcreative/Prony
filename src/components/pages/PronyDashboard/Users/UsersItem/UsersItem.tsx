@@ -55,7 +55,7 @@ const UsersItem: FC<userItemProps> = ({ itemData, deleteUser }) => {
 
   return (
     <div className="users-item">
-      <PostLogo avatar={itemData.avatar} name={itemData.name} />
+      <PostLogo avatar={itemData.avatar} name={itemData.name} named={false} />
 
       <div className="users-item__info">
         <Link to={`/user/${itemData.id}`} className="users-item__name heading-h6" aria-label="go po personal user page">

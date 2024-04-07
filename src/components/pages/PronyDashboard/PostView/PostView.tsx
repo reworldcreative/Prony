@@ -210,9 +210,9 @@ const PostView: FC = () => {
             <PostViewForm />
           </div>
 
-          <div className="sort-container">
+          <div className="post-view__sort sort-container">
             <p className="text-second">Sort by:</p>
-            <Dropdown current="Recent" options={["Recent", "Newest", "Latest"]} onSelect={() => {}} />
+            <Dropdown current="Recent" type="bordered" options={["Recent", "Newest", "Latest"]} onSelect={() => {}} />
           </div>
 
           <section className="post-view__list">

@@ -58,6 +58,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
 
     &:hover {
       background: var(--Secondary);

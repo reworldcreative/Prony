@@ -8,7 +8,7 @@ interface PostLogo {
   named?: boolean;
 }
 
-const PostLogo: FC<PostLogo> = ({ avatar, name, named }) => {
+const PostLogo: FC<PostLogo> = ({ avatar, name, named = true }) => {
   return (
     <div className="posts-item__user">
       {avatar.length > 0 ? (

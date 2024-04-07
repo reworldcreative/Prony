@@ -143,8 +143,8 @@ const Users: FC = () => {
                 <Dropdown
                   addClass="posts__sort-time users__sort-time"
                   type="bordered"
-                  current="Newest"
-                  options={["Newest", "Latest"]}
+                  current="Last activity"
+                  options={["Newest", "Last activity"]}
                   onSelect={setSortBy}
                 />
               </div>

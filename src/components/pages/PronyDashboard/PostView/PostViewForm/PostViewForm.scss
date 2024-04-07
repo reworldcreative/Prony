@@ -19,7 +19,7 @@
 
       .radio__container {
         &:first-child {
-          margin-right: 20px;
+          margin-right: 30px;
         }
       }
     }
@@ -34,6 +34,16 @@
     &-row {
       display: flex;
       justify-content: space-between;
+
+      .radio__container:not(.colorSelector) {
+        input[type="checkbox"] {
+          + .radio-label {
+            &:before {
+              margin-right: 17px;
+            }
+          }
+        }
+      }
     }
 
     &-col {
@@ -43,7 +53,8 @@
   }
 
   &__submit {
-    margin-left: 45px;
+    margin-left: 60px;
+    padding: 8px 52px;
   }
 }
 

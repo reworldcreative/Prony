@@ -4,9 +4,10 @@
 .dashboard-Activities {
   margin-top: 95px;
   width: 35%;
+  height: fit-content;
   padding: 28px 0px 18px;
   box-sizing: border-box;
-  display: grid;
+  // display: grid;
 
   &__name {
     max-width: 150px;

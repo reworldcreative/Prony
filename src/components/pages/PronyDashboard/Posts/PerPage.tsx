@@ -8,7 +8,7 @@ interface PerPageProps {
 
 const PerPage: FC<PerPageProps> = ({ current, onSelect }) => {
   return (
-    <div className="container">
+    <div className="container per-page">
       <p className="text-second">Show:</p>
       <Dropdown type="bordered" current={current} options={["10", "20", "30"]} onSelect={onSelect} />
       <p className="text-second">per page</p>

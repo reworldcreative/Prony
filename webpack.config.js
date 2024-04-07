@@ -228,6 +228,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".jsx"],
     alias: {
       "@": path.resolve(__dirname, "src/"),
+      "@icons": path.resolve(__dirname, "src/assets/img/icons/"),
     },
   },
 

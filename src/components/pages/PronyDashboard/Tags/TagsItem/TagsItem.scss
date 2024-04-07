@@ -4,7 +4,7 @@
 .tagsItem {
   padding: 28px 35px 28px 22px;
   display: grid;
-  grid-template-columns: 39px 3fr 2fr 1.3fr 2fr;
+  grid-template-columns: 39px 40% 21% 1fr 2fr;
   align-items: center;
 
   &:nth-child(odd) {
@@ -15,18 +15,19 @@
     display: block;
     color: #ffffff;
     width: fit-content;
-    padding: 0px 20px;
     height: fit-content;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+    font-size: 16px;
+    padding: 4px 25px;
   }
 
   &__color {
     border-radius: 50%;
     width: 29px;
     height: 29px;
-    margin-left: 10px;
+    margin-left: 15px;
 
     &_danger {
       background: var(--Danger);
@@ -67,15 +68,21 @@
   }
 }
 
+@include Desktop {
+  .tagsItem {
+    grid-template-columns: 39px 40% 80px 1fr 2fr;
+  }
+}
+
 @include Small-Tablet {
   .tagsItem {
-    grid-template-columns: 39px auto 1fr 1fr 2fr;
+    grid-template-columns: 25px auto 12% 1fr 2fr;
   }
 }
 
 @include Mobile {
   .tagsItem {
-    grid-template-columns: 39px auto 1fr 1fr 2fr;
+    grid-template-columns: 25px auto 1fr 1fr 2fr;
     width: 100%;
   }
 }

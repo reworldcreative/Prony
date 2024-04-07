@@ -76,7 +76,7 @@ const PostsItem: FC<PostsItemProps> = ({
 
   return (
     <div className="posts-item">
-      <PostLogo avatar={avatar} name={name} />
+      <PostLogo avatar={avatar} name={name} named={true} />
 
       <div className="posts-item__content">
         <div className="posts-item__top">

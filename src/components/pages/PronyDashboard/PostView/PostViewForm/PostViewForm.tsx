@@ -22,7 +22,7 @@ const PostViewForm: FC = () => {
     <form className="form post-view__form">
       <TextArea
         name="commentText"
-        rows={4}
+        rows={8}
         register={register}
         messageType={errors.details ? "error" : ""}
         value=""

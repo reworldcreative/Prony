@@ -2,7 +2,7 @@
 @import "@/styles/variables";
 
 .users-item {
-  padding: 21px 30px 21px 50px;
+  padding: 36px 36px 36px 68px;
   display: flex;
   align-items: center;
 
@@ -13,7 +13,7 @@
   &__info {
     width: 16%;
     min-width: fit-content;
-    margin-right: 10px;
+    margin-right: 15px;
   }
 
   &__name {
@@ -32,7 +32,7 @@
   .posts-item {
     &__user {
       margin-right: 2%;
-      min-width: fit-content;
+      width: fit-content;
     }
 
     &__user-avatar {
@@ -94,6 +94,11 @@
   .users-item {
     padding: 21px 30px;
     flex-wrap: wrap;
+
+    .posts-item__user {
+      margin-bottom: 15px;
+      margin-right: 15px;
+    }
   }
 }
 

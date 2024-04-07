@@ -1,2 +1,22 @@
 @import "rfs/scss";
 @import "@/styles/variables";
+
+.users {
+  &__top {
+    padding: 29px 34px 17px;
+  }
+
+  &__markersContainer {
+    .posts__marker {
+      width: auto;
+      max-width: 200px;
+    }
+  }
+
+  &__sort {
+    &-time {
+      box-sizing: border-box;
+      width: 157px;
+    }
+  }
+}

@@ -28,11 +28,26 @@
 
   &__content {
     margin-top: 16px;
-    padding-left: 26px;
+    padding-left: 36px;
     display: flex;
 
     .post-logo {
       margin-right: 16px;
+    }
+
+    .posts-item {
+      &__user-avatar {
+        width: 60px;
+        height: 60px;
+      }
+
+      &__user-name {
+        width: max-content;
+      }
+
+      &__tags {
+        margin-top: 0;
+      }
     }
   }
 
@@ -94,6 +109,18 @@
       &_open {
         display: block;
       }
+    }
+  }
+
+  &__sort {
+    .dropdown {
+      margin-left: 16px;
+      width: 116px;
+      box-sizing: border-box;
+    }
+
+    &.sort-container {
+      margin-top: 15px;
     }
   }
 

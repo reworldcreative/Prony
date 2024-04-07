@@ -36,6 +36,7 @@ const AsideMenu: FC = () => {
       submenu: [
         { text: "Settings 1", url: "/settings1" },
         { text: "Settings 2", url: "/settings2" },
+        { text: "Settings 3", url: "/settings3" },
       ],
     },
     { text: "Integrations", url: "/integrations", icon: AsideIntegrationsIcon },

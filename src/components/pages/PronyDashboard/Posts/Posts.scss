@@ -3,7 +3,7 @@
 
 .posts {
   &__top {
-    padding: 32px 35px 23px;
+    padding: 31px 34px 17px;
   }
 
   &__selectors {
@@ -14,6 +14,7 @@
 
     .double {
       grid-column: span 2;
+      max-height: 50px;
     }
   }
 
@@ -24,7 +25,7 @@
   }
 
   &__sort {
-    margin-top: 37px;
+    margin-top: 35px;
     justify-content: space-between;
 
     .container {
@@ -44,6 +45,13 @@
       }
     }
 
+    .per-page {
+      .dropdown {
+        max-width: 61px;
+        box-sizing: border-box;
+      }
+    }
+
     &_bottom {
       margin: 0px;
       padding: 22px 50px;
@@ -52,9 +60,14 @@
     &-time {
       .dropdown {
         &__current {
-          min-width: 71px;
+          min-width: 84px;
         }
       }
+    }
+
+    .pagination {
+      margin: 0 20px 0 50%;
+      transform: translate(-50%, 0px);
     }
   }
 
@@ -76,10 +89,21 @@
 
 .buttonsPosts {
   button {
-    margin-right: 23px;
+    margin-right: 27px;
 
     &:last-child {
       margin-right: 0;
+    }
+  }
+}
+
+@include Desktop() {
+  .posts {
+    &__sort {
+      .pagination {
+        margin: auto;
+        transform: translate(0px);
+      }
     }
   }
 }
