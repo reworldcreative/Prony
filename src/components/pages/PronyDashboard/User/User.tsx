@@ -1,4 +1,4 @@
-import React, { FC } from "react";
+import React, { FC, useState } from "react";
 import "../Posts/Posts.scss";
 import "./User.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
@@ -8,9 +8,13 @@ import usersListData from "@/data/Users.json";
 import { userItemData } from "../Users/UsersItem/UsersItem";
 import { useParams } from "react-router-dom";
 
+import LastPosts from "@/data/LastPosts.json";
+import LastVotes from "@/data/LastVotes.json";
+
 const User: FC = () => {
   const { id } = useParams();
   const currentUser = usersListData.find((user) => user.id === Number(id));
+  const [lastStatistic, setLastStatistic] = useState<"posts" | "votes">("posts");
 
   return (
     <section className="pageContainer-MainSection">
@@ -29,7 +33,7 @@ const User: FC = () => {
               <div className="user__details">
                 <h2 className="user__name title">{currentUser.name}</h2>
 
-                <a href="mailto:anna_w@gmail.com" className="user__mail subtitle">
+                <a href="mailto:anna_w@gmail.com" className="user__mail heading-h5">
                   {currentUser.mail}
                 </a>
 
@@ -61,6 +65,43 @@ const User: FC = () => {
             ))}
           </div>
         </div>
+
+        <section className="user__last" aria-live="assertive">
+          <div className="user__last-top">
+            <button
+              className={`user__last-button ${lastStatistic === "posts" ? "active" : ""} heading-h6`}
+              onClick={() => setLastStatistic("posts")}
+              aria-label={lastStatistic === "posts" ? "is active" : "is not active"}
+            >
+              10 last posts
+            </button>
+
+            <button
+              className={`user__last-button ${lastStatistic === "votes" ? "active" : ""} heading-h6`}
+              onClick={() => setLastStatistic("votes")}
+              aria-label={lastStatistic === "votes" ? "is active" : "is not active"}
+            >
+              10 last Votes
+            </button>
+          </div>
+
+          <ul className="user__last-list">
+            {lastStatistic === "posts"
+              ? LastPosts.map((post) => (
+                  <li className="user__last-item" key={post.id}>
+                    <p className="user__last-value heading-h6">{post.value}</p>
+                    <p className="user__last-title subtitle">{post.title}</p>
+                    <p className="user__last-data text">{post.data}</p>
+                  </li>
+                ))
+              : LastVotes.map((votes) => (
+                  <li className="user__last-item" key={votes.id}>
+                    <p className="user__last-title subtitle">{votes.title}</p>
+                    <p className="user__last-data text">{votes.data}</p>
+                  </li>
+                ))}
+          </ul>
+        </section>
       </section>
     </section>
   );

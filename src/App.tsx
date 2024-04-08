@@ -11,6 +11,7 @@ const PostVoters = React.lazy(() => import("./components/pages/PronyDashboard/Po
 const Tags = React.lazy(() => import("./components/pages/PronyDashboard/Tags/Tags"));
 const Users = React.lazy(() => import("./components/pages/PronyDashboard/Users/Users"));
 const User = React.lazy(() => import("./components/pages/PronyDashboard/User/User"));
+const Activities = React.lazy(() => import("./components/pages/PronyDashboard/Activities/Activities"));
 
 // import { register } from "swiper/element/bundle";
 // register();
@@ -29,6 +30,7 @@ const App: FC = () => {
             <Route path="tags" element={<Tags />} />
             <Route path="users" element={<Users />} />
             <Route path="user/:id" element={<User />} />
+            <Route path="activities" element={<Activities />} />
           </Route>
         </Routes>
       </GlobalProvider>

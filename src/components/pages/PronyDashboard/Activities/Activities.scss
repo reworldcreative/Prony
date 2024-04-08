@@ -1,0 +1,8 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.activities {
+  &-MainSection__title {
+    color: var(--Primary);
+  }
+}

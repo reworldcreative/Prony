@@ -23,7 +23,7 @@ const Activities: FC = () => {
         ))}
       </ul>
 
-      <Link to={"/"} className="dashboard-Activities__link subtitle-second">
+      <Link to={"/activities"} className="dashboard-Activities__link subtitle-second">
         View all <span className="visibility-hidden">activities</span>
       </Link>
     </section>

@@ -4,7 +4,7 @@
 .user {
   &__info {
     display: flex;
-    padding: 46px 54px;
+    padding: 49px 52px;
 
     .posts-item {
       &__user {
@@ -33,21 +33,31 @@
 
   &__details {
     min-width: fit-content;
-    margin-right: 6.45vw;
+    margin-right: 6.4vw;
+  }
+
+  &__name {
+    margin-bottom: 2px;
   }
 
   &__mail {
+    display: block;
     margin-bottom: 9px;
+    color: var(--Secondary);
+  }
+
+  &__time {
+    font-size: 16px;
   }
 
   &__role {
     width: fit-content;
-    margin-left: 12%;
+    margin-left: 47px;
   }
 
   &__statistic {
     align-self: baseline;
-    margin-top: 30px;
+    margin-top: 20px;
 
     &-item {
       margin-right: 3.1vw;
@@ -72,6 +82,55 @@
       font-weight: 600;
       color: var(--Primary);
     }
+  }
+
+  &__last-top {
+    display: flex;
+    padding: 0px 36px;
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+
+  &__last-button {
+    color: var(--TextSecondary);
+    margin-right: 26px;
+    padding: 0 17px 14px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &.active {
+      color: var(--Primary);
+      border-bottom: 1px solid var(--Primary);
+    }
+  }
+
+  &__last-list {
+    padding-bottom: 21px;
+  }
+
+  &__last-item {
+    display: flex;
+    padding: 20px 36px;
+
+    &:nth-child(odd) {
+      background: var(--BGItem);
+    }
+  }
+
+  &__last-value {
+    margin-right: 60px;
+  }
+
+  &__last-title {
+    color: var(--Secondary);
+    margin-right: 10px;
+    max-width: 75%;
+  }
+
+  &__last-data {
+    margin: 0 0 0 auto;
+    font-size: 16px;
   }
 }
 
@@ -104,7 +163,27 @@
 
     &__personal {
       flex-wrap: wrap;
+      justify-content: center;
       margin-bottom: 5px;
+      margin-right: 15px;
+    }
+
+    &__details {
+      margin-right: 0;
+      text-align: center;
+    }
+
+    &__role {
+      margin-left: 37%;
+    }
+
+    &__last-item {
+      display: grid;
+      grid-template-columns: 50px auto 100px;
+    }
+
+    &__last-value {
+      margin-right: 0;
     }
   }
 }
@@ -123,6 +202,33 @@
           }
         }
       }
+    }
+
+    &__role {
+      margin-left: 10px;
+    }
+  }
+}
+
+@include Mobile {
+  .user {
+    &__last-list {
+      overflow-x: scroll;
+    }
+
+    &__last-top {
+      flex-wrap: wrap;
+      padding: 0px 10px;
+    }
+
+    &__last-button {
+      padding: 5px 5px 14px;
+    }
+
+    &__last-item {
+      grid-template-columns: 50px 300px 100px;
+      width: max-content;
+      padding: 15px;
     }
   }
 }
