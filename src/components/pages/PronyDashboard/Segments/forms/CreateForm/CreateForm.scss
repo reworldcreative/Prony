@@ -1,0 +1,58 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.segments-form {
+  .input {
+    background: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 27px;
+  }
+
+  &__row {
+    display: grid;
+    gap: 20px;
+    grid-template-columns: 35% 20% auto;
+  }
+
+  .dropdown {
+    padding: 15px 20px 15px 30px;
+    box-sizing: border-box;
+    z-index: auto;
+
+    &__currentItem {
+      font-size: 18px;
+      color: var(--TextPrimary);
+    }
+
+    &__item {
+      padding: 5px 20px;
+      font-size: 18px;
+    }
+
+    &__options {
+      border: 1px solid var(--TextSecondary);
+      border-top: none;
+      background: var(--BG);
+      z-index: 1;
+    }
+  }
+
+  &__attribute {
+    max-width: 35%;
+  }
+}
+
+@include Small-Tablet() {
+  .segments-form {
+    &__row {
+      grid-template-columns: auto;
+    }
+
+    &__attribute {
+      max-width: 100%;
+    }
+  }
+}

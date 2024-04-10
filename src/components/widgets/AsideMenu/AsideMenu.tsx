@@ -31,10 +31,10 @@ const AsideMenu: FC = () => {
     { text: "Changelog", url: "/changelog", icon: AsideChangelogIcon },
     {
       text: "Settings",
-      url: "/settings",
+      url: "",
       icon: AsideSettingsIcon,
       submenu: [
-        { text: "Settings 1", url: "/settings1" },
+        { text: "User Segments", url: "/segments" },
         { text: "Settings 2", url: "/settings2" },
         { text: "Settings 3", url: "/settings3" },
       ],

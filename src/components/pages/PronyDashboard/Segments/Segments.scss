@@ -1,0 +1,38 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.segments {
+  padding: 24px 0px;
+  margin-top: 22px;
+
+  &__header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 28.5% 3fr;
+    padding: 0 69px 23px;
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+}
+
+@include Mobile() {
+  .pageContainerSegments-MainSection__top {
+    flex-wrap: wrap;
+
+    .button {
+      margin: 0 0 0 auto;
+    }
+  }
+
+  .segments {
+    overflow-x: scroll;
+
+    &__header {
+      grid-template-columns: 28.5% 2fr 2.4fr;
+      padding: 0 35px 23px;
+    }
+
+    &__list {
+      width: max-content;
+    }
+  }
+}

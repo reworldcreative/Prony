@@ -4,14 +4,21 @@
 .post-view {
   &__form {
     margin-top: 25px;
+    padding-right: 10px;
+    box-sizing: border-box;
 
     .textArea {
       background: none;
       margin-bottom: 12px;
     }
 
-    .file-loader__wrapper {
-      height: auto;
+    .file-loader {
+      &__wrapper {
+        max-height: 70px;
+        height: auto;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
     }
 
     .post-view__radio-container {

@@ -177,7 +177,7 @@ const PostView: FC = () => {
 
               <div className="post-view__main">
                 <div className="post-view__top">
-                  <h3 className="post-view__title heading-h6">{post.title}</h3>
+                  <h3 className="post-view__title heading-h5">{post.title}</h3>
                   <p className="post-view__time text">{post.time}</p>
                 </div>
 

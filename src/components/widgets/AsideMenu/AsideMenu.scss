@@ -40,6 +40,10 @@
     }
   }
 
+  &__item-button {
+    cursor: pointer;
+  }
+
   &__link-wrapper {
     display: flex;
   }
