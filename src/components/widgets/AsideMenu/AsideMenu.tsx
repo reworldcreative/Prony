@@ -35,7 +35,7 @@ const AsideMenu: FC = () => {
       icon: AsideSettingsIcon,
       submenu: [
         { text: "User Segments", url: "/segments" },
-        { text: "Settings 2", url: "/settings2" },
+        { text: "Statuses", url: "/statuses" },
         { text: "Settings 3", url: "/settings3" },
       ],
     },

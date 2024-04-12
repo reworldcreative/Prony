@@ -71,7 +71,7 @@ const Segments: FC = () => {
         </div>
 
         <section className="segments pageContainer-section">
-          <p className="visibility-hidden">tags list</p>
+          <p className="visibility-hidden">segments list</p>
 
           <div className="segments__header">
             <h2 className="segments__caption subtitle">Name</h2>
@@ -82,8 +82,8 @@ const Segments: FC = () => {
             className="segments__list"
             axis="y"
             values={segmentsList}
-            onReorder={(tags) => {
-              setSegmentsList(tags);
+            onReorder={(segments) => {
+              setSegmentsList(segments);
             }}
           >
             {segmentsList.slice(0, 9).map((segment) => (

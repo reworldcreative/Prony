@@ -13,6 +13,7 @@ const Users = React.lazy(() => import("./components/pages/PronyDashboard/Users/U
 const User = React.lazy(() => import("./components/pages/PronyDashboard/User/User"));
 const Activities = React.lazy(() => import("./components/pages/PronyDashboard/Activities/Activities"));
 const Segments = React.lazy(() => import("./components/pages/PronyDashboard/Segments/Segments"));
+const Statuses = React.lazy(() => import("./components/pages/PronyDashboard/Statuses/Statuses"));
 
 // import { register } from "swiper/element/bundle";
 // register();
@@ -33,6 +34,7 @@ const App: FC = () => {
             <Route path="user/:id" element={<User />} />
             <Route path="activities" element={<Activities />} />
             <Route path="segments" element={<Segments />} />
+            <Route path="statuses" element={<Statuses />} />
           </Route>
         </Routes>
       </GlobalProvider>

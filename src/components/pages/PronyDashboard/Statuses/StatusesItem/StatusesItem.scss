@@ -1,0 +1,82 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.statusesItem {
+  padding: 28px 35px 28px 21px;
+  display: grid;
+  grid-template-columns: 47px 22.6% 18.2% 14.6% 13.2% 1fr 1fr;
+  align-items: center;
+
+  &:nth-child(odd) {
+    background: var(--BGItem);
+  }
+
+  .drag {
+    margin-right: 10px;
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    color: var(--TextSecondary);
+
+    &-color-label {
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background-color: var(--Secondary);
+      margin-right: 10px;
+    }
+  }
+
+  &__attribute {
+    &_active {
+      color: var(--Success);
+    }
+
+    &_mute {
+      color: var(--TextSecondary);
+    }
+  }
+
+  &__color {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background-color: var(--Secondary);
+    margin-right: 10px;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+
+    &-icon {
+      filter: invert(49%) sepia(9%) saturate(17%) hue-rotate(10deg) brightness(91%) contrast(93%);
+    }
+
+    &-button {
+      margin-right: 22px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        .tagsItem__menu-icon {
+          filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+        }
+      }
+    }
+  }
+}
+
+@include Laptop() {
+  .statusesItem {
+    grid-template-columns: 27px 28% 20% 17% 15% 7% 1fr;
+    grid-column-gap: 20px;
+    width: 100%;
+  }
+}
