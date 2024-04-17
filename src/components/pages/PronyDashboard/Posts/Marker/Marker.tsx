@@ -15,7 +15,7 @@ const Marker: FC<MarkerProps> = ({ name, removeItem, type, color, hashColor }) =
   const { theme } = useContext(GlobalContext);
   return (
     <div
-      className={`posts__marker subtitle-second ${color && `posts__marker_${color}`}`}
+      className={`posts__marker subtitle-second ${color ? `posts__marker_${color}` : ""}`}
       style={{ backgroundColor: hashColor }}
       tabIndex={0}
     >

@@ -4,6 +4,8 @@
 .statuses {
   padding: 24px 0px;
   margin-top: 22px;
+  overflow: scroll;
+  display: grid;
 
   &__buttons-header {
     display: flex;
@@ -43,6 +45,8 @@
     grid-template-columns: 22.6% 16.4% 19.5% 14% 1fr 1fr;
     padding: 0 69px 23px;
     border-bottom: 1px solid var(--TextSecondary);
+    box-sizing: border-box;
+    overflow: auto;
   }
 
   &__caption {
@@ -62,30 +66,40 @@
       margin-left: 10px;
       flex-wrap: wrap;
     }
-
-    &__header {
-      grid-template-columns: 22% 16% 22% 14% 1fr 1fr;
-    }
   }
 }
 
 @include Laptop() {
   .statuses {
-    overflow: scroll;
-
     &__header {
       width: 100%;
-      grid-template-columns: 23% 17% 25% 13% 7% auto;
-      grid-column-gap: 20px;
+      grid-column-gap: 5px;
+      grid-template-columns: 21% 15% 20% 15% 7% auto;
     }
   }
 }
 
-@include Mobile() {
+@include Tablet() {
   .statuses {
     &__header {
-      grid-template-columns: 24% 25% 37% 18% 15% 30px;
-      grid-column-gap: 5px;
+      grid-template-columns: 25% 20% 33% 17% 7% auto;
     }
   }
 }
+
+@include Small-Tablet() {
+  .statuses {
+    &__header {
+      grid-template-columns: 25% 38% 35% 23% 7% auto;
+    }
+  }
+}
+
+// @include Mobile() {
+//   .statuses {
+//     &__header {
+//       grid-template-columns: 24% 25% 37% 18% 15% 30px;
+
+//     }
+//   }
+// }

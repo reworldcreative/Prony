@@ -6,6 +6,8 @@
   display: grid;
   grid-template-columns: 47px 22.6% 18.2% 14.6% 13.2% 1fr 1fr;
   align-items: center;
+  box-sizing: border-box;
+  overflow: auto;
 
   &:nth-child(odd) {
     background: var(--BGItem);
@@ -75,8 +77,14 @@
 
 @include Laptop() {
   .statusesItem {
-    grid-template-columns: 27px 28% 20% 17% 15% 7% 1fr;
-    grid-column-gap: 20px;
+    grid-template-columns: 27px 24% 15% 16% 15% 10% 1fr;
     width: 100%;
+    grid-column-gap: 5px;
+  }
+}
+
+@include Tablet() {
+  .statusesItem {
+    grid-template-columns: 27px 30% 20% 21% 15% 10% 1fr;
   }
 }

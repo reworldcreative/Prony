@@ -9,7 +9,7 @@ interface TagsProps {
 const Tags: FC<TagsProps> = ({ tags }) => {
   return (
     <div className="posts-item__tags">
-      {tags && tags.map((tag) => <Marker key={tag.name} name={tag.name} color={tag.color} type={tag.type} />)}
+      {tags && tags.map((tag, index) => <Marker key={index} name={tag.name} color={tag.color} type={tag.type} />)}
     </div>
   );
 };

@@ -1,0 +1,68 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelog-item {
+  padding: 17px 20px 17px 36px;
+  display: grid;
+  grid-template-columns: 42.5% 15% auto 1fr;
+  align-items: center;
+
+  &:nth-child(odd) {
+    background: var(--BGItem);
+  }
+
+  &__labels {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    align-items: center;
+
+    .posts__marker {
+      width: fit-content;
+      padding: 5px 20px;
+    }
+  }
+
+  &__time {
+    color: var(--TextSecondary);
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+
+    &-icon {
+      filter: invert(49%) sepia(9%) saturate(17%) hue-rotate(10deg) brightness(91%) contrast(93%);
+    }
+
+    &-button {
+      margin-right: 22px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        .tagsItem__menu-icon {
+          filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+        }
+      }
+    }
+  }
+}
+
+@include Laptop() {
+  .changelog-item {
+    grid-template-columns: 37% 20% 30% 1fr;
+    gap: 10px;
+    overflow-x: auto;
+  }
+}
+
+@include Small-Tablet() {
+  .changelog-item {
+    grid-template-columns: 37% 28% 30% 1fr;
+  }
+}

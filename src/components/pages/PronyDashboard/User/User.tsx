@@ -18,7 +18,7 @@ const User: FC = () => {
 
   return (
     <section className="pageContainer-MainSection">
-      <Breadcrumbs currentTitle={["Users", "User"]} currentLink={["/users", "/user"]} />
+      <Breadcrumbs currentTitle={["Users", "User"]} currentLink={["/users", `/user/${id}`]} />
 
       <div className="pageContainer-MainSection__top  pageContainerUser-MainSection__top">
         <h1 className="title user-MainSection__title">User Details</h1>
