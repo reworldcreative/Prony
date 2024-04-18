@@ -6,7 +6,7 @@ export interface ChangelogItemData {
   id: number;
   title: string;
   time: string;
-  tags: { name: string; color: string; type: string }[];
+  tags: { name: string; color: string }[];
   details: string;
   image: string;
 }
@@ -22,7 +22,7 @@ const ChangelogItem: FC<ChangelogItemProps> = ({ data, handleEdit, handleDelete 
     {
       icon: "./img/icons/menu/pen.svg",
       title: "Edit",
-      label: "Edit segment",
+      label: "Edit changelog",
       onClick: (id: number) => {
         handleEdit(id);
       },
@@ -30,7 +30,7 @@ const ChangelogItem: FC<ChangelogItemProps> = ({ data, handleEdit, handleDelete 
     {
       icon: "./img/icons/menu/cross.svg",
       title: "Delete",
-      label: "Delete segment",
+      label: "Delete changelog",
       onClick: (id: number) => {
         handleDelete(id);
       },
@@ -45,12 +45,7 @@ const ChangelogItem: FC<ChangelogItemProps> = ({ data, handleEdit, handleDelete 
 
       <div className="changelog-item__labels">
         {data.tags.map((tag, index) => (
-          <Marker
-            key={index}
-            name={tag.name}
-            hashColor={tag.color}
-            type={tag.type.toString() as "standard" | "remove"}
-          />
+          <Marker key={index} name={tag.name} hashColor={tag.color} type="standard" />
         ))}
       </div>
 

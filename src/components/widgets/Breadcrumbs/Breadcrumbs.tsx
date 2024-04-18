@@ -19,7 +19,12 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({ currentTitle, currentLink }) => {
             <span className="breadcrumbs__divider" aria-hidden="true">
               /
             </span>
-            <Link to={currentLink[index]} className="breadcrumbs__item breadcrumbs__item_active caption">
+            <Link
+              to={currentLink[index]}
+              className={`breadcrumbs__item breadcrumbs__item_active caption ${
+                index === currentLink.length - 1 ? "breadcrumbs__item_last" : ""
+              }`}
+            >
               {title}
             </Link>
           </React.Fragment>

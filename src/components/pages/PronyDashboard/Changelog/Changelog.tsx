@@ -11,6 +11,7 @@ import ChangelogsData from "@/data/Changelogs.json";
 import Pagination from "@/components/UI/Pagination/Pagination";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import CreateForm from "./forms/CreateForm";
+import ChangelogsLabels from "@/data/ChangelogsLabels.json";
 
 const Changelog: FC = () => {
   const [changelogsList, setChangelogsList] = useState<ChangelogItemData[]>([...ChangelogsData]);
@@ -76,9 +77,11 @@ const Changelog: FC = () => {
           formData={
             formType === "create"
               ? { id: 0, title: "", time: "", tags: [], details: "", image: "" }
-              : changelogsList[editChangelogsIndex]
+              : changelogsList.length > 0
+              ? changelogsList[editChangelogsIndex]
+              : { id: 0, title: "", time: "", tags: [], details: "", image: "" }
           }
-          formTitle={formType === "create" ? "Add user segment" : "Edit user segment"}
+          formTitle={formType === "create" ? "Add record" : "Edit record"}
           formType={formType === "create" ? "create" : "edit"}
           submitSuccess={formType === "create" ? handleAddChangelog : handleEditChangelog}
         />
@@ -104,20 +107,11 @@ const Changelog: FC = () => {
                 selectType="checkbox"
                 title={"Labels"}
                 marked={true}
-                options={[
-                  {
-                    name: "Admin",
-                    labelText: "Admin",
-                  },
-                  {
-                    name: "Feedback",
-                    labelText: "Feedback",
-                  },
-                  {
-                    name: "Changelog",
-                    labelText: "Changelog",
-                  },
-                ]}
+                options={ChangelogsLabels.map((label, index) => ({
+                  key: index,
+                  name: label.name,
+                  labelText: label.name,
+                }))}
               />
 
               <DropdownSelect

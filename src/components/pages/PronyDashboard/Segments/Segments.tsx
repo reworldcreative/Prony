@@ -51,7 +51,9 @@ const Segments: FC = () => {
           formData={
             formType === "create"
               ? { id: 0, name: "", representation: "company is “value”" }
-              : segmentsList[editSegmentIndex]
+              : segmentsList.length > 0
+              ? segmentsList[editSegmentIndex]
+              : { id: 0, name: "", representation: "company is “value”" }
           }
           formTitle={formType === "create" ? "Add user segment" : "Edit user segment"}
           formType={formType === "create" ? "create" : "edit"}

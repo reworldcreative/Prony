@@ -2,7 +2,6 @@ import React, { FC, useState } from "react";
 import "../Posts/Posts.scss";
 import "./Users.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
-import PopUp from "@/components/widgets/PopUp/PopUp";
 import UsersSelectors from "./UsersSelectors";
 import Marker from "../Posts/Marker/Marker";
 import Dropdown from "@/components/UI/forms/Dropdown/Dropdown";
@@ -38,139 +37,133 @@ const Users: FC = () => {
   };
 
   return (
-    <>
-      <PopUp addClass="users__pop-up">
-        <></>
-      </PopUp>
+    <section className="pageContainer-MainSection">
+      <Breadcrumbs currentTitle={["Users"]} currentLink={["/users"]} />
 
-      <section className="pageContainer-MainSection">
-        <Breadcrumbs currentTitle={["Users"]} currentLink={["/users"]} />
+      <div className="pageContainer-MainSection__top  pageContainerPosts-MainSection__top pageContainerUsers-MainSection__top">
+        <h1 className="title users-MainSection__title">Users</h1>
+      </div>
 
-        <div className="pageContainer-MainSection__top  pageContainerPosts-MainSection__top pageContainerUsers-MainSection__top">
-          <h1 className="title users-MainSection__title">Users</h1>
-        </div>
+      <section className="posts users pageContainer-section">
+        <div className="posts__top users__top">
+          <UsersSelectors
+            setSegments={setSegments}
+            setEmail={setEmail}
+            setFirstName={setFirstName}
+            setLastName={setLastName}
+            setRoles={setRoles}
+            segments={segments}
+            email={email}
+            firstName={firstName}
+            lastName={lastName}
+            roles={roles}
+            isBanned={isBanned}
+            setIsBanned={setIsBanned}
+          />
 
-        <section className="posts users pageContainer-section">
-          <div className="posts__top users__top">
-            <UsersSelectors
-              setSegments={setSegments}
-              setEmail={setEmail}
-              setFirstName={setFirstName}
-              setLastName={setLastName}
-              setRoles={setRoles}
-              segments={segments}
-              email={email}
-              firstName={firstName}
-              lastName={lastName}
-              roles={roles}
-              isBanned={isBanned}
-              setIsBanned={setIsBanned}
-            />
+          <div className="posts__markersContainer users__markersContainer">
+            {segments.map((segment, index) => (
+              <Marker
+                name={`Segment: ${segment}`}
+                key={index}
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setSegments(segments.filter((_, currentIndex) => currentIndex !== index));
+                }}
+              />
+            ))}
 
-            <div className="posts__markersContainer users__markersContainer">
-              {segments.map((segment, index) => (
-                <Marker
-                  name={`Segment: ${segment}`}
-                  key={index}
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setSegments(segments.filter((_, currentIndex) => currentIndex !== index));
-                  }}
-                />
-              ))}
+            {email !== "" && (
+              <Marker
+                name={`Email: ${email}`}
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setEmail("");
+                }}
+              />
+            )}
 
-              {email !== "" && (
-                <Marker
-                  name={`Email: ${email}`}
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setEmail("");
-                  }}
-                />
-              )}
+            {firstName !== "" && (
+              <Marker
+                name={`First Name: ${firstName}`}
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setFirstName("");
+                }}
+              />
+            )}
 
-              {firstName !== "" && (
-                <Marker
-                  name={`First Name: ${firstName}`}
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setFirstName("");
-                  }}
-                />
-              )}
+            {lastName !== "" && (
+              <Marker
+                name={`Last Name: ${lastName}`}
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setLastName("");
+                }}
+              />
+            )}
 
-              {lastName !== "" && (
-                <Marker
-                  name={`Last Name: ${lastName}`}
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setLastName("");
-                  }}
-                />
-              )}
+            {roles.map((role, index) => (
+              <Marker
+                name={`Role: ${role}`}
+                key={index}
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setRoles(roles.filter((_, currentIndex) => currentIndex !== index));
+                }}
+              />
+            ))}
 
-              {roles.map((role, index) => (
-                <Marker
-                  name={`Role: ${role}`}
-                  key={index}
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setRoles(roles.filter((_, currentIndex) => currentIndex !== index));
-                  }}
-                />
-              ))}
+            {isBanned && (
+              <Marker
+                name="banned"
+                color="info"
+                type="remove"
+                removeItem={() => {
+                  setIsBanned(false);
+                }}
+              />
+            )}
+          </div>
 
-              {isBanned && (
-                <Marker
-                  name="banned"
-                  color="info"
-                  type="remove"
-                  removeItem={() => {
-                    setIsBanned(false);
-                  }}
-                />
-              )}
+          <section className="posts__sort users__sort">
+            <div className="container">
+              <p className="text-second">Sort by:</p>
+              <Dropdown
+                addClass="posts__sort-time users__sort-time"
+                type="bordered"
+                current="Last activity"
+                options={["Newest", "Last activity"]}
+                onSelect={setSortBy}
+              />
             </div>
 
-            <section className="posts__sort users__sort">
-              <div className="container">
-                <p className="text-second">Sort by:</p>
-                <Dropdown
-                  addClass="posts__sort-time users__sort-time"
-                  type="bordered"
-                  current="Last activity"
-                  options={["Newest", "Last activity"]}
-                  onSelect={setSortBy}
-                />
-              </div>
-
-              <PerPage current={perPage} onSelect={setPerPage} />
-            </section>
-          </div>
-
-          <section className="posts__list users__list">
-            {currentUsers.map((user) => (
-              <UsersItem itemData={user} key={user.id} deleteUser={deleteUser} />
-            ))}
-          </section>
-
-          <div className="posts__sort posts__sort_bottom users__sort users__sort_bottom">
-            <Pagination
-              paginate={paginate}
-              currentPage={currentPage}
-              totalPages={Math.ceil(usersList.length / usersPerPage)}
-            />
-
             <PerPage current={perPage} onSelect={setPerPage} />
-          </div>
+          </section>
+        </div>
+
+        <section className="posts__list users__list">
+          {currentUsers.map((user) => (
+            <UsersItem itemData={user} key={user.id} deleteUser={deleteUser} />
+          ))}
         </section>
+
+        <div className="posts__sort posts__sort_bottom users__sort users__sort_bottom">
+          <Pagination
+            paginate={paginate}
+            currentPage={currentPage}
+            totalPages={Math.ceil(usersList.length / usersPerPage)}
+          />
+
+          <PerPage current={perPage} onSelect={setPerPage} />
+        </div>
       </section>
-    </>
+    </section>
   );
 };
 

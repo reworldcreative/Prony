@@ -69,7 +69,11 @@ const Tags: FC = () => {
             formType={formType === "create" ? `create` : `edit`}
             submitSuccess={formType === "create" ? handleAddTag : handleEditTag}
             formData={
-              formType === "create" ? { id: 0, title: "", color: "#B71C1C", status: "public" } : tagsList[editTagIndex]
+              formType === "create"
+                ? { id: 0, title: "", color: "#B71C1C", status: "public" }
+                : tagsList.length > 0
+                ? tagsList[editTagIndex]
+                : { id: 0, title: "", color: "#B71C1C", status: "public" }
             }
           />
         )}

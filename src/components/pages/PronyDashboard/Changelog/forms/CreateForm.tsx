@@ -12,6 +12,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import DropdownSelect from "@/components/UI/forms/DropdownSelect/DropdownSelect";
 import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 import Marker from "../../Posts/Marker/Marker";
+import ChangelogsLabels from "@/data/ChangelogsLabels.json";
 
 interface formProps {
   submitSuccess: (data: ChangelogItemData) => void;
@@ -27,7 +28,11 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
   const [time, setTime] = useState<string>("");
   const [details, setDetails] = useState<string>("");
   const [image, setImage] = useState<string>("");
-  const [tags, setTags] = useState<string[]>(formData.tags.map((tag) => tag.name));
+  const [tags, setTags] = useState<{ name: string; color: string }[]>(formData.tags);
+
+  const handleSetTags = (values: string[]) => {
+    setTags(ChangelogsLabels.filter((item) => values.includes(item.name)));
+  };
 
   const {
     register,
@@ -46,7 +51,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
   }, [isOpenPopUp]);
 
   useEffect(() => {
-    setTags(formData.tags.map((tag) => tag.name));
+    setTags(formData.tags);
     setTime(formData.time);
     setTitle(formData.title);
     setDetails(formData.details);
@@ -63,14 +68,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
   }, [formData]);
 
   const onSubmit = (data: ChangelogItemData) => {
-    submitSuccess({
-      ...data,
-      tags: tags.map((tag) => ({
-        name: tag,
-        type: "standard",
-        color: "#BFBECD",
-      })),
-    });
+    submitSuccess(data);
     reset();
     setOpenPopUp(false);
   };
@@ -159,25 +157,16 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
             <div className="changelogForm__tags">
               <p className="input__label text">Labels</p>
               <DropdownSelect
-                getValue={setTags}
-                defaultValue={tags.map((tag) => tag)}
+                getValue={handleSetTags}
+                defaultValue={tags.map((tag) => tag.name).map((tag) => tag)}
                 selectType="checkbox"
                 title={"Chose a label"}
                 marked={false}
-                options={[
-                  {
-                    name: "Admin",
-                    labelText: "Admin",
-                  },
-                  {
-                    name: "Feedback",
-                    labelText: "Feedback",
-                  },
-                  {
-                    name: "Changelog",
-                    labelText: "Changelog",
-                  },
-                ]}
+                options={ChangelogsLabels.map((label, index) => ({
+                  key: index,
+                  name: label.name,
+                  labelText: label.name,
+                }))}
               />
             </div>
           )}
@@ -187,9 +176,9 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
           <div className="changelogForm__markersContainer">
             {tags.map((tag, index) => (
               <Marker
-                name={tag}
+                name={tag.name}
                 key={index}
-                hashColor="#BFBECD"
+                hashColor={tag.color}
                 type="remove"
                 removeItem={() => {
                   setTags(tags.filter((_, currentIndex) => currentIndex !== index));

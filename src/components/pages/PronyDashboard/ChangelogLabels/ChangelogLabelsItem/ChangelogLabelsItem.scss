@@ -1,0 +1,76 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelog-labels-item {
+  padding: 28px 35px 28px 21px;
+  display: grid;
+  grid-template-columns: 48px 22% 5% 1fr;
+  align-items: center;
+  overflow-x: auto;
+
+  &:nth-child(odd) {
+    background: var(--BGItem);
+  }
+
+  &__name {
+    display: flex;
+    align-items: center;
+    width: fit-content;
+    box-sizing: border-box;
+    border-radius: 30px;
+    padding: 5px 20px;
+  }
+
+  &__color {
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    background-color: var(--Secondary);
+    margin-right: 10px;
+  }
+
+  &__menu {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    margin-left: 10px;
+
+    &-icon {
+      filter: invert(49%) sepia(9%) saturate(17%) hue-rotate(10deg) brightness(91%) contrast(93%);
+    }
+
+    &-button {
+      margin-right: 22px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+
+      &:hover {
+        .tagsItem__menu-icon {
+          filter: invert(26%) sepia(85%) saturate(7193%) hue-rotate(203deg) brightness(96%) contrast(83%);
+        }
+      }
+    }
+  }
+}
+
+@include Tablet() {
+  .changelog-labels-item {
+    grid-template-columns: 38px 22% 5% 1fr;
+    gap: 10px;
+  }
+}
+
+
+@include Laptop() {
+  .changelog-labels-item {
+    grid-template-columns: 18px 32% 15% 1fr;
+  }
+}
+
+@include Mobile() {
+  .changelog-labels-item {
+    grid-template-columns: 18px 40vw 15% 1fr;
+  }
+}

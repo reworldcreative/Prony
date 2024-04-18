@@ -81,8 +81,6 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, tagsDat
         />
 
         <div className="tags-form__colors">
-          <p className="tags-form__colors-caption text">Color</p>
-
           <Controller
             name="color"
             control={control}

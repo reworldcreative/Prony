@@ -26,13 +26,16 @@ const colors: string[] = [
   "#E6CBFF",
 ];
 
+const colorsLabels: string[] = ["#546E7A", "#03B8FD", "#BFBECD", "#272557", "#2C629E", "#435B66"];
+
 interface ColorsContainerProps {
   getValue?: (value: string) => void;
   field?: RegisterOptions<FieldValues>;
   defaultColor: string;
+  type?: "tags" | "changelog";
 }
 
-const ColorsContainer: FC<ColorsContainerProps> = ({ getValue, field, defaultColor }) => {
+const ColorsContainer: FC<ColorsContainerProps> = ({ getValue, field, defaultColor, type = "tags" }) => {
   const [currentColor, setCurrentColor] = useState(defaultColor);
 
   const handleChangeColor = (value: string) => {
@@ -50,18 +53,35 @@ const ColorsContainer: FC<ColorsContainerProps> = ({ getValue, field, defaultCol
   }, [defaultColor]);
 
   return (
-    <div className="colors">
-      {colors.map((color, index) => (
-        <ColorSelector
-          key={index}
-          group="color"
-          size="big"
-          selectedValue={currentColor}
-          value={color}
-          getRadioValue={field ? undefined : handleChangeColor}
-          field={field ? field : undefined}
-        />
-      ))}
+    <div className="colors__wrapper">
+      <p className="colors__caption text">Color</p>
+      <div className="colors">
+        {type === "tags" &&
+          colors.map((color, index) => (
+            <ColorSelector
+              key={index}
+              group="color"
+              size="big"
+              selectedValue={currentColor}
+              value={color}
+              getRadioValue={field ? undefined : handleChangeColor}
+              field={field ? field : undefined}
+            />
+          ))}
+
+        {type === "changelog" &&
+          colorsLabels.map((color, index) => (
+            <ColorSelector
+              key={index}
+              group="color"
+              size="big"
+              selectedValue={currentColor}
+              value={color}
+              getRadioValue={field ? undefined : handleChangeColor}
+              field={field ? field : undefined}
+            />
+          ))}
+      </div>
     </div>
   );
 };

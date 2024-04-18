@@ -72,7 +72,9 @@ const Statuses: FC = () => {
           formData={
             formType === "create"
               ? { id: 0, name: "", votable: true, showOnRoadmap: true, privacy: false, color: "#43A047" }
-              : statusList[editStatusIndex]
+              : statusList.length > 0
+              ? statusList[editStatusIndex]
+              : { id: 0, name: "", votable: true, showOnRoadmap: true, privacy: false, color: "#43A047" }
           }
           formTitle={formType === "create" ? "Add user segment" : "Edit user segment"}
           formType={formType === "create" ? "create" : "edit"}
