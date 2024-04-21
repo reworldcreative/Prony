@@ -24,10 +24,10 @@ interface formProps {
 const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formData }) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
 
-  const [title, setTitle] = useState<string>("");
-  const [time, setTime] = useState<string>("");
-  const [details, setDetails] = useState<string>("");
-  const [image, setImage] = useState<string>("");
+  // const [title, setTitle] = useState<string>("");
+  // const [time, setTime] = useState<string>("");
+  // const [details, setDetails] = useState<string>("");
+  // const [image, setImage] = useState<string>("");
   const [tags, setTags] = useState<{ name: string; color: string }[]>(formData.tags);
 
   const handleSetTags = (values: string[]) => {
@@ -52,10 +52,10 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
 
   useEffect(() => {
     setTags(formData.tags);
-    setTime(formData.time);
-    setTitle(formData.title);
-    setDetails(formData.details);
-    setImage(formData.image);
+    // setTime(formData.time);
+    // setTitle(formData.title);
+    // setDetails(formData.details);
+    // setImage(formData.image);
 
     setValue(
       "labels",
@@ -68,7 +68,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
   }, [formData]);
 
   const onSubmit = (data: ChangelogItemData) => {
-    submitSuccess(data);
+    submitSuccess({ ...data, tags: tags });
     reset();
     setOpenPopUp(false);
   };

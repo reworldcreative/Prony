@@ -3,25 +3,34 @@ import "./PopUp.scss";
 import closeIcon from "@/assets/img/icons/close.svg";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 
-interface PopUpProps {
+interface PopUpSettingsProps {
   children: ReactNode;
   addClass?: string;
 }
 
 const rootElement = document.getElementById("root");
 
-const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
-  const { theme, setTheme, isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+const PopUpSettings: FC<PopUpSettingsProps> = ({ children, addClass }) => {
+  const {
+    theme,
+    setTheme,
+    isOpenPopUp,
+    setOpenPopUp,
+    PopUpSettingsType,
+    setPopUpSettingsType,
+    isOpenPopUpSettings,
+    setOpenPopUpSettings,
+  } = useContext(GlobalContext);
 
   const popUpRef = useRef(null);
   const popUpCloseButtonRef = useRef(null);
 
   useEffect(() => {
     popUpRef.current.focus();
-  }, [isOpenPopUp]);
+  }, [isOpenPopUpSettings]);
 
   const togglePopup = () => {
-    setOpenPopUp(!isOpenPopUp);
+    setOpenPopUpSettings(!isOpenPopUpSettings);
   };
 
   useEffect(() => {
@@ -42,7 +51,7 @@ const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
   };
 
   return (
-    <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
+    <div className={`popUp ${isOpenPopUpSettings ? "popUp_open" : ""}`}>
       <div className={`popUp__container ${addClass ? addClass : ""}`} ref={popUpRef} tabIndex={0} aria-live="assertive">
         {children}
         <button
@@ -67,4 +76,4 @@ const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
   );
 };
 
-export default PopUp;
+export default PopUpSettings;

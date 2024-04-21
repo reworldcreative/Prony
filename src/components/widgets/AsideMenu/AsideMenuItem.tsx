@@ -2,6 +2,7 @@ import React, { FC, useContext, useState } from "react";
 import UpArrowIcon from "@/assets/img/icons/UpArrow.svg";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import { Link } from "react-router-dom";
+
 interface MenuItem {
   text: string;
   url: string;
@@ -11,7 +12,8 @@ interface MenuItem {
 
 interface SubMenuItem {
   text: string;
-  url: string;
+  url?: string;
+  click?: () => void;
 }
 
 const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active }) => {
@@ -92,11 +94,22 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active 
           </div>
           {isSubmenuOpen && (
             <div className="asideMenu__submenu">
-              {item.submenu.map((subItem, subIndex) => (
-                <Link key={subIndex} to={subItem.url} className="asideMenu__submenu-link caption">
-                  {subItem.text}
-                </Link>
-              ))}
+              {item.submenu.map((subItem, subIndex) =>
+                subItem.click ? (
+                  <button
+                    key={subIndex}
+                    onClick={
+                      subItem.click}
+                    className="asideMenu__submenu-link caption"
+                  >
+                    {subItem.text}
+                  </button>
+                ) : (
+                  <Link key={subIndex} to={subItem.url} className="asideMenu__submenu-link caption">
+                    {subItem.text}
+                  </Link>
+                )
+              )}
             </div>
           )}
         </div>

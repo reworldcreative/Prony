@@ -12,12 +12,14 @@ import Pagination from "@/components/UI/Pagination/Pagination";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import CreateForm from "./forms/CreateForm";
 import ChangelogsLabels from "@/data/ChangelogsLabels.json";
+import SettingsForm from "./forms/SettingsForm";
+import { ChangelogSettingsData } from "./forms/SettingsForm";
 
 const Changelog: FC = () => {
   const [changelogsList, setChangelogsList] = useState<ChangelogItemData[]>([...ChangelogsData]);
 
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
-  const [formType, setFormType] = useState<"create" | "edit">("create");
+  const [formType, setFormType] = useState<"create" | "edit" | "settings">("create");
   const [editChangelogsIndex, setChangelogsIndex] = useState<number>(0);
   const ids = changelogsList.map(({ id }) => id);
 
@@ -30,6 +32,9 @@ const Changelog: FC = () => {
   const indexOfLastChangelog: number = currentPage * changelogsPerPage;
   const indexOfFirstChangelog: number = indexOfLastChangelog - changelogsPerPage;
   const currentChangelogs = changelogsList.slice(indexOfFirstChangelog, indexOfLastChangelog);
+
+  const [privacy, setPrivacy] = useState<string>("private");
+  const [indexed, setIndexed] = useState<boolean>(true);
 
   const paginate = (pageNumber: number) => {
     pageNumber > 0 && pageNumber <= Math.ceil(changelogsList.length / changelogsPerPage) && setCurrentPage(pageNumber);
@@ -70,21 +75,41 @@ const Changelog: FC = () => {
     setChangelogsList([...changelogsList]);
   };
 
+  const handleOpenChangelogSettingsForm = () => {
+    setFormType("settings");
+    setOpenPopUp(true);
+  };
+
+  const handleSetChangelogSettings = (data: ChangelogSettingsData) => {
+    setPrivacy(data.privacy);
+    setIndexed(data.indexed);
+  };
+
   return (
     <>
       <PopUp addClass="changelog__pop-up">
-        <CreateForm
-          formData={
-            formType === "create"
-              ? { id: 0, title: "", time: "", tags: [], details: "", image: "" }
-              : changelogsList.length > 0
-              ? changelogsList[editChangelogsIndex]
-              : { id: 0, title: "", time: "", tags: [], details: "", image: "" }
-          }
-          formTitle={formType === "create" ? "Add record" : "Edit record"}
-          formType={formType === "create" ? "create" : "edit"}
-          submitSuccess={formType === "create" ? handleAddChangelog : handleEditChangelog}
-        />
+        {formType !== "settings" && (
+          <CreateForm
+            formData={
+              formType === "create"
+                ? { id: 0, title: "", time: "", tags: [], details: "", image: "" }
+                : changelogsList.length > 0
+                ? changelogsList[editChangelogsIndex]
+                : { id: 0, title: "", time: "", tags: [], details: "", image: "" }
+            }
+            formTitle={formType === "create" ? "Add record" : "Edit record"}
+            formType={formType === "create" ? "create" : "edit"}
+            submitSuccess={formType === "create" ? handleAddChangelog : handleEditChangelog}
+          />
+        )}
+
+        {formType === "settings" && (
+          <SettingsForm
+            formTitle="Changelog settings"
+            submitSuccess={handleSetChangelogSettings}
+            formData={{ privacy, indexed }}
+          />
+        )}
       </PopUp>
 
       <section className="pageContainer-MainSection">
@@ -93,9 +118,15 @@ const Changelog: FC = () => {
         <div className="pageContainer-MainSection__top pageContainerChangelog-MainSection__top">
           <h1 className="title posts-MainSection__title">Changelog records</h1>
 
-          <Button type="primary" click={handleOpenAddChangelogForm}>
-            Add record
-          </Button>
+          <div className="changelog__buttons">
+            <Button type="primary" click={handleOpenChangelogSettingsForm}>
+              settings
+            </Button>
+
+            <Button type="primary" click={handleOpenAddChangelogForm}>
+              Add record
+            </Button>
+          </div>
         </div>
 
         <section className="changelog pageContainer-section">

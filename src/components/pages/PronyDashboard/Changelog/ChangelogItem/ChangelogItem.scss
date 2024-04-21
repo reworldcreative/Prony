@@ -5,7 +5,7 @@
   padding: 17px 20px 17px 36px;
   display: grid;
   grid-template-columns: 42.5% 15% auto 1fr;
-  align-items: center;
+  overflow-x: auto;
 
   &:nth-child(odd) {
     background: var(--BGItem);
@@ -20,6 +20,7 @@
     .posts__marker {
       width: fit-content;
       padding: 5px 20px;
+      color: #ffffff;
     }
   }
 

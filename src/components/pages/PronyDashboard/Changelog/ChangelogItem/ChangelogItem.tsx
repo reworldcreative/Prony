@@ -44,9 +44,8 @@ const ChangelogItem: FC<ChangelogItemProps> = ({ data, handleEdit, handleDelete 
       <p className="changelog-item__time heading-h6">{data.time}</p>
 
       <div className="changelog-item__labels">
-        {data.tags.map((tag, index) => (
-          <Marker key={index} name={tag.name} hashColor={tag.color} type="standard" />
-        ))}
+        {data.tags &&
+          data.tags.map((tag, index) => <Marker key={index} name={tag.name} hashColor={tag.color} type="standard" />)}
       </div>
 
       <div className="changelog-item__menu">

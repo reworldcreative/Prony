@@ -113,6 +113,7 @@
 
     &__item {
       grid-template-columns: auto 43% 1fr 1fr;
+      overflow: auto;
 
       .drag {
         margin-right: 15px;
@@ -132,6 +133,12 @@
 
     .optionButton {
       margin: 0;
+    }
+
+    &__header,
+    &__item {
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 }

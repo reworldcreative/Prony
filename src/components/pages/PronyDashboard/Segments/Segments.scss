@@ -29,6 +29,7 @@
     &__header {
       grid-template-columns: 28.5% 2fr 2.4fr;
       padding: 0 35px 23px;
+      width: max-content;
     }
 
     &__list {

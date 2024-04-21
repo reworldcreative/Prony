@@ -1,0 +1,12 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelogSettingsForm {
+  .form__block {
+    margin-bottom: 25px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}
