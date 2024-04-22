@@ -53,6 +53,8 @@ const AsideMenu: FC = () => {
         { text: "Statuses", url: "/statuses" },
         { text: "Changelog Labels", url: "/changelog-labels" },
         { text: "Email settings", click: () => handleOpenPopup("email") },
+        { text: "General settings", click: () => handleOpenPopup("general") },
+        { text: "Appearance settings", click: () => handleOpenPopup("appearance") },
       ],
     },
     { text: "Integrations", url: "/integrations", icon: AsideIntegrationsIcon },

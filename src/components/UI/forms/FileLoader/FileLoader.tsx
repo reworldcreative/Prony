@@ -61,7 +61,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
             height="16"
             aria-hidden="true"
           />
-          <label htmlFor="postFileLoader" className="file-loader__link">
+          <label htmlFor={`postFileLoader-${label}`} className="file-loader__link">
             Add file&#160;
           </label>
           or drop files here
@@ -69,7 +69,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
         <input
           type="file"
           className="file-loader__input visibility-hidden"
-          id="postFileLoader"
+          id={`postFileLoader-${label}`}
           name="post-file-loader"
           onChange={(e) => handleFileChange(e)}
         />

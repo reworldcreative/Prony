@@ -11,16 +11,8 @@ interface PopUpSettingsProps {
 const rootElement = document.getElementById("root");
 
 const PopUpSettings: FC<PopUpSettingsProps> = ({ children, addClass }) => {
-  const {
-    theme,
-    setTheme,
-    isOpenPopUp,
-    setOpenPopUp,
-    PopUpSettingsType,
-    setPopUpSettingsType,
-    isOpenPopUpSettings,
-    setOpenPopUpSettings,
-  } = useContext(GlobalContext);
+  const { theme, setTheme, isOpenPopUp, setOpenPopUp, isOpenPopUpSettings, setOpenPopUpSettings } =
+    useContext(GlobalContext);
 
   const popUpRef = useRef(null);
   const popUpCloseButtonRef = useRef(null);
@@ -35,13 +27,13 @@ const PopUpSettings: FC<PopUpSettingsProps> = ({ children, addClass }) => {
 
   useEffect(() => {
     setTimeout(() => {
-      isOpenPopUp ? rootElement.classList.add("scroll-lock") : rootElement.classList.remove("scroll-lock");
+      isOpenPopUpSettings ? rootElement.classList.add("scroll-lock") : rootElement.classList.remove("scroll-lock");
     }, 10);
 
     return () => {
       rootElement.classList.remove("scroll-lock");
     };
-  }, [isOpenPopUp]);
+  }, [isOpenPopUpSettings]);
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Tab" && !event.shiftKey && popUpRef.current) {

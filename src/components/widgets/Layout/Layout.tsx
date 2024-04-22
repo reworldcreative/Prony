@@ -6,6 +6,8 @@ import PopUp from "../PopUp/PopUp";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import PopUpSettings from "../PopUp/PopUpSettings";
 import EmailSettingsForm from "@/components/UI/forms/EmailSettingsForm/EmailSettingsForm";
+import GeneralSettingsForm from "@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm";
+import AppearanceSettingsForm from "@/components/UI/forms/AppearanceSettingsForm/AppearanceSettingsForm";
 
 const Layout: FC = () => {
   const {
@@ -19,7 +21,11 @@ const Layout: FC = () => {
 
   return (
     <>
-      <PopUpSettings>{PopUpSettingsType === "email" && <EmailSettingsForm formTitle="Email settings" />}</PopUpSettings>
+      <PopUpSettings>
+        {PopUpSettingsType === "email" && <EmailSettingsForm formTitle="Email settings" />}
+        {PopUpSettingsType === "general" && <GeneralSettingsForm formTitle="General settings" />}
+        {PopUpSettingsType === "appearance" && <AppearanceSettingsForm formTitle="Appearance" />}
+      </PopUpSettings>
 
       <Header />
       <div className="pageContainer">
