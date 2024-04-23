@@ -39,4 +39,8 @@
       filter: invert(50%) sepia(69%) saturate(4475%) hue-rotate(203deg) brightness(89%) contrast(83%);
     }
   }
+
+  &__link {
+    text-decoration: underline;
+  }
 }

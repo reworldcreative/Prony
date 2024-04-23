@@ -16,6 +16,7 @@ const Segments = React.lazy(() => import("./components/pages/PronyDashboard/Segm
 const Statuses = React.lazy(() => import("./components/pages/PronyDashboard/Statuses/Statuses"));
 const Changelog = React.lazy(() => import("./components/pages/PronyDashboard/Changelog/Changelog"));
 const ChangelogLabels = React.lazy(() => import("./components/pages/PronyDashboard/ChangelogLabels/ChangelogLabels"));
+const Integrations = React.lazy(() => import("./components/pages/PronyDashboard/Integrations/Integrations"));
 
 // import { register } from "swiper/element/bundle";
 // register();
@@ -39,6 +40,7 @@ const App: FC = () => {
             <Route path="statuses" element={<Statuses />} />
             <Route path="changelog" element={<Changelog />} />
             <Route path="changelog-labels" element={<ChangelogLabels />} />
+            <Route path="integrations" element={<Integrations />} />
           </Route>
         </Routes>
       </GlobalProvider>

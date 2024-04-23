@@ -1,0 +1,101 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.integrations {
+  &__main-title {
+    color: var(--Primary);
+  }
+
+  &__top {
+    padding: 22px 47px 0px;
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+
+  &__settings,
+  &__top {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+  }
+
+  &__settings {
+    padding: 27px 44px;
+  }
+
+  &__button {
+    color: var(--TextSecondary);
+    padding-bottom: 22px;
+    width: fit-content;
+
+    &.active {
+      color: var(--Primary);
+      border-bottom: 1px solid var(--Primary);
+    }
+  }
+
+  &__col {
+    display: grid;
+    gap: 25px;
+
+    &:first-child {
+      margin-right: 10px;
+    }
+  }
+
+  &__field {
+    display: flex;
+  }
+
+  &__input {
+    display: flex;
+    align-items: center;
+    margin-top: 5px;
+
+    .button,
+    .MuiInputBase-input {
+      height: 50px;
+    }
+
+    .MuiInputBase-input {
+      box-sizing: border-box;
+    }
+  }
+
+  &__text {
+    margin-top: 5px;
+  }
+
+  &__step {
+    font-size: 12px;
+    padding: 0 7px;
+    border-radius: 50%;
+    background: #757575;
+    color: var(--Primary);
+    margin-right: 15px;
+    height: fit-content;
+    width: fit-content;
+  }
+
+  &__link {
+    color: #1565c0;
+    text-decoration: underline;
+  }
+}
+
+@include Laptop() {
+  .integrations {
+    &__settings {
+      grid-template-columns: auto;
+      gap: 10px;
+    }
+  }
+}
+
+@include Mobile() {
+  .integrations {
+    &__field,
+    &__input {
+      flex-wrap: wrap;
+    }
+  }
+}
