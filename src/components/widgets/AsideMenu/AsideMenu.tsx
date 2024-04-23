@@ -55,6 +55,7 @@ const AsideMenu: FC = () => {
         { text: "Email settings", click: () => handleOpenPopup("email") },
         { text: "General settings", click: () => handleOpenPopup("general") },
         { text: "Appearance settings", click: () => handleOpenPopup("appearance") },
+        { text: "Custom domain", click: () => handleOpenPopup("domain") },
       ],
     },
     { text: "Integrations", url: "/integrations", icon: AsideIntegrationsIcon },

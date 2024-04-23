@@ -1,0 +1,42 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.custom-domain {
+  &__text-wrapper {
+    .subtitle {
+      &:first-child {
+        margin-bottom: 20px;
+      }
+    }
+  }
+
+  &__label {
+    background: rgba(117, 117, 117, 0.2);
+    padding: 13px 25px;
+    border-radius: 5px;
+    margin-top: 15px;
+  }
+
+  &__form {
+    margin-top: 15px;
+
+    .input {
+      background: none;
+    }
+  }
+
+  &__info {
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+
+    &-text {
+      color: #1565c0;
+    }
+
+    &-icon {
+      margin-right: 10px;
+      filter: invert(50%) sepia(69%) saturate(4475%) hue-rotate(203deg) brightness(89%) contrast(83%);
+    }
+  }
+}
