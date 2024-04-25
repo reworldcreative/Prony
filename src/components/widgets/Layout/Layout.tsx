@@ -21,7 +21,7 @@ const Layout: FC = () => {
   } = useContext(GlobalContext);
 
   return (
-    <>
+    <div className="layout">
       <PopUpSettings>
         {PopUpSettingsType === "email" && <EmailSettingsForm formTitle="Email settings" />}
         {PopUpSettingsType === "general" && <GeneralSettingsForm formTitle="General settings" />}
@@ -29,7 +29,7 @@ const Layout: FC = () => {
         {PopUpSettingsType === "domain" && <CustomDomain formTitle="Custom domain" />}
       </PopUpSettings>
 
-      <Header />
+      <Header useOption={false} />
       <div className="pageContainer">
         <AsideMenu />
 
@@ -39,7 +39,7 @@ const Layout: FC = () => {
           </Suspense>
         </main>
       </div>
-    </>
+    </div>
   );
 };
 

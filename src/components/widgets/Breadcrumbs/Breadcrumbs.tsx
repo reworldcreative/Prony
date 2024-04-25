@@ -5,13 +5,20 @@ import { Link } from "react-router-dom";
 interface BreadcrumbsProps {
   currentTitle?: string[];
   currentLink?: string[];
+  defaultTitle?: string;
+  defaultLink?: string;
 }
 
-const Breadcrumbs: FC<BreadcrumbsProps> = ({ currentTitle, currentLink }) => {
+const Breadcrumbs: FC<BreadcrumbsProps> = ({
+  currentTitle,
+  currentLink,
+  defaultTitle = "Dashboard",
+  defaultLink = "/",
+}) => {
   return (
     <div className="breadcrumbs">
-      <Link to={"/"} className="breadcrumbs__item caption">
-        Dashboard
+      <Link to={defaultLink} className="breadcrumbs__item caption">
+        {defaultTitle}
       </Link>
       {currentTitle &&
         currentTitle.map((title, index) => (

@@ -28,10 +28,13 @@
 }
 
 body {
-  background: var(--BGSecond);
   font-family: "Nunito", sans-serif;
   font-style: normal;
   font-weight: 400;
+}
+
+.layout {
+  background: var(--BGSecond);
 }
 
 a {

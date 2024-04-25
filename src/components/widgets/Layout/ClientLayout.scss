@@ -1,0 +1,24 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.client-layout {
+  position: relative;
+  min-height: 100vh;
+  background: var(--BG);
+  @include Font(12px, 400, normal var(--TextPrimary), 0px, var(--font_second));
+
+  &__wrapper {
+    max-width: 1128px;
+    margin: auto;
+    padding: 0 15px;
+  }
+
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .pageContainer__main {
+    padding: 0 0 30px;
+  }
+}
