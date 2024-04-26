@@ -10,6 +10,14 @@ interface GlobalContextType {
   setOpenPopUpSettings: React.Dispatch<React.SetStateAction<boolean>>;
   PopUpSettingsType: string;
   setPopUpSettingsType: React.Dispatch<React.SetStateAction<string>>;
+
+  breadcrumbsLinks: string[];
+  setBreadcrumbsLinks: React.Dispatch<React.SetStateAction<string[]>>;
+  breadcrumbsTitles: string[];
+  setBreadcrumbsTitles: React.Dispatch<React.SetStateAction<string[]>>;
+
+  popUpData: ReactNode;
+  setPopUpData: React.Dispatch<React.SetStateAction<ReactNode>>;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -19,6 +27,9 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
   const [isOpenPopUpSettings, setOpenPopUpSettings] = useState<boolean>(false);
   const [PopUpSettingsType, setPopUpSettingsType] = useState<string>("global");
+  const [breadcrumbsLinks, setBreadcrumbsLinks] = useState<string[]>([""]);
+  const [breadcrumbsTitles, setBreadcrumbsTitles] = useState<string[]>([""]);
+  const [popUpData, setPopUpData] = useState<ReactNode>(<></>);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -60,6 +71,12 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setPopUpSettingsType,
         isOpenPopUpSettings,
         setOpenPopUpSettings,
+        breadcrumbsLinks,
+        setBreadcrumbsLinks,
+        breadcrumbsTitles,
+        setBreadcrumbsTitles,
+        popUpData,
+        setPopUpData,
       }}
     >
       {children}

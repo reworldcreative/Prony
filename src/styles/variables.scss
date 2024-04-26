@@ -38,7 +38,7 @@
   $line-height: normal,
   $color: var(--Primary),
   $letter-spacing: 0px,
-  $font-family: var(--font)
+  $font-family: inherit
 ) {
   font-family: $font-family;
   @include font-size($font-size);

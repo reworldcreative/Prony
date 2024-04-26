@@ -31,6 +31,11 @@ const Breadcrumbs: FC<BreadcrumbsProps> = ({
               className={`breadcrumbs__item breadcrumbs__item_active caption ${
                 index === currentLink.length - 1 ? "breadcrumbs__item_last" : ""
               }`}
+              onClick={(event) => {
+                if (index === currentLink.length - 1) {
+                  event.preventDefault();
+                }
+              }}
             >
               {title}
             </Link>

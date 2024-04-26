@@ -1,0 +1,49 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.clientAsideMenu {
+  background: var(--BG);
+  z-index: 10;
+  margin-top: 20px;
+  margin-right: 30px;
+
+  &__navigation {
+    display: grid;
+    gap: 15px;
+  }
+
+  &__link {
+    color: #7791c2;
+    font-weight: 400;
+
+    &-title {
+      font-size: 18px;
+      color: var(--Primary);
+    }
+
+    &_active {
+      color: var(--Secondary);
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .clientAsideMenu {
+    display: none;
+    position: absolute;
+    margin-right: 0px;
+    margin-top: 50px;
+    padding: 10px 20px 20px;
+    filter: drop-shadow(0px 5px 3px var(--Primary));
+
+    &_open {
+      display: block;
+    }
+  }
+}
+
+@include Mobile() {
+  .clientAsideMenu {
+    margin-top: 5px;
+  }
+}

@@ -2,13 +2,14 @@ import React, { FC, useContext, useEffect } from "react";
 import "./DeleteForm.scss";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import { FieldValues, useForm } from "react-hook-form";
-import Input from "@/components/UI/forms/Input/Input";
 import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
+import Input from "@/components/UI/forms/Input/Input";
 
 interface formProps {
   submitSuccess: (name: string) => void;
   formTitle: string;
 }
+
 const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
   const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
   const {
@@ -26,8 +27,8 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
     reset();
   }, [isOpenPopUp]);
 
-  const onSubmit = (name: FieldValues) => {
-    submitSuccess(name.boardName);
+  const onSubmit = (data: FieldValues) => {
+    submitSuccess(data.name);
     reset();
     setOpenPopUp(false);
   };
@@ -38,25 +39,25 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="deleteForm">
-      <h2 className="title deleteForm__title">{formTitle}</h2>
+    <form onSubmit={handleSubmit(onSubmit)} className="form workspaces-form workspaces-delete-form">
+      <h2 className="title form__title workspaces-form__title">{formTitle}</h2>
 
-      <p className="deleteForm__text subtitle">
-        This action will permanently delete the board and its content and cannot be undone. Please enter the board name
-        to confirm.
+      <p className="workspaces-delete-form__info subtitle">
+        Are you sure? This action cannot be undone. Enter the name of this workspace below to confirm.
       </p>
 
       <Input
-        label="Board name"
-        name="boardName"
+        label="Workspace name"
+        name="name"
         register={register}
-        messageType={errors.boardName ? "error" : ""}
+        messageType={errors.name ? "error" : ""}
+        placeholder="Name of workspace"
         settings={{
           required: "Board name should be unique",
           minLength: { value: 3, message: "Minimum length should be 3" },
           maxLength: { value: 50, message: "Maximum length should be 30" },
         }}
-        messageText={errors?.boardName?.message.toString() || "error!"}
+        messageText={errors?.name?.message.toString() || "error!"}
       />
 
       <FormButtons isValid={isValid} onCancel={onCancel} type="danger" />

@@ -144,17 +144,15 @@ const Footer: FC<FooterProps> = ({ addClass = "" }) => {
                 <Typography className="footer__navigation-caption">{link.title}</Typography>
               </AccordionSummary>
               <AccordionDetails>
-                <Typography>
-                  <ul className="footer__navigation-list">
-                    {link.links.map((link, index) => (
-                      <li className="footer__navigation-link" key={index}>
-                        <a href={link.link} className="text-second">
-                          {link.name}
-                        </a>
-                      </li>
-                    ))}
-                  </ul>
-                </Typography>
+                <ul className="footer__navigation-list">
+                  {link.links.map((link, index) => (
+                    <li className="footer__navigation-link" key={index}>
+                      <a href={link.link} className="text-second">
+                        {link.name}
+                      </a>
+                    </li>
+                  ))}
+                </ul>
               </AccordionDetails>
             </Accordion>
           ))}
