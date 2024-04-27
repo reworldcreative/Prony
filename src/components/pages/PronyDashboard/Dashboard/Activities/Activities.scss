@@ -4,9 +4,20 @@
 .dashboard-Activities {
   margin-top: 95px;
   width: 35%;
+  height: fit-content;
   padding: 28px 0px 18px;
   box-sizing: border-box;
-  display: grid;
+  // display: grid;
+
+  &__name {
+    max-width: 150px;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    display: -webkit-box;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
 
   &__title {
     padding: 0px 28px;
@@ -41,6 +52,7 @@
   &__item {
     padding: 24px 28px 19px;
     display: flex;
+
     &:nth-child(2n) {
       background-color: var(--BGItem);
     }
@@ -57,6 +69,7 @@
 
   &__avatar {
     margin-right: 27px;
+    border-radius: 100%;
   }
 
   &__status {

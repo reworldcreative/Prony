@@ -30,7 +30,7 @@ const Search: FC<InputProps> = ({ name, settings, register, getValue, value, pla
         defaultValue={value}
         placeholder={placeholder}
       />
-      <button className="search__button">
+      <button className="search__button" aria-label="search">
         <img src={searchIcon} alt="search icon" width="17" height="17" aria-hidden="true" />
       </button>
     </div>

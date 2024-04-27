@@ -1,4 +1,4 @@
-import React, { FC, useState, useRef, useEffect } from "react";
+import React, { FC, useState, useRef, useEffect, useContext } from "react";
 import "./AsideMenu.scss";
 import AsideDashboardIcon from "@/assets/img/icons/asideMenu/asideDashboard.svg";
 import AsideBoardsIcon from "@/assets/img/icons/asideMenu/asideBoards.svg";
@@ -10,6 +10,7 @@ import AsideSettingsIcon from "@/assets/img/icons/asideMenu/asideSettings.svg";
 import AsideIntegrationsIcon from "@/assets/img/icons/asideMenu/asideIntegrations.svg";
 import AsideMenuItem, { MenuItem } from "./AsideMenuItem";
 import { useLocation } from "react-router-dom";
+import { GlobalContext } from "../GlobalContext/GlobalContext";
 
 const AsideMenu: FC = () => {
   const location = useLocation();
@@ -19,6 +20,20 @@ const AsideMenu: FC = () => {
   const burgerRef = useRef<HTMLButtonElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
   const asideNavigationRef = useRef<HTMLDivElement>(null);
+  const {
+    isOpenPopUp,
+    setOpenPopUp,
+    PopUpSettingsType,
+    setPopUpSettingsType,
+    isOpenPopUpSettings,
+    setOpenPopUpSettings,
+  } = useContext(GlobalContext);
+
+  const handleOpenPopup = (type: string) => {
+    setPopUpSettingsType(type);
+    setOpenPopUp(false);
+    setOpenPopUpSettings(true);
+  };
 
   openMenu ? rootElement.classList.add("scroll-lock") : rootElement.classList.remove("scroll-lock");
 
@@ -31,11 +46,16 @@ const AsideMenu: FC = () => {
     { text: "Changelog", url: "/changelog", icon: AsideChangelogIcon },
     {
       text: "Settings",
-      url: "/settings",
+      url: "",
       icon: AsideSettingsIcon,
       submenu: [
-        { text: "Settings 1", url: "/settings1" },
-        { text: "Settings 2", url: "/settings2" },
+        { text: "User Segments", url: "/segments" },
+        { text: "Statuses", url: "/statuses" },
+        { text: "Changelog Labels", url: "/changelog-labels" },
+        { text: "Email settings", click: () => handleOpenPopup("email") },
+        { text: "General settings", click: () => handleOpenPopup("general") },
+        { text: "Appearance settings", click: () => handleOpenPopup("appearance") },
+        { text: "Custom domain", click: () => handleOpenPopup("domain") },
       ],
     },
     { text: "Integrations", url: "/integrations", icon: AsideIntegrationsIcon },

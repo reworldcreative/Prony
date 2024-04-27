@@ -198,7 +198,7 @@ const Boards: FC = () => {
       </PopUp>
 
       <section className="pageContainer-MainSection">
-        <Breadcrumbs currentTitle="Boards" currentLink="/boards" />
+        <Breadcrumbs currentTitle={["Boards"]} currentLink={["/boards"]} />
 
         <div className="pageContainer-MainSection__top">
           <h1 className="title board-MainSection__title">Boards</h1>

@@ -11,18 +11,7 @@ const PictureComponent: React.FC<{
   height?: string;
   ariaHidden?: boolean;
   loadingPriority?: string;
-}> = ({
-  id,
-  src,
-  mediumSrc = "",
-  smallSrc = "",
-  alt,
-  className,
-  width,
-  height,
-  ariaHidden,
-  loadingPriority,
-}) => {
+}> = ({ id, src, mediumSrc = "", smallSrc = "", alt, className, width, height, ariaHidden, loadingPriority }) => {
   const webpSrc = src.replace(/\.\w+$/, ".webp");
   const webpMediumSrc = mediumSrc ? mediumSrc.replace(/\.\w+$/, ".webp") : "";
   const webpSmallSrc = smallSrc ? smallSrc.replace(/\.\w+$/, ".webp") : "";
@@ -36,11 +25,7 @@ const PictureComponent: React.FC<{
         // media="(max-width: 1200px)"
         media="(min-width: 500px) and (max-width: 1920px)"
       />
-      <source
-        type="image/webp"
-        srcSet={smallSrc ? webpSmallSrc : webpSrc}
-        media="(max-width: 500px)"
-      />
+      <source type="image/webp" srcSet={smallSrc ? webpSmallSrc : webpSrc} media="(max-width: 500px)" />
       {/* <source
         type="image/webp"
         srcSet={mediumSrc ? webpMediumSrc : webpSrc}
@@ -60,10 +45,8 @@ const PictureComponent: React.FC<{
         height={height}
         aria-hidden={ariaHidden}
         // data-src={src}
-        // loading="lazy"
-        {...(loadingPriority
-          ? { loading: loadingPriority === "eager" ? "eager" : "lazy" }
-          : false)}
+        loading="lazy"
+        {...(loadingPriority ? { loading: loadingPriority === "eager" ? "eager" : "lazy" } : false)}
       />
     </picture>
   );

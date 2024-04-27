@@ -1,0 +1,9 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.replace-form {
+  &__text {
+    color: var(--Primary);
+    margin-bottom: 20px;
+  }
+}

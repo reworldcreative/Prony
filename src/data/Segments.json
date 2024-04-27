@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "name": "Segment Name 1",
+    "representation": "company is “value”"
+  },
+  {
+    "id": 2,
+    "name": "Segment Name 1",
+    "representation": "created after “value”"
+  },
+  {
+    "id": 3,
+    "name": "Segment Name 1",
+    "representation": "company is “value”"
+  },
+  {
+    "id": 4,
+    "name": "Segment Name 1",
+    "representation": "company is “value”"
+  },
+  {
+    "id": 5,
+    "name": "Segment Name 1",
+    "representation": "company is “value”"
+  }
+]

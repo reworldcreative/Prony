@@ -1,0 +1,26 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.socials {
+  display: flex;
+  align-items: center;
+
+  &__item {
+    border-radius: 50%;
+    margin-right: 18px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      .socials__icon {
+        opacity: 1;
+      }
+    }
+  }
+
+  &__icon {
+    opacity: 0.5;
+  }
+}

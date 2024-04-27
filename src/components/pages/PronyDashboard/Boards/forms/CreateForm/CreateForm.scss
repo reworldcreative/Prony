@@ -2,24 +2,6 @@
 @import "@/styles/variables";
 
 .form {
-  width: 100%;
-  max-width: 1800px;
-
-  &__title {
-    margin-bottom: 15px;
-  }
-
-  &__wrapper,
-  &__section {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-  }
-
-  &__legend {
-    margin-bottom: 6px;
-  }
-
   &__section {
     width: 50%;
 
@@ -32,12 +14,8 @@
   }
 
   &__fieldset {
-    margin: 0;
-    padding: 0;
     width: 43.33%;
     margin-right: 10px;
-    border: none;
-    display: block;
 
     .input__wrapper {
       margin-bottom: 13px;
@@ -49,11 +27,6 @@
   }
 
   &__block {
-    display: grid;
-    height: fit-content;
-    gap: 8px;
-    margin-bottom: 50px;
-
     .radio-text {
       padding-left: 25px;
     }
@@ -67,19 +40,6 @@
     &:nth-child(3),
     &:nth-child(4) {
       margin-bottom: 0;
-    }
-  }
-}
-
-@include Small-Tablet() {
-  .form {
-    &__fieldset,
-    &__section {
-      width: 100%;
-    }
-
-    &__section {
-      margin-top: 20px;
     }
   }
 }

@@ -1,0 +1,13 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelogLabelsForm {
+  .input {
+    background: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 32px;
+  }
+}

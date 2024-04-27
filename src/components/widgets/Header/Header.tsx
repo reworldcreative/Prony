@@ -4,14 +4,21 @@ import Logo from "../../UI/Logo/Logo";
 import RadioButton from "../../UI/forms/RadioButton/RadioButton";
 import HeaderUserMenu from "./components/HeaderUserMenu";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
-const Header: FC = () => {
+
+interface HeaderProps {
+  useOption?: boolean;
+  addClass?: string;
+}
+
+const Header: FC<HeaderProps> = ({ useOption = true, addClass = "" }) => {
   const { theme, setTheme } = useContext(GlobalContext);
 
   const handleGetTheme = (newTheme: "light" | "dark") => {
     setTheme(newTheme);
   };
+  
   return (
-    <header className="header">
+    <header className={`header ${addClass}`}>
       <Logo />
 
       <div className="header__menu">
@@ -32,7 +39,7 @@ const Header: FC = () => {
           />
         </div>
 
-        <HeaderUserMenu useOption={true} />
+        <HeaderUserMenu useOption={useOption} />
       </div>
     </header>
   );

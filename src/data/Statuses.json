@@ -1,0 +1,26 @@
+[
+  {
+    "id": 1,
+    "name": "Segment Name 1",
+    "votable": true,
+    "showOnRoadmap": false,
+    "privacy": false,
+    "color": "#43A047"
+  },
+  {
+    "id": 2,
+    "name": "Archived",
+    "votable": false,
+    "showOnRoadmap": true,
+    "privacy": true,
+    "color": "#818181"
+  },
+  {
+    "id": 3,
+    "name": "Segment Name 1",
+    "votable": true,
+    "showOnRoadmap": false,
+    "privacy": false,
+    "color": "#FF9800"
+  }
+]

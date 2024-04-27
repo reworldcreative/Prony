@@ -37,21 +37,20 @@ module.exports = {
         splitChunks: {
           chunks: "all",
           maxInitialRequests: Infinity,
-          minSize: 0,
+          minSize: 2000,
           cacheGroups: {
             styles: {
-              // name: "styles",
               test: /\.(css|scss)$/,
               chunks: "all",
               enforce: true,
-              // enforce: false,
+              reuseExistingChunk: true,
             },
             vendor: {
               test: /[\\/]node_modules[\\/]/,
+              priority: -10,
+              reuseExistingChunk: true,
               name(module) {
-                const packageName = module.context.match(
-                  /[\\/]node_modules[\\/](.*?)([\\/]|$)/
-                )[1];
+                const packageName = module.context.match(/[\\/]node_modules[\\/](.*?)([\\/]|$)/)[1];
                 return `npm.${packageName.replace("@", "")}`;
               },
             },
@@ -157,9 +156,7 @@ module.exports = {
         type: "asset/resource",
         generator: {
           filename: (pathData) => {
-            return `img/${pathData.filename
-              .split("src/assets/img")[1]
-              .slice(1)}`;
+            return `img/${pathData.filename.split("src/assets/img")[1].slice(1)}`;
           },
         },
       },
@@ -231,6 +228,7 @@ module.exports = {
     extensions: [".tsx", ".ts", ".js", ".jsx"],
     alias: {
       "@": path.resolve(__dirname, "src/"),
+      "@icons": path.resolve(__dirname, "src/assets/img/icons/"),
     },
   },
 

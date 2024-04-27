@@ -6,10 +6,12 @@ import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext"
 interface DropdownProps {
   options: string[];
   current: string;
+  addClass?: string;
   onSelect: (selectedOption: string) => void;
+  type?: "standard" | "bordered" | "";
 }
 
-const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
+const Dropdown: FC<DropdownProps> = ({ options, addClass, current, onSelect, type = "" }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownListRef = useRef<HTMLUListElement>(null);
@@ -61,9 +63,22 @@ const Dropdown: FC<DropdownProps> = ({ options, current, onSelect }) => {
     };
   }, []);
 
+  useEffect(() => {
+    setSelectedOption(current);
+  }, [current]);
+
   return (
-    <div className={`dropdown ${isOpen ? "dropdown_open" : ""}`} ref={DropdownContainerRef}>
-      <button className="dropdown__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
+    <div
+      className={`dropdown ${isOpen ? "dropdown_open" : ""} ${type} ${addClass ? addClass : ""}`}
+      ref={DropdownContainerRef}
+    >
+      <button
+        type="button"
+        className="dropdown__current"
+        onClick={toggleDropdown}
+        aria-live="assertive"
+        ref={DropdownButton}
+      >
         <span
           className="dropdown__currentItem subtitle"
           aria-label={`Dropdown selector is ${isOpen ? "open" : "close"}. Current selected value is ${selectedOption}`}

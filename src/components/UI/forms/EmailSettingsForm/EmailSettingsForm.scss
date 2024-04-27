@@ -1,0 +1,71 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.email-settings-form {
+  &__top {
+    padding: 22px 47px 0px;
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+
+  &__settings,
+  &__top {
+    display: grid;
+    grid-template-columns: 45% 45%;
+    justify-content: space-between;
+  }
+
+  &__settings {
+    padding: 27px 44px;
+  }
+
+  &__button {
+    color: var(--TextSecondary);
+    padding-bottom: 22px;
+    width: fit-content;
+
+    &.active {
+      color: var(--Primary);
+      border-bottom: 1px solid var(--Primary);
+    }
+  }
+
+  &__block {
+    &:first-child {
+      margin-right: 100px;
+    }
+  }
+}
+
+@include Tablet() {
+  .email-settings-form {
+    &__settings {
+      display: block;
+
+      .form__block {
+        margin: 0;
+
+        &:last-child {
+          margin-top: 8px;
+        }
+      }
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .email-settings-form {
+    &__top {
+      padding: 0px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    &__button {
+      padding: 10px;
+    }
+
+    &__settings {
+      padding: 15px 0px;
+    }
+  }
+}

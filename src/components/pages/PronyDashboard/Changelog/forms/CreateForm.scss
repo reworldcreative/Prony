@@ -1,0 +1,40 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelogForm {
+  .input {
+    background: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 13px;
+  }
+
+  &__row-date {
+    display: flex;
+    align-items: center;
+
+    .date-icon {
+      margin-left: 20px;
+    }
+
+    .MuiInputBase-colorPrimary  {
+      outline: 1px solid var(--TextSecondary);
+    }
+  }
+
+  &__markersContainer{
+    display: flex;
+    flex-wrap:wrap;
+    align-items: center;
+
+    .posts__marker{
+      margin-right: 13px;
+
+      &:last-child{
+        margin-right: 0;
+      }
+    }
+  }
+}

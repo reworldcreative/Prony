@@ -19,7 +19,7 @@
   &__container {
     position: absolute;
     max-height: 80%;
-    max-width: 90%;
+    max-width: 1440px;
     width: 90vw;
     box-sizing: border-box;
     overflow-y: auto;
@@ -58,12 +58,18 @@
 
   &__closeIcon {
     display: flex;
-    filter: invert(7%) sepia(67%) saturate(3544%) hue-rotate(239deg)
-      brightness(95%) contrast(84%);
+    filter: invert(7%) sepia(67%) saturate(3544%) hue-rotate(239deg) brightness(95%) contrast(84%);
 
     &_dark {
-      filter: invert(88%) sepia(100%) saturate(93%) hue-rotate(301deg)
-        brightness(112%) contrast(112%);
+      filter: invert(88%) sepia(100%) saturate(93%) hue-rotate(301deg) brightness(112%) contrast(112%);
+    }
+  }
+}
+
+@include Desktop() {
+  .popUp {
+    &__container {
+      max-width: 90%;
     }
   }
 }

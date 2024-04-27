@@ -42,9 +42,12 @@ const CheckboxBlock: FC<CheckboxBlockProps> = ({ getValue, defaultValue, options
   }, [values]);
 
   useEffect(() => {
-    setValues([]);
-    defaultValue.map((option) => handleGetValue(true, option));
-  }, [options]);
+    setValues(
+      values.map((value) => value.key).some((value) => defaultValue.includes(value))
+        ? defaultValue.map((value) => ({ key: value, value: true }))
+        : defaultValue.map((value) => ({ key: value, value: false }))
+    );
+  }, [defaultValue]);
 
   return (
     <>
@@ -57,7 +60,7 @@ const CheckboxBlock: FC<CheckboxBlockProps> = ({ getValue, defaultValue, options
           size="big"
           type="secondary"
           getCheckboxValue={(value) => handleGetValue(value, option.labelText)}
-          checked={values.map((obj) => obj.key).includes(option.labelText)}
+          checked={values.map((value) => value.key).includes(option.labelText)}
         />
       ))}
     </>

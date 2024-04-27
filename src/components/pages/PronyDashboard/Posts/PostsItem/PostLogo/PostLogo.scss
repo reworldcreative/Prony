@@ -1,0 +1,50 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.posts-item {
+  &__user {
+    margin-right: 52px;
+    border-radius: 100%;
+    text-align: center;
+    width: 6.2%;
+
+    &-name {
+      -webkit-box-orient: vertical;
+      -webkit-line-clamp: 4;
+      display: -webkit-box;
+      max-height: 100px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 250px;
+      width: fit-content;
+    }
+  }
+
+  &__user-avatar {
+    display: block;
+    margin: 0px auto 13px;
+
+    &_skeleton {
+      margin: 0px auto 13px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 100%;
+      background: var(--Secondary);
+      color: #ffffff;
+      width: 45px;
+      height: 45px;
+    }
+  }
+}
+
+@include Small-Tablet {
+  .posts-item {
+    flex-wrap: wrap;
+
+    &__user {
+      width: auto;
+      margin-bottom: 10px;
+    }
+  }
+}

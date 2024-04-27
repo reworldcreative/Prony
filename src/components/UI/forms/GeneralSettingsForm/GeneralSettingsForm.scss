@@ -1,0 +1,31 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.general-settings-form {
+  .input {
+    background: none;
+  }
+
+  &__wrapper {
+    display: grid;
+    gap: 21px;
+  }
+
+  .form__block {
+    margin: 0;
+  }
+
+  &__language-block {
+    display: grid;
+    grid-template-columns: max-content max-content;
+    gap: 15px;
+  }
+}
+
+@include Mobile() {
+  .general-settings-form {
+    &__language-block {
+      grid-template-columns: max-content;
+    }
+  }
+}

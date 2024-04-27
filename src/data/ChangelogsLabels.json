@@ -1,0 +1,5 @@
+[
+  { "id": 1, "name": "Admin", "color": "#BFBECD" },
+  { "id": 2, "name": "Feedback", "color": "#03B8FD" },
+  { "id": 3, "name": "Changelog", "color": "#546E7A" }
+]

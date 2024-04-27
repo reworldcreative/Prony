@@ -2,19 +2,19 @@
 @import "@/styles/variables";
 
 .posts {
-  background: var(--BG);
-  border-radius: 10px;
-  box-shadow: 0 0 14px 0 rgba(53, 64, 82, 0.05);
-  margin-top: 10px;
-  padding: 32px 35px 23px;
+  &__top {
+    padding: 31px 34px 17px;
+  }
 
   &__selectors {
     display: grid;
+    align-items: center;
     grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     grid-gap: 20px;
 
     .double {
       grid-column: span 2;
+      max-height: 50px;
     }
   }
 
@@ -24,38 +24,13 @@
     flex-wrap: wrap;
   }
 
-  &__marker {
-    justify-content: space-between;
-    width: 137px;
-    border-radius: 30px;
-    background: rgba(21, 101, 192, 0.2);
-    padding: 2px 10px;
-    font-size: 12px;
-    font-weight: 400;
-  }
-
-  &__markerIcon {
-    margin-left: 10px;
-
-    &_dark {
-      filter: invert(88%) sepia(100%) saturate(93%) hue-rotate(301deg) brightness(112%) contrast(112%);
-    }
-  }
-
   &__sort {
-    margin-top: 37px;
+    margin-top: 35px;
     justify-content: space-between;
 
     .container {
       .dropdown {
-        border: 1px solid var(--TextSecondary);
-        border-radius: 5px;
-        padding: 5px 15px;
         margin: 0px 15px;
-
-        &:hover {
-          border: 1px solid var(--Secondary);
-        }
 
         &__current {
           width: auto;
@@ -69,13 +44,42 @@
         }
       }
     }
+
+    .per-page {
+      .dropdown {
+        max-width: 61px;
+        box-sizing: border-box;
+      }
+    }
+
+    &_bottom {
+      margin: 0px;
+      padding: 22px 50px;
+    }
+
+    &-time {
+      .dropdown {
+        &__current {
+          min-width: 84px;
+        }
+      }
+    }
+
+    .pagination {
+      margin: 0 20px 0 50%;
+      transform: translate(-50%, 0px);
+    }
+  }
+
+  &__list {
+    border-top: 1px solid var(--TextPrimary);
+    border-bottom: 1px solid var(--TextPrimary);
   }
 }
 
 .buttonsPosts,
 .load-button,
 .posts__sort,
-.posts__marker,
 .posts__markersContainer,
 .posts__sort,
 .posts__sort .container {
@@ -85,7 +89,7 @@
 
 .buttonsPosts {
   button {
-    margin-right: 23px;
+    margin-right: 27px;
 
     &:last-child {
       margin-right: 0;
@@ -93,10 +97,28 @@
   }
 }
 
-.load-button {
-  img {
-    margin-right: 15px;
-    filter: invert(47%) sepia(0%) saturate(0%) hue-rotate(117deg) brightness(97%) contrast(92%);
+@include Desktop() {
+  .posts {
+    &__sort {
+      .pagination {
+        margin: auto;
+        transform: translate(0px);
+      }
+    }
+  }
+}
+
+@include Tablet() {
+  .posts {
+    &__sort_bottom {
+      flex-wrap: wrap;
+      padding: 12px 35px;
+
+      .container {
+        margin: 5px 0 0 auto;
+        padding-left: 15px;
+      }
+    }
   }
 }
 
@@ -135,6 +157,26 @@
 
         &:last-child {
           margin: 0px 0px 0px auto;
+        }
+      }
+    }
+  }
+}
+
+@include Mobile() {
+  .posts {
+    &__top {
+      padding: 32px 15px 23px;
+    }
+
+    &__sort_bottom {
+      padding: 12px 15px;
+
+      .container {
+        padding-left: 0px;
+
+        &:last-child {
+          margin: 5px 0 0 auto;
         }
       }
     }

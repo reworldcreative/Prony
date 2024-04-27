@@ -5,15 +5,25 @@ import Button from "@/components/UI/buttons/Button/Button";
 import RadioBlock from "./RadioBlock";
 import CheckboxBlock from "./CheckboxBlock";
 
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+import dayjs, { Dayjs } from "dayjs";
+import { StaticTimePicker } from "@mui/x-date-pickers";
+import MuiButton from "@mui/material/Button";
+import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
 interface DropdownSelectProps {
   getValue: (value: string[]) => void;
   defaultValue?: string[];
-  selectType: "radio" | "checkbox";
+  selectType: "radio" | "checkbox" | "calendar";
   title: string;
   options: { name: string; labelText: string }[];
+  marked?: boolean;
 }
 
-const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options }) => {
+const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selectType, title, options, marked }) => {
   const theme = useContext(GlobalContext);
 
   const DropdownButtons = useRef<HTMLDivElement>(null);
@@ -25,6 +35,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
   const [selectedOption, setSelectedOption] = useState<string[]>();
   const [value, setValue] = useState([]);
   const [side, setSide] = useState<"left" | "right">("left");
+  const [calendarValue, setCalendarValue] = useState<Dayjs | null>(dayjs());
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLDivElement>) => {
     if (event.key === "Tab" && !event.shiftKey && DropdownButtons.current) {
@@ -75,10 +86,37 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
     containerRect.right + 100 > screenWidth ? setSide("right") : setSide("left");
   }, [isOpen]);
 
+  const handleChangeData = (newDate: Dayjs) => {
+    setCalendarValue(newDate);
+    setValue([newDate]);
+  };
+
+  const handleIncreaseHour = () => {
+    handleChangeData(calendarValue.hour(calendarValue.hour() + 1));
+  };
+
+  const handleDecreaseHour = () => {
+    handleChangeData(calendarValue.hour(calendarValue.hour() - 1));
+  };
+
+  const handleIncreaseMinute = () => {
+    handleChangeData(calendarValue.minute(calendarValue.minute() + 1));
+  };
+
+  const handleDecreaseMinute = () => {
+    handleChangeData(calendarValue.minute(calendarValue.minute() - 1));
+  };
+
   return (
     <div className={`dropdownSelect ${isOpen ? "dropdownSelect_open" : ""}`} ref={DropdownContainerRef}>
-      <button className="dropdownSelect__current" onClick={toggleDropdown} aria-live="assertive" ref={DropdownButton}>
-        {value.length > 0 && (
+      <button
+        type="button"
+        className="dropdownSelect__current"
+        onClick={toggleDropdown}
+        aria-live="assertive"
+        ref={DropdownButton}
+      >
+        {marked && value.length > 0 && (
           <div className="dropdownSelect__mark subtitle-second">
             {value.length > 0 ? (typeof value === "string" ? 1 : value.length) : ""}
           </div>
@@ -96,7 +134,7 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
       <div className={`dropdownSelect__container dropdownSelect__container_${side}`} ref={dropdownListRef}>
         <p className="dropdownSelect__title heading-h6">{title}</p>
 
-        <div className="dropdownSelect__list">
+        <div className={`dropdownSelect__list ${selectType === "calendar" && "dropdownSelect__calendar-container"}`}>
           {selectType === "radio" && (
             <RadioBlock
               getValue={(value: string) => setValue([value])}
@@ -109,18 +147,62 @@ const DropdownSelect: FC<DropdownSelectProps> = ({ getValue, defaultValue, selec
           {selectType === "checkbox" && (
             <CheckboxBlock getValue={setValue} defaultValue={defaultValue} options={options} />
           )}
+
+          {selectType === "calendar" && (
+            <LocalizationProvider dateAdapter={AdapterDayjs}>
+              <DateCalendar
+                className="calendar-date"
+                maxDate={dayjs()}
+                value={calendarValue}
+                onChange={(newValue) => handleChangeData(newValue)}
+                disableFuture={true}
+              />
+
+              <div>
+                <div className="calendar-time__buttons">
+                  <MuiButton onClick={handleIncreaseHour}>
+                    <KeyboardArrowUpIcon />
+                  </MuiButton>
+                  <MuiButton onClick={handleIncreaseMinute}>
+                    <KeyboardArrowUpIcon />
+                  </MuiButton>
+                </div>
+
+                <StaticTimePicker
+                  className="calendar-time"
+                  views={["hours", "minutes"]}
+                  value={calendarValue}
+                  onChange={handleChangeData}
+                  ampm={false}
+                  slots={{
+                    actionBar: () => null,
+                  }}
+                />
+
+                <div className="calendar-time__buttons">
+                  <MuiButton onClick={handleDecreaseHour}>
+                    <KeyboardArrowDownIcon />
+                  </MuiButton>
+                  <MuiButton onClick={handleDecreaseMinute}>
+                    <KeyboardArrowDownIcon />
+                  </MuiButton>
+                </div>
+              </div>
+            </LocalizationProvider>
+          )}
         </div>
 
         <div className="dropdownSelect__buttons" ref={DropdownButtons} onKeyDown={handleTabKeyDown}>
           <Button
             type="primary"
+            buttonType="button"
             click={() => {
               selectOption(value);
             }}
           >
             Apply filters
           </Button>
-          <Button type="default" click={toggleDropdown}>
+          <Button type="default" click={toggleDropdown} buttonType="button">
             Cancel
           </Button>
         </div>

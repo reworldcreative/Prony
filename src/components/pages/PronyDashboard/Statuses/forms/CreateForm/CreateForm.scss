@@ -1,0 +1,45 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.statuses-form {
+  &__wrapper {
+    display: grid;
+    gap: 32px;
+  }
+
+  .input {
+    background: none;
+  }
+
+  .radio-text {
+    padding-left: 25px;
+  }
+
+  &__block {
+    .checkbox-wrapper {
+      margin-bottom: 20px;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+  }
+
+  &__fieldset {
+    .statuses-form__block {
+      display: flex;
+
+      .radio-wrapper {
+        margin-right: 30px;
+
+        &:last-child {
+          margin-right: 0;
+        }
+      }
+    }
+
+    .caption {
+      margin-top: 8px;
+    }
+  }
+}

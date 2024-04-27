@@ -1,7 +1,7 @@
 import React, { FC, useRef, useState } from "react";
 import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
-import avatar from "@/assets/img/avatars/avatar_1.png";
+import avatar from "@/assets/img/avatars/avatar_1.jpg";
 import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import HeaderDropDownMenu from "./HeaderDropDownMenu";
 
@@ -27,10 +27,7 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
       <div className="headerUserMenu__info">
         <p className="headerUserMenu__name subtitle-second">Lucy Lavender</p>
         <div className="headerUserMenu__status">
-          <span
-            className="headerUserMenu__status_label online"
-            aria-hidden="true"
-          />
+          <span className="headerUserMenu__status_label online" aria-hidden="true" />
           <p className="headerUserMenu__status caption">Online</p>
         </div>
       </div>
@@ -47,11 +44,7 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
 
       <div aria-live="assertive">
         <div aria-label={`menu is ${openHeaderMenu ? "open" : "close"}`}>
-          {openHeaderMenu ? (
-            <HeaderDropDownMenu openButton={dropDownMenuButtonRef} isOpen={openHeaderMenu}/>
-          ) : (
-            false
-          )}
+          {openHeaderMenu ? <HeaderDropDownMenu openButton={dropDownMenuButtonRef} isOpen={openHeaderMenu} /> : false}
         </div>
       </div>
     </div>

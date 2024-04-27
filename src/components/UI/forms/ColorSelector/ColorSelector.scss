@@ -1,0 +1,83 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.colorSelector {
+  width: fit-content;
+
+  input[type="checkbox"] {
+    position: absolute;
+    opacity: 0;
+    width: 1em;
+    height: 1em;
+
+    + .radio-label {
+      cursor: pointer;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 25px;
+      height: 25px;
+      border-radius: 100%;
+      background: red;
+
+      &:before {
+        content: "";
+        display: none;
+        width: 10px;
+        height: 3px;
+        border-width: 2px;
+        transform: rotate(-45deg);
+        position: relative;
+        cursor: pointer;
+        transition: all 250ms ease;
+        border-style: solid;
+        border-color: #ffffff;
+        border-top: none;
+        border-right: none;
+      }
+    }
+
+    &:checked {
+      + .radio-label {
+        &:before {
+          display: block;
+        }
+      }
+    }
+
+    &:focus-visible {
+      + .radio-label {
+        outline: 1px solid var(--Primary);
+        outline-offset: 2px;
+      }
+    }
+  }
+
+  &.big {
+    input[type="checkbox"] {
+      + .radio-label {
+        width: 34px;
+        height: 34px;
+
+        &:before {
+          width: 15px;
+          height: 5px;
+          border-width: 3px;
+        }
+      }
+    }
+  }
+
+  &.disabled {
+    input[type="checkbox"] {
+      + .radio-label {
+        color: var(--TextSecondary);
+
+        &:before {
+          border-color: var(--TextSecondary);
+        }
+      }
+    }
+  }
+}

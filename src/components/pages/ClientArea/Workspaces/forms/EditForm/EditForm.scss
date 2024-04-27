@@ -1,0 +1,22 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspaces-edit-form {
+  &__block {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 45% 45%;
+    gap: 50px;
+  }
+}
+
+@include Tablet() {
+  .workspaces-edit-form {
+    &__block {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 100%;
+      gap: 10px;
+    }
+  }
+}

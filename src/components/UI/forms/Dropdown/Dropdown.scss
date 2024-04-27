@@ -4,6 +4,7 @@
 .dropdown {
   position: relative;
   padding: 5px 10px;
+  z-index: 10;
 
   &__current,
   &__button,
@@ -68,6 +69,20 @@
 
     &.dark {
       filter: invert(100%) sepia(0%) saturate(7472%) hue-rotate(114deg) brightness(109%) contrast(97%);
+    }
+  }
+
+  &.bordered {
+    border: 1px solid var(--TextSecondary);
+    border-radius: 5px;
+    padding: 4px 15px;
+
+    &:hover {
+      border: 1px solid var(--Secondary);
+    }
+
+    .dropdown__current {
+      width: 100%;
     }
   }
 }

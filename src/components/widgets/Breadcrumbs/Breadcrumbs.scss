@@ -5,10 +5,15 @@
   margin: 10px 0px;
   display: flex;
   align-items: center;
+  flex-wrap: wrap;
 
   &__item {
     &_active {
       color: var(--Primary);
+    }
+
+    &_last {
+      cursor: auto;
     }
   }
 

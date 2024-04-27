@@ -3,8 +3,7 @@ import "./DeleteForm.scss";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import { FieldValues, useForm } from "react-hook-form";
 import Input from "@/components/UI/forms/Input/Input";
-import Button from "@/components/UI/buttons/Button/Button";
-import FormButtons from "../FormButtons/FormButtons";
+import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 
 interface formProps {
   submitSuccess: (name: string) => void;
@@ -40,11 +39,11 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="deleteForm">
-      <h2 className="deleteForm__title title">{formTitle}</h2>
+      <h2 className="title deleteForm__title">{formTitle}</h2>
 
       <p className="deleteForm__text subtitle">
-        This action will permanently delete the board and its content and cannot
-        be undone. Please enter the board name to confirm.
+        This action will permanently delete the board and its content and cannot be undone. Please enter the board name
+        to confirm.
       </p>
 
       <Input

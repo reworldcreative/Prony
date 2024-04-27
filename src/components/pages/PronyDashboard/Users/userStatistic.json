@@ -1,0 +1,17 @@
+[
+  {
+    "icon": "./img/icons/menu/pen.svg",
+    "text": "Posts",
+    "data": "posts"
+  },
+  {
+    "icon": "./img/icons/menu/like.svg",
+    "text": "Votes",
+    "data": "votes"
+  },
+  {
+    "icon": "./img/icons/menu/message.svg",
+    "text": "Comments",
+    "data": "comments"
+  }
+]

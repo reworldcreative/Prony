@@ -1,0 +1,156 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelog {
+  &__top {
+    padding: 28px 35px 25px;
+  }
+
+  &__buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0 0 0 auto;
+
+    .button {
+      margin-right: 27px;
+
+      &:last-child {
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__selectors {
+    display: flex;
+
+    .dropdownSelect {
+      width: 200px;
+
+      &:first-child {
+        margin-right: 32px;
+      }
+    }
+  }
+
+  &__markersContainer {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin-top: 15px;
+    gap: 17px;
+  }
+
+  &__list {
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+
+  &__list-top,
+  &__list-bottom {
+    position: relative;
+
+    .per-page {
+      display: flex;
+      align-items: center;
+      margin: 0 0 0 auto;
+      width: fit-content;
+      position: absolute;
+      right: 50px;
+
+      .dropdown {
+        max-width: 61px;
+        width: 61px;
+        box-sizing: border-box;
+        margin: 0px 10px;
+        padding: 4px 11px;
+      }
+    }
+  }
+
+  &__list-bottom {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    margin: 0px;
+    padding: 22px 50px;
+
+    .per-page {
+      right: 0px;
+      position: relative;
+    }
+  }
+
+  &__list-header {
+    display: grid;
+    overflow-x: auto;
+    grid-template-columns: 43.2% 15.5% 1fr 1fr;
+    padding: 0 50px 20px 35px;
+    border-bottom: 1px solid var(--TextSecondary);
+    height: 30px;
+  }
+}
+
+.pageContainerChangelog-MainSection__top {
+  flex-wrap: wrap;
+
+  .title {
+    margin-right: 10%;
+  }
+}
+
+@include Laptop() {
+  .changelog {
+    &__list-header {
+      grid-template-columns: 39% 25% 1fr 1fr;
+      overflow-x: auto;
+      height: auto;
+    }
+
+    &__list-top {
+      .per-page {
+        position: relative;
+        margin-bottom: 10px;
+      }
+    }
+
+    &__list-bottom {
+      .pagination {
+        margin-bottom: 10px;
+      }
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .changelog {
+    &__selectors {
+      display: grid;
+
+      .dropdownSelect {
+        margin-bottom: 10px;
+        width: 100%;
+
+        &:last-child {
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__list-header {
+      grid-template-columns: 39% 30% 1fr 1fr;
+      gap: 10px;
+    }
+
+    &__caption {
+      width: max-content;
+    }
+  }
+}
+
+@include Mobile() {
+  .changelog {
+    &__list-header {
+      grid-template-columns: 39% auto 1fr 1fr;
+    }
+  }
+}

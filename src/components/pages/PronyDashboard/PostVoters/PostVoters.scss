@@ -1,0 +1,42 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.postVoters {
+  &-MainSection__title {
+    margin-right: 10px;
+  }
+
+  &__section {
+    padding: 22px 0px;
+  }
+
+  &__list {
+    border-bottom: 1px solid var(--Primary);
+  }
+
+  &__delete {
+    width: max-content;
+  }
+
+  &__delete-text {
+    margin-bottom: 35px;
+  }
+
+  &__pagination {
+    margin: 22px auto 0px;
+    justify-content: center;
+  }
+
+  &__delete-pop-up {
+    width: auto;
+  }
+}
+
+@include Small-Tablet {
+  .postVoters {
+    &-MainSection__title {
+      margin-right: 0px;
+      margin-bottom: 10px;
+    }
+  }
+}

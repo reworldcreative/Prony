@@ -1,0 +1,39 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelog-labels {
+  padding: 13px 0;
+  margin-top: 23px;
+
+  &__top {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 23% 15% 1fr;
+    overflow-x: auto;
+    padding: 9px 69px 21px;
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+
+  &__list {
+    border-bottom: 1px solid var(--TextSecondary);
+  }
+}
+
+@include Tablet() {
+  .changelog-labels__top {
+    gap: 10px;
+  }
+}
+
+@include Laptop() {
+  .changelog-labels__top {
+    grid-template-columns: 31% 15% 1fr;
+    padding: 9px 50px 21px;
+  }
+}
+
+@include Mobile() {
+  .changelog-labels__top {
+    grid-template-columns: 38vw 15% 1fr;
+  }
+}

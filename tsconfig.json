@@ -12,7 +12,8 @@
     "resolveJsonModule": true,
     "baseUrl": "./",
     "paths": {
-      "@/*": ["src/*"]
+      "@/*": ["src/*"],
+      "@icons/*": ["src/assets/img/icons/*"]
     }
   }
 }

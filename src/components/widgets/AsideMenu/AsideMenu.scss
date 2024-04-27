@@ -3,7 +3,9 @@
 
 .asideMenu {
   background-color: var(--BG);
+  padding-top: 24px;
   width: 16.5%;
+  min-height: 100vh;
   min-width: 170px;
   max-width: 260px;
   z-index: 10;
@@ -36,6 +38,10 @@
         }
       }
     }
+  }
+
+  &__item-button {
+    cursor: pointer;
   }
 
   &__link-wrapper {
@@ -73,6 +79,8 @@
     &-link {
       margin-bottom: 6px;
       padding-left: 64px;
+      padding-right: 24px;
+      text-align: start;
     }
   }
 

@@ -8,16 +8,11 @@
   box-shadow: 0px 0px 14px 0px rgba(53, 64, 82, 0.05);
 
   &__header {
-    display: flex;
+    display: grid;
+    grid-template-columns: 45.7vw 1fr;
     align-items: center;
     padding: 22px 69px;
     border-bottom: 1px solid var(--TextSecondary);
-  }
-
-  &__caption {
-    &:first-child {
-      margin-right: 57.7%;
-    }
   }
 
   &__list {
@@ -30,16 +25,29 @@
     width: 57%;
     padding-right: 15px;
     box-sizing: border-box;
+
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
+    display: -webkit-box;
+    max-height: 100px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 550px;
   }
 
   &__item {
-    padding: 27px 30px 27px 22px;
+    padding: 30px 40px 27px 22px;
     background: var(--BG);
-    display: flex;
+    display: grid;
+    grid-template-columns: 48px 45.5vw 1fr 1fr;
     align-items: center;
 
     &:nth-child(odd) {
       background: var(--BGItem);
+    }
+
+    .optionButton {
+      margin-left: 12px;
     }
   }
 
@@ -75,6 +83,11 @@
     margin: 0;
   }
 
+  &__menu-wrapper {
+    display: flex;
+    align-items: center;
+  }
+
   &__openMenu {
     top: 30px;
     right: 0;
@@ -91,12 +104,41 @@
   }
 }
 
+@include Tablet() {
+  .boards {
+    &__header {
+      grid-template-columns: 45% 1fr;
+      padding: 22px 50px;
+    }
+
+    &__item {
+      grid-template-columns: auto 43% 1fr 1fr;
+      overflow: auto;
+
+      .drag {
+        margin-right: 15px;
+      }
+    }
+
+    &__title {
+      width: 100%;
+    }
+  }
+}
+
 @include Mobile() {
   .boards {
     overflow: auto;
+    overflow-x: scroll;
 
     .optionButton {
       margin: 0;
+    }
+
+    &__header,
+    &__item {
+      width: 100%;
+      box-sizing: border-box;
     }
   }
 }

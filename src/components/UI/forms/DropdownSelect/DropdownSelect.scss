@@ -4,6 +4,7 @@
 .dropdownSelect {
   position: relative;
   width: auto;
+  max-height: 50px;
 
   &__current,
   &__container {
@@ -18,7 +19,7 @@
     justify-content: space-between;
     cursor: pointer;
     margin: 0;
-    padding: 15px 20px 15px 30px;
+    padding: 14px 20px 14px 30px;
     width: 100%;
 
     &:focus-visible {
@@ -36,6 +37,7 @@
 
       &__container {
         display: block;
+        animation: fadeInOpacity 0.5s ease-in-out;
       }
     }
   }
@@ -75,7 +77,7 @@
     display: none;
     outline: none;
     position: absolute;
-    z-index: 10;
+    z-index: 11;
     width: max-content;
 
     &::before {
@@ -153,6 +155,55 @@
       font-weight: 400;
       line-height: 17px;
     }
+
+    .calendar-date {
+      height: fit-content;
+      .MuiPickersCalendarHeader-root {
+        margin-top: 0;
+      }
+
+      .MuiDayCalendar-slideTransition {
+        min-height: fit-content;
+      }
+    }
+
+    .calendar-time {
+      justify-content: center;
+
+      &__buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+
+        .MuiSvgIcon-fontSizeMedium {
+          color: var(--TextSecondary);
+        }
+
+        .MuiButton-text {
+          min-width: 38px;
+          height: 30px;
+          width: 38px;
+        }
+      }
+
+      .MuiPickersLayout-contentWrapper,
+      .MuiTypography-overline {
+        display: none;
+      }
+
+      .MuiPickersLayout-toolbar {
+        padding: 0;
+      }
+
+      .MuiTypography-h3 {
+        @include Font(28px, 600, 33.6px, var(--Primary), -0.233px);
+      }
+    }
+  }
+
+  &__calendar-container {
+    max-height: fit-content;
   }
 }
 

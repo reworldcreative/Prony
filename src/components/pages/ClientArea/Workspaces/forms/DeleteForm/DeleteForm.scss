@@ -1,0 +1,10 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspaces-delete-form {
+  &__info {
+    padding: 18px 40px;
+    background: #e5ecf9;
+    margin-bottom: 30px;
+  }
+}

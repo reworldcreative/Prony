@@ -5,6 +5,19 @@ interface GlobalContextType {
   setTheme: React.Dispatch<React.SetStateAction<"light" | "dark">>;
   isOpenPopUp: boolean;
   setOpenPopUp: React.Dispatch<React.SetStateAction<boolean>>;
+
+  isOpenPopUpSettings: boolean;
+  setOpenPopUpSettings: React.Dispatch<React.SetStateAction<boolean>>;
+  PopUpSettingsType: string;
+  setPopUpSettingsType: React.Dispatch<React.SetStateAction<string>>;
+
+  breadcrumbsLinks: string[];
+  setBreadcrumbsLinks: React.Dispatch<React.SetStateAction<string[]>>;
+  breadcrumbsTitles: string[];
+  setBreadcrumbsTitles: React.Dispatch<React.SetStateAction<string[]>>;
+
+  popUpData: ReactNode;
+  setPopUpData: React.Dispatch<React.SetStateAction<ReactNode>>;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -12,6 +25,11 @@ const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
 const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [theme, setTheme] = useState<"light" | "dark">("light");
   const [isOpenPopUp, setOpenPopUp] = useState<boolean>(false);
+  const [isOpenPopUpSettings, setOpenPopUpSettings] = useState<boolean>(false);
+  const [PopUpSettingsType, setPopUpSettingsType] = useState<string>("global");
+  const [breadcrumbsLinks, setBreadcrumbsLinks] = useState<string[]>([""]);
+  const [breadcrumbsTitles, setBreadcrumbsTitles] = useState<string[]>([""]);
+  const [popUpData, setPopUpData] = useState<ReactNode>(<></>);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -43,7 +61,26 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   }, [theme]);
 
   return (
-    <GlobalContext.Provider value={{ theme, setTheme, isOpenPopUp, setOpenPopUp }}>{children}</GlobalContext.Provider>
+    <GlobalContext.Provider
+      value={{
+        theme,
+        setTheme,
+        isOpenPopUp,
+        setOpenPopUp,
+        PopUpSettingsType,
+        setPopUpSettingsType,
+        isOpenPopUpSettings,
+        setOpenPopUpSettings,
+        breadcrumbsLinks,
+        setBreadcrumbsLinks,
+        breadcrumbsTitles,
+        setBreadcrumbsTitles,
+        popUpData,
+        setPopUpData,
+      }}
+    >
+      {children}
+    </GlobalContext.Provider>
   );
 };
 

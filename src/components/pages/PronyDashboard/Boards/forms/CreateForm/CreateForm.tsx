@@ -8,7 +8,7 @@ import RadioButton from "@/components/UI/forms/RadioButton/RadioButton";
 import Checkbox from "@/components/UI/forms/Checkbox/Checkbox";
 import Switch from "@/components/UI/forms/Switch/Switch";
 import { BoardsItemProps } from "../../BoardsItem";
-import FormButtons from "../FormButtons/FormButtons";
+import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 
 interface formProps {
   submitSuccess: (data: BoardsItemProps) => void;
@@ -57,7 +57,7 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formData, boardsD
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="form">
-      <h2 className="form__title title">{formTitle}</h2>
+      <h2 className="title form__title">{formTitle}</h2>
 
       <div className="form__wrapper">
         <fieldset className="form__fieldset">

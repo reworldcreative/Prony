@@ -32,6 +32,7 @@ const Checkbox: FC<CheckboxProps> = ({
   const handleChange = () => {
     getCheckboxValue(inputRef.current.checked);
   };
+
   return (
     <div className={`checkbox__container ${type} ${size} ${addClass ? addClass : ""}`}>
       <input

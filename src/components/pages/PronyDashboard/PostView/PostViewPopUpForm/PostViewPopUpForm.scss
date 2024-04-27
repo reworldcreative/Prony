@@ -1,0 +1,23 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.pop-up-form {
+  .dropdown {
+    &__current {
+      height: 50px;
+    }
+  }
+
+  .input {
+    background: none;
+  }
+
+  &__container {
+    display: grid;
+    gap: 25px;
+  }
+
+  &__title {
+    margin-bottom: 25px;
+  }
+}

@@ -1,0 +1,104 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.pagination {
+  display: flex;
+  align-items: center;
+  margin: auto;
+
+  &__next,
+  &__back,
+  &__button,
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    &:first-child {
+      margin-right: 15px;
+    }
+
+    &:hover {
+      .pagination__icon {
+        filter: invert(13%) sepia(15%) saturate(5591%) hue-rotate(221deg) brightness(96%) contrast(94%);
+      }
+    }
+
+    &_inactive {
+      opacity: 0.5;
+      cursor: auto;
+
+      &:hover {
+        .pagination__icon {
+          filter: none;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  &__icon {
+    filter: invert(49%) sepia(9%) saturate(17%) hue-rotate(10deg) brightness(91%) contrast(93%);
+  }
+
+  &__next {
+    .pagination__icon {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__page {
+    border-radius: 100%;
+    padding: 6px 12px;
+    font-size: 17px;
+    line-height: 20.4px;
+    width: 34px;
+    height: 34px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+
+    &:last-child {
+      margin-right: 0;
+    }
+
+    &:hover {
+      background: var(--Secondary);
+      color: #ffffff;
+    }
+
+    &_active {
+      background: var(--TextSecondary);
+      color: #ffffff;
+    }
+  }
+
+  &__container {
+    margin: 0px 15px;
+  }
+}
+
+@include Mobile() {
+  .pagination {
+    &__button {
+      &:first-child {
+        margin-right: 5px;
+      }
+    }
+
+    &__container {
+      margin: 0 5px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    &__page {
+      padding: 6px;
+      font-size: 14px;
+      width: 30px;
+      height: 30px;
+    }
+  }
+}

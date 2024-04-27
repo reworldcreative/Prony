@@ -10,7 +10,7 @@ const OptionButton: FC<{
   return (
     <button
       title={title ? title : ""}
-      className={`optionButton ${addClass}`}
+      className={`optionButton ${addClass ? addClass : ""}`}
       aria-label={`click to ${label} more option`}
       onClick={click}
       ref={buttonRef}

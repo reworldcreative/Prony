@@ -1,7 +1,7 @@
 @import "rfs/scss";
 @import "@/styles/variables";
 
-.radio__container {
+.radio__container:not(.colorSelector) {
   width: fit-content;
 
   input[type="checkbox"] {
@@ -111,6 +111,49 @@
           }
         }
       }
+    }
+  }
+}
+
+.radio-language {
+  padding: 7px 15px 7px 9px;
+  background: rgba(117, 117, 117, 0.3);
+  border-radius: 5px;
+
+  &.radio__container {
+    box-sizing: border-box;
+    width: 240px;
+
+    &:not(.colorSelector) input[type="checkbox"] + .radio-label {
+      &::before {
+        margin-right: 21px;
+      }
+    }
+  }
+
+  .radio__icon {
+    margin: 0 0 0 auto;
+  }
+
+  &__label {
+    display: flex;
+    align-items: center;
+  }
+
+  &__text-container {
+    margin-right: 10px;
+  }
+
+  &__text {
+    font-size: 10px;
+    line-height: 13.42px;
+  }
+}
+
+@include Mobile() {
+  .radio-language {
+    &.radio__container {
+      width: auto;
     }
   }
 }
