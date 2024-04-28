@@ -1,0 +1,31 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.tabs-container {
+  position: relative;
+}
+
+.tabs {
+  display: grid;
+  grid-template-columns: 45% 45%;
+  justify-content: space-between;
+}
+
+.tab {
+  cursor: pointer;
+  padding-bottom: 22px;
+  width: fit-content;
+  color: var(--TextSecondary);
+}
+
+.tab.active {
+  color: var(--Primary);
+}
+
+.underline {
+  position: absolute;
+  height: 1px;
+  background-color: var(--Primary);
+  bottom: 0;
+  transition: width 0.3s, left 0.3s;
+}

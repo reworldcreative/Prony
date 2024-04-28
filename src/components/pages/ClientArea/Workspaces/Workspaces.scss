@@ -5,7 +5,7 @@
   width: 100%;
 
   &__title {
-    font-size: 40px;
+    @include font-size(40px);
     line-height: 45.4px;
     text-transform: uppercase;
     color: var(--Primary);

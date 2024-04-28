@@ -1,9 +1,13 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useContext, useEffect, useRef, useState } from "react";
 import "./ClientAsideMenu.scss";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
+import { GlobalContext } from "../GlobalContext/GlobalContext";
+import ClientChangePasswordForm from "@/components/UI/forms/ClientChangePasswordForm/ClientChangePasswordForm";
 
 const ClientAsideMenu: FC = () => {
+  const { isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } = useContext(GlobalContext);
+
   const location = useLocation();
   const [openMenu, setOpenMenu] = useState(false);
   const rootElement = document.getElementById("root");
@@ -11,6 +15,7 @@ const ClientAsideMenu: FC = () => {
   const burgerRef = useRef<HTMLButtonElement>(null);
   const [focusedItem, setFocusedItem] = useState<number>(1);
   const asideNavigationRef = useRef<HTMLDivElement>(null);
+  const [activeLink, setActiveLink] = useState<string>("");
 
   openMenu ? rootElement.classList.add("scroll-lock") : rootElement.classList.remove("scroll-lock");
 
@@ -18,11 +23,19 @@ const ClientAsideMenu: FC = () => {
     { text: "Profile", url: "/client/profile" },
     { text: "Avatar", url: "/client/avatar" },
     { text: "Email Preferences", url: "/client/email" },
-    { text: "Change password", url: "/client/password" },
+    {
+      text: "Change password",
+      url: "",
+      click: () => {
+        setActiveLink("Change password");
+        setPopUpData(<ClientChangePasswordForm formTitle="Change password" submitSuccess={() => {}} />);
+        setOpenPopUp(true);
+      },
+    },
   ];
 
   const menuBillingLinks = [
-    { text: "Billing Plan", url: "/client/billing" },
+    { text: "Billing Plan", url: "/client/billing", click: () => {} },
     { text: "Payment Methods", url: "/client/payment" },
     { text: "Billing History", url: "/client/history" },
   ];
@@ -81,6 +94,7 @@ const ClientAsideMenu: FC = () => {
         <nav className="clientAsideMenu__navigation" ref={asideNavigationRef} onKeyDown={handleTabKeyDown}>
           <Link
             to={"/client"}
+            onClick={() => setActiveLink("")}
             className={`clientAsideMenu__link clientAsideMenu__link-title heading-h6 ${
               location.pathname.toLowerCase() === "/client" ? "clientAsideMenu__link_active" : ""
             }`}
@@ -90,31 +104,59 @@ const ClientAsideMenu: FC = () => {
 
           <h2 className="heading-h6 clientAsideMenu__link-title">Profile</h2>
 
-          {menuProfileLinks.map((link, index) => (
-            <Link
-              to={link.url}
-              key={index}
-              className={`heading-h6 clientAsideMenu__link ${
-                link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
-              }`}
-            >
-              {link.text}
-            </Link>
-          ))}
+          {menuProfileLinks.map((link, index) =>
+            link.url !== "" ? (
+              <Link
+                to={link.url}
+                key={index}
+                className={`heading-h6 clientAsideMenu__link ${
+                  link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
+                }`}
+              >
+                {link.text}
+              </Link>
+            ) : (
+              link.click && (
+                <button
+                  key={index}
+                  onClick={link.click}
+                  className={`heading-h6 clientAsideMenu__link ${
+                    link.text.toLowerCase() === activeLink.toLowerCase() ? "clientAsideMenu__link_active" : ""
+                  }`}
+                >
+                  {link.text}
+                </button>
+              )
+            )
+          )}
 
           <h2 className="heading-h6 clientAsideMenu__link-title">Billing</h2>
 
-          {menuBillingLinks.map((link, index) => (
-            <Link
-              to={link.url}
-              key={index}
-              className={`heading-h6 clientAsideMenu__link ${
-                link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
-              }`}
-            >
-              {link.text}
-            </Link>
-          ))}
+          {menuBillingLinks.map((link, index) =>
+            link.url !== "" ? (
+              <Link
+                to={link.url}
+                key={index}
+                className={`heading-h6 clientAsideMenu__link ${
+                  link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
+                }`}
+              >
+                {link.text}
+              </Link>
+            ) : (
+              link.click && (
+                <button
+                  key={index}
+                  onClick={link.click}
+                  className={`heading-h6 clientAsideMenu__link ${
+                    link.text.toLowerCase() === activeLink.toLowerCase() ? "clientAsideMenu__link_active" : ""
+                  }`}
+                >
+                  {link.text}
+                </button>
+              )
+            )
+          )}
         </nav>
       </aside>
     </>

@@ -55,6 +55,7 @@
       &_primary,
       &_danger {
         color: #ffffff;
+        padding: 10px 68px;
       }
     }
 
@@ -66,7 +67,9 @@
 
     &_primary {
       &:hover {
-        filter: drop-shadow(0px 3px 10px #5086c3);
+        &:not(.button_disabled) {
+          filter: drop-shadow(0px 3px 10px #5086c3);
+        }
       }
     }
 
@@ -85,6 +88,13 @@
       line-height: 45.4px;
       text-transform: uppercase;
     }
+
+    &__row {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 45% 45%;
+      gap: 50px;
+    }
   }
 }
 
@@ -93,7 +103,7 @@
   .input {
     @include Font(14px, 400, 25.9px, var(--TextPrimary), -0.219px);
     border-radius: 7px;
-    outline: 1px solid #e5ecf9;
+    outline: 1px solid var(--BGClient);
     padding: 9px 22px;
     background: none;
 
@@ -109,6 +119,19 @@
     &__message {
       @include Font(10px, 400, 25.9px, var(--Danger), -0.219px);
       margin-top: 5px;
+    }
+  }
+}
+
+@include Tablet() {
+  .clientPopUp {
+    .workspaces-form {
+      &__row {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 100%;
+        gap: 10px;
+      }
     }
   }
 }
