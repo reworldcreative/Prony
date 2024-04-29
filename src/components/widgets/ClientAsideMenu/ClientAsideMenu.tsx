@@ -4,6 +4,8 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import ClientChangePasswordForm from "@/components/UI/forms/ClientChangePasswordForm/ClientChangePasswordForm";
+import ClientSocialAccountsForm from "@/components/UI/forms/ClientSocialAccountsForm/ClientSocialAccountsForm";
+import ClientAvatarForm from "@/components/UI/forms/ClientAvatarForm/ClientAvatarForm";
 
 const ClientAsideMenu: FC = () => {
   const { isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } = useContext(GlobalContext);
@@ -21,8 +23,24 @@ const ClientAsideMenu: FC = () => {
 
   const menuProfileLinks = [
     { text: "Profile", url: "/client/profile" },
-    { text: "Avatar", url: "/client/avatar" },
-    { text: "Email Preferences", url: "/client/email" },
+    {
+      text: "Avatar",
+      url: "",
+      click: () => {
+        setActiveLink("Avatar");
+        setPopUpData(<ClientAvatarForm formTitle="Avatar" submitSuccess={() => {}} />);
+        setOpenPopUp(true);
+      },
+    },
+    {
+      text: "Email Preferences",
+      url: "/client/social-accounts",
+      click: () => {
+        setActiveLink("Email Preferences");
+        setPopUpData(<ClientSocialAccountsForm formTitle="Social accounts" submitSuccess={() => {}} />);
+        setOpenPopUp(true);
+      },
+    },
     {
       text: "Change password",
       url: "",

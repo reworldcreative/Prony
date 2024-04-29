@@ -4,13 +4,6 @@
 .workspaces {
   width: 100%;
 
-  &__title {
-    @include font-size(40px);
-    line-height: 45.4px;
-    text-transform: uppercase;
-    color: var(--Primary);
-  }
-
   &__list {
     margin-bottom: 90px;
     display: grid;

@@ -20,6 +20,8 @@ const Statuses = React.lazy(() => import("./components/pages/PronyDashboard/Stat
 const Changelog = React.lazy(() => import("./components/pages/PronyDashboard/Changelog/Changelog"));
 const ChangelogLabels = React.lazy(() => import("./components/pages/PronyDashboard/ChangelogLabels/ChangelogLabels"));
 const Integrations = React.lazy(() => import("./components/pages/PronyDashboard/Integrations/Integrations"));
+const SocialAccounts = React.lazy(() => import("./components/pages/ClientArea/SocialAccounts/SocialAccounts"));
+const Profile = React.lazy(() => import("./components/pages/ClientArea/Profile/Profile"));
 
 const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Workspaces/Workspaces"));
 
@@ -49,6 +51,8 @@ const App: FC = () => {
           </Route>
           <Route path="client" element={<ClientLayout />}>
             <Route index element={<Workspaces />} />
+            <Route path="social-accounts" element={<SocialAccounts />} />
+            <Route path="profile" element={<Profile />} />
           </Route>
         </Routes>
       </GlobalProvider>

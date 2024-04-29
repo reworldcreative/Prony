@@ -1,0 +1,68 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.social-accounts {
+  &__wrapper {
+    gap: 36px;
+    padding: 32px 53px 38px 37px;
+  }
+
+  &__item {
+    flex-wrap: wrap;
+  }
+
+  &__item,
+  &__button {
+    display: flex;
+    align-items: center;
+  }
+
+  &__button {
+    padding: 9px 16px 8px;
+    border-radius: 7px;
+    border: 3px solid rgba(229, 236, 249, 0.37);
+    @include Font(14px, 400, 25.9px, var(--Primary), -0.219px);
+    width: 251px;
+    margin-right: 24px;
+
+    &_active {
+      color: #ffffff;
+      background: var(--Secondary);
+    }
+  }
+
+  &__icon {
+    margin-right: 30px;
+  }
+
+  &__link {
+    @include Font(14px, 400, 38.8px, var(--Secondary));
+    text-decoration-line: underline;
+  }
+}
+
+@include Small-Tablet() {
+  .social-accounts {
+    width: 100%;
+
+    &__wrapper {
+      gap: 20px;
+    }
+
+    &__button {
+      padding: 9px 10px 8px;
+    }
+
+    &__icon {
+      margin-right: 10px;
+    }
+  }
+}
+
+@include Mobile() {
+  .social-accounts {
+    &__button {
+      width: 100%;
+    }
+  }
+}
