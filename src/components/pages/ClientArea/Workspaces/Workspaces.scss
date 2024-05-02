@@ -26,3 +26,13 @@
     }
   }
 }
+
+@include Mobile() {
+  .workspaces {
+    &__button {
+      &-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+}

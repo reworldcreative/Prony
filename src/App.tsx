@@ -22,6 +22,8 @@ const ChangelogLabels = React.lazy(() => import("./components/pages/PronyDashboa
 const Integrations = React.lazy(() => import("./components/pages/PronyDashboard/Integrations/Integrations"));
 const SocialAccounts = React.lazy(() => import("./components/pages/ClientArea/SocialAccounts/SocialAccounts"));
 const Profile = React.lazy(() => import("./components/pages/ClientArea/Profile/Profile"));
+const Payment = React.lazy(() => import("./components/pages/ClientArea/Payment/Payment"));
+const BillingPlan = React.lazy(() => import("./components/pages/ClientArea/BillingPlan/BillingPlan"));
 
 const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Workspaces/Workspaces"));
 
@@ -53,6 +55,8 @@ const App: FC = () => {
             <Route index element={<Workspaces />} />
             <Route path="social-accounts" element={<SocialAccounts />} />
             <Route path="profile" element={<Profile />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="billing" element={<BillingPlan />} />
           </Route>
         </Routes>
       </GlobalProvider>

@@ -1,0 +1,24 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.card-input {
+  &__container {
+    display: grid;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24.5px;
+    grid-template-columns: repeat(auto-fill, minmax(80px, 113px));
+  }
+
+  &__item {
+    text-align: center;
+  }
+}
+
+// @include Small-Tablet() {
+//   .card-input {
+//     &__container {
+//       justify-content: center;
+//     }
+//   }
+// }

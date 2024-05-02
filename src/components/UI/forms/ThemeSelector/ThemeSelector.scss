@@ -77,6 +77,6 @@
   }
 
   &__color-text {
-    @include Font(14px, 400, 25.9px, #7791c2, -0.219px);
+    @include Font(14px, 400, 25.9px, var(--ClientMain), -0.219px);
   }
 }

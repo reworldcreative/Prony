@@ -1,0 +1,120 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.payment {
+  width: 100%;
+
+  &__list {
+    display: grid;
+    justify-content: space-between;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 259px));
+    gap: 10px;
+    margin-bottom: 54px;
+  }
+
+  &__item {
+    position: relative;
+    border-radius: 10px;
+    background: #f3f6fd;
+    padding: 15px 12px 13px 12px;
+
+    &.active {
+      border-radius: 10px;
+      background: var(--BG);
+      box-shadow: 0px 0px 30px 0px rgba(202, 221, 255, 0.55);
+
+      &:not(.payment__item-one) {
+        .payment__remove-button {
+          display: none;
+        }
+      }
+    }
+
+    .radio-label {
+      &::before {
+        margin-right: 17px;
+      }
+    }
+  }
+
+  &__number {
+    display: flex;
+    align-items: center;
+    box-sizing: border-box;
+    padding: 8px 12px 7px 14px;
+    margin-top: 15px;
+    border-radius: 5px;
+    background: #e5ecf9;
+
+    &-section {
+      @include Font(14px, 400, 13.42px, var(--ClientMain), 1.3px);
+      margin-right: 17px;
+
+      &:last-child {
+        margin-right: 0;
+        color: var(--ClientMain);
+      }
+    }
+  }
+
+  &__remove-button {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+
+    &-icon {
+      filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+    }
+  }
+
+  &__no-payment {
+    text-align: center;
+    margin-bottom: 20px;
+    color: var(--Primary);
+  }
+
+  &__add-button {
+    @include Font(14px, 600, 20.4px, #fff, 0.06px, "Nunito");
+    display: flex;
+    align-items: center;
+    margin: 0 auto;
+    padding: 10px 20px;
+
+    &-icon {
+      margin-right: 30px;
+    }
+  }
+}
+
+@include Laptop() {
+  .payment {
+    &__list {
+      justify-content: center;
+    }
+  }
+}
+
+@media (max-width: 300px) {
+  .payment {
+    &__number {
+      flex-wrap: wrap;
+      justify-content: center;
+
+      &-section {
+        margin-right: 7px;
+        margin-bottom: 7px;
+
+        &:last-child {
+          margin-right: 0;
+          margin-bottom: 0;
+        }
+      }
+    }
+
+    &__add-button {
+      &-icon {
+        margin-right: 10px;
+      }
+    }
+  }
+}

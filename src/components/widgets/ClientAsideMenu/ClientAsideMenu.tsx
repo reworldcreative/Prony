@@ -53,7 +53,7 @@ const ClientAsideMenu: FC = () => {
   ];
 
   const menuBillingLinks = [
-    { text: "Billing Plan", url: "/client/billing", click: () => {} },
+    { text: "Billing Plan", url: "/client/billing" },
     { text: "Payment Methods", url: "/client/payment" },
     { text: "Billing History", url: "/client/history" },
   ];
@@ -150,31 +150,17 @@ const ClientAsideMenu: FC = () => {
 
           <h2 className="heading-h6 clientAsideMenu__link-title">Billing</h2>
 
-          {menuBillingLinks.map((link, index) =>
-            link.url !== "" ? (
-              <Link
-                to={link.url}
-                key={index}
-                className={`heading-h6 clientAsideMenu__link ${
-                  link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
-                }`}
-              >
-                {link.text}
-              </Link>
-            ) : (
-              link.click && (
-                <button
-                  key={index}
-                  onClick={link.click}
-                  className={`heading-h6 clientAsideMenu__link ${
-                    link.text.toLowerCase() === activeLink.toLowerCase() ? "clientAsideMenu__link_active" : ""
-                  }`}
-                >
-                  {link.text}
-                </button>
-              )
-            )
-          )}
+          {menuBillingLinks.map((link, index) => (
+            <Link
+              to={link.url}
+              key={index}
+              className={`heading-h6 clientAsideMenu__link ${
+                link.url.toLowerCase() === location.pathname.toLowerCase() ? "clientAsideMenu__link_active" : ""
+              }`}
+            >
+              {link.text}
+            </Link>
+          ))}
         </nav>
       </aside>
     </>

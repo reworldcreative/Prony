@@ -41,7 +41,6 @@ const RadioButton: FC<RadioButtonProps> = ({
         name={group}
         value={value}
         checked={selectedValue === value}
-        // defaultChecked={defaultChecked}
         disabled={type === "disabled"}
         tabIndex={type === "disabled" ? -1 : 0}
         {...(field

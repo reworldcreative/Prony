@@ -1,0 +1,51 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.billing-item {
+  align-items: center;
+  justify-content: space-between;
+  border-left: 12px solid var(--ClientMain);
+
+  &.clientPage__container {
+    display: grid;
+    gap: 15px;
+    // grid-template-columns: repeat(auto-fill, minmax(70px, 80px));
+    grid-template-columns: repeat(5, 1fr);
+  }
+
+  &__block {
+    text-align: center;
+    width: fit-content;
+    margin-right: 10px;
+    width: 100%;
+
+    &:last-child {
+      width: 165px;
+      margin-right: 0;
+    }
+  }
+
+  &__label {
+    @include Font(9px, 400, normal, var(--ClientMain));
+    margin-bottom: 7px;
+  }
+
+  &__text {
+    @include Font(14px, 600, normal, var(--TextPrimary), -0.219px);
+  }
+
+  &__button {
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+    border-radius: 30px;
+  }
+}
+
+@include Small-Tablet() {
+  .billing-item {
+    &.clientPage__container {
+      grid-template-columns: repeat(auto-fill, minmax(70px, 80px));
+    }
+  }
+}

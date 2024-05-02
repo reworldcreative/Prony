@@ -1,0 +1,38 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspaces-add-payment-form {
+  &__wrapper {
+    display: grid;
+    gap: 26px;
+  }
+
+  &__row,
+  &__small-row {
+    display: grid;
+    gap: 10px;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__row {
+    grid-template-columns: repeat(auto-fill, minmax(230px, 251px));
+  }
+
+  &__small-row {
+    grid-template-columns: minmax(70px, 113px) minmax(90px, 137px);
+
+    .input {
+      box-sizing: border-box;
+      width: 100%;
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .workspaces-add-payment-form {
+    &__row {
+      grid-template-columns: repeat(auto-fill, 100%);
+    }
+  }
+}

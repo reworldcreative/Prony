@@ -50,8 +50,8 @@ const Profile: FC = () => {
     <div className="profile">
       <h1 className="title clientPage__main-title profile__title">user information</h1>
       <div className="profile__container">
-        <div className="text-second profile__info" style={infoStyle}>
-          <img src={checkIcon} alt="info icon" className="profile__icon" width="18" height="18" aria-hidden="true" />
+        <div className="text-second profile__info client-info" style={infoStyle}>
+          <img src={checkIcon} alt="info icon" className="profile__icon client-info__icon" width="18" height="18" aria-hidden="true" />
           Your settings have been updated successfully
         </div>
 
