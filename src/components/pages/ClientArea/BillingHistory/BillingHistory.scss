@@ -1,0 +1,46 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.billing-history {
+  width: 100%;
+
+  &__container {
+    &.clientPage__container {
+      padding: 0 0 43px 0px;
+    }
+  }
+
+  &__top,
+  &__item {
+    padding: 18px 37px;
+    display: grid;
+    grid-template-columns: 60% 40%;
+    align-items: center;
+    gap: 17px;
+  }
+
+  &__top {
+    border-radius: 10px 10px 0 0;
+    background: #e5ecf9;
+  }
+
+  &__top-title {
+    @include Font(18px, 600, 38.8px, var(--Primary));
+  }
+
+  &__list {
+    margin-bottom: 40px;
+  }
+
+  &__text {
+    @include Font(14px, 400, 38.8px, var(--ClientMain));
+  }
+}
+
+@media (max-width: 300px) {
+  .billing-history {
+    &__container {
+      overflow: scroll;
+    }
+  }
+}
