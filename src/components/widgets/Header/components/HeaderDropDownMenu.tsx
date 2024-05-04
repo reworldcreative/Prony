@@ -7,23 +7,15 @@ const HeaderDropDownMenu: FC<{
   isOpen: boolean;
 }> = ({ openButton, isOpen }) => {
   const links = [
-    { text: "Workspaces", url: "/" },
-    { text: "Profile", url: "/" },
-    { text: "Logout", url: "/" },
+    { text: "Workspaces", url: "/client" },
+    { text: "Profile", url: "/client/profile" },
+    { text: "Logout", url: "/client" },
   ];
 
   return (
-    <OpenMenu
-      openButton={openButton}
-      isOpen={isOpen}
-      addClass={`headerDropDownMenu`}
-    >
+    <OpenMenu openButton={openButton} isOpen={isOpen} addClass={`headerDropDownMenu`}>
       {links.map((link, index) => (
-        <Link
-          key={index}
-          to={link.url}
-          className="heading-h6 headerDropDownMenu__link"
-        >
+        <Link key={index} to={link.url} className="heading-h6 headerDropDownMenu__link">
           {link.text}
         </Link>
       ))}

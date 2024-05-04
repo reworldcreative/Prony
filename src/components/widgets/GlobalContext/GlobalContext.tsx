@@ -18,6 +18,9 @@ interface GlobalContextType {
 
   popUpData: ReactNode;
   setPopUpData: React.Dispatch<React.SetStateAction<ReactNode>>;
+
+  mainRoot: string;
+  setMainRoot: React.Dispatch<React.SetStateAction<string>>;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -30,6 +33,7 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [breadcrumbsLinks, setBreadcrumbsLinks] = useState<string[]>([""]);
   const [breadcrumbsTitles, setBreadcrumbsTitles] = useState<string[]>([""]);
   const [popUpData, setPopUpData] = useState<ReactNode>(<></>);
+  const [mainRoot, setMainRoot] = useState<string>("/");
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -77,6 +81,8 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setBreadcrumbsTitles,
         popUpData,
         setPopUpData,
+        mainRoot,
+        setMainRoot,
       }}
     >
       {children}

@@ -3,6 +3,8 @@ import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { GlobalProvider } from "./components/widgets/GlobalContext/GlobalContext";
 import ClientLayout from "./components/widgets/Layout/ClientLayout";
 import Layout from "./components/widgets/Layout/Layout";
+import NotFound from "./components/pages/NotFound/NotFound";
+import Error from "./components/pages/Error/Error";
 
 // const Layout = React.lazy(() => import("./components/widgets/Layout/Layout"));
 // const ClientLayout = React.lazy(() => import("./components/widgets/Layout/ClientLayout"));
@@ -20,7 +22,11 @@ const Statuses = React.lazy(() => import("./components/pages/PronyDashboard/Stat
 const Changelog = React.lazy(() => import("./components/pages/PronyDashboard/Changelog/Changelog"));
 const ChangelogLabels = React.lazy(() => import("./components/pages/PronyDashboard/ChangelogLabels/ChangelogLabels"));
 const Integrations = React.lazy(() => import("./components/pages/PronyDashboard/Integrations/Integrations"));
-
+const SocialAccounts = React.lazy(() => import("./components/pages/ClientArea/SocialAccounts/SocialAccounts"));
+const Profile = React.lazy(() => import("./components/pages/ClientArea/Profile/Profile"));
+const Payment = React.lazy(() => import("./components/pages/ClientArea/Payment/Payment"));
+const BillingPlan = React.lazy(() => import("./components/pages/ClientArea/BillingPlan/BillingPlan"));
+const BillingHistory = React.lazy(() => import("./components/pages/ClientArea/BillingHistory/BillingHistory"));
 const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Workspaces/Workspaces"));
 
 // import { register } from "swiper/element/bundle";
@@ -49,7 +55,14 @@ const App: FC = () => {
           </Route>
           <Route path="client" element={<ClientLayout />}>
             <Route index element={<Workspaces />} />
+            <Route path="social-accounts" element={<SocialAccounts />} />
+            <Route path="profile" element={<Profile />} />
+            <Route path="payment" element={<Payment />} />
+            <Route path="billing" element={<BillingPlan />} />
+            <Route path="history" element={<BillingHistory />} />
           </Route>
+          <Route path="/error" element={<Error />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </GlobalProvider>
     </>

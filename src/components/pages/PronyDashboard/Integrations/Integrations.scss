@@ -26,11 +26,6 @@
     color: var(--TextSecondary);
     padding-bottom: 22px;
     width: fit-content;
-
-    &.active {
-      color: var(--Primary);
-      border-bottom: 1px solid var(--Primary);
-    }
   }
 
   &__col {
@@ -70,7 +65,7 @@
     padding: 0 7px;
     border-radius: 50%;
     background: #757575;
-    color: var(--Primary);
+    color: #ffffff;
     margin-right: 15px;
     height: fit-content;
     width: fit-content;

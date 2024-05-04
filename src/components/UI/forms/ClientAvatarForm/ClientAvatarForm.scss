@@ -1,0 +1,56 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspaces-avatar-form {
+  &__text {
+    color: var(--Primary);
+    line-height: 21px;
+    letter-spacing: 0.079px;
+    margin-bottom: 19px;
+  }
+
+  &__avatar-wrapper {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+
+  &__avatar {
+    border-radius: 100%;
+    margin-right: 48px;
+  }
+
+  .file-loader {
+    &__wrapper {
+      border: 1px dashed var(--TextSecondary);
+      padding: 27px;
+      border-radius: 5px;
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      max-width: 239px;
+      max-height: 131px;
+      margin: 0;
+    }
+
+    &__label {
+      display: grid;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &__icon {
+      margin: 0px auto 11px;
+
+      &.dark {
+        filter: invert(100%) sepia(93%) saturate(29%) hue-rotate(125deg) brightness(108%) contrast(106%);
+      }
+    }
+
+    &__link {
+      color: var(--Secondary);
+      cursor: pointer;
+    }
+  }
+}

@@ -34,6 +34,48 @@
   .button {
     border-radius: 30px;
   }
+
+  .clientPage {
+    &__main-title {
+      @include font-size(40px);
+      line-height: 45.4px;
+      text-transform: uppercase;
+      color: var(--Primary);
+    }
+
+    &__container {
+      display: grid;
+      border-radius: 10px;
+      background: #fff;
+      box-shadow: 0px 0px 30px 0px rgba(202, 221, 255, 0.55);
+      padding: 32px 53px 38px 37px;
+    }
+  }
+
+  .client-info {
+    position: absolute;
+    width: 100%;
+    box-sizing: border-box;
+    top: 0;
+    display: flex;
+    align-items: center;
+    padding: 4px 12px;
+    border-radius: 10px;
+    background: #e5ecf9;
+    color: var(--ClientMain);
+    box-shadow: 0px 0px 14px 0px rgba(53, 64, 82, 0.05);
+    line-height: 20px;
+    letter-spacing: 0.1px;
+
+    &__icon {
+      margin-right: 10px;
+    }
+
+    &.danger {
+      background: var(--Danger);
+      color: #fff;
+    }
+  }
 }
 
 .clientPageContainer {
@@ -55,6 +97,7 @@
       &_primary,
       &_danger {
         color: #ffffff;
+        padding: 10px 68px;
       }
     }
 
@@ -66,7 +109,9 @@
 
     &_primary {
       &:hover {
-        filter: drop-shadow(0px 3px 10px #5086c3);
+        &:not(.button_disabled) {
+          filter: drop-shadow(0px 3px 10px #5086c3);
+        }
       }
     }
 
@@ -85,6 +130,13 @@
       line-height: 45.4px;
       text-transform: uppercase;
     }
+
+    &__row {
+      display: grid;
+      align-items: center;
+      grid-template-columns: 45% 45%;
+      gap: 50px;
+    }
   }
 }
 
@@ -93,7 +145,7 @@
   .input {
     @include Font(14px, 400, 25.9px, var(--TextPrimary), -0.219px);
     border-radius: 7px;
-    outline: 1px solid #e5ecf9;
+    outline: 1px solid var(--BGClient);
     padding: 9px 22px;
     background: none;
 
@@ -109,6 +161,29 @@
     &__message {
       @include Font(10px, 400, 25.9px, var(--Danger), -0.219px);
       margin-top: 5px;
+    }
+  }
+}
+
+@include Tablet() {
+  .clientPopUp {
+    .workspaces-form {
+      &__row {
+        display: grid;
+        align-items: center;
+        grid-template-columns: 100%;
+        gap: 10px;
+      }
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .client-layout {
+    .clientPage {
+      &__container {
+        padding: 15px;
+      }
     }
   }
 }

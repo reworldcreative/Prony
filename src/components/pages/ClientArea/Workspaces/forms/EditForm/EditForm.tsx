@@ -26,7 +26,7 @@ const EditForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
   });
 
   const onSubmit = (data: WorkspaceItemData) => {
-    submitSuccess({ ...data, id: formData.id });
+    submitSuccess({ ...formData, ...data, id: formData.id });
     setOpenPopUp(false);
     reset();
   };
@@ -41,7 +41,7 @@ const EditForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
       <h2 className="title form__title workspaces-form__title">{formTitle}</h2>
 
       <div className="workspaces-form__wrapper">
-        <div className="workspaces-form__block workspaces-edit-form__block">
+        <div className="workspaces-form__row workspaces-edit-form__row">
           <Input
             label="New Name"
             name="name"

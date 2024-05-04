@@ -1,0 +1,57 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.billing-plan {
+  width: 100%;
+
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 43px;
+    width: 100%;
+  }
+
+  &__icon {
+    filter: invert(0%) sepia(165%) saturate(90%) hue-rotate(221deg) brightness(360%) contrast(100%);
+  }
+
+  &__label {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 0.1px;
+    color: var(--ClientMain);
+  }
+
+  &__current {
+    overflow-x: scroll;
+  }
+
+  &__list {
+    margin-top: 32px;
+    overflow-x: scroll;
+
+    &-wrapper {
+      display: grid;
+      gap: 20px;
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .billing-plan {
+    &__container {
+      padding-top: 55px;
+    }
+  }
+}
+
+@include Mobile() {
+  .billing-plan {
+    &__container {
+      padding-top: 65px;
+    }
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "name": "Free",
+    "Suggestions": 1,
+    "TeamMembers": 1,
+    "Price": 0,
+    "BillingDate": "",
+    "color": "#fff"
+  },
+  {
+    "name": "Basic",
+    "Suggestions": 100,
+    "TeamMembers": 10,
+    "Price": 10,
+    "BillingDate": "",
+    "color": "#1565C0"
+  },
+  {
+    "name": "Premium",
+    "Suggestions": 1000,
+    "TeamMembers": 10,
+    "Price": 15,
+    "BillingDate": "",
+    "color": "#F43658"
+  },
+  {
+    "name": "Ultimate",
+    "Suggestions": 5000,
+    "TeamMembers": 50,
+    "Price": 20,
+    "BillingDate": "",
+    "color": "#272557"
+  },
+  {
+    "name": "Enterprise",
+    "Suggestions": 1000,
+    "TeamMembers": 100,
+    "Price": 25,
+    "BillingDate": "",
+    "color": "#7791C2"
+  }
+]

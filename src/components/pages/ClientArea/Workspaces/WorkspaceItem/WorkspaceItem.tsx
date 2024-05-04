@@ -8,6 +8,9 @@ export interface WorkspaceItemData {
   id: number;
   name: string;
   domain: string;
+  language: string;
+  theme: string;
+  plan: string;
 }
 
 interface WorkspaceItemProps {

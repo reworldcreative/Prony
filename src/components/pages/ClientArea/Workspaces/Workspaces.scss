@@ -4,13 +4,6 @@
 .workspaces {
   width: 100%;
 
-  &__title {
-    font-size: 40px;
-    line-height: 45.4px;
-    text-transform: uppercase;
-    color: var(--Primary);
-  }
-
   &__list {
     margin-bottom: 90px;
     display: grid;
@@ -30,6 +23,16 @@
 
     &-icon {
       margin-right: 30px;
+    }
+  }
+}
+
+@include Mobile() {
+  .workspaces {
+    &__button {
+      &-icon {
+        margin-right: 10px;
+      }
     }
   }
 }

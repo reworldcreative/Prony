@@ -1,8 +1,9 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, useEffect, useRef, useState } from "react";
 import "./Integrations.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
 import { CopyField } from "@eisberg-labs/mui-copy-field";
+import TabsTop from "@/components/UI/forms/TabsTop/TabsTop";
 
 const Integrations: FC = () => {
   const [type, setType] = useState<string>("sso");
@@ -43,6 +44,10 @@ const Integrations: FC = () => {
     setCodeLink(generateRandomString());
   }, []);
 
+  const handleSetType = (activeTab: number) => {
+    activeTab === 0 ? setType("sso") : setType("redirect");
+  };
+
   return (
     <section className="pageContainer-MainSection">
       <Breadcrumbs currentTitle={["SSO"]} currentLink={["/integrations"]} />
@@ -52,25 +57,7 @@ const Integrations: FC = () => {
       </div>
 
       <section className="integrations pageContainer-section">
-        <div className="integrations__top">
-          <button
-            type="button"
-            className={`integrations__button ${type === "sso" ? "active" : ""} heading-h6`}
-            onClick={() => setType("sso")}
-            aria-label={type === "sso" ? "is active" : "is not active"}
-          >
-            Setup SSO
-          </button>
-
-          <button
-            type="button"
-            className={`integrations__button ${type === "redirect" ? "active" : ""} heading-h6`}
-            onClick={() => setType("redirect")}
-            aria-label={type === "redirect" ? "is active" : "is not active"}
-          >
-            Setup SSO redirect
-          </button>
-        </div>
+        <TabsTop baseClass="integrations" tabs={["Setup SSO", "Setup SSO redirect"]} getActiveTab={handleSetType} />
 
         <div className="integrations__settings">
           {type === "sso" && (

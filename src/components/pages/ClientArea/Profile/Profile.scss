@@ -1,0 +1,23 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.profile {
+  &__title {
+    margin-bottom: 8px;
+  }
+
+  &__container {
+    position: relative;
+    padding-top: 43px;
+    width: 100%;
+  }
+
+  &__wrapper {
+    padding: 27px 37px 37px;
+  }
+
+  &-form {
+    display: grid;
+    gap: 26px;
+  }
+}

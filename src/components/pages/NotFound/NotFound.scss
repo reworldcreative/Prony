@@ -1,0 +1,114 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.notFound {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background: var(--BG);
+  @include Font(12px, 400, 20px, var(--TextPrimary), 0px, var(--font_second));
+
+  &__wrapper {
+    max-width: 1128px;
+    margin: auto;
+    padding: 0 15px;
+    flex: 1;
+    width: -webkit-fill-available;
+    width: -moz-available;
+  }
+
+  .header {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  &__container {
+    margin: 28px auto 80px;
+    text-align: center;
+    display: grid;
+    justify-content: center;
+    gap: 38px;
+
+    .donut {
+      position: relative;
+      box-sizing: border-box;
+      // width: 233px;
+      // height: 233px;
+      @include rfs(233px, width);
+      @include rfs(233px, height);
+      border-radius: 50%;
+      background-color: var(--BG); /* колір бублика */
+      border: 50px solid var(--Secondary); /* товщина бублика */
+      @include rfs(50px, border-width);
+    }
+
+    /* Надкус */
+    .bite {
+      position: absolute;
+      // top: 150px;
+      // left: -30px;
+      // width: 80px;
+      // height: 80px;
+      @include rfs(150px, top);
+      @include rfs(-30px, left);
+      @include rfs(80px, width);
+      @include rfs(80px, height);
+      background-color: var(--BG); /* колір фону */
+      border-radius: 50%;
+    }
+  }
+
+  &__title {
+    @include Font(24px, 500, 45.4px, var(--ClientMain), 3.281px);
+    text-transform: uppercase;
+  }
+
+  &__code {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    @include Font(310px, 800, 45px, var(--Primary));
+    @include rfs(233px, line-height);
+    overflow: clip;
+  }
+
+  &__mobile-text {
+    display: none;
+    color: var(--Secondary);
+  }
+
+  &__text {
+    @include Font(18px, 400, 28.4px, var(--Primary));
+    text-align: center;
+    max-width: 415px;
+    margin: 0 auto;
+  }
+
+  &__link {
+    padding: 10px 54px;
+    border-radius: 30px;
+    background: var(--Secondary);
+    color: #fff;
+    width: fit-content;
+    margin: 0 auto;
+  }
+}
+
+@include Small-Tablet {
+  .notFound {
+    &__mobile-text {
+      display: block;
+    }
+
+    &__container {
+      margin: 28px auto 80px;
+      text-align: center;
+
+      .donut,
+      .bite {
+        display: none;
+      }
+    }
+  }
+}

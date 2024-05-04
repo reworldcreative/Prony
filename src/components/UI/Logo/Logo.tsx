@@ -8,19 +8,13 @@ import { GlobalContext } from "../../widgets/GlobalContext/GlobalContext";
 import { Link } from "react-router-dom";
 
 const Logo: FC<{ color?: "light" | "dark" }> = ({ color }) => {
-  const theme = useContext(GlobalContext);
+  const { theme, mainRoot } = useContext(GlobalContext);
   return (
-    <Link to={"/"} aria-label="Prony logo. Link to main page." className="logo-link">
+    <Link to={mainRoot} aria-label="Prony logo. Link to main page." className="logo-link">
       <div className="logo" aria-hidden="true">
         <img className="logo-icon" src={LogoIcon} alt="logo icon" width="25" height="30" />
 
-        <img
-          className={`logo-text ${color ? color : theme.theme}`}
-          src={Logo_text}
-          alt="logo text"
-          width="102"
-          height="24"
-        />
+        <img className={`logo-text ${color ? color : theme}`} src={Logo_text} alt="logo text" width="102" height="24" />
 
         {/* <LogoIcon className="logo-icon" width="25" height="30" aria-label="logo icon"/> */}
       </div>

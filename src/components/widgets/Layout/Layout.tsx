@@ -18,7 +18,13 @@ const Layout: FC = () => {
     setPopUpSettingsType,
     isOpenPopUpSettings,
     setOpenPopUpSettings,
+    mainRoot,
+    setMainRoot,
   } = useContext(GlobalContext);
+
+  useEffect(() => {
+    setMainRoot("/");
+  }, []);
 
   return (
     <div className="layout">

@@ -1,0 +1,26 @@
+[
+  {
+    "alias": "Name1",
+    "firstName": "John",
+    "lastName": "Doe",
+    "cardNumber": "1234 5678 9012 3456",
+    "CVV": "123",
+    "expirationDate": "12/25"
+  },
+  {
+    "alias": "Name2",
+    "firstName": "Kris",
+    "lastName": "Doe",
+    "cardNumber": "1234 5678 4232 5873",
+    "CVV": "195",
+    "expirationDate": "10/25"
+  },
+  {
+    "alias": "Name3",
+    "firstName": "Mr.",
+    "lastName": "Smith",
+    "cardNumber": "3612 3265 4563 2277",
+    "CVV": "230",
+    "expirationDate": "08/25"
+  }
+]

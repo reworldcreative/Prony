@@ -1,0 +1,90 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspaces-add-form {
+  &__wrapper {
+    display: grid;
+    gap: 26px;
+  }
+
+  &__language-block {
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    gap: 13px;
+
+    .radio-language {
+      background: var(--BGClient);
+    }
+  }
+
+  .form__block {
+    margin: 0;
+  }
+
+  .theme-selectors {
+    &__container {
+      width: 179px;
+      border-radius: 7px;
+      border: 3px solid rgba(229, 236, 249, 0.37);
+      padding: 5px;
+      box-sizing: border-box;
+    }
+  }
+
+  &__plan {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 251px));
+    gap: 19px;
+  }
+
+  &__plan-button {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 9px 0px 8px;
+    width: 251px;
+    @include Font(14px, 400, 25.9px, var(--Primary), -0.219px);
+    border-radius: 7px;
+    border: 3px solid rgba(229, 236, 249, 0.37);
+
+    &::before {
+      content: "";
+      position: absolute;
+      left: 15px;
+      width: 10px;
+      height: 5px;
+      display: none;
+      transform: rotate(-45deg) translate(0, -50%);
+      border-bottom: 2px solid #fff;
+      border-left: 2px solid #fff;
+    }
+
+    &_active {
+      background: #1565c0;
+      color: #fff;
+
+      &::before {
+        display: block;
+      }
+    }
+  }
+}
+
+@include Tablet() {
+  .workspaces-add-form {
+    &__language-block {
+      grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+    }
+  }
+
+  .theme-selectors {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 300px));
+    gap: 10px;
+
+    &__container {
+      margin-right: 0px;
+    }
+  }
+}

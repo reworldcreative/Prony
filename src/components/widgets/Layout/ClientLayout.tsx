@@ -18,8 +18,13 @@ const ClientLayout: FC = () => {
     setOpenPopUp,
     popUpData,
     setPopUpData,
+    mainRoot, setMainRoot
   } = useContext(GlobalContext);
 
+  useEffect(() => {
+    setMainRoot("/client")
+  }, [])
+  
   return (
     <>
       <PopUp addClass="clientPopUp">{popUpData}</PopUp>

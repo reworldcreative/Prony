@@ -6,6 +6,7 @@ import WorkspaceItem, { WorkspaceItemData } from "./WorkspaceItem/WorkspaceItem"
 import WorkspacesData from "@/data/Workspaces.json";
 import Button from "@/components/UI/buttons/Button/Button";
 import plusIcon from "@icons/plus.svg";
+import AddForm from "./forms/AddForm/AddForm";
 
 const Workspaces: FC = () => {
   const {
@@ -38,6 +39,20 @@ const Workspaces: FC = () => {
     setWorkspacesList(newWorkspacesArray);
   };
 
+  const handleOpenAddPopUp = () => {
+    setPopUpData(<AddForm submitSuccess={handleAddWorkspace} formTitle="Add Workspace" />);
+    setOpenPopUp(true);
+  };
+
+  const handleAddWorkspace = (data: WorkspaceItemData) => {
+    const ids = WorkspacesList.map(({ id }) => id);
+    const newWorkspaces: WorkspaceItemData = {
+      ...data,
+      id: Math.max(...ids) + 1,
+    };
+    WorkspacesList.push(newWorkspaces);
+  };
+
   return (
     <div className="workspaces">
       <h1 className="workspaces__title clientPage__main-title title">Workspaces</h1>
@@ -53,7 +68,7 @@ const Workspaces: FC = () => {
         ))}
       </div>
 
-      <Button click={() => setOpenPopUp(true)} type="primary" buttonType="button" addClass="workspaces__button">
+      <Button click={handleOpenAddPopUp} type="primary" buttonType="button" addClass="workspaces__button">
         <img
           src={plusIcon}
           alt="plus icon"
