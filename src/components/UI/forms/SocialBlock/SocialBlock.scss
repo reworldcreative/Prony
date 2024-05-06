@@ -1,0 +1,38 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.social-login {
+  margin-top: 19px;
+
+  &__wrapper {
+    margin: 30px auto 0;
+    display: grid;
+    justify-content: center;
+    gap: 16px;
+    grid-template-columns: repeat(auto-fill, 225px);
+    max-width: 515px;
+  }
+
+  &__title {
+    @include Font(18px, 400, 45.4px, var(--Primary), -0.219px);
+    text-align: center;
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    padding: 9px 16px 8px;
+    border-radius: 7px;
+    border: 3px solid rgba(229, 236, 249, 0.37);
+    @include Font(14px, 400, 25.9px, var(--Primary), -0.219px);
+
+    &_active {
+      color: #ffffff;
+      background: var(--Secondary);
+    }
+  }
+
+  &__icon {
+    margin-right: 30px;
+  }
+}

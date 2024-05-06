@@ -9,6 +9,8 @@
   color: var(--TextPrimary);
   font-size: 18px;
   border: none;
+  width: 100%;
+  box-sizing: border-box;
 
   &:focus {
     outline: 2px solid var(--Secondary);
@@ -40,6 +42,34 @@
     &_required {
       color: var(--Danger);
     }
+  }
+
+  &__container {
+    position: relative;
+
+    &.password {
+      .input {
+        padding-right: 40px;
+      }
+    }
+  }
+
+  &__icon-button {
+    position: absolute !important;
+    padding: 0 !important;
+    top: 50%;
+    right: 10px;
+    transform: translate(-50%, -50%);
+
+    &:hover {
+      .input__icon {
+        filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+      }
+    }
+  }
+
+  &__icon {
+    filter: invert(47%) sepia(1%) saturate(319%) hue-rotate(314deg) brightness(94%) contrast(79%);
   }
 
   &__message {

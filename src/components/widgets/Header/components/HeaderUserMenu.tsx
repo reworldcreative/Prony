@@ -1,20 +1,30 @@
-import React, { FC, useRef, useState } from "react";
+import React, { FC, useContext, useRef, useState } from "react";
 import "./HeaderUserMenu.scss";
 import PictureComponent from "@/../plugins/PictureComponent";
 import avatar from "@/assets/img/avatars/avatar_1.jpg";
 import OptionButton from "@/components/UI/buttons/OptionButton/OptionButton";
 import HeaderDropDownMenu from "./HeaderDropDownMenu";
+import { GlobalContext } from "../../GlobalContext/GlobalContext";
+import exitIcon from "@icons/header/exit.svg";
+import Login from "@/components/UI/forms/Login/Login";
 
 type HeaderUserMenuProps = {
   useOption: boolean;
 };
 const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
   const [openHeaderMenu, setOpenHeaderMenu] = useState(false);
+  const { mainRoot, authorized, setAuthorized, isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } =
+    useContext(GlobalContext);
   const handleChangeOpenHeaderMenu = () => {
     setOpenHeaderMenu(!openHeaderMenu);
   };
+
+  const handleLogin = () => {
+    setPopUpData(<Login formTitle="Login" />);
+    setOpenPopUp(true);
+  };
   const dropDownMenuButtonRef = useRef<HTMLButtonElement>(null);
-  return (
+  return authorized ? (
     <div className="headerUserMenu">
       <PictureComponent
         src={avatar}
@@ -48,6 +58,18 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
         </div>
       </div>
     </div>
+  ) : (
+    <button className="headerUserMenu__button heading-h6" onClick={handleLogin}>
+      <img
+        src={exitIcon}
+        alt="exit icon"
+        className="headerUserMenu__button-icon"
+        width="16"
+        height="16"
+        aria-hidden="true"
+      />
+      Log in
+    </button>
   );
 };
 

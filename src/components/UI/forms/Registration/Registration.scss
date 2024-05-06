@@ -1,0 +1,48 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.registration-form {
+  &__title {
+    text-align: center;
+  }
+
+  &__wrapper {
+    justify-content: center;
+    display: grid;
+  }
+
+  &__submit-button {
+    margin: 34px auto 8px;
+    width: 182px;
+  }
+
+  &__inputs {
+    display: grid;
+    gap: 15px;
+    width: 515px;
+  }
+
+  &__logged-block {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+
+    .checkbox__container {
+      margin-right: 10px;
+    }
+  }
+
+  &__link {
+    @include Font(12px, 400, 25.9px, var(--Secondary), -0.219px);
+    text-decoration-line: underline;
+  }
+}
+
+@include Small-Tablet() {
+  .registration-form {
+    &__inputs {
+      width: auto;
+    }
+  }
+}

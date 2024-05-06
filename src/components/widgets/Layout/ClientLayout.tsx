@@ -18,13 +18,24 @@ const ClientLayout: FC = () => {
     setOpenPopUp,
     popUpData,
     setPopUpData,
-    mainRoot, setMainRoot
+    mainRoot,
+    setMainRoot,
+    authorized,
+    setAuthorized,
+    menuLinks,
+    setMenuLinks,
   } = useContext(GlobalContext);
 
   useEffect(() => {
-    setMainRoot("/client")
-  }, [])
-  
+    setMainRoot("/client");
+    setAuthorized(false);
+    setMenuLinks([
+      { text: "Workspaces", url: "/client" },
+      { text: "Profile", url: "/client/profile" },
+      { text: "Logout", url: "", click: () => setAuthorized(false) },
+    ]);
+  }, []);
+
   return (
     <>
       <PopUp addClass="clientPopUp">{popUpData}</PopUp>

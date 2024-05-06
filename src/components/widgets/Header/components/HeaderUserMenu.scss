@@ -36,4 +36,22 @@
       }
     }
   }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+
+    &-icon {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      color: var(--Secondary);
+
+      .headerUserMenu__button-icon {
+        filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
+      }
+    }
+  }
 }

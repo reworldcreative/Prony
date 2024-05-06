@@ -21,6 +21,18 @@ interface GlobalContextType {
 
   mainRoot: string;
   setMainRoot: React.Dispatch<React.SetStateAction<string>>;
+
+  authorized: boolean;
+  setAuthorized: React.Dispatch<React.SetStateAction<boolean>>;
+
+  menuLinks: menuLinks[];
+  setMenuLinks: React.Dispatch<React.SetStateAction<menuLinks[]>>;
+}
+
+interface menuLinks {
+  text: string;
+  url: string;
+  click?: () => void;
 }
 
 const GlobalContext = createContext<GlobalContextType | undefined>(undefined);
@@ -34,6 +46,8 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
   const [breadcrumbsTitles, setBreadcrumbsTitles] = useState<string[]>([""]);
   const [popUpData, setPopUpData] = useState<ReactNode>(<></>);
   const [mainRoot, setMainRoot] = useState<string>("/");
+  const [authorized, setAuthorized] = useState<boolean>(false);
+  const [menuLinks, setMenuLinks] = useState<menuLinks[]>([]);
 
   useEffect(() => {
     document.documentElement.style.setProperty(
@@ -83,6 +97,10 @@ const GlobalProvider: FC<{ children: ReactNode }> = ({ children }) => {
         setPopUpData,
         mainRoot,
         setMainRoot,
+        authorized,
+        setAuthorized,
+        menuLinks,
+        setMenuLinks,
       }}
     >
       {children}
