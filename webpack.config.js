@@ -1,4 +1,5 @@
 const path = require("path");
+const selfSignedCert = require("self-signed-cert");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
@@ -87,6 +88,11 @@ module.exports = {
       directory: path.join(__dirname, "docs"),
     },
     historyApiFallback: true,
+    // https: {
+    //   key: selfSignedCert.key,
+    //   cert: selfSignedCert.cert,
+    // },
+    // http2: true,
   },
 
   module: {

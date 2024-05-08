@@ -1,0 +1,16 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspace-layout {
+  .workspace__title {
+    @include Font(24px, 600, 38.8px, var(--Primary));
+  }
+
+  &__container {
+    margin-top: 30px;
+
+    &.pageContainer__main {
+      max-width: 100%;
+    }
+  }
+}

@@ -7,8 +7,6 @@ import WorkspaceLayout from "./components/widgets/Layout/WorkspaceLayout";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Error from "./components/pages/Error/Error";
 
-// const Layout = React.lazy(() => import("./components/widgets/Layout/Layout"));
-// const ClientLayout = React.lazy(() => import("./components/widgets/Layout/ClientLayout"));
 const Dashboard = React.lazy(() => import("./components/pages/PronyDashboard/Dashboard/Dashboard"));
 const Boards = React.lazy(() => import("./components/pages/PronyDashboard/Boards/Boards"));
 const Posts = React.lazy(() => import("./components/pages/PronyDashboard/Posts/Posts"));
@@ -30,9 +28,8 @@ const BillingPlan = React.lazy(() => import("./components/pages/ClientArea/Billi
 const BillingHistory = React.lazy(() => import("./components/pages/ClientArea/BillingHistory/BillingHistory"));
 const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Workspaces/Workspaces"));
 const Workspace = React.lazy(() => import("./components/pages/WorkspaceArea/Workspace/Workspace"));
-
-// import { register } from "swiper/element/bundle";
-// register();
+const ChangelogPage = React.lazy(() => import("./components/pages/WorkspaceArea/Changelog/Changelog"));
+const ClientBoards = React.lazy(() => import("./components/pages/WorkspaceArea/ClientBoards/ClientBoards"));
 
 const App: FC = () => {
   const CheckEnding: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -75,6 +72,8 @@ const App: FC = () => {
           </Route>
           <Route path="workspace" element={<WorkspaceLayout />}>
             <Route index element={<Workspace />} />
+            <Route path="changelog" element={<ChangelogPage />} />
+            <Route path="boards" element={<ClientBoards />} />
           </Route>
           <Route
             path="*"

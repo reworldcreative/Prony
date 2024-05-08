@@ -1,0 +1,76 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.changelogClient {
+  margin-bottom: 50px;
+
+  &__sort {
+    border-radius: 10px;
+    // background: #f8faff;
+    background: var(--BGItem);
+    max-width: 360px;
+    padding: 12px 15px 23px;
+    box-sizing: border-box;
+  }
+
+  &__list {
+    margin-top: 36px;
+    margin-bottom: 50px;
+    display: grid;
+    gap: 26px;
+  }
+
+  &__title {
+    @include Font(18px, 500, 23.13px, var(--Primary));
+    margin-bottom: 10px;
+  }
+
+  &__label {
+    color: #fff;
+    padding: 5px 20px;
+    border-radius: 30px;
+    background: var(--Secondary);
+    width: fit-content;
+  }
+
+  &__wrapper {
+    margin-top: 19px;
+    display: flex;
+  }
+
+  &__avatar {
+    margin-right: 16px;
+  }
+
+  &__top {
+    margin-top: 7px;
+    margin-bottom: 12px;
+    display: flex;
+    align-items: flex-end;
+    flex-wrap: wrap;
+  }
+
+  &__name {
+    @include Font(18px, 500, 20.4px, var(--Primary), 0.06px);
+    margin-right: 13px;
+  }
+
+  &__date {
+    @include Font(12px, 400, 21px, var(--ClientMain), 0.07px);
+  }
+
+  &__text {
+    @include Font(14px, 400, 17.99px, var(--Primary));
+    max-width: 1078px;
+  }
+
+  &__pagination {
+    justify-content: center;
+
+    &.pagination__page {
+      &:hover {
+        background: var(--ClientMain);
+      }
+    }
+  }
+}

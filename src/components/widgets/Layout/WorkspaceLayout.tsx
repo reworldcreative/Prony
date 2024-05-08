@@ -40,16 +40,14 @@ const WorkspaceLayout: FC = () => {
       <PopUp addClass="clientPopUp">{popUpData}</PopUp>
 
       <div className="client-layout workspace-layout">
-        <div className="client-layout__wrapper workspace-layout">
+        <div className="client-layout__wrapper workspace-layout__wrapper">
           <Header useOption={true} />
 
-          <div className="pageContainer clientPageContainer">
-            <main className="pageContainer__main clientPageContainer__main">
-              <Suspense fallback={<></>}>
-                <Outlet />
-              </Suspense>
-            </main>
-          </div>
+          <main className="pageContainer__main clientPageContainer__main workspace-layout__container">
+            <Suspense fallback={<></>}>
+              <Outlet />
+            </Suspense>
+          </main>
         </div>
 
         <Footer />
