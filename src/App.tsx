@@ -30,6 +30,7 @@ const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Worksp
 const Workspace = React.lazy(() => import("./components/pages/WorkspaceArea/Workspace/Workspace"));
 const ChangelogPage = React.lazy(() => import("./components/pages/WorkspaceArea/Changelog/Changelog"));
 const ClientBoards = React.lazy(() => import("./components/pages/WorkspaceArea/ClientBoards/ClientBoards"));
+const ClientPostView = React.lazy(() => import("./components/pages/WorkspaceArea/PostView/PostView"));
 
 const App: FC = () => {
   const CheckEnding: React.FC<{ children: ReactNode }> = ({ children }) => {
@@ -74,6 +75,7 @@ const App: FC = () => {
             <Route index element={<Workspace />} />
             <Route path="changelog" element={<ChangelogPage />} />
             <Route path="boards" element={<ClientBoards />} />
+            <Route path="client-post" element={<ClientPostView />} />
           </Route>
           <Route
             path="*"

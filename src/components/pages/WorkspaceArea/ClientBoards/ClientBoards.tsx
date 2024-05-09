@@ -6,6 +6,7 @@ import Pagination from "@/components/UI/Pagination/Pagination";
 import ClientBoardsList from "@/data/ClientBoards.json";
 import like from "@icons/menu/like.svg";
 import message from "@icons/menu/message.svg";
+import { Link } from "react-router-dom";
 
 export interface ClientBoardsData {
   title: string;
@@ -96,7 +97,7 @@ const ClientBoards: FC = () => {
       <div>
         <section className="client-boards__list">
           {currentBoards.map((item, index) => (
-            <div className="client-boards__item" key={index}>
+            <Link to={"/workspace/client-post"} className="client-boards__item" key={index}>
               <div className="client-boards__likes-container">
                 <img
                   src={like}
@@ -132,7 +133,7 @@ const ClientBoards: FC = () => {
                 />
                 <p className="client-boards__messages">{item.comments}</p>
               </div>
-            </div>
+            </Link>
           ))}
         </section>
 

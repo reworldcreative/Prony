@@ -1,0 +1,99 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.post-view {
+  &__form {
+    margin-top: 25px;
+    padding-right: 10px;
+    box-sizing: border-box;
+
+    .textArea {
+      background: none;
+      margin-bottom: 12px;
+    }
+
+    .file-loader {
+      &__wrapper {
+        max-height: 70px;
+        height: auto;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+      }
+    }
+
+    .post-view__radio-container {
+      margin-top: 60px;
+
+      .radio__container {
+        &:first-child {
+          margin-right: 30px;
+        }
+      }
+    }
+
+    .post-view__radio-group,
+    .post-view__radio-container {
+      display: flex;
+      align-items: center;
+      height: fit-content;
+    }
+
+    &-row {
+      display: flex;
+      justify-content: space-between;
+
+      .radio__container:not(.colorSelector) {
+        input[type="checkbox"] {
+          + .radio-label {
+            &:before {
+              margin-right: 17px;
+            }
+          }
+        }
+      }
+    }
+
+    &-col {
+      width: 65%;
+      margin-right: 20px;
+    }
+  }
+
+  &__submit {
+    margin-left: 60px;
+    padding: 8px 52px;
+  }
+}
+
+@include Tablet() {
+  .post-view {
+    &__form {
+      &-row {
+        flex-wrap: wrap;
+      }
+
+      &-col {
+        margin-right: 0px;
+        width: 100%;
+      }
+
+      .post-view__radio-container {
+        width: 100%;
+        margin: 0px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+    }
+  }
+}
+
+@include Small-Tablet() {
+  .post-view {
+    &__form {
+      .post-view__radio-container {
+        display: grid;
+        gap: 10px;
+      }
+    }
+  }
+}
