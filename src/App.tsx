@@ -1,13 +1,12 @@
-import React, { FC, useState, useEffect, Suspense, useContext } from "react";
+import React, { FC, useState, useEffect, Suspense, useContext, ReactNode } from "react";
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 import { GlobalProvider } from "./components/widgets/GlobalContext/GlobalContext";
 import ClientLayout from "./components/widgets/Layout/ClientLayout";
 import Layout from "./components/widgets/Layout/Layout";
+import WorkspaceLayout from "./components/widgets/Layout/WorkspaceLayout";
 import NotFound from "./components/pages/NotFound/NotFound";
 import Error from "./components/pages/Error/Error";
 
-// const Layout = React.lazy(() => import("./components/widgets/Layout/Layout"));
-// const ClientLayout = React.lazy(() => import("./components/widgets/Layout/ClientLayout"));
 const Dashboard = React.lazy(() => import("./components/pages/PronyDashboard/Dashboard/Dashboard"));
 const Boards = React.lazy(() => import("./components/pages/PronyDashboard/Boards/Boards"));
 const Posts = React.lazy(() => import("./components/pages/PronyDashboard/Posts/Posts"));
@@ -28,11 +27,22 @@ const Payment = React.lazy(() => import("./components/pages/ClientArea/Payment/P
 const BillingPlan = React.lazy(() => import("./components/pages/ClientArea/BillingPlan/BillingPlan"));
 const BillingHistory = React.lazy(() => import("./components/pages/ClientArea/BillingHistory/BillingHistory"));
 const Workspaces = React.lazy(() => import("./components/pages/ClientArea/Workspaces/Workspaces"));
-
-// import { register } from "swiper/element/bundle";
-// register();
+const Workspace = React.lazy(() => import("./components/pages/WorkspaceArea/Workspace/Workspace"));
+const ChangelogPage = React.lazy(() => import("./components/pages/WorkspaceArea/Changelog/Changelog"));
+const ClientBoards = React.lazy(() => import("./components/pages/WorkspaceArea/ClientBoards/ClientBoards"));
+const ClientPostView = React.lazy(() => import("./components/pages/WorkspaceArea/PostView/PostView"));
 
 const App: FC = () => {
+  const CheckEnding: React.FC<{ children: ReactNode }> = ({ children }) => {
+    const location = useLocation();
+
+    if (location.pathname.endsWith("error")) {
+      return <Error />;
+    }
+
+    return children;
+  };
+
   return (
     <>
       <GlobalProvider>
@@ -61,8 +71,20 @@ const App: FC = () => {
             <Route path="billing" element={<BillingPlan />} />
             <Route path="history" element={<BillingHistory />} />
           </Route>
-          <Route path="/error" element={<Error />} />
-          <Route path="*" element={<NotFound />} />
+          <Route path="workspace" element={<WorkspaceLayout />}>
+            <Route index element={<Workspace />} />
+            <Route path="changelog" element={<ChangelogPage />} />
+            <Route path="boards" element={<ClientBoards />} />
+            <Route path="client-post" element={<ClientPostView />} />
+          </Route>
+          <Route
+            path="*"
+            element={
+              <CheckEnding>
+                <NotFound />
+              </CheckEnding>
+            }
+          />
         </Routes>
       </GlobalProvider>
     </>

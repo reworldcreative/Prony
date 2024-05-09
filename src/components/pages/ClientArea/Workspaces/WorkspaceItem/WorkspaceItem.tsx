@@ -3,6 +3,7 @@ import "./WorkspaceItem.scss";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import EditForm from "../forms/EditForm/EditForm";
 import DeleteForm from "../forms/DeleteForm/DeleteForm";
+import { Link } from "react-router-dom";
 
 export interface WorkspaceItemData {
   id: number;
@@ -37,7 +38,7 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
         handleOpenDeletePopUp();
       },
     },
-    { icon: "./img/icons/menu/play.svg", text: "View board", onClick: () => {} },
+    { icon: "./img/icons/menu/play.svg", text: "View board", url: "/workspace" },
   ];
 
   const handleOpenEditPopUp = () => {
@@ -56,18 +57,31 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
       <p className="workspace__domain">{data.domain}</p>
 
       <div className="workspace__menu">
-        {MenuButtons.map((button, index) => (
-          <button onClick={button.onClick} className="workspace__button" key={index}>
-            <img
-              src={button.icon}
-              className={`workspace__icon ${index !== MenuButtons.length - 1 ? "workspace__icon-second" : ""}`}
-              alt={button.text}
-              aria-hidden="true"
-              width="20"
-              height="20"
-            />
-          </button>
-        ))}
+        {MenuButtons.map((button, index) =>
+          button.url ? (
+            <Link to={button.url} className="workspace__button" key={index}>
+              <img
+                src={button.icon}
+                className={`workspace__icon ${index !== MenuButtons.length - 1 ? "workspace__icon-second" : ""}`}
+                alt={button.text}
+                aria-hidden="true"
+                width="20"
+                height="20"
+              />
+            </Link>
+          ) : (
+            <button onClick={button.onClick} className="workspace__button" key={index}>
+              <img
+                src={button.icon}
+                className={`workspace__icon ${index !== MenuButtons.length - 1 ? "workspace__icon-second" : ""}`}
+                alt={button.text}
+                aria-hidden="true"
+                width="20"
+                height="20"
+              />
+            </button>
+          )
+        )}
       </div>
     </div>
   );

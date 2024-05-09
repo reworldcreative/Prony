@@ -4,6 +4,11 @@
 .headerUserMenu {
   display: flex;
   align-items: center;
+  position: relative;
+
+  // &__menu {
+  //   position: relative;
+  // }
 
   &__avatar {
     margin-right: 20px;
@@ -33,6 +38,25 @@
 
       &.offline {
         background-color: var(--Danger);
+      }
+    }
+  }
+
+  &__button {
+    display: flex;
+    align-items: center;
+    margin: 0 0 0 auto;
+    font-weight: 500;
+
+    &-icon {
+      margin-right: 10px;
+    }
+
+    &:hover {
+      color: var(--Secondary);
+
+      .headerUserMenu__button-icon {
+        filter: invert(32%) sepia(86%) saturate(973%) hue-rotate(182deg) brightness(92%) contrast(99%);
       }
     }
   }

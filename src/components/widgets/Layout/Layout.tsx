@@ -20,10 +20,20 @@ const Layout: FC = () => {
     setOpenPopUpSettings,
     mainRoot,
     setMainRoot,
+    authorized,
+    setAuthorized,
+    menuLinks,
+    setMenuLinks,
   } = useContext(GlobalContext);
 
   useEffect(() => {
     setMainRoot("/");
+    setAuthorized(true);
+    setMenuLinks([
+      { text: "Workspaces", url: "/client" },
+      { text: "Profile", url: "/client/profile" },
+      { text: "Logout", url: "", click: () => setAuthorized(false) },
+    ]);
   }, []);
 
   return (

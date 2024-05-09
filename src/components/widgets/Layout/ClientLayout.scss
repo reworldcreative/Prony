@@ -138,6 +138,11 @@
       gap: 50px;
     }
   }
+
+  .login-form__link {
+    @include Font(12px, 400, 25.9px, var(--Secondary), -0.219px);
+    text-decoration-line: underline;
+  }
 }
 
 .clientPopUp,

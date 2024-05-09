@@ -28,6 +28,13 @@ const BillingPlan: FC = () => {
     setBreadcrumbsLinks(["/billing"]);
     setBreadcrumbsTitles(["Billing Plan"]);
     currentPlanData.BillingDate === "" && setInfoStyle({ display: "flex" });
+
+    BillingPlansList.map((plan) => {
+      const dayToPay = calculateDays(plan.BillingDate);
+      dayToPay === 0 ? (plan.BillingDate = "") : false;
+    });
+
+    setBillingPlansList([...BillingPlansList]);
   }, []);
 
   const [infoStyle, setInfoStyle] = useState({
@@ -42,12 +49,12 @@ const BillingPlan: FC = () => {
     setCurrentPlan(data.name);
     setCurrentPlanData(data);
     setInfoStyle({ display: "none" });
-    setBillingPlansList([...BillingPlansList, data]);
+    setBillingPlansList(BillingPlansList.map((plan) => (plan.name === data.name ? data : plan)));
     countDaysToPay(data.BillingDate);
   };
 
-  const countDaysToPay = (paymentData: string = "01/25") => {
-    const [monthStr, yearStr] = paymentData.split("/");
+  function calculateDays(data: string) {
+    const [monthStr, yearStr] = data.split("/");
     const month = parseInt(monthStr, 10);
     const year = parseInt(yearStr, 10);
     const fullYear = year < 100 ? 2000 + year : year;
@@ -56,6 +63,12 @@ const BillingPlan: FC = () => {
     const diffInMillis = date.getTime() - today.getTime();
     const millisPerDay = 24 * 60 * 60 * 1000;
     const diffInDays = Math.ceil(diffInMillis / millisPerDay);
+
+    return diffInDays;
+  }
+
+  const countDaysToPay = (paymentData: string = "01/25") => {
+    const diffInDays = calculateDays(paymentData);
     setDaysToPay(diffInDays.toString());
   };
 

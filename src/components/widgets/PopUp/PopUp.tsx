@@ -11,7 +11,7 @@ interface PopUpProps {
 const rootElement = document.getElementById("root");
 
 const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
-  const { theme, setTheme, isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+  const { theme, setTheme, isOpenPopUp, setOpenPopUp, popUpData } = useContext(GlobalContext);
 
   const popUpRef = useRef(null);
   const popUpCloseButtonRef = useRef(null);
@@ -32,7 +32,7 @@ const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
     return () => {
       rootElement.classList.remove("scroll-lock");
     };
-  }, [isOpenPopUp]);
+  }, [isOpenPopUp, popUpData]);
 
   const handleTabKeyDown = (event: React.KeyboardEvent<HTMLButtonElement>) => {
     if (event.key === "Tab" && !event.shiftKey && popUpRef.current) {

@@ -1,0 +1,112 @@
+@import "rfs/scss";
+@import "@/styles/variables";
+
+.workspace {
+  width: 100%;
+
+  &-feedback {
+    &__title {
+      margin-bottom: 20px;
+    }
+
+    &__list {
+      margin-top: 20px;
+      display: grid;
+      gap: 24px;
+      justify-content: space-between;
+      grid-template-columns: repeat(2, minmax(200px, 552px));
+    }
+
+    &__item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 11px 32.5px;
+      box-sizing: border-box;
+      flex-wrap: wrap;
+    }
+
+    &__text {
+      @include Font(18px, 500, 38.8px, var(--ClientMain));
+    }
+
+    &__count {
+      @include Font(18px, 400, 37.4px, var(--Primary), -0.219px);
+    }
+  }
+
+  &-roadmap {
+    margin-top: 30px;
+
+    &__wrapper {
+      display: grid;
+      gap: 24px;
+      justify-content: space-between;
+      grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+      margin-bottom: 46px;
+    }
+
+    &__container {
+      padding: 22px 20px 32px;
+    }
+
+    &__list,
+    &__container {
+      display: grid;
+      gap: 21px;
+    }
+
+    &__label {
+      color: #fff;
+      padding: 5px 20px;
+      border-radius: 30px;
+      background: var(--Secondary);
+      width: fit-content;
+      height: fit-content;
+    }
+
+    &__item {
+      display: grid;
+      gap: 28px;
+      justify-content: space-between;
+      grid-template-columns: auto auto;
+    }
+
+    &__icon {
+      display: block;
+      filter: invert(77%) sepia(57%) saturate(283%) hue-rotate(181deg) brightness(88%) contrast(87%);
+      margin-bottom: 5.5px;
+    }
+
+    &__likes,
+    &__text {
+      @include Font(14px, 400, normal, var(--ClientMain));
+    }
+
+    &__title {
+      @include Font(14px, 500, 17.99px, var(--Primary));
+      margin-bottom: 6px;
+    }
+  }
+}
+
+@include Small-Tablet {
+  .workspace {
+    &-roadmap {
+      &__wrapper {
+        gap: 20px;
+        grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      }
+    }
+  }
+}
+
+@include Mobile {
+  .workspace {
+    &-feedback {
+      &__list {
+        grid-template-columns: repeat(auto-fill, 100%);
+      }
+    }
+  }
+}

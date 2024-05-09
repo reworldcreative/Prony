@@ -36,6 +36,10 @@
     }
 
     .posts-item {
+      &__user {
+        width: auto;
+      }
+
       &__user-avatar {
         margin-top: 4px;
         width: 60px;
