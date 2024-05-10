@@ -37,7 +37,8 @@ module.exports = {
         runtimeChunk: "single",
         splitChunks: {
           chunks: "all",
-          maxInitialRequests: Infinity,
+          // maxInitialRequests: Infinity,
+          maxInitialRequests: 6,
           minSize: 2000,
           cacheGroups: {
             styles: {
@@ -55,6 +56,11 @@ module.exports = {
                 return `npm.${packageName.replace("@", "")}`;
               },
             },
+            default: {
+              minChunks: 2,
+              priority: -20,
+              reuseExistingChunk: true,
+            },
           },
         },
         usedExports: true,
@@ -64,6 +70,19 @@ module.exports = {
             terserOptions: {
               compress: {
                 drop_console: true,
+                dead_code: true,
+                drop_debugger: true,
+                unused: true,
+                collapse_vars: true,
+                reduce_vars: true,
+                hoist_funs: true,
+                hoist_vars: true,
+                if_return: true,
+                join_vars: true,
+                sequences: true,
+                booleans: true,
+                comparisons: true,
+                inline: true,
               },
               output: {
                 comments: false,
@@ -77,6 +96,8 @@ module.exports = {
     : {},
   performance: {
     hints: false,
+    // hints: 'warning',
+    // hints: "error",
     maxAssetSize: 512000,
     maxEntrypointSize: 512000,
   },
