@@ -13,12 +13,10 @@ interface formProps {
 }
 
 const EditForm: FC<formProps> = ({ submitSuccess, formTitle, formData }) => {
-  const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+  const { setOpenPopUp } = useContext(GlobalContext);
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     reset,
     formState: { errors, isValid },
   } = useForm<FieldValues>({

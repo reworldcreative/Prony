@@ -15,8 +15,6 @@ const DeleteForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
   const {
     register,
     handleSubmit,
-    watch,
-    control,
     reset,
     formState: { errors, isValid },
   } = useForm<FieldValues>({

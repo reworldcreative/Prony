@@ -70,7 +70,7 @@ const themes = [
 ];
 
 const AddForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
-  const { isOpenPopUp, setOpenPopUp } = useContext(GlobalContext);
+  const { setOpenPopUp } = useContext(GlobalContext);
   const [currentLanguage, setCurrentLanguage] = useState<string>("English");
   const [currentTheme, setCurrentTheme] = useState<string>("");
   const [currentPlan, setCurrentPlan] = useState<string>("pubic");
@@ -86,7 +86,7 @@ const AddForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
   });
 
   const onSubmit = (data: WorkspaceItemData) => {
-    submitSuccess({...data, plan:currentPlan});
+    submitSuccess({ ...data, plan: currentPlan });
     setOpenPopUp(false);
     reset();
   };

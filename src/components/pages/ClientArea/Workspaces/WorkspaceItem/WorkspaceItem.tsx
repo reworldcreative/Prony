@@ -21,7 +21,7 @@ interface WorkspaceItemProps {
 }
 
 const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWorkspace }) => {
-  const { isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } = useContext(GlobalContext);
+  const { setOpenPopUp, setPopUpData } = useContext(GlobalContext);
 
   const MenuButtons = [
     {

@@ -27,6 +27,7 @@ module.exports = {
   output: {
     filename: "[name][contenthash].js",
     path: path.resolve(__dirname, "docs"),
+    chunkFilename: "[name].[chunkhash].js",
     assetModuleFilename: (pathData) => {
       return `img/${pathData.filename.split("src/assets/img")[1].slice(1)}`;
     },
@@ -43,7 +44,7 @@ module.exports = {
         splitChunks: {
           chunks: "all",
           // maxInitialRequests: Infinity,
-          maxInitialRequests: 6,
+          maxInitialRequests: 5,
           minSize: 2000,
           cacheGroups: {
             styles: {
@@ -72,26 +73,27 @@ module.exports = {
         moduleIds: "deterministic",
         minimizer: [
           new TerserPlugin({
+            parallel: true,
             terserOptions: {
               compress: {
-                drop_console: true,
-                dead_code: true,
-                drop_debugger: true,
-                unused: true,
-                collapse_vars: true,
-                reduce_vars: true,
-                hoist_funs: true,
-                hoist_vars: true,
-                if_return: true,
-                join_vars: true,
-                sequences: true,
-                booleans: true,
-                comparisons: true,
-                inline: true,
+                drop_console: true, // Видаляє всі виклики console.*.
+                dead_code: true, // Видаляє мертвий код, тобто код, який ніколи не буде виконано.
+                drop_debugger: true, // Видаляє всі виклики debugger.
+                unused: true, // Видаляє невикористовувані змінні та функції.
+                collapse_vars: true, // Об'єднує змінні, які використовуються тільки один раз.
+                reduce_vars: true, // Оптимізує використання змінних.
+                hoist_funs: true, // Піднімає функції на початок контексту (функції чи блоку).
+                hoist_vars: true, // Піднімає змінні на початок контексту.
+                if_return: true, // Оптимізує умови, видаляючи непотрібні else.
+                join_vars: true, // Об'єднує змінні, які можуть бути оголошені разом.
+                sequences: true, // Злиття виразів в єдині ланцюжки.
+                booleans: true, // Оптимізація логічних значень.
+                comparisons: true, // Оптимізація порівнянь.
+                inline: true, // Інлайнинг простих функцій та значень, що підвищує продуктивність.
               },
               output: {
-                comments: false,
-                beautify: false,
+                comments: false, // Якщо false, усі коментарі видаляються.
+                beautify: false, // Якщо false, вивід стає мінімізованим, без зайвих пробілів або форматування.
               },
             },
             extractComments: false,
@@ -303,9 +305,19 @@ module.exports = {
       // },
       autoResolveFontExtensions: true,
       // autoResolveFontExtensions: ["woff2", "ttf", "eot"],
+      // minify: {
+      //   collapseWhitespace: true, // Видаляє зайві пробіли
+      //   removeComments: true, // Видаляє коментарі
+      //   removeRedundantAttributes: true, // Видаляє надлишкові атрибути
+      //   useShortDoctype: true, // Використовує короткий формат doctype
+      //   removeEmptyAttributes: true, // Видаляє порожні атрибути
+      //   removeOptionalTags: true, // Видаляє опціональні теги
+      // },
+      // chunks: ["main", "vendor"], // Вказує, які бандли слід включити
     }),
     new MiniCssExtractPlugin({
       filename: "[name][contenthash].css",
+      chunkFilename: "[id].[contenthash].css", // Ім'я для розділених CSS
     }),
     new ImageMinimizerPlugin({
       minimizer: {
@@ -409,6 +421,12 @@ module.exports = {
           minify: true,
           extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
           // extract: true, // CSS  буде виділятися в окремий файл
+          dimensions: [
+            { width: 375, height: 565 }, // Мобільний розмір
+            { width: 768, height: 1024 }, // Планшет
+            { width: 1200, height: 900 }, // Десктоп
+            { width: 1440, height: 1200 },
+          ],
         })
       : false,
 

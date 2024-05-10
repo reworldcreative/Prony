@@ -52,9 +52,9 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
       )}
 
       <div aria-live="assertive" className="headerUserMenu__menu">
-        <div aria-label={`menu is ${openHeaderMenu ? "open" : "close"}`}>
+        <nav aria-label={`menu is ${openHeaderMenu ? "open" : "close"}`}>
           {openHeaderMenu ? <HeaderDropDownMenu openButton={dropDownMenuButtonRef} isOpen={openHeaderMenu} /> : false}
-        </div>
+        </nav>
       </div>
     </div>
   ) : (

@@ -1,6 +1,5 @@
 import React, { FC, useContext, useEffect, useState } from "react";
 import "./Workspaces.scss";
-import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import WorkspaceItem, { WorkspaceItemData } from "./WorkspaceItem/WorkspaceItem";
 import WorkspacesData from "@/data/Workspaces.json";
@@ -9,16 +8,7 @@ import plusIcon from "@icons/plus.svg";
 import AddForm from "./forms/AddForm/AddForm";
 
 const Workspaces: FC = () => {
-  const {
-    breadcrumbsLinks,
-    setBreadcrumbsLinks,
-    breadcrumbsTitles,
-    setBreadcrumbsTitles,
-    isOpenPopUp,
-    setOpenPopUp,
-    popUpData,
-    setPopUpData,
-  } = useContext(GlobalContext);
+  const { setBreadcrumbsLinks, setBreadcrumbsTitles, setOpenPopUp, setPopUpData } = useContext(GlobalContext);
   const [WorkspacesList, setWorkspacesList] = useState<WorkspaceItemData[]>([...WorkspacesData]);
 
   useEffect(() => {

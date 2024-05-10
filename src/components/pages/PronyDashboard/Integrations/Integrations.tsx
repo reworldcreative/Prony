@@ -1,4 +1,4 @@
-import React, { FC, useEffect, useRef, useState } from "react";
+import React, { FC, useEffect, useState } from "react";
 import "./Integrations.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
