@@ -79,6 +79,7 @@ const ChangelogLabelsItem: FC<ChangelogLabelsItemProps> = ({ data, handleEdit, h
               width="20"
               height="20"
               aria-hidden="true"
+              loading="lazy"
             />
           </button>
         ))}

@@ -68,6 +68,7 @@ const SocialAccounts: FC = () => {
                 width="24"
                 height="24"
                 aria-hidden="true"
+                loading="lazy"
               />
               {linkStatus[link.text] === "" ? "Add" : ""} {link.text} account
             </button>

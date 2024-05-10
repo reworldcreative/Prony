@@ -92,6 +92,7 @@ const Dropdown: FC<DropdownProps> = ({ options, addClass, current, onSelect, typ
           height={7}
           aria-hidden="true"
           className={`dropdown__icon ${theme && theme.theme}`}
+          loading="lazy"
         />
       </button>
       {isOpen && (

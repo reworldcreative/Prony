@@ -1,30 +1,25 @@
 import React, { FC, Suspense, useContext, useEffect, useState } from "react";
 import { Outlet } from "react-router-dom";
-import AsideMenu from "../AsideMenu/AsideMenu";
-import Header from "../Header/Header";
-import PopUp from "../PopUp/PopUp";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
-import PopUpSettings from "../PopUp/PopUpSettings";
-import EmailSettingsForm from "@/components/UI/forms/EmailSettingsForm/EmailSettingsForm";
-import GeneralSettingsForm from "@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm";
-import AppearanceSettingsForm from "@/components/UI/forms/AppearanceSettingsForm/AppearanceSettingsForm";
-import CustomDomain from "@/components/UI/forms/CustomDomain/CustomDomain";
+// import Header from "../Header/Header";
+// import AsideMenu from "../AsideMenu/AsideMenu";
+// import PopUpSettings from "../PopUp/PopUpSettings";
+// import EmailSettingsForm from "@/components/UI/forms/EmailSettingsForm/EmailSettingsForm";
+// import GeneralSettingsForm from "@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm";
+// import AppearanceSettingsForm from "@/components/UI/forms/AppearanceSettingsForm/AppearanceSettingsForm";
+// import CustomDomain from "@/components/UI/forms/CustomDomain/CustomDomain";
+const Header = React.lazy(() => import("../Header/Header"));
+const AsideMenu = React.lazy(() => import("../AsideMenu/AsideMenu"));
+const PopUpSettings = React.lazy(() => import("../PopUp/PopUpSettings"));
+const EmailSettingsForm = React.lazy(() => import("@/components/UI/forms/EmailSettingsForm/EmailSettingsForm"));
+const GeneralSettingsForm = React.lazy(() => import("@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm"));
+const AppearanceSettingsForm = React.lazy(
+  () => import("@/components/UI/forms/AppearanceSettingsForm/AppearanceSettingsForm")
+);
+const CustomDomain = React.lazy(() => import("@/components/UI/forms/CustomDomain/CustomDomain"));
 
 const Layout: FC = () => {
-  const {
-    isOpenPopUp,
-    setOpenPopUp,
-    PopUpSettingsType,
-    setPopUpSettingsType,
-    isOpenPopUpSettings,
-    setOpenPopUpSettings,
-    mainRoot,
-    setMainRoot,
-    authorized,
-    setAuthorized,
-    menuLinks,
-    setMenuLinks,
-  } = useContext(GlobalContext);
+  const { PopUpSettingsType, setMainRoot, setAuthorized, setMenuLinks } = useContext(GlobalContext);
 
   useEffect(() => {
     setMainRoot("/");
@@ -38,16 +33,23 @@ const Layout: FC = () => {
 
   return (
     <div className="layout">
-      <PopUpSettings>
-        {PopUpSettingsType === "email" && <EmailSettingsForm formTitle="Email settings" />}
-        {PopUpSettingsType === "general" && <GeneralSettingsForm formTitle="General settings" />}
-        {PopUpSettingsType === "appearance" && <AppearanceSettingsForm formTitle="Appearance" />}
-        {PopUpSettingsType === "domain" && <CustomDomain formTitle="Custom domain" />}
-      </PopUpSettings>
+      <Suspense fallback={<></>}>
+        <PopUpSettings>
+          {PopUpSettingsType === "email" && <EmailSettingsForm formTitle="Email settings" />}
+          {PopUpSettingsType === "general" && <GeneralSettingsForm formTitle="General settings" />}
+          {PopUpSettingsType === "appearance" && <AppearanceSettingsForm formTitle="Appearance" />}
+          {PopUpSettingsType === "domain" && <CustomDomain formTitle="Custom domain" />}
+        </PopUpSettings>
+      </Suspense>
 
-      <Header useOption={false} />
+      <Suspense fallback={<></>}>
+        <Header useOption={false} />
+      </Suspense>
+
       <div className="pageContainer">
-        <AsideMenu />
+        <Suspense fallback={<></>}>
+          <AsideMenu />
+        </Suspense>
 
         <main className="pageContainer__main">
           <Suspense fallback={<></>}>

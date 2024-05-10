@@ -46,6 +46,7 @@ const PostElement: FC<PostElementProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             {likes} likes
           </div>
@@ -76,6 +77,7 @@ const PostElement: FC<PostElementProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             Reply
           </button>
@@ -88,6 +90,7 @@ const PostElement: FC<PostElementProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             Delete
           </button>
@@ -100,6 +103,7 @@ const PostElement: FC<PostElementProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             Privat
           </button>

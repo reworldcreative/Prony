@@ -121,6 +121,7 @@ const ChangelogDropdown: FC<ChangelogDropdownProps> = ({ current, addClass, onSe
             height={7}
             aria-hidden="true"
             className={`dropdown__icon ${theme && theme.theme}`}
+            loading="lazy"
           />
         </button>
         {isOpen && (

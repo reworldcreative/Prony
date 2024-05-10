@@ -37,6 +37,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active 
                 height={20}
                 aria-hidden="true"
                 className={`asideMenu__icon ${theme.theme}`}
+                loading="lazy"
               />
               <p className="asideMenu__link subtitle-second">{item.text}</p>
             </div>
@@ -53,6 +54,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active 
                   height={7}
                   aria-hidden="true"
                   className={`asideMenu__sub-icon ${theme.theme}`}
+                  loading="lazy"
                 />
               </button>
             )}
@@ -96,12 +98,7 @@ const AsideMenuItem: FC<{ item: MenuItem; active?: boolean }> = ({ item, active 
             <div className="asideMenu__submenu">
               {item.submenu.map((subItem, subIndex) =>
                 subItem.click ? (
-                  <button
-                    key={subIndex}
-                    onClick={
-                      subItem.click}
-                    className="asideMenu__submenu-link caption"
-                  >
+                  <button key={subIndex} onClick={subItem.click} className="asideMenu__submenu-link caption">
                     {subItem.text}
                   </button>
                 ) : (

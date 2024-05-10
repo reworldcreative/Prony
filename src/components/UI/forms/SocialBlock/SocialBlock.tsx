@@ -39,6 +39,7 @@ const SocialBlock: FC = () => {
               width="24"
               height="24"
               aria-hidden="true"
+              loading="lazy"
             />
             Login with {link.text}
           </button>

@@ -129,6 +129,7 @@ const Workspace: FC = () => {
                       width="14"
                       height="14"
                       aria-hidden="true"
+                      loading="lazy"
                     />
                     <p className="workspace-roadmap__likes">{item.likes}</p>
                   </div>

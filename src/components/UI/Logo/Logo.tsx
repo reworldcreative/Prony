@@ -12,9 +12,16 @@ const Logo: FC<{ color?: "light" | "dark" }> = ({ color }) => {
   return (
     <Link to={mainRoot} aria-label="Prony logo. Link to main page." className="logo-link">
       <div className="logo" aria-hidden="true">
-        <img className="logo-icon" src={LogoIcon} alt="logo icon" width="25" height="30" />
+        <img className="logo-icon" src={LogoIcon} alt="logo icon" width="25" height="30" loading="lazy" />
 
-        <img className={`logo-text ${color ? color : theme}`} src={Logo_text} alt="logo text" width="102" height="24" />
+        <img
+          className={`logo-text ${color ? color : theme}`}
+          src={Logo_text}
+          alt="logo text"
+          width="102"
+          height="24"
+          loading="lazy"
+        />
 
         {/* <LogoIcon className="logo-icon" width="25" height="30" aria-label="logo icon"/> */}
       </div>

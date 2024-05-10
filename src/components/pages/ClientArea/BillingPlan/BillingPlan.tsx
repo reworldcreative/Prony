@@ -85,6 +85,7 @@ const BillingPlan: FC = () => {
             width="18"
             height="18"
             aria-hidden="true"
+            loading="lazy"
           />
           Your Trial expires in {daysToPay} days. You can always buy a plan before the trial period ends
         </div>

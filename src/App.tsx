@@ -1,5 +1,5 @@
-import React, { FC, useState, useEffect, Suspense, useContext, ReactNode } from "react";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
+import React, { FC, ReactNode } from "react";
+import { Routes, Route, useLocation } from "react-router-dom";
 import { GlobalProvider } from "./components/widgets/GlobalContext/GlobalContext";
 import ClientLayout from "./components/widgets/Layout/ClientLayout";
 import Layout from "./components/widgets/Layout/Layout";

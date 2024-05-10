@@ -12,9 +12,7 @@ interface InfoProps {
 const Info: FC<InfoProps> = ({ type, text, visible }) => {
   return (
     <div
-      className={`info ${type === "success" ? "info_success" : "info_danger"} ${
-        visible ? "info_visible" : ""
-      }`}
+      className={`info ${type === "success" ? "info_success" : "info_danger"} ${visible ? "info_visible" : ""}`}
       aria-live="assertive"
     >
       <img
@@ -24,6 +22,7 @@ const Info: FC<InfoProps> = ({ type, text, visible }) => {
         width="24"
         height="24"
         aria-hidden="true"
+        loading="lazy"
       />
       <p className="info__text text">{text}</p>
     </div>

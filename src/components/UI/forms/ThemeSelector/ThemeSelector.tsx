@@ -47,6 +47,7 @@ const ThemeSelector: FC<ThemeSelectorProps> = ({ themes, onThemeChange }) => {
                 width="12"
                 height="12"
                 aria-hidden="true"
+                loading="lazy"
               />
 
               <p className="theme-selectors__color-text ">Custom</p>

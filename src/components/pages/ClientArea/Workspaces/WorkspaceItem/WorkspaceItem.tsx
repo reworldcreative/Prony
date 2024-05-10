@@ -67,6 +67,7 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
                 aria-hidden="true"
                 width="20"
                 height="20"
+                loading="lazy"
               />
             </Link>
           ) : (
@@ -78,6 +79,7 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
                 aria-hidden="true"
                 width="20"
                 height="20"
+                loading="lazy"
               />
             </button>
           )

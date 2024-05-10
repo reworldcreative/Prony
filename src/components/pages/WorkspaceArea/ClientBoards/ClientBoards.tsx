@@ -106,6 +106,7 @@ const ClientBoards: FC = () => {
                   width="14"
                   height="14"
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 <p className="client-boards__likes">{item.likes}</p>
               </div>
@@ -130,6 +131,7 @@ const ClientBoards: FC = () => {
                   width="16"
                   height="16"
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 <p className="client-boards__messages">{item.comments}</p>
               </div>

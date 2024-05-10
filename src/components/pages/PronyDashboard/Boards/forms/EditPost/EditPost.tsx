@@ -40,7 +40,7 @@ const EditPost: FC<formProps> = ({ submitSuccess, formTitle }) => {
     <>
       <div className={`addField ${isOpenAddField ? "addField_open" : ""}`}>
         <button className={`closeButton closeButton_${theme}`} onClick={handleClickOutside}>
-          <img src={closeIcon} alt="close" width="24" height="24" aria-hidden="true" />
+          <img src={closeIcon} alt="close" width="24" height="24" aria-hidden="true" loading="lazy" />
         </button>
         <div className="addField__block">
           <AddFieldItem title="Select" text="Allows to select a value from the list of predefined values" />

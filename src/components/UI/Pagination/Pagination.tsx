@@ -28,6 +28,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages, ad
             width="20"
             height="20"
             aria-hidden="true"
+            loading="lazy"
           />
         </button>
 
@@ -44,6 +45,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages, ad
             width="20"
             height="20"
             aria-hidden="true"
+            loading="lazy"
           />
         </button>
       </div>
@@ -87,6 +89,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages, ad
             width="20"
             height="20"
             aria-hidden="true"
+            loading="lazy"
           />
         </button>
 
@@ -103,6 +106,7 @@ const Pagination: FC<PaginationProps> = ({ paginate, currentPage, totalPages, ad
             width="20"
             height="20"
             aria-hidden="true"
+            loading="lazy"
           />
         </button>
       </div>

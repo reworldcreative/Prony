@@ -95,6 +95,7 @@ const TagsItem: FC<TagsItemProps> = ({ data, handleEdit, handleDelete, handleRep
               width="20"
               height="20"
               aria-hidden="true"
+              loading="lazy"
             />
           </button>
         ))}

@@ -141,7 +141,15 @@ const CreateForm: FC<formProps> = ({ submitSuccess, formTitle, formType, formDat
                   <DateTimeField onSelect={onChange} />
                 </LocalizationProvider>
 
-                <img src={calendar} className="date-icon" alt="date icon" width="24" height="24" aria-hidden="true" />
+                <img
+                  src={calendar}
+                  className="date-icon"
+                  alt="date icon"
+                  width="24"
+                  height="24"
+                  aria-hidden="true"
+                  loading="lazy"
+                />
               </div>
             </div>
           )}

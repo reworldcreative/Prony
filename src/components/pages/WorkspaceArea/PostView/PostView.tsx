@@ -61,6 +61,7 @@ const PostView: FC = () => {
                 width="20"
                 height="20"
                 aria-hidden="true"
+                loading="lazy"
               />
               {post?.likes} <span className="visibility-hidden">likes</span>
             </div>
@@ -102,6 +103,7 @@ const PostView: FC = () => {
                   width="16"
                   height="16"
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 {post?.posts} comments
               </div>

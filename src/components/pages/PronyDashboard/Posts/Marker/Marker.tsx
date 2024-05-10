@@ -29,6 +29,7 @@ const Marker: FC<MarkerProps> = ({ name, removeItem, type, color, hashColor }) =
             width="7"
             height="7"
             aria-hidden="true"
+            loading="lazy"
           />
         </button>
       )}

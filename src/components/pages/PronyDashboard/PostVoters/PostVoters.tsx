@@ -70,7 +70,7 @@ const PostVoters: FC = () => {
           </h1>
 
           <button className="load-button subtitle-second" aria-label="import" onClick={handleImportForm}>
-            <img src={importIcon} alt="import icon" width="14" height="17" aria-hidden="true" />
+            <img src={importIcon} alt="import icon" width="14" height="17" aria-hidden="true" loading="lazy" />
             Import
           </button>
         </div>

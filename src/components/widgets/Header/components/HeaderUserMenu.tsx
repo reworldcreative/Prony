@@ -13,8 +13,7 @@ type HeaderUserMenuProps = {
 };
 const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
   const [openHeaderMenu, setOpenHeaderMenu] = useState(false);
-  const { mainRoot, authorized, setAuthorized, isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } =
-    useContext(GlobalContext);
+  const { authorized, setOpenPopUp, popUpData, setPopUpData } = useContext(GlobalContext);
   const handleChangeOpenHeaderMenu = () => {
     setOpenHeaderMenu(!openHeaderMenu);
   };
@@ -67,6 +66,7 @@ const HeaderUserMenu: FC<HeaderUserMenuProps> = ({ useOption = false }) => {
         width="16"
         height="16"
         aria-hidden="true"
+        loading="lazy"
       />
       Log in
     </button>

@@ -1,9 +1,9 @@
 const path = require("path");
-const selfSignedCert = require("self-signed-cert");
+// const selfSignedCert = require("self-signed-cert");
 const htmlWebpackPlugin = require("html-webpack-plugin");
 const isProduction = process.env.NODE_ENV === "production";
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
-const FontfacegenWebpackPlugin = require("./plugins/fontfacegen-webpack-plugin");
+// const FontfacegenWebpackPlugin = require("./plugins/fontfacegen-webpack-plugin");
 const { CleanWebpackPlugin } = require("clean-webpack-plugin");
 const ImageMinimizerPlugin = require("image-minimizer-webpack-plugin");
 const ImageminWebpWebpackPlugin = require("imagemin-webp-webpack-plugin");
@@ -13,6 +13,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 const webpack = require("webpack");
 const FaviconsWebpackPlugin = require("favicons-webpack-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
+const CssMinimizerPlugin = require("css-minimizer-webpack-plugin");
 
 module.exports = {
   mode: isProduction ? "production" : "development",
@@ -35,6 +36,10 @@ module.exports = {
     ? {
         minimize: true,
         runtimeChunk: "single",
+        removeAvailableModules: true, // Видаляє модулі, які вже не потрібні
+        removeEmptyChunks: true, // Видаляє порожні бандли
+        concatenateModules: true, // Вмикає об'єднання модулів
+        moduleIds: "deterministic", // Встановлює стабільні імена модулів
         splitChunks: {
           chunks: "all",
           // maxInitialRequests: Infinity,
@@ -90,6 +95,26 @@ module.exports = {
               },
             },
             extractComments: false,
+          }),
+          new CssMinimizerPlugin({
+            include: /src/,
+            exclude: /node_modules/,
+            parallel: true,
+            minimizerOptions: {
+              preset: [
+                "advanced",
+                {
+                  discardComments: { removeAll: true }, // Видаляє всі коментарі
+                  mergeLonghand: true, // Зливає довгі властивості
+                  reduceIdents: true, // Скорочує ідентифікатори
+                  mergeRules: true, // Об'єднує схожі правила
+                  removeEmpty: true, // Видаляє порожні блоки CSS
+                  normalizeWhitespace: true, // Оптимізує пробіли
+                  reduceTransforms: true, // Оптимізує CSS-трансформації
+                  convertValues: true, // Оптимізує CSS-значення
+                },
+              ],
+            },
           }),
         ],
       }

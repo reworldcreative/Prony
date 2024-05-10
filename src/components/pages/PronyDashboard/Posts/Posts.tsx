@@ -153,12 +153,12 @@ const Posts: FC = () => {
 
           <div className="buttonsPosts">
             <button className="load-button subtitle-second" aria-label="import">
-              <img src={importIcon} alt="import icon" width="14" height="17" aria-hidden="true" />
+              <img src={importIcon} alt="import icon" width="14" height="17" aria-hidden="true" loading="lazy" />
               Import
             </button>
 
             <button className="load-button subtitle-second" aria-label="export">
-              <img src={exportIcon} alt="export icon" width="14" height="17" aria-hidden="true" />
+              <img src={exportIcon} alt="export icon" width="14" height="17" aria-hidden="true" loading="lazy" />
               Export
             </button>
 

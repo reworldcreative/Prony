@@ -122,6 +122,7 @@ const PostView: FC = () => {
                   width="24"
                   height="24"
                   aria-hidden="true"
+                  loading="lazy"
                 />
                 {post?.likes} <span className="visibility-hidden">likes</span>
               </div>
@@ -162,6 +163,7 @@ const PostView: FC = () => {
                             aria-hidden="true"
                             width="20"
                             height="20"
+                            loading="lazy"
                           />
                           <span className="text openMenu__text">{link.text}</span>
                         </button>

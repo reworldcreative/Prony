@@ -78,6 +78,7 @@ const SegmentsItem: FC<SegmentsItemProps> = ({ data, handleEdit, handleDelete })
               width="20"
               height="20"
               aria-hidden="true"
+              loading="lazy"
             />
           </button>
         ))}

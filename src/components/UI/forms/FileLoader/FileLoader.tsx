@@ -60,6 +60,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
             width="16"
             height="16"
             aria-hidden="true"
+            loading="lazy"
           />
           <label htmlFor={`postFileLoader-${label}`} className="file-loader__link">
             Add file&#160;
@@ -84,6 +85,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
               width="93"
               height="68"
               aria-hidden="true"
+              loading="lazy"
             />
           )}
 
@@ -96,6 +98,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
                 width="16"
                 height="16"
                 aria-hidden="true"
+                loading="lazy"
               />
               <p className="file-loader__file-name text-second">{fileName}</p>
             </div>
@@ -109,7 +112,7 @@ const FileLoader: FC<FileLoaderProps> = ({ onSelect, label, type = "image" }) =>
               setFileName("");
             }}
           >
-            <img src={cancelIcon} alt="close" width="20" height="20" aria-hidden="true" />
+            <img src={cancelIcon} alt="close" width="20" height="20" aria-hidden="true" loading="lazy" />
           </button>
         </div>
       )}

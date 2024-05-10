@@ -97,6 +97,7 @@ const Statuses: FC = () => {
                 width="24"
                 height="24"
                 aria-hidden="true"
+                loading="lazy"
               />
               Reset to default
             </button>
@@ -122,6 +123,7 @@ const Statuses: FC = () => {
                 width="16"
                 height="16"
                 aria-hidden="true"
+                loading="lazy"
               />
             </h2>
 

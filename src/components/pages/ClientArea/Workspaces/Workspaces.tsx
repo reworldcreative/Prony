@@ -76,6 +76,7 @@ const Workspaces: FC = () => {
           width="15"
           height="15"
           aria-hidden="true"
+          loading="lazy"
         />
         Add a new workspace
       </Button>

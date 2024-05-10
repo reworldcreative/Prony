@@ -116,6 +116,7 @@ const UsersItem: FC<userItemProps> = ({ itemData, deleteUser }) => {
                     aria-hidden="true"
                     width="20"
                     height="20"
+                    loading="lazy"
                   />
                   <span className="text openMenu__text">{link.text}</span>
                 </Link>
@@ -128,6 +129,7 @@ const UsersItem: FC<userItemProps> = ({ itemData, deleteUser }) => {
                     aria-hidden="true"
                     width="20"
                     height="20"
+                    loading="lazy"
                   />
                   <span className="text openMenu__text">{link.text}</span>
                 </button>

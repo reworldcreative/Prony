@@ -77,6 +77,7 @@ const Payment: FC = () => {
                     width="20"
                     height="20"
                     aria-hidden="true"
+                    loading="lazy"
                   />
                 </button>
 
@@ -114,6 +115,7 @@ const Payment: FC = () => {
             width="15"
             height="15"
             aria-hidden="true"
+            loading="lazy"
           />
           Add a new payment method
         </Button>

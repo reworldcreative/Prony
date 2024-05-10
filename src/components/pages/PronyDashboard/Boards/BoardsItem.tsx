@@ -115,7 +115,15 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp, changePrivacy }) => 
               aria-label="visibility change"
               onClick={handleChangePrivacy}
             >
-              <img className="boards__icon" src={eye} alt="visibility" width="24" height="24" aria-hidden="true" />
+              <img
+                className="boards__icon"
+                src={eye}
+                alt="visibility"
+                width="24"
+                height="24"
+                aria-hidden="true"
+                loading="lazy"
+              />
             </button>
 
             <button
@@ -124,7 +132,15 @@ const BoardsItem: FC<Props> = ({ item, lockItem, openPopUp, changePrivacy }) => 
               aria-label={`${lockedMove ? "unlock" : "lock"} move`}
               onClick={handleChangeLockedMove}
             >
-              <img className="boards__icon" src={lock} alt="lock" width="24" height="24" aria-hidden="true" />
+              <img
+                className="boards__icon"
+                src={lock}
+                alt="lock"
+                width="24"
+                height="24"
+                aria-hidden="true"
+                loading="lazy"
+              />
             </button>
 
             <div aria-live="assertive" className="boards__menu-wrapper">

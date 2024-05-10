@@ -77,6 +77,7 @@ const CustomDomain: FC<formProps> = ({ formTitle }) => {
               aria-hidden="true"
               width="24"
               height="24"
+              loading="lazy"
             />
 
             <p className="custom-domain__info-text text">Make sure you point to cname.prony.io in your DNS settings</p>

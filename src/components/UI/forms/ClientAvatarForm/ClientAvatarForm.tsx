@@ -90,6 +90,7 @@ const ClientAvatarForm: FC<formProps> = ({ submitSuccess, formTitle }) => {
                 width="16"
                 height="16"
                 aria-hidden="true"
+                loading="lazy"
               />
               <label htmlFor="avatarLoader" className="file-loader__link">
                 Add file&#160;

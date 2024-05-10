@@ -36,6 +36,7 @@ const Socials: FC = () => {
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
           </a>
         </li>

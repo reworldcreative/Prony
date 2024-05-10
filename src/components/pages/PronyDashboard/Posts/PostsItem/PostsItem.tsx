@@ -99,6 +99,7 @@ const PostsItem: FC<PostsItemProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             {likes.toString()} <span className="visibility-hidden">likes</span>
           </div>
@@ -111,6 +112,7 @@ const PostsItem: FC<PostsItemProps> = ({
               width="16"
               height="16"
               aria-hidden="true"
+              loading="lazy"
             />
             {posts.toString()} <span className="visibility-hidden">posts</span>
           </div>

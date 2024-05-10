@@ -4,6 +4,22 @@
 .popUp {
   display: none;
 
+  &::-webkit-scrollbar {
+    width: 3px;
+    background-color: transparent;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    background-color: #d7d7d7;
+    border-radius: 10px;
+    width: 3px;
+  }
+
+  &::-webkit-scrollbar-track {
+    background-color: transparent;
+    width: 3px;
+  }
+
   &:not(.popUp_open) {
     animation: fadeOut 0.5s ease-in-out;
 
@@ -22,7 +38,7 @@
     max-width: 1440px;
     width: 90vw;
     box-sizing: border-box;
-    overflow-y: auto;
+    // overflow-y: auto;
     z-index: 101;
     top: 50%;
     left: 50%;
@@ -33,6 +49,12 @@
     box-shadow: 0px 0px 14px 0px rgba(53, 64, 82, 0.05);
     padding: 33px 45px;
     animation: fadeInOpacity 0.5s ease-in-out;
+
+    .form {
+      overflow-y: auto;
+      max-height: 70vh;
+      padding: 1px;
+    }
   }
 
   &__BG {

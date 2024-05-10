@@ -34,7 +34,7 @@ const PostVotersItem: FC<PostVotersItemProps> = ({ onDelete, name, time, icon, i
           onDelete(id);
         }}
       >
-        <img src={cancelIcon} alt="remove" width="20" height="20" aria-hidden="true" />
+        <img src={cancelIcon} alt="remove" width="20" height="20" aria-hidden="true" loading="lazy" />
       </button>
     </div>
   );

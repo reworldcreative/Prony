@@ -71,7 +71,7 @@ const EditPostItem: FC<EditPostItemProps> = ({ type = "text", title }) => {
         </div>
 
         <button className="editPostForm__cancel" type="button" aria-label="remove field">
-          <img src={cancelIcon} alt="close" width="20" height="20" aria-hidden="true" />
+          <img src={cancelIcon} alt="close" width="20" height="20" aria-hidden="true" loading="lazy" />
         </button>
       </div>
     </fieldset>
