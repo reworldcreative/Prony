@@ -6,13 +6,32 @@ import RadioBlock from "./RadioBlock";
 import CheckboxBlock from "./CheckboxBlock";
 
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
-import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
-import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
 import dayjs, { Dayjs } from "dayjs";
-import { StaticTimePicker } from "@mui/x-date-pickers";
-import MuiButton from "@mui/material/Button";
-import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
-import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+// import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider";
+// import { DateCalendar } from "@mui/x-date-pickers/DateCalendar";
+// import { StaticTimePicker } from "@mui/x-date-pickers";
+// import MuiButton from "@mui/material/Button";
+// import KeyboardArrowUpIcon from "@mui/icons-material/KeyboardArrowUp";
+// import KeyboardArrowDownIcon from "@mui/icons-material/KeyboardArrowDown";
+
+const DateCalendar = React.lazy(async () => {
+  const module = await import("@mui/x-date-pickers/DateCalendar");
+  return { default: module["DateCalendar"] };
+});
+
+const LocalizationProvider = React.lazy(async () => {
+  const module = await import("@mui/x-date-pickers/LocalizationProvider");
+  return { default: module["LocalizationProvider"] };
+});
+
+const StaticTimePicker = React.lazy(async () => {
+  const module = await import("@mui/x-date-pickers");
+  return { default: module["StaticTimePicker"] };
+});
+
+const MuiButton = React.lazy(() => import("@mui/material/Button"));
+const KeyboardArrowUpIcon = React.lazy(() => import("@mui/icons-material/KeyboardArrowUp"));
+const KeyboardArrowDownIcon = React.lazy(() => import("@mui/icons-material/KeyboardArrowDown"));
 
 interface DropdownSelectProps {
   getValue: (value: string[]) => void;

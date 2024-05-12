@@ -2,16 +2,16 @@ import React, { FC, Suspense, useContext, useEffect } from "react";
 import "./ClientLayout.scss";
 import { Outlet } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
-// import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
-// import Header from "../Header/Header";
-// import Footer from "../Footer/Footer";
-// import ClientAsideMenu from "../ClientAsideMenu/ClientAsideMenu";
+import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
+import Header from "../Header/Header";
+import Footer from "../Footer/Footer";
+import ClientAsideMenu from "../ClientAsideMenu/ClientAsideMenu";
 // import PopUp from "../PopUp/PopUp";
 const PopUp = React.lazy(() => import("../PopUp/PopUp"));
-const ClientAsideMenu = React.lazy(() => import("../ClientAsideMenu/ClientAsideMenu"));
-const Header = React.lazy(() => import("../Header/Header"));
-const Footer = React.lazy(() => import("../Footer/Footer"));
-const Breadcrumbs = React.lazy(() => import("../Breadcrumbs/Breadcrumbs"));
+// const ClientAsideMenu = React.lazy(() => import("../ClientAsideMenu/ClientAsideMenu"));
+// const Header = React.lazy(() => import("../Header/Header"));
+// const Footer = React.lazy(() => import("../Footer/Footer"));
+// const Breadcrumbs = React.lazy(() => import("../Breadcrumbs/Breadcrumbs"));
 
 const ClientLayout: FC = () => {
   const { breadcrumbsLinks, breadcrumbsTitles, popUpData, setMainRoot, setAuthorized, setMenuLinks } =
@@ -35,23 +35,17 @@ const ClientLayout: FC = () => {
 
       <div className="client-layout">
         <div className="client-layout__wrapper">
-          <Suspense fallback={<></>}>
-            <Header useOption={true} />
-          </Suspense>
+          <Header useOption={true} />
 
-          <Suspense fallback={<></>}>
-            <Breadcrumbs
-              currentTitle={breadcrumbsTitles}
-              currentLink={breadcrumbsLinks}
-              defaultLink="/client"
-              defaultTitle="Client"
-            />
-          </Suspense>
+          <Breadcrumbs
+            currentTitle={breadcrumbsTitles}
+            currentLink={breadcrumbsLinks}
+            defaultLink="/client"
+            defaultTitle="Client"
+          />
 
           <div className="pageContainer clientPageContainer">
-            <Suspense fallback={<></>}>
-              <ClientAsideMenu />
-            </Suspense>
+            <ClientAsideMenu />
 
             <main className="pageContainer__main clientPageContainer__main">
               <Suspense fallback={<></>}>
@@ -63,7 +57,7 @@ const ClientLayout: FC = () => {
 
         <Suspense fallback={<></>}>
           <Footer />
-        </Suspense>
+          </Suspense>
       </div>
     </>
   );

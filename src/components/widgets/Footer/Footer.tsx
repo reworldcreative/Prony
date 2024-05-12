@@ -3,11 +3,17 @@ import "./Footer.scss";
 import Logo from "@/components/UI/Logo/Logo";
 import Socials from "../Socials/Socials";
 
-import Accordion from "@mui/material/Accordion";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import Typography from "@mui/material/Typography";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+// import Accordion from "@mui/material/Accordion";
+// import AccordionDetails from "@mui/material/AccordionDetails";
+// import AccordionSummary from "@mui/material/AccordionSummary";
+// import Typography from "@mui/material/Typography";
+// import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+
+const Accordion = React.lazy(() => import("@mui/material/Accordion"));
+const AccordionDetails = React.lazy(() => import("@mui/material/AccordionDetails"));
+const AccordionSummary = React.lazy(() => import("@mui/material/AccordionSummary"));
+const Typography = React.lazy(() => import("@mui/material/Typography"));
+const ExpandMoreIcon = React.lazy(() => import("@mui/icons-material/ExpandMore"));
 
 interface FooterProps {
   addClass?: string;

@@ -147,7 +147,6 @@ module.exports = {
     rules: [
       {
         test: /\.(jsx|js)?$/,
-        // use: "babel-loader",
         use: {
           loader: "babel-loader",
           options: {
@@ -158,7 +157,6 @@ module.exports = {
       },
       {
         test: /\.(tsx|ts)?$/,
-        // use: ["babel-loader", "ts-loader"],
         use: [
           {
             loader: "babel-loader",
@@ -174,7 +172,6 @@ module.exports = {
         test: /\.(css|scss)$/,
         use: [
           MiniCssExtractPlugin.loader,
-          // "css-loader",
           {
             loader: "css-loader",
             options: {
@@ -189,7 +186,6 @@ module.exports = {
               },
             },
           },
-          // "sass-loader",
           {
             loader: "sass-loader",
             options: {
@@ -214,51 +210,6 @@ module.exports = {
           },
         },
       },
-
-      // {
-      //   test: /\.svg$/,
-      //   issuer: /\.[jt]sx?$/,
-      //   use: [
-      //     {
-      //       loader: "@svgr/webpack",
-      //       options: {
-      //         icon: true,
-      //         titleProp: "desc",
-      //         svgoConfig: {
-      //           plugins: [
-      //             // Видалення невикористаних атрибутів
-      //             { removeAttrs: { attrs: "(stroke|fill)" } },
-
-      //             // Видалення атрибуту viewBox, якщо зображення не використовує його
-      //             { removeViewBox: false },
-
-      //             // Видалення коментарів у SVG
-      //             { removeComments: true },
-
-      //             // Видалення невикористаних елементів та атрибутів
-      //             { cleanupIDs: true },
-      //             { removeUselessDefs: true },
-
-      //             // Оптимізація шляхів (наприклад, злиття подібних команд)
-      //             { mergePaths: true },
-
-      //             // Видалення непотрібних просторових атрибутів
-      //             { removeDimensions: true },
-
-      //             // Видалення невикористаних просторових атрибутів
-      //             { removeEmptyAttrs: true },
-
-      //             // Видалення непотрібних груп
-      //             { removeEmptyContainers: true },
-
-      //             // Перетворення неконвертованих кольорів в градієнти
-      //             { convertColors: { shorthex: false } },
-      //           ],
-      //         },
-      //       },
-      //     },
-      //   ],
-      // },
 
       {
         test: /\.html$/i,
@@ -300,24 +251,16 @@ module.exports = {
       criticalImages: true,
       scriptLoading: "defer",
       // scriptLoading: "async",
+      // scriptLoading: "module",
       // criticalImages: {
       //   sizes: 200, // для визначення мінімального розміру зображення, який вважається критичним. (пікселів)
       // },
       autoResolveFontExtensions: true,
       // autoResolveFontExtensions: ["woff2", "ttf", "eot"],
-      // minify: {
-      //   collapseWhitespace: true, // Видаляє зайві пробіли
-      //   removeComments: true, // Видаляє коментарі
-      //   removeRedundantAttributes: true, // Видаляє надлишкові атрибути
-      //   useShortDoctype: true, // Використовує короткий формат doctype
-      //   removeEmptyAttributes: true, // Видаляє порожні атрибути
-      //   removeOptionalTags: true, // Видаляє опціональні теги
-      // },
-      // chunks: ["main", "vendor"], // Вказує, які бандли слід включити
     }),
     new MiniCssExtractPlugin({
       filename: "[name][contenthash].css",
-      chunkFilename: "[id].[contenthash].css", // Ім'я для розділених CSS
+      // chunkFilename: "[id].[contenthash].css", // Ім'я для розділених CSS
     }),
     new ImageMinimizerPlugin({
       minimizer: {

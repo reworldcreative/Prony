@@ -1,8 +1,23 @@
 import React, { ChangeEvent, FC, useState } from "react";
 import { UseFormRegister, FieldValues, RegisterOptions } from "react-hook-form";
 import "./Input.scss";
-import { IconButton } from "@mui/material";
-import { Visibility, VisibilityOff } from "@mui/icons-material";
+// import { IconButton } from "@mui/material";
+// import { Visibility, VisibilityOff } from "@mui/icons-material";
+
+const IconButton = React.lazy(async () => {
+  const module = await import("@mui/material");
+  return { default: module["IconButton"] };
+});
+
+const Visibility = React.lazy(async () => {
+  const module = await import("@mui/icons-material");
+  return { default: module["Visibility"] };
+});
+
+const VisibilityOff = React.lazy(async () => {
+  const module = await import("@mui/icons-material");
+  return { default: module["VisibilityOff"] };
+});
 
 interface InputProps {
   label?: string;

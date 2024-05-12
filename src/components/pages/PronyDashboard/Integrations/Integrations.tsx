@@ -1,9 +1,14 @@
-import React, { FC, useEffect, useState } from "react";
+import React, { FC, Suspense, useEffect, useState } from "react";
 import "./Integrations.scss";
 import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import Button from "@/components/UI/buttons/Button/Button";
-import { CopyField } from "@eisberg-labs/mui-copy-field";
+// import { CopyField } from "@eisberg-labs/mui-copy-field";
 import TabsTop from "@/components/UI/forms/TabsTop/TabsTop";
+
+const CopyField = React.lazy(async () => {
+  const module = await import("@eisberg-labs/mui-copy-field");
+  return { default: module["CopyField"] };
+});
 
 const Integrations: FC = () => {
   const [type, setType] = useState<string>("sso");
@@ -70,12 +75,14 @@ const Integrations: FC = () => {
                     <p className="integrations__caption heading-h6">Your secret single sign on key</p>
 
                     <div className="integrations__input">
-                      <CopyField
-                        label=""
-                        value={codeLing}
-                        copyTooltip={isCopied ? "Copied" : "Copy"}
-                        onCopySuccess={handleCopy}
-                      />
+                      <Suspense fallback={<></>}>
+                        <CopyField
+                          label=""
+                          value={codeLing}
+                          copyTooltip={isCopied ? "Copied" : "Copy"}
+                          onCopySuccess={handleCopy}
+                        />
+                      </Suspense>
 
                       <Button
                         type="primary"

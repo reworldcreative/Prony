@@ -6,13 +6,23 @@ import { ChangelogItemData } from "../ChangelogItem/ChangelogItem";
 import Input from "@/components/UI/forms/Input/Input";
 import TextArea from "@/components/UI/forms/TextArea/TextArea";
 import FileLoader from "@/components/UI/forms/FileLoader/FileLoader";
-import { DateTimeField, LocalizationProvider } from "@mui/x-date-pickers";
+// import { DateTimeField, LocalizationProvider } from "@mui/x-date-pickers";
 import calendar from "@icons/calendar.svg";
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 import DropdownSelect from "@/components/UI/forms/DropdownSelect/DropdownSelect";
 import FormButtons from "@/components/UI/forms/FormButtons/FormButtons";
 import Marker from "../../Posts/Marker/Marker";
 import ChangelogsLabels from "@/data/ChangelogsLabels.json";
+
+const DateTimeField = React.lazy(async () => {
+  const module = await import("@mui/x-date-pickers");
+  return { default: module["DateTimeField"] };
+});
+
+const LocalizationProvider = React.lazy(async () => {
+  const module = await import("@mui/x-date-pickers");
+  return { default: module["LocalizationProvider"] };
+});
 
 interface formProps {
   submitSuccess: (data: ChangelogItemData) => void;

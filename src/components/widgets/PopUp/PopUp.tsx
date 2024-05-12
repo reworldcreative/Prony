@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, Suspense, useContext, useEffect, useRef, useState } from "react";
+import React, { FC, ReactNode, useContext, useEffect, useRef, useState } from "react";
 import "./PopUp.scss";
 import closeIcon from "@/assets/img/icons/close.svg";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
@@ -44,7 +44,7 @@ const PopUp: FC<PopUpProps> = ({ children, addClass }) => {
   return (
     <div className={`popUp ${isOpenPopUp ? "popUp_open" : ""}`}>
       <div className={`popUp__container ${addClass ? addClass : ""}`} ref={popUpRef} tabIndex={0} aria-live="assertive">
-        <Suspense fallback={<></>}>{children}</Suspense>
+        {children}
         <button
           className="popUp__close"
           aria-label="close pop-up"
