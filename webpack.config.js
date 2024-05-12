@@ -250,7 +250,7 @@ module.exports = {
       template: "src/index.html",
       criticalImages: true,
       scriptLoading: "defer",
-      // scriptLoading: "async",
+      // scriptLoading: "blocking",
       // scriptLoading: "module",
       // criticalImages: {
       //   sizes: 200, // для визначення мінімального розміру зображення, який вважається критичним. (пікселів)
