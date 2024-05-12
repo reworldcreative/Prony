@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, Suspense, useContext, useEffect, useState } from "react";
 import "./Login.scss";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
 import { Controller, FieldValues, useForm } from "react-hook-form";
@@ -6,23 +6,23 @@ import Input from "../Input/Input";
 import Checkbox from "../Checkbox/Checkbox";
 import Button from "../../buttons/Button/Button";
 import SocialBlock from "../SocialBlock/SocialBlock";
-import Registration from "../Registration/Registration";
-import ResetPassword from "../ResetPassword/ResetPassword";
+// import Registration from "../Registration/Registration";
+// import ResetPassword from "../ResetPassword/ResetPassword";
+const Registration = React.lazy(() => import("../Registration/Registration"));
+const ResetPassword = React.lazy(() => import("../ResetPassword/ResetPassword"));
 
 interface formProps {
   formTitle: string;
 }
 
 const Login: FC<formProps> = ({ formTitle }) => {
-  const { isOpenPopUp, setOpenPopUp, popUpData, setPopUpData, authorized, setAuthorized } = useContext(GlobalContext);
+  const { isOpenPopUp, setOpenPopUp, setPopUpData, authorized, setAuthorized } = useContext(GlobalContext);
   const [KeepLogged, setKeepLogged] = useState<boolean>(true);
 
   const {
     register,
     handleSubmit,
-    watch,
     control,
-    setValue,
     reset,
     formState: { errors, isValid },
   } = useForm<FieldValues>({
@@ -36,11 +36,19 @@ const Login: FC<formProps> = ({ formTitle }) => {
   };
 
   const handleOpenRegister = () => {
-    setPopUpData(<Registration formTitle="User registration" />);
+    setPopUpData(
+      <Suspense fallback={<></>}>
+        <Registration formTitle="User registration" />
+      </Suspense>
+    );
   };
 
   const handleResetForm = () => {
-    setPopUpData(<ResetPassword formTitle="Reset password" />);
+    setPopUpData(
+      <Suspense fallback={<></>}>
+        <ResetPassword formTitle="Reset password" />
+      </Suspense>
+    );
   };
 
   useEffect(() => {

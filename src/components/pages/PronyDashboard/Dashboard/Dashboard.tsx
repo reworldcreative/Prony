@@ -4,8 +4,9 @@ import Breadcrumbs from "@/components/widgets/Breadcrumbs/Breadcrumbs";
 import StatisticList from "./StatisticList/StatisticList";
 // import Chart from "@/components/widgets/Chart/Chart";
 import { StatisticProvider } from "@/components/widgets/Chart/StatisticProvider";
-import Activities from "./Activities/Activities";
+// import Activities from "./Activities/Activities";
 const Chart = React.lazy(() => import("@/components/widgets/Chart/Chart"));
+const Activities = React.lazy(() => import("./Activities/Activities"));
 
 const Dashboard: FC = () => {
   return (
@@ -24,7 +25,9 @@ const Dashboard: FC = () => {
         </StatisticProvider>
       </section>
 
-      <Activities />
+      <Suspense fallback={<></>}>
+        <Activities />
+      </Suspense>
     </>
   );
 };

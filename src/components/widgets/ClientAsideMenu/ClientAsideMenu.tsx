@@ -1,11 +1,19 @@
-import React, { FC, useContext, useEffect, useRef, useState } from "react";
+import React, { FC, Suspense, useContext, useEffect, useRef, useState } from "react";
 import "./ClientAsideMenu.scss";
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
-import ClientChangePasswordForm from "@/components/UI/forms/ClientChangePasswordForm/ClientChangePasswordForm";
-import ClientSocialAccountsForm from "@/components/UI/forms/ClientSocialAccountsForm/ClientSocialAccountsForm";
-import ClientAvatarForm from "@/components/UI/forms/ClientAvatarForm/ClientAvatarForm";
+// import ClientChangePasswordForm from "@/components/UI/forms/ClientChangePasswordForm/ClientChangePasswordForm";
+// import ClientSocialAccountsForm from "@/components/UI/forms/ClientSocialAccountsForm/ClientSocialAccountsForm";
+// import ClientAvatarForm from "@/components/UI/forms/ClientAvatarForm/ClientAvatarForm";
+
+const ClientSocialAccountsForm = React.lazy(
+  () => import("@/components/UI/forms/ClientSocialAccountsForm/ClientSocialAccountsForm")
+);
+const ClientAvatarForm = React.lazy(() => import("@/components/UI/forms/ClientAvatarForm/ClientAvatarForm"));
+const ClientChangePasswordForm = React.lazy(
+  () => import("@/components/UI/forms/ClientChangePasswordForm/ClientChangePasswordForm")
+);
 
 const ClientAsideMenu: FC = () => {
   const { isOpenPopUp, setOpenPopUp, popUpData, setPopUpData } = useContext(GlobalContext);
@@ -28,7 +36,11 @@ const ClientAsideMenu: FC = () => {
       url: "",
       click: () => {
         setActiveLink("Avatar");
-        setPopUpData(<ClientAvatarForm formTitle="Avatar" submitSuccess={() => {}} />);
+        setPopUpData(
+          <Suspense fallback={<></>}>
+            <ClientAvatarForm formTitle="Avatar" submitSuccess={() => {}} />
+          </Suspense>
+        );
         setOpenPopUp(true);
       },
     },
@@ -37,7 +49,11 @@ const ClientAsideMenu: FC = () => {
       url: "/client/social-accounts",
       click: () => {
         setActiveLink("Email Preferences");
-        setPopUpData(<ClientSocialAccountsForm formTitle="Social accounts" submitSuccess={() => {}} />);
+        setPopUpData(
+          <Suspense fallback={<></>}>
+            <ClientSocialAccountsForm formTitle="Social accounts" submitSuccess={() => {}} />
+          </Suspense>
+        );
         setOpenPopUp(true);
       },
     },
@@ -46,7 +62,11 @@ const ClientAsideMenu: FC = () => {
       url: "",
       click: () => {
         setActiveLink("Change password");
-        setPopUpData(<ClientChangePasswordForm formTitle="Change password" submitSuccess={() => {}} />);
+        setPopUpData(
+          <Suspense fallback={<></>}>
+            <ClientChangePasswordForm formTitle="Change password" submitSuccess={() => {}} />
+          </Suspense>
+        );
         setOpenPopUp(true);
       },
     },

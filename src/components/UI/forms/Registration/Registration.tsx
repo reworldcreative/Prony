@@ -1,4 +1,4 @@
-import React, { FC, useContext, useEffect, useState } from "react";
+import React, { FC, Suspense, useContext, useEffect, useState } from "react";
 import "./Registration.scss";
 import { Controller, FieldValues, useForm } from "react-hook-form";
 import { GlobalContext } from "@/components/widgets/GlobalContext/GlobalContext";
@@ -6,7 +6,8 @@ import Button from "../../buttons/Button/Button";
 import Checkbox from "../Checkbox/Checkbox";
 import Input from "../Input/Input";
 import SocialBlock from "../SocialBlock/SocialBlock";
-import Login from "../Login/Login";
+// import Login from "../Login/Login";
+const Login = React.lazy(() => import("../Login/Login"));
 
 interface formProps {
   formTitle: string;
@@ -46,7 +47,11 @@ const Registration: FC<formProps> = ({ formTitle }) => {
   }, [isOpenPopUp]);
 
   const handleBack = () => {
-    setPopUpData(<Login formTitle="Login" />);
+    setPopUpData(
+      <Suspense fallback={<></>}>
+        <Login formTitle="Login" />
+      </Suspense>
+    );
   };
 
   return (

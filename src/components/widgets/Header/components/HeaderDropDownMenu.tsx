@@ -1,35 +1,32 @@
-import React, { FC, useContext } from "react";
+import React, { FC, Suspense, useContext } from "react";
 import "./HeaderDropDownMenu.scss";
 import { Link } from "react-router-dom";
-import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
+// import OpenMenu from "@/components/UI/forms/OpenMenu/OpenMenu";
 import { GlobalContext } from "../../GlobalContext/GlobalContext";
+const OpenMenu = React.lazy(() => import("@/components/UI/forms/OpenMenu/OpenMenu"));
+
 const HeaderDropDownMenu: FC<{
   openButton?: React.RefObject<HTMLButtonElement>;
   isOpen: boolean;
 }> = ({ openButton, isOpen }) => {
-  const { authorized, setAuthorized,menuLinks,
-    setMenuLinks } = useContext(GlobalContext);
-
-  // const links = [
-  //   { text: "Workspaces", url: "/client" },
-  //   { text: "Profile", url: "/client/profile" },
-  //   { text: "Logout", url: "", click: () => setAuthorized(false) },
-  // ];
+  const { menuLinks } = useContext(GlobalContext);
 
   return (
-    <OpenMenu openButton={openButton} isOpen={isOpen} addClass={`headerDropDownMenu`}>
-      {menuLinks.map((link, index) =>
-        link.url !== "" ? (
-          <Link key={index} to={link.url} className="heading-h6 headerDropDownMenu__link">
-            {link.text}
-          </Link>
-        ) : (
-          <button key={index} onClick={link.click} className="heading-h6 headerDropDownMenu__link">
-            {link.text}
-          </button>
-        )
-      )}
-    </OpenMenu>
+    <Suspense fallback={<></>}>
+      <OpenMenu openButton={openButton} isOpen={isOpen} addClass={`headerDropDownMenu`}>
+        {menuLinks.map((link, index) =>
+          link.url !== "" ? (
+            <Link key={index} to={link.url} className="heading-h6 headerDropDownMenu__link">
+              {link.text}
+            </Link>
+          ) : (
+            <button key={index} onClick={link.click} className="heading-h6 headerDropDownMenu__link">
+              {link.text}
+            </button>
+          )
+        )}
+      </OpenMenu>
+    </Suspense>
   );
 };
 
