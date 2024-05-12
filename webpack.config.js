@@ -43,8 +43,8 @@ module.exports = {
         moduleIds: "deterministic", // Встановлює стабільні імена модулів
         splitChunks: {
           chunks: "all",
-          // maxInitialRequests: Infinity,
-          maxInitialRequests: 5,
+          maxInitialRequests: Infinity,
+          // maxInitialRequests: 5,
           minSize: 2000,
           cacheGroups: {
             styles: {
