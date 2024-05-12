@@ -4,13 +4,13 @@ import { Outlet } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import Breadcrumbs from "../Breadcrumbs/Breadcrumbs";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
-import ClientAsideMenu from "../ClientAsideMenu/ClientAsideMenu";
+// import Footer from "../Footer/Footer";
+// import ClientAsideMenu from "../ClientAsideMenu/ClientAsideMenu";
 // import PopUp from "../PopUp/PopUp";
 const PopUp = React.lazy(() => import("../PopUp/PopUp"));
-// const ClientAsideMenu = React.lazy(() => import("../ClientAsideMenu/ClientAsideMenu"));
+const ClientAsideMenu = React.lazy(() => import("../ClientAsideMenu/ClientAsideMenu"));
 // const Header = React.lazy(() => import("../Header/Header"));
-// const Footer = React.lazy(() => import("../Footer/Footer"));
+const Footer = React.lazy(() => import("../Footer/Footer"));
 // const Breadcrumbs = React.lazy(() => import("../Breadcrumbs/Breadcrumbs"));
 
 const ClientLayout: FC = () => {
@@ -45,7 +45,9 @@ const ClientLayout: FC = () => {
           />
 
           <div className="pageContainer clientPageContainer">
-            <ClientAsideMenu />
+            <Suspense fallback={<></>}>
+              <ClientAsideMenu />
+            </Suspense>
 
             <main className="pageContainer__main clientPageContainer__main">
               <Suspense fallback={<></>}>
@@ -57,7 +59,7 @@ const ClientLayout: FC = () => {
 
         <Suspense fallback={<></>}>
           <Footer />
-          </Suspense>
+        </Suspense>
       </div>
     </>
   );

@@ -1,15 +1,15 @@
-import React, { FC, Suspense, useContext, useEffect, useState } from "react";
+import React, { FC, Suspense, useContext, useEffect } from "react";
 import { Outlet } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 import Header from "../Header/Header";
-import AsideMenu from "../AsideMenu/AsideMenu";
+// import AsideMenu from "../AsideMenu/AsideMenu";
 // import PopUpSettings from "../PopUp/PopUpSettings";
 // import EmailSettingsForm from "@/components/UI/forms/EmailSettingsForm/EmailSettingsForm";
 // import GeneralSettingsForm from "@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm";
 // import AppearanceSettingsForm from "@/components/UI/forms/AppearanceSettingsForm/AppearanceSettingsForm";
 // import CustomDomain from "@/components/UI/forms/CustomDomain/CustomDomain";
 // const Header = React.lazy(() => import("../Header/Header"));
-// const AsideMenu = React.lazy(() => import("../AsideMenu/AsideMenu"));
+const AsideMenu = React.lazy(() => import("../AsideMenu/AsideMenu"));
 const PopUpSettings = React.lazy(() => import("../PopUp/PopUpSettings"));
 const EmailSettingsForm = React.lazy(() => import("@/components/UI/forms/EmailSettingsForm/EmailSettingsForm"));
 const GeneralSettingsForm = React.lazy(() => import("@/components/UI/forms/GeneralSettingsForm/GeneralSettingsForm"));
@@ -45,7 +45,9 @@ const Layout: FC = () => {
       <Header useOption={false} />
 
       <div className="pageContainer">
-        <AsideMenu />
+        <Suspense fallback={<></>}>
+          <AsideMenu />
+        </Suspense>
 
         <main className="pageContainer__main">
           <Suspense fallback={<></>}>

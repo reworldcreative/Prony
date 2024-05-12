@@ -59,7 +59,7 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
       <div className="workspace__menu">
         {MenuButtons.map((button, index) =>
           button.url ? (
-            <Link to={button.url} className="workspace__button" key={index}>
+            <Link to={button.url} className="workspace__button" key={index} aria-label={button.text}>
               <img
                 src={button.icon}
                 className={`workspace__icon ${index !== MenuButtons.length - 1 ? "workspace__icon-second" : ""}`}
@@ -71,7 +71,7 @@ const WorkspaceItem: FC<WorkspaceItemProps> = ({ data, EditWorkspace, DeleteWork
               />
             </Link>
           ) : (
-            <button onClick={button.onClick} className="workspace__button" key={index}>
+            <button onClick={button.onClick} className="workspace__button" key={index} aria-label={button.text}>
               <img
                 src={button.icon}
                 className={`workspace__icon ${index !== MenuButtons.length - 1 ? "workspace__icon-second" : ""}`}

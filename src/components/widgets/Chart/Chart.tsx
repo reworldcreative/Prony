@@ -17,20 +17,10 @@ import {
 } from "chart.js";
 import { Line } from "react-chartjs-2";
 
-ChartJS.register(
-  CategoryScale,
-  LinearScale,
-  PointElement,
-  LineElement,
-  Title,
-  Tooltip,
-  Filler,
-  Legend
-);
+ChartJS.register(CategoryScale, LinearScale, PointElement, LineElement, Title, Tooltip, Filler, Legend);
 
 const Chart: FC = () => {
-  const { statisticValue, handleGetStatisticValue } =
-    useContext(StatisticContext);
+  const { statisticValue, handleGetStatisticValue } = useContext(StatisticContext);
 
   const [statisticRange, setStatisticRange] = useState<string>("last 90 days");
 
@@ -171,16 +161,11 @@ const Chart: FC = () => {
   };
 
   function modifyColor(color: string, transparency: number): string {
-    const rgbaColor = color.replace(
-      /^#?([a-f\d])([a-f\d])([a-f\d])$/i,
-      (m, r, g, b) => {
-        return "#" + r + r + g + g + b + b;
-      }
-    );
+    const rgbaColor = color.replace(/^#?([a-f\d])([a-f\d])([a-f\d])$/i, (m, r, g, b) => {
+      return "#" + r + r + g + g + b + b;
+    });
 
-    const rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(
-      rgbaColor
-    );
+    const rgbValues = /^#?([a-f\d]{2})([a-f\d]{2})([a-f\d]{2})$/i.exec(rgbaColor);
     if (!rgbValues) {
       throw new Error("Invalid color format");
     }
@@ -211,10 +196,7 @@ const Chart: FC = () => {
           datasets: [
             {
               label: statisticValue,
-              data: getLastNDaysData(
-                statisticData[statisticValue],
-                statisticRange
-              ),
+              data: getLastNDaysData(statisticData[statisticValue], statisticRange),
               borderColor: backgroundColors[statisticValue],
               backgroundColor: (context) => {
                 const bgColor = [

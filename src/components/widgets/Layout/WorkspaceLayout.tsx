@@ -3,12 +3,12 @@ import "./ClientLayout.scss";
 import "./WorkspaceLayout.scss";
 // import PopUp from "../PopUp/PopUp";
 import Header from "../Header/Header";
-import Footer from "../Footer/Footer";
+// import Footer from "../Footer/Footer";
 import { Outlet } from "react-router-dom";
 import { GlobalContext } from "../GlobalContext/GlobalContext";
 const PopUp = React.lazy(() => import("../PopUp/PopUp"));
 // const Header = React.lazy(() => import("../Header/Header"));
-// const Footer = React.lazy(() => import("../Footer/Footer"));
+const Footer = React.lazy(() => import("../Footer/Footer"));
 
 const WorkspaceLayout: FC = () => {
   const { popUpData, setAuthorized, setMenuLinks } = useContext(GlobalContext);
