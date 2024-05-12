@@ -44,8 +44,13 @@ module.exports = {
         splitChunks: {
           chunks: "all",
           // maxInitialRequests: Infinity,
-          maxInitialRequests: 7,
-          minSize: 2000,
+          maxInitialRequests: 8,
+          minSize: 10000,
+          maxSize: 50000,
+          minChunks: 2,
+          maxAsyncRequests: 30,
+          maxInitialRequests: 30,
+          enforceSizeThreshold: 50000,
           cacheGroups: {
             styles: {
               test: /\.(css|scss)$/,
