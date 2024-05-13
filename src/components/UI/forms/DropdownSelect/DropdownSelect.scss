@@ -213,13 +213,15 @@
 }
 
 @include Mobile() {
-  .dropdownSelect__buttons {
-    flex-wrap: wrap;
+  .dropdownSelect {
+    &__buttons {
+      flex-wrap: wrap;
+      display: grid;
+      gap: 10px;
+    }
 
-    .button {
-      &:first-child {
-        margin-bottom: 10px;
-      }
+    &__container {
+      width: 100%;
     }
   }
 }
