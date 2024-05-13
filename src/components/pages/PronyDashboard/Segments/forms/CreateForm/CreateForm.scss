@@ -9,6 +9,7 @@
   &__wrapper {
     display: grid;
     gap: 27px;
+    padding: 1px;
   }
 
   &__row {
@@ -33,7 +34,7 @@
     }
 
     &__options {
-      border: 1px solid var(--TextSecondary);
+      outline: 1px solid var(--TextSecondary);
       border-top: none;
       background: var(--BG);
       z-index: 1;
