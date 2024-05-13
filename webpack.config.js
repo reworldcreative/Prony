@@ -370,7 +370,7 @@ module.exports = {
           extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
           // extract: true, // CSS  буде виділятися в окремий файл
           dimensions: [
-            { width: 375, height: 565 }, // Мобільний розмір
+            { width: 425, height: 758 }, // Мобільний розмір
             { width: 768, height: 1024 }, // Планшет
             { width: 1200, height: 900 }, // Десктоп
             { width: 1440, height: 1200 },
