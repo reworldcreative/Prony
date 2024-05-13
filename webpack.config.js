@@ -46,11 +46,11 @@ module.exports = {
           // maxInitialRequests: Infinity,
           maxInitialRequests: 8,
           minSize: 20000,
-          maxSize: 100000,
+          maxSize: 200000,
           minChunks: 2,
           maxAsyncRequests: 30,
           maxInitialRequests: 30,
-          enforceSizeThreshold: 50000,
+          enforceSizeThreshold: 200000,
           cacheGroups: {
             styles: {
               test: /\.(css|scss)$/,
@@ -369,6 +369,11 @@ module.exports = {
           minify: true,
           extract: false, // CSS буде встроюватися безпосередньо в HTML-файл
           // extract: true, // CSS  буде виділятися в окремий файл
+          width: 375,
+          height: 565,
+          penthouse: {
+            blockJSRequests: false,
+          },
           dimensions: [
             { width: 425, height: 758 }, // Мобільний розмір
             { width: 768, height: 1024 }, // Планшет
