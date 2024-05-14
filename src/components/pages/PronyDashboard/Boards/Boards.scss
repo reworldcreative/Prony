@@ -19,7 +19,6 @@
     list-style: none;
     padding: 0;
     margin: 0;
-    overflow: scroll;
   }
 
   &__title {
@@ -114,7 +113,7 @@
 
     &__item {
       grid-template-columns: auto 43% 1fr 1fr;
-      overflow: visible;
+      overflow: auto;
 
       .drag {
         margin-right: 15px;
